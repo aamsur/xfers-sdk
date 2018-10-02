@@ -1,0 +1,17 @@
+@import 'styles/_variables';
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: $primary_xfers_blue;
+}
+
+.clickable {
+  color: #50b8dd;
+  cursor: pointer;
+
+  &:hover {
+    color: #4083a9;
+  }
+}

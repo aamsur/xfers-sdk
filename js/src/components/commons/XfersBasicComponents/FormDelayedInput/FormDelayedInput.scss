@@ -1,0 +1,10 @@
+.searchField {
+  input {
+    height: 40px;
+    font-size: 14px;
+    width: 280px;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 14px;
+  }
+}

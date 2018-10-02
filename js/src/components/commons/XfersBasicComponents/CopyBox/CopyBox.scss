@@ -1,0 +1,48 @@
+.copyBoxContainer {
+  display: table;
+  width: 100%;
+
+  .rowWrapper {
+    display: table-row;
+  }
+}
+
+.showCaseBox {
+  display: table-cell;
+  height: 45px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  text-align: center;
+  vertical-align: top;
+  line-height: 33px;
+  padding: 6px 12px;
+  width: 75%;
+  border: 1px solid #418BCA;
+  border-right: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.copyBtnBox {
+  display: table-cell;
+  height: 45px;
+  color: #418BCA;
+  border: 1px solid #418BCA;
+  background-color: #FFFFFF;
+  width: 25%;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0 15px;
+  vertical-align: top;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.copyBtnBox:hover {
+  color: #ffffff;
+  background-color: #418BCA;
+  text-decoration: none;
+}

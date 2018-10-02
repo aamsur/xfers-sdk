@@ -1,0 +1,32 @@
+.twoColsRowBar {
+
+  width: 100%;
+
+  .leftItem, .rightItem {
+    margin-bottom: 18px;
+  }
+
+  .leftItem {
+    padding-right: 4px;
+  }
+
+  .rightItem {
+    padding-left: 4px;
+  }
+
+  .noLeftPadding {
+    padding-left: 0px;
+  }
+
+  .noRightPadding {
+    padding-right: 0px;
+  }
+
+  .noBottomMargin {
+    margin-bottom: 0;
+  }
+
+  .isTwoPanels {
+    max-width: 600px;
+  }
+}

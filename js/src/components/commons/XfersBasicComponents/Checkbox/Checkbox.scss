@@ -1,0 +1,67 @@
+@import 'styles/_variables';
+
+.checkbox {
+  cursor: pointer;
+  margin-bottom: 12px;
+
+  label {
+    width: 100%;
+    display: flex;
+  }
+  input[type=checkbox] {
+    align-self: flex-start;
+    display: none;
+    // margin-right: 12px;
+    // transform: scale(1.2);
+  }
+
+  .box {
+    margin-right: 12px;
+  }
+
+  .circle {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #555555;
+    align-self: flex-start;
+    border-radius: 3px;
+  }
+
+  .label {
+    align-self: flex-end;
+    line-height: 18px;
+  }
+}
+
+.checked {
+  img {
+    max-height: 15px;
+    max-width: 15px;
+    margin: auto;
+    display: block;
+  }
+
+  .circle {
+    background-color: $primary_xfers_blue;
+  }
+
+  .label {
+    font-weight: bold;
+    color: $primary_xfers_blue;
+  }
+}
+
+.light {
+
+  .circle {
+    border: 1px solid #ffffff;
+  }
+
+  .label {
+    color: #ffffff;
+  }
+
+  .checked .label {
+    font-weight: bold;
+  }
+}

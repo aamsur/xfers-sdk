@@ -1,0 +1,68 @@
+@import 'styles/_variables';
+
+
+.container {
+  margin: 18px 0px;
+  padding: 0px 36px;
+  line-height: 1.65em;
+  text-align: initial;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.paddingTop {
+  padding-top: 36px;
+}
+
+.paddingBtm {
+  padding-bottom: 36px;
+}
+
+.noLeftPadding {
+  padding-left: 0px;
+}
+
+.noRightPadding {
+  padding-right: 0px;
+}
+
+.noTopMargin {
+  margin-top: 0px;
+}
+
+.noBottomMargin {
+  margin-bottom: 0px;
+}
+
+@media (max-width: $screen-small) {
+  .container {
+    margin: 36px 0px;
+    padding: 0px 18px;
+    line-height: 1.5em;
+  }
+  .paddingTop {
+    padding-top: 36px;
+  }
+
+  .paddingBtm {
+    padding-bottom: 36px;
+  }
+
+  .noTopMargin {
+    margin-top: 0px;
+  }
+
+  .noBottomMargin {
+    margin-bottom: 0px;
+  }
+
+  .noLeftPadding {
+    padding-left: 0px;
+  }
+
+  .noRightPadding {
+    padding-right: 0px;
+  }
+}

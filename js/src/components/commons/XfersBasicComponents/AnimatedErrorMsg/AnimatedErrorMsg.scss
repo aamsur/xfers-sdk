@@ -1,0 +1,35 @@
+.highlightError {
+  display: inline-block;
+  transform-origin: center center;
+  animation-name: shake;
+  animation-duration: 400ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1; }
+
+@function apply-random($input) {
+  @return if($input != 0, random($input) - $input/2, 0);
+}
+
+@keyframes shake {
+  $intervals: 5;
+  $step: $intervals * 1%;
+
+  @while $step < 100% {
+    $rotate: apply-random(3deg);
+    $move-x: apply-random(3px);
+    $move-y: apply-random(3px);
+
+    #{$step} {
+      transform: translate($move-x, $move-y) rotate($rotate);
+    }
+
+    $step: $step + $intervals;
+  }
+
+  0%, 100% {
+    transform: translate(0, 0) rotate(0); }
+}
+
+.AnimatedErrorMsg{
+  padding-top: 10px;
+}

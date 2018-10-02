@@ -1,0 +1,13 @@
+.closeBtn {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  z-index: 1;
+  display: block;
+  margin: 0 auto;
+
+  line {
+    stroke: #979797;
+    stroke-width: 1px;
+  }
+}
