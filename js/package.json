@@ -1,0 +1,53 @@
+{
+  "name": "@xfers/xfers-js-sdk",
+  "version": "1.0.0",
+  "description": "Xfers Javascript SDK",
+  "main": "./dist/xfers-js-sdk.js",
+  "scripts": {
+    "serve": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "Xfers",
+  "license": "MIT",
+  "sideEffects": [
+    "*.css",
+    "*.sass"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "change-case-object": "^2.0.0",
+    "clipboard": "^2.0.1",
+    "moment": "^2.22.2",
+    "prism": "^4.1.2",
+    "prismjs": "^1.15.0",
+    "react": "^16.5.2",
+    "react-bootstrap": "^0.32.4",
+    "react-datepicker": "^1.6.0",
+    "react-dom": "^16.5.2",
+    "react-dropzone": "^5.1.1",
+    "react-ga": "^2.5.3",
+    "react-redux": "^5.0.7",
+    "react-table": "^6.8.6",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1",
+    "whatwg-fetch": "^2.0.3"
+  }
+}
