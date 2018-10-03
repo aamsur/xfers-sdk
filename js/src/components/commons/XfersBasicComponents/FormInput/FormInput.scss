@@ -1,0 +1,35 @@
+// STYLE GUIDE STYLES
+.fifty {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.body1 {
+  font-size: 14px
+}
+
+.body2 {
+  @extend .body1;
+  @extend .fifty;
+}
+
+// COMPONENT STYLES
+.formInput {
+  input {
+    @extend .body1;
+    border-radius: 2px;
+    height: 48px;
+
+    &::placeholder {
+      @extend .body2
+    }
+  }
+
+  :global(.has-feedback .form-control) {
+    padding-right: 12px;
+  }
+
+  .helpBlock {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}

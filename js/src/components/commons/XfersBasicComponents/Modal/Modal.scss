@@ -1,0 +1,26 @@
+.modal {
+
+  max-width: 720px;
+
+  :global(.modal-content) {
+    position: relative;
+  }
+
+  :global(.modal-body) {
+    min-height: 750px;
+    // padding: 42px 26px;
+  }
+
+  .closeBtn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+}
+
+
+@media (min-width: 64em) {
+  .modal{
+    width: 720px;
+  }
+}

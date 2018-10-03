@@ -1,0 +1,40 @@
+.tab_label{
+  display: block;
+  background: transparent;
+  border: none;
+  outline: none !important;
+  font-size: 18px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.tab_label.activated{
+  font-weight: 700;
+}
+
+.tab_label.disabled{
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.tab_underline_container {
+  height: 2.5px;
+  width: 100%;
+  position: relative;
+}
+
+.tab_underline {
+  height: 100%;
+  position: absolute;
+  background: #51B9DE;
+  display: block;
+  transition: 0.5s ease;
+  left: 0;
+}
+
+@media (max-width: 64em) {
+  .tab_label {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,11 @@
+@import 'styles/_variables';
+
+.stepperHeaderContainer {
+  margin: 0 auto 30px;
+  max-width: 530px;
+  position: relative;
+}
+
+@media (max-width: $screen-small) {
+
+}

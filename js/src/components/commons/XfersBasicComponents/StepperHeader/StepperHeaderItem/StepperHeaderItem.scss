@@ -1,0 +1,64 @@
+@import 'styles/_variables';
+
+.stepperHeaderItem {
+
+  padding-top: 15px;
+  text-align: center;
+
+  span {
+    display: block;
+  }
+
+  .imageContainer {
+    height: 35px;
+    padding: 7px 0;
+
+    img {
+      margin: 0 auto;
+      max-width: 25px;
+      max-height: 100%;
+      display: block;
+    }
+  }
+
+  .borderContainer {
+    height: 3px;
+    margin-top: 15px;
+    background: $primary_xfers_grey;
+
+    .borderFilled {
+      height: 100%;
+      display: block;
+      transition: 0.5s ease;
+      background: $primary_xfers_blue;
+      left: 0;
+    }
+  }
+}
+
+.active {
+  opacity: 1;
+  font-weight: $font_weight_bold;
+  color: $primary_xfers_blue;
+
+  img {
+    filter: opacity(.5) drop-shadow(0 0 0 $primary_xfers_blue);
+  }
+}
+
+.inactive {
+  color: $primary_xfers_blue;
+  opacity: 0.75;
+
+  img {
+    filter: opacity(.5) drop-shadow(0 0 0 $primary_xfers_blue);
+  }
+}
+
+.disabled {
+  color: $primary_xfers_grey;
+
+  img {
+    filter: opacity(.5) drop-shadow(0 0 0 $primary_xfers_grey);
+  }
+}

@@ -1,0 +1,27 @@
+.statusIconContainer {
+  img {
+    height: 100px;
+    margin-bottom: 36px;
+  }
+}
+
+.mainTextContainer {
+  font-size: 18px;
+  font-weight:300;
+}
+
+.walletInfoContainer {
+  text-align: center;
+
+  .summary {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #234A8C;
+  }
+
+  span {
+    margin: 7px;
+    font-weight: 300;
+    font-size: 24px;
+  }
+}
