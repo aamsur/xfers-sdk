@@ -46,6 +46,7 @@
     "react-ga": "^2.5.3",
     "react-redux": "^5.0.7",
     "react-table": "^6.8.6",
+    "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^3.0.1",
     "whatwg-fetch": "^2.0.3"
