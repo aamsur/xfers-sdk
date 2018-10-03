@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
-
-import { Panel, Button, FooterButtonGroup, PanelTitle, SectionContainer } from 'XfersComponents'
+import { IndoPersonalVerification } from './components'
 
 function mapStateToProps(state, props) {
   return {}
@@ -15,18 +14,7 @@ function mapDispatchToProps(dispatch) {
 class Verification extends Component {
   render() {
     return (
-      <Panel>
-        <SectionContainer paddingTop>
-          <PanelTitle
-            caption="This is a development panel to showcase Xfers UI Library">
-            Xfers UI Library
-          </PanelTitle>
-        </SectionContainer>
-        <FooterButtonGroup>
-          <Button xType="primary">Primary Button</Button>
-          <Button xType="secondary">Secondary Button</Button>
-        </FooterButtonGroup>
-      </Panel>
+      <IndoPersonalVerification />
     )
   }
 }

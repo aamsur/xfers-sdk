@@ -1,0 +1,20 @@
+@import 'styles/_variables';
+
+.modalHeader {
+  background-color: $primary_btn_blue;
+  color: #ffffff;
+
+  > :first-child {
+    padding: 18px;
+    font-size: 12px;
+    font-weight: $font_weight_light;
+    letter-spacing: 0.5px;
+  }
+
+  > :last-child {
+    padding: 18px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: $font_weight_regular;
+  }
+}
