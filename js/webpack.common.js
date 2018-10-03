@@ -7,6 +7,7 @@ const MODULE_PATHS = [
   path.resolve(__dirname, 'src/assets/styles'),
   path.resolve(__dirname, 'src/assets/images'),
   path.resolve(__dirname, 'src/components/commons'),
+  path.resolve(__dirname, 'src/components/modals'),
   'node_modules'
 ];
 
