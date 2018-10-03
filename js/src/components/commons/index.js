@@ -1,6 +1,3 @@
 export { default as PageLayout } from './PageLayout'
 export { default as UtilityFunctions } from './UtilityFunctions'
-export { default as XfersBasicComponents } from './XfersBasicComponents'
-export { default as XfersLayoutComponents } from './XfersLayoutComponents'
-export { default as XfersAdvancedComponents } from './XfersAdvancedComponents'
-export { default as XfersHigherOrderComponents } from './XfersHigherOrderComponents'
+export { default as XfersComponents } from './XfersComponents'

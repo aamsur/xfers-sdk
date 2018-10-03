@@ -1,6 +1,0 @@
-export { default as FlexContainer } from './FlexContainer'
-export { default as FlexItem } from './FlexContainer/FlexItem'
-export { default as TwoColsRowBar } from './TwoColsRowBar'
-export { default as CenterContent } from './CenterContent'
-export { default as SectionContainer } from './SectionContainer'
-export { default as CodeDemoSection } from './CodeDemoSection'

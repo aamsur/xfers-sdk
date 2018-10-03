@@ -8,7 +8,7 @@ import {
   FormDateInput,
   FormInputGroup,
   FormNationality,
-} from 'XfersBasicComponents';
+} from 'XfersComponents';
 import {
   ImageUploadBox,
 } from 'XfersAdvancedComponents'

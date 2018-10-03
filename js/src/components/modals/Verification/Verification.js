@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-import { Panel, Button, FooterButtonGroup, PanelTitle } from 'XfersBasicComponents'
-import { SectionContainer } from 'XfersLayoutComponents'
+import { Panel, Button, FooterButtonGroup, PanelTitle, SectionContainer } from 'XfersComponents'
 
 function mapStateToProps(state, props) {
   return {}
