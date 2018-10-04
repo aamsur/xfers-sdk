@@ -1,7 +1,10 @@
-package com.xfers.xfers_sdk
+package com.xfers.xfers_sdk.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.task.UpdateTextWithUserDetails
+import com.xfers.xfers_sdk.utils.XfersConfiguration
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        XfersConfiguration.setSGSandbox()
         XfersConfiguration.apiKey = apiKey
 
-        // POC with open API
-        UpdateTextWithAdviceTask(this.text).execute()
+        UpdateTextWithUserDetails(this.text, this).execute()
     }
 }

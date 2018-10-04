@@ -1,4 +1,4 @@
-package com.xfers.xfers_sdk
+package com.xfers.xfers_sdk.utils
 
 object XfersConfiguration {
     // SG
@@ -11,6 +11,7 @@ object XfersConfiguration {
 
     // Settings
     var apiKey = ""
+    var userApiKey = ""
     private var apiBase = ""
 
     fun setSGSandbox() {
@@ -27,5 +28,9 @@ object XfersConfiguration {
 
     fun setIDProduction() {
         apiBase = idProductionApiBase
+    }
+
+    fun getApiBase(): String {
+        return apiBase
     }
 }
