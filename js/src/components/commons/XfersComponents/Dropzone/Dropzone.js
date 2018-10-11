@@ -62,8 +62,9 @@ class Dropzone extends React.Component {
   }
 
   onDropAccepted = (acceptedFiles, existingFiles) => {
-    const {onChange} = this.props;
-    acceptedFiles.forEach(file => {
+    const {onChange, maxFileNumber} = this.props;
+    for (let i = 0; i < acceptedFiles.length && i < maxFileNumber; i++) {
+      const file = acceptedFiles[i];
       const reader = new FileReader();
       reader.onload = () => {
         file.dataUrl = reader.result;
@@ -78,7 +79,7 @@ class Dropzone extends React.Component {
       reader.onabort = () => console.log('file reading was aborted');
       reader.onerror = () => console.log('file reading has failed');
       reader.readAsDataURL(file);
-    });
+    };
   }
 
   onDropRejected = (rejectedFiles, customError="") => {

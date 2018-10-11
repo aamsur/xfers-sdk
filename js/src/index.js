@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Verification } from './components/modals'
+import { Verification } from './components/screens'
+import APIDevelopmentPanel from './wrapper-dev'
 
 class XfersDevelopmentPanel extends Component {
   render() {
     return (
-      <Verification />
+      <div>
+        { false ?
+          <APIDevelopmentPanel />
+          :
+          <Verification />
+        }
+      </div>
     )
   }
 }

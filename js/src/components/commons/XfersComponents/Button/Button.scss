@@ -7,6 +7,7 @@
   font-size: 14px;
   height: 45px;
   padding: 3px 24px;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -60,17 +61,17 @@
 
   &.colorPrimary {
     color: white;
-    background-color: $primary_btn_blue;
+    background-color: $xfers_clear_blue;
 
     &:hover {opacity: 0.85}
 
     &.outline {
       background-color: transparent;
-      border: 1px solid $primary_btn_blue;
-      color: $primary_btn_blue;
+      border: 1px solid $xfers_clear_blue;
+      color: $xfers_clear_blue;
 
       &:hover {
-        background-color: $primary_btn_blue;
+        background-color: $xfers_clear_blue;
         color: white;
       }
     }
@@ -80,9 +81,16 @@
     color: #4a4a4a;
     background-color: #dbdbdb;
 
+    &:hover {opacity: 0.85}
+
     &.outline {
       background-color: transparent;
       border: 1px solid #dbdbdb;
+    }
+
+    &:hover {
+      background-color: #dbdbdb;
+      color: #4a4a4a;;
     }
   }
 

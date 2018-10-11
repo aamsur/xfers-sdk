@@ -6,10 +6,14 @@ $screen-small:   480px;
 // Sizing
 $tiny_space: 4px;
 $small_space: 8px;
-$medium_space: 12px;
-$large_space: 16px;
-$extra_large_space: 20px;
-$extra_extra_large_space: 24px;
+$medium_space: 20px;
+$large_space: 25px;
+$extra_large_space: 30px;
+$extra_extra_large_space: 40px;
+
+//  New Color Palettes
+$xfers_clear_blue: rgb(47, 141, 238);
+$xfers_grey: rgb(247, 247, 247);
 
 // Primary Color Palettes
 $primary_xfers_black: #000000;
@@ -29,7 +33,6 @@ $primary_xfers_sky_blue: #F2FAFF;
 $notepad_yellow: #FFF3DE;
 
 // Button Color
-$primary_btn_blue: #418BCA;
 $secondary_btn_green: #28C8AB;
 $secondary_btn_orange: #FF9258;
 $tertiary_btn_white: #FFFFFF;

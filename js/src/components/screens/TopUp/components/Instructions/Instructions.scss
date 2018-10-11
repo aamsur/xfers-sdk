@@ -1,0 +1,130 @@
+.fieldComponent {
+  margin-bottom: 12px;
+  .fieldLabel {
+    margin: 0 0 0 5px;
+  }
+  .fieldBox {
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    line-height: 33px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    padding: 6px 12px;
+    color: red;
+    font-weight: 600;
+    word-break: break-all;
+    overflow-x: auto;
+  }
+
+  .copyBox {
+    > div > div {
+      color: red;
+      text-align: left;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.fieldImage {
+  padding: 8px;
+  background: #F1F5F9;
+  margin-bottom: 12px;
+
+  img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+  }
+}
+
+.stepContainerComponent {
+  margin-bottom:  36px;
+  .stepHeaderContainer {
+    margin-bottom: 12px;
+  }
+  .stepHeader {
+    font-weight: 900;
+    font-size: 16px;
+  }
+  .stepSubHeader {
+    font-size: 14px;
+  }
+}
+
+.fieldContainerComponent {
+  margin: 12px 0;
+}
+
+.header {
+  text-align: center;
+}
+.importantText {
+  color: red;
+  font-size: 18px;
+}
+
+$SEA_BLUE: #51B9DE;
+
+.headerNavbar {
+  margin-bottom: 36px;
+  display: flex;
+
+  .leftNav {
+    flex-grow: 1;
+  }
+  .rightNav {
+    flex-grow: 1;
+    text-align: end;
+  }
+}
+
+.instructionContainer {
+
+  max-width: 100%;
+  margin: auto;
+
+  .stepContainer {
+    padding: 18px 0;
+  }
+
+  .stepContainer + .stepContainer {
+    border-top: 1.5px solid #fff;
+  }
+}
+
+.buttonWrapper {
+  width: 304px;
+  margin: 15px auto;
+}
+
+.title {
+  color: $SEA_BLUE;
+  text-align: center;
+  margin: 18px 0;
+}
+
+.greyWall {
+  background-color: #f0f0f0;
+  padding: 0 18px;
+}
+
+.ocbcInstructionsContainer {
+  img {
+    margin: 7px 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 64em) {
+  .instructionContainer{
+    width: 450px;
+  }
+  .notepad {
+    margin: 12px -36px;
+  }
+}
