@@ -9,17 +9,15 @@ const V3_API_NAMESPACE = '/api/v3';
 
 function getBaseURL( isSandbox ) {
   const isNotProduction = process.env.NODE_ENV !== 'production'
-  // const baseDomain = isNotProduction ? LOCAL_DOMAIN :
-  //                    isSandbox ? SANDBOX_DOMAIN : PROD_DOMAIN;
-
-  const baseDomain = LOCAL_DOMAIN;
+  const baseDomain = isNotProduction ? LOCAL_DOMAIN :
+                     isSandbox ? SANDBOX_DOMAIN : PROD_DOMAIN;
 
   return joinUrl(baseDomain, V3_API_NAMESPACE, { trailingSlash: true });
 }
 
 export default class Xfers {
   constructor(accessToken, options) {
-    if (!accessToken) throw new Error('Please provide a valid access token.');
+    // if (!accessToken) throw new Error('Please provide a valid access token.');
 
     this.api = new ApiHelper({
       accessToken,
@@ -39,6 +37,10 @@ export default class Xfers {
 
   updateUser(params) {
     return this.api.send('POST', params);
+  }
+
+  getAvailableBanks() {
+    return this.api.send('GET', 'banks');
   }
 
   getUserBanks() {

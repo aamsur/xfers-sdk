@@ -40,6 +40,7 @@ export { default as FormDelayedInput } from './FormDelayedInput'
 export { default as CodeSnippetBlock } from './CodeSnippetBlock'
 export { default as ImageUploadBox } from './ImageUploadBox'
 export { default as View } from './View'
+export { default as SelectionButton } from './SelectionButton'
 
 // High Order Components
 export { default as FormValidateWrapper } from './FormValidateWrapper'

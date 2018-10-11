@@ -1,8 +1,8 @@
 import React from 'react'
 
-function View({ children, classNames, ...style}) {
+function View({ children, className, ...style}) {
   return (
-    <div classNames={classNames} style={style}>
+    <div className={className} style={style}>
       {children}
     </div>
   )

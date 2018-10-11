@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Verification } from './components/screens'
+import { Verification, TopUp, ManageBank } from './components/screens'
 import APIDevelopmentPanel from './wrapper-dev'
 
 class XfersDevelopmentPanel extends Component {
@@ -10,7 +10,7 @@ class XfersDevelopmentPanel extends Component {
         { false ?
           <APIDevelopmentPanel />
           :
-          <Verification />
+          <ManageBank />
         }
       </div>
     )
