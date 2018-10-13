@@ -18,7 +18,15 @@ export default () => {
 
   const initialState = {
     manageBank: {
-
+      dataLoading: false,
+      bankOptions: [],
+      filter: '',
+      newBankAccountDetails: {
+        bank: '',
+        accountNo: '',
+        accountHolderName: '',
+        bankStatementFile: undefined,
+      }
     }
   }
 
