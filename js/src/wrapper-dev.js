@@ -6,16 +6,15 @@ export default class APIDevelopmentPanel extends Component {
   constructor() {
     super();
     this.state = { data: null }
+
+    // Coinhako User Keys
+    this.accessToken = '2XWnEcCMufhqxpK6LsEiQVoE1UBPNG3fELCzNvUPhf4'
   }
 
   testAPIRequest = () => {
     const self = this;
 
-    const xfers = new Xfers("eFM7UGXdvQsoz31-wKEsBegQJxbN29BkZN7Hhps2T74", {
-      test: true,
-      secretToken: "TZQgy_ZgmHARrAUbAH_zYRVKyRcynELVZfbYn5zWSzg"
-    });
-
+    const xfers = new Xfers(this.accessToken, { test: true });
     xfers.loginUser({phone_no: "94463205"});
       // .then((res) => {
       //   self.setState({ data: res });

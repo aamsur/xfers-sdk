@@ -16,11 +16,12 @@ function getBaseURL( isSandbox ) {
 }
 
 export default class Xfers {
-  constructor(accessToken, options) {
-    // if (!accessToken) throw new Error('Please provide a valid access token.');
+  constructor(accessToken, options = {}) {
+    if (!accessToken) throw new Error('Please provide a valid access token.');
 
     this.api = new ApiHelper({
       accessToken,
+      appToken: options.appToken,
       secretToken: options.secretToken,
       baseURL: getBaseURL(options.test),
     });
@@ -31,7 +32,6 @@ export default class Xfers {
       ...params,
       signature: sha1(params.phone_no + this.api.secretToken)
     }
-
     return this.api.send('POST', 'authorize/signup_login', parsedParams);
   }
 
