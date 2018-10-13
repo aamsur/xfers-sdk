@@ -8,7 +8,7 @@ const componentPropTypes = {
   delay: PropTypes.number,
   customClass: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  onExecute: PropTypes.func.isRequired,
+  onExecute: PropTypes.func,
   disabled: PropTypes.bool,
   value: PropTypes.oneOfType([
     PropTypes.string,
@@ -41,7 +41,7 @@ class FormDelayedInput extends React.Component {
     clearTimeout(this.timer);
     onChange(event);
     this.timer = setTimeout(() => {
-      onExecute(event);
+      if (onExecute) onExecute(event);
     }, delay);
   }
 

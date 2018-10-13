@@ -13,12 +13,12 @@ const componentPropTypes = {
 
 function ModalHeader({title, children}) {
   return (
-    <div className={cls.modalHeader}>
-      <View textAlign='center'>
+    <View className={cls.modalHeader}>
+      <View className={cls.title} textAlign='center'>
         {title}
       </View>
-      <div>{children}</div>
-    </div>
+      { children && <View className={cls.desc}>{children}</View> }
+    </View>
   )
 }
 

@@ -4,7 +4,7 @@
   background-color: $xfers_clear_blue;
   color: #ffffff;
 
-  > :first-child {
+  .title {
     padding: 18px;
     font-size: 12px;
     font-weight: $font_weight_light;
@@ -14,7 +14,7 @@
     padding: $medium_space;
   }
 
-  > :last-child {
+  .desc {
     font-size: 20px;
     line-height: 26px;
     font-weight: $font_weight_regular;

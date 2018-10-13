@@ -10,7 +10,7 @@ const componentPropTypes = {
   onClick: PropTypes.func,
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  image: PropTypes.number,
+  image: PropTypes.string,
   disabled: PropTypes.bool,
 }
 
@@ -23,6 +23,7 @@ function SelectionButton({ title, subtitle, image, disabled, onClick }) {
   return (
     <View className={cls.selectionButton}>
       <TwoColsRowBar
+        customClass={cls.custom}
         noBottomMargin
         leftColProps={{
           xSize: { sm: 4, md: 3 },

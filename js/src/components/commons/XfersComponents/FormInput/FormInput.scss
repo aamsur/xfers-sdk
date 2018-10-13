@@ -1,3 +1,5 @@
+@import 'styles/_variables';
+
 // STYLE GUIDE STYLES
 .fifty {
   color: rgba(0, 0, 0, 0.5);
@@ -18,9 +20,17 @@
     @extend .body1;
     border-radius: 2px;
     height: 48px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid $xfers_clear_blue;
 
     &::placeholder {
       @extend .body2
+    }
+
+    &:focus {
+      outline: 0;
     }
   }
 
