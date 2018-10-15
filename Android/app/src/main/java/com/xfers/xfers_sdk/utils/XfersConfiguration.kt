@@ -1,5 +1,7 @@
 package com.xfers.xfers_sdk.utils
 
+enum class Country { SG, ID }
+
 object XfersConfiguration {
     // SG
     private val sgSandboxApiBase = "https://sandbox.xfers.io/api/v3"
@@ -10,27 +12,37 @@ object XfersConfiguration {
     private val idProductionApiBase = "https://id.xfers.com/api/v3"
 
     // Settings
-    var apiKey = ""
-    var userApiKey = ""
     private var apiBase = ""
+    private var currentCountry: Country? = null
+
+    // TODO: Implement Android Keystore handling of userApiKey
+    var userApiKey = ""
 
     fun setSGSandbox() {
+        currentCountry = Country.SG
         apiBase = sgSandboxApiBase
     }
 
     fun setSGProduction() {
+        currentCountry = Country.SG
         apiBase = sgProductionApiBase
     }
 
     fun setIDSandbox() {
+        currentCountry = Country.ID
         apiBase = idSandboxApiBase
     }
 
     fun setIDProduction() {
+        currentCountry = Country.ID
         apiBase = idProductionApiBase
     }
 
-    fun getApiBase(): String {
-        return apiBase
+    fun buildApiURL(apiPath: String): String {
+        return "$apiBase/$apiPath"
+    }
+
+    fun getCurrentCountry(): Country? {
+        return currentCountry
     }
 }

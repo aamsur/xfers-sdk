@@ -1,42 +1,60 @@
 package com.xfers.xfers_sdk
 
 import android.content.Context
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
-import com.xfers.xfers_sdk.model.User
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
+import com.xfers.xfers_sdk.view.ComingSoonActivity
 import java.io.BufferedInputStream
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
-// This is where we add things like Xfers.startKycFlow and Xfers.connectUser etc.
+// This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
 class Xfers(val context: Context) {
 
-    val gson = Gson()
-            .newBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-            .create()
+    // Nested classes
+    inner class Config {
+        fun setSGSandbox() {
+            XfersConfiguration.setSGSandbox()
+        }
 
-    fun getUserDetails(): User? {
-        val response = readStream(
-                BufferedInputStream(
-                        NetworkClient().get(
-                                "${XfersConfiguration.getApiBase()}/user",
-                                userApiKey = XfersConfiguration.userApiKey
-                        )
-                )
-        )
+        fun setSGProduction() {
+            XfersConfiguration.setSGProduction()
+        }
 
-        return gson.fromJson(response, User::class.java)
+        fun setIDSandbox() {
+            XfersConfiguration.setIDSandbox()
+        }
+
+        fun setIDProduction() {
+            XfersConfiguration.setIDProduction()
+        }
+
+        // TODO: Implement Android Keystore handling of userApiKey
+        fun setUserApiKey() {
+            return
+        }
     }
 
-    private fun readStream(inputStream: BufferedInputStream): String {
-        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-        val stringBuilder = StringBuilder()
-
-        bufferedReader.forEachLine { stringBuilder.append(it) }
-
-        return stringBuilder.toString()
+    inner class UI {
+        fun startComingSoonActivity() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
     }
+
+    inner class API {
+        fun getUserDetails(): String {
+            return NetworkClient.readStream(
+                    BufferedInputStream(
+                            NetworkClient.get(
+                                    XfersConfiguration.buildApiURL("user")
+                            )
+                    )
+            )
+        }
+    }
+
+    // Nested class constants for namespacing
+    val config = Config()
+    val ui = UI()
+    val api = API()
 }
