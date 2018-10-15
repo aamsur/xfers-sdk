@@ -58,7 +58,7 @@ class Xfers(val context: Context) {
         }
 
         // Optional description, will appear in receipt
-        fun startPaymentFlow(amount: BigInteger, description: String? = "") {
+        fun startPaymentFlow(amount: BigInteger, description: String? = null) {
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
     }
