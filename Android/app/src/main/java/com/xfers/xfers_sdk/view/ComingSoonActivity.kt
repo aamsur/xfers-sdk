@@ -10,6 +10,8 @@ class ComingSoonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coming_soon)
+
+        title = "COMING SOON"
     }
 
     fun onButtonClick(view: View) {

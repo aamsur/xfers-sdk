@@ -7,6 +7,7 @@ import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.ComingSoonActivity
 import java.io.BufferedInputStream
+import java.math.BigInteger
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
 class Xfers(val context: Context) {
@@ -35,8 +36,42 @@ class Xfers(val context: Context) {
         }
     }
 
+    inner class Flow {
+        fun startSignupFlow() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startTopupFlow() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startKYCFlow() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startManageBanksFlow() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startWithdrawalFlow() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startPaymentFlow(amount: BigInteger) {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+    }
+
     inner class UI {
-        fun startComingSoonActivity() {
+        fun startMenuActivity() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startSettingsActivity() {
+            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        }
+
+        fun startTransactionsOverviewActivity() {
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
     }
@@ -55,6 +90,7 @@ class Xfers(val context: Context) {
 
     // Nested class constants for namespacing
     val config = Config()
+    val flow = Flow()
     val ui = UI()
     val api = API()
 }

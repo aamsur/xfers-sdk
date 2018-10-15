@@ -5,10 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.Xfers
-import com.xfers.xfers_sdk.task.UpdateTextWithUserDetails
-import com.xfers.xfers_sdk.utils.XfersConfiguration
-import kotlinx.android.synthetic.main.activity_main.*
+import java.math.BigInteger
 
+// TODO: Example Activity (to be turned into example app)
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +19,40 @@ class MainActivity : AppCompatActivity() {
         // UpdateTextWithUserDetails(this.text, this).execute()
     }
 
-    fun onButtonClick(view: View) {
-        Xfers(this).ui.startComingSoonActivity()
+    fun onSignupClick(view: View) {
+        Xfers(this).flow.startSignupFlow()
+    }
+
+    fun onTopupClick(view: View) {
+        Xfers(this).flow.startTopupFlow()
+    }
+
+    fun onTransactionsOverviewClick(view: View) {
+        Xfers(this).ui.startTransactionsOverviewActivity()
+    }
+
+    fun onKYCClick(view: View) {
+        Xfers(this).flow.startKYCFlow()
+    }
+
+    fun onManageBanksClick(view: View) {
+        Xfers(this).flow.startManageBanksFlow()
+    }
+
+    fun onWithdrawalClick(view: View) {
+        Xfers(this).flow.startWithdrawalFlow()
+    }
+
+    fun onPayClick(view: View) {
+        // Pass in example 100
+        Xfers(this).flow.startPaymentFlow(BigInteger("100"))
+    }
+
+    fun onMenuClick(view: View) {
+        Xfers(this).ui.startMenuActivity()
+    }
+
+    fun onSettingsClick(view: View) {
+        Xfers(this).ui.startSettingsActivity()
     }
 }
