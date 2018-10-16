@@ -1,9 +1,9 @@
-package com.xfers.xfers_sdk.view
+package com.xfers.example.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.xfers.xfers_sdk.R
+import com.xfers.example.R
 import com.xfers.xfers_sdk.Xfers
 import java.math.BigInteger
 

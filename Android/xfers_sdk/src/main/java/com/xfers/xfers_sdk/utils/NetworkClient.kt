@@ -2,7 +2,6 @@ package com.xfers.xfers_sdk.utils
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
-import com.xfers.xfers_sdk.Xfers
 import java.io.InputStream
 import okhttp3.OkHttpClient
 import okhttp3.Request

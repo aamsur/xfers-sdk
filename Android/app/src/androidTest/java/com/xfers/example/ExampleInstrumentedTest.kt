@@ -1,4 +1,4 @@
-package com.xfers.xfers_sdk
+package com.xfers.example
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

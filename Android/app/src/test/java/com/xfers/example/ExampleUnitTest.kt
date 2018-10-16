@@ -1,4 +1,4 @@
-package com.xfers.xfers_sdk
+package com.xfers.example
 
 import org.junit.Test
 
