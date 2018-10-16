@@ -32,7 +32,7 @@ const componentDefaultProps = {
 
 function SearchBar(props) {
   return (
-    <View className={cls.searchBar}>
+    <View customClass={cls.searchBar}>
       <View flex="1">
         <FormDelayedInput {...props} />
       </View>

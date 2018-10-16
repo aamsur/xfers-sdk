@@ -187,7 +187,7 @@ function ImageBox({files, removeFile, disabled, enlargeImg}) {
         const isPdf = /(\.pdf)$/i.test(file.name);
         const bgImgStyle = {backgroundImage: `url(${isPdf ? pdfPreviewIcon : file.preview})`}
         return (
-          <FlexItem key={index} xSize={{xs: 4}}>
+          <FlexItem evenGrowth key={index} size={{xs: 4}}>
             <div className={cls.imageContainer} style={bgImgStyle} onClick={(e) => enlargeImg(e, isPdf, file.preview)}>
               { !disabled && <a className={cls.deleteImageBtn} onClick={(e) => removeFile(e, index)}><img src={errorLogo} /></a> }
               <div className={cls.enlargeOverlay}>

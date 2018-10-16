@@ -29,7 +29,7 @@ function FooterButtonGroup({customClass, children}) {
 
 function ButtonItem({customClass, btnNode}) {
   return (
-    <FlexItem customClass={cx(customClass, cls.footerButtonGroup)}>
+    <FlexItem evenGrowth customClass={cx(customClass, cls.footerButtonGroup)}>
       {React.cloneElement(btnNode, {block: true})}
     </FlexItem>
   );

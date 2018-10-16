@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Panel, FormTitle, ModalHeader, SectionContainer, SelectionButton, SearchBar } from 'XfersComponents'
+import { View, Panel, Title, ModalHeader, SelectionButton, SearchBar } from 'XfersComponents'
 import { updateBankAccountDetails, updateSearchFilter } from 'ManageBank/actions'
 import { getFilteredBankOptions } from 'ManageBank/selectors'
 
@@ -29,8 +29,8 @@ class BankTypeList extends Component {
     return (
       <Panel>
         <ModalHeader title="ADD BANK ACCOUNT" />
-        <SectionContainer paddingBtm>
-          <FormTitle>Select bank name</FormTitle>
+        <View layout="section" paddingBtm>
+          <Title type="form">Select bank name</Title>
           <SearchBar
             placeholder="Search bank name"
             value={filter}
@@ -49,7 +49,7 @@ class BankTypeList extends Component {
               <View>Banks Not Found</View>
             }
           </View>
-        </SectionContainer>
+        </View>
       </Panel>
     )
   }

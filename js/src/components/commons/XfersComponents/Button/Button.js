@@ -5,10 +5,10 @@ import cx from 'classnames';
 import classes from './Button.scss';
 
 const componentPropTypes = {
-  xSize: PropTypes.oneOf([
+  size: PropTypes.oneOf([
     'xsmall', 'small', 'large', 'xlarge', null,
   ]),
-  xType: PropTypes.oneOf([
+  type: PropTypes.oneOf([
     'default', 'primary', 'secondary', 'tertiary', null,
   ]),
   customClass: PropTypes.string,
@@ -29,18 +29,18 @@ const componentDefaultProps = {
   disabled: false,
   loading: false,
   outline: false,
-  xType: 'default'
+  type: 'default'
 };
 
-const Button = ({xType, xSize, loading, loadingLabel, outline, disabled, block, customClass, ...rest}) => {
+const Button = ({type, size, loading, loadingLabel, outline, disabled, block, customClass, ...rest}) => {
   const buttonClass = cx({
-    'btn-xlg': xSize == 'xlarge',
-    [classes.buttonSmall]: xSize == 'small',
-    [classes.buttonExtraSmall]: xSize == 'xsmall',
-    [classes.colorDefault]: xType == 'default',
-    [classes.colorPrimary]: xType == 'primary',
-    [classes.colorSecondary]: xType == 'secondary',
-    [classes.colorTertiary]: xType == 'tertiary',
+    'btn-xlg': size == 'xlarge',
+    [classes.buttonSmall]: size == 'small',
+    [classes.buttonExtraSmall]: size == 'xsmall',
+    [classes.colorDefault]: type == 'default',
+    [classes.colorPrimary]: type == 'primary',
+    [classes.colorSecondary]: type == 'secondary',
+    [classes.colorTertiary]: type == 'tertiary',
     [classes.outline]: outline,
     [classes.block]: block,
     [classes.disabled]: disabled,

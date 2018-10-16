@@ -9,7 +9,7 @@ import cx from 'classnames';
 import classes from './FormInput.scss';
 
 const componentPropTypes = {
-  xSize: PropTypes.oneOf([
+  size: PropTypes.oneOf([
     'xsmall', 'small', 'large', 'xlarge', null,
   ]),
   className: PropTypes.string,
@@ -68,7 +68,7 @@ const componentDefaultProps = {
 
 function FormInput({
   validator,
-  xSize,
+  size,
   label,
   helpBlock,
   caption,
@@ -88,8 +88,8 @@ function FormInput({
 
   helpBlock = validator && !isValid ? helpBlock : '';
 
-  if (xSize) {
-    formGroupProps.bsSize = xSize;
+  if (size) {
+    formGroupProps.bsSize = size;
   }
 
   let labelDOM = label && (<BootstrapControlLabel>{label}</BootstrapControlLabel>);

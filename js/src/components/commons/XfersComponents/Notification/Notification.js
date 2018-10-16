@@ -71,7 +71,7 @@ function Notification({ type, message, links, buttons, children }) {
       </div>
       <div className={cls.buttonContainer}>
         { buttons && buttons.map((button, index) =>
-            <Button key={index} xType={button.type} onClick={button.onClick}>{button.text}</Button>
+            <Button key={index} type={button.type} onClick={button.onClick}>{button.text}</Button>
           )
         }
       </div>

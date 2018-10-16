@@ -4,7 +4,7 @@ import createStore from './store'
 
 import {
   BankTypeList,
-  BankAccountName
+  BankAccountName,
   BankAccountNumber,
   BankAccountNumberRepeat,
   BankStatement,

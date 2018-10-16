@@ -13,7 +13,7 @@ const componentPropTypes = {
   /*
    * Xfers Props **************************
    */
-  xSize: PropTypes.oneOf([
+  size: PropTypes.oneOf([
     'small', 'large',
   ]),
   className: PropTypes.string, // This classes will be applied on FormGroup Component
@@ -60,7 +60,7 @@ const componentDefaultProps = {
 }
 
 function FormInputGroup ({
-  xSize,
+  size,
   label,
   helpBlock,
   caption,
@@ -82,8 +82,8 @@ function FormInputGroup ({
 
   const formGroupProps = {controlId, validationState, className};
 
-  if (xSize) {
-    formGroupProps.bsSize = xSize;
+  if (size) {
+    formGroupProps.bsSize = size;
   }
 
   let labelDOM = label && (<BootstrapControlLabel>{label}</BootstrapControlLabel>);

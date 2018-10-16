@@ -9,7 +9,7 @@ import cx from 'classnames'
 import classes from './FormSelect.scss'
 
 const componentPropTypes = {
-  xSize: PropTypes.oneOf([
+  size: PropTypes.oneOf([
     'small', 'large',
   ]),
   className: PropTypes.string,
@@ -61,7 +61,7 @@ const componentDefaultProps = {
 
 
 function FormSelect({
-  xSize,
+  size,
   label,
   helpBlock,
   caption,
@@ -95,8 +95,8 @@ function FormSelect({
     return optionsDOM;
   }
 
-  if (xSize) {
-    formGroupProps.bsSize = xSize;
+  if (size) {
+    formGroupProps.bsSize = size;
   }
 
   let labelDOM = label && (<BootstrapControlLabel>{label}</BootstrapControlLabel>);

@@ -1,40 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classes from './FlexContainer.scss';
-import cx from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import cls from './FlexContainer.scss'
+import cx from 'classnames'
 
-function FlexContainer({alignment, customClass, children}) {
+function FlexContainer({orientation, alignment, customClass, children}) {
 
-  let alignmentClass;
+  const flexContainerClasses = cx({
+    // Container Alignment Classes
+    [cls[`${alignment.xs}-xs`]]: alignment.xs,
+    [cls[`${alignment.sm}-sm`]]: alignment.sm,
+    [cls[`${alignment.md}-md`]]: alignment.md,
+    [cls[`${alignment.lg}-lg`]]: alignment.lg,
 
-  if (alignment) {
-    if (alignment.xs) {
-      alignmentClass = classes[`${alignment.xs}-xs`];
-    }
-
-    if (alignment.sm) {
-      alignmentClass = classes[`${alignment.sm}-sm`];
-    }
-
-    if (alignment.md) {
-      alignmentClass = classes[`${alignment.md}-md`];
-    }
-
-    if (alignment.lg) {
-      alignmentClass = classes[`${alignment.lg}-lg`];
-    }
-  }
-
-  let flexContainerClass = cx(customClass, classes.row, {[alignmentClass]: alignment});
+    // Orientation
+    [cls.row]: orientation === 'horizontal',
+    [cls.col]: orientation === 'vertical'
+  }, customClass)
 
   return (
-    <div className={flexContainerClass}>
+    <div className={flexContainerClasses}>
       {children}
     </div>
   );
 }
 
 FlexContainer.propTypes = {
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   alignment: PropTypes.shape({
     xs: PropTypes.oneOf([
       'start', 'center', 'end', 'top', 'middle', 'bottom', 'between', 'around', null,
@@ -53,7 +44,9 @@ FlexContainer.propTypes = {
 }
 
 FlexContainer.defaultProps = {
-  customClass: ''
+  customClass: '',
+  orientation: 'horizontal',
+  alignment: {}
 };
 
-export default FlexContainer;
+export default FlexContainer

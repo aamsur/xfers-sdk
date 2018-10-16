@@ -8,7 +8,7 @@ import {FormGroup} from 'XfersComponents';
 import classes from './FormTextarea.scss';
 
 const componentPropTypes = {
-  xSize: PropTypes.oneOf([
+  size: PropTypes.oneOf([
     'small', 'large',
   ]),
   className: PropTypes.string, // This classes will be applied on FormGroup Component
@@ -49,11 +49,11 @@ const componentDefaultProps = {
 };
 
 
-function FormTextarea({xSize, label, helpBlock, className, controlId, validationState, ...formControlProps}) {
+function FormTextarea({size, label, helpBlock, className, controlId, validationState, ...formControlProps}) {
   const formGroupProps = {controlId, validationState, className};
 
-  if (xSize) {
-    formGroupProps.bsSize = xSize;
+  if (size) {
+    formGroupProps.bsSize = size;
   }
 
   let labelDOM = null;

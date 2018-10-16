@@ -1,75 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classes from './FlexItem.scss';
-import cx from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import cls from './FlexItem.scss'
+import cx from 'classnames'
 
-function FlexItem({xSize, offset, alignment, customClass, children, content}) {
+function FlexItem({evenGrowth, size, offset, alignment, customClass, children, content}) {
 
-  let flexItemClassArray = [classes['col-xs'], customClass];
+  const flexItemClasses = cx({
+    [cls['col-xs']]: evenGrowth,
+    // Size Classes
+    [cls[`col-xs-${size.xs}`]]: size.xs,
+    [cls[`col-xs-${size.sm}`]]: size.sm,
+    [cls[`col-xs-${size.md}`]]: size.md,
+    [cls[`col-xs-${size.lg}`]]: size.lg,
 
-  if (xSize) {
-    if (xSize.xs) {
-      flexItemClassArray.push(classes[`col-xs-${xSize.xs}`]);
-    }
+    // Offset Classes
+    [cls[`col-xs-offset-${offset.xs}`]]: offset.xs,
+    [cls[`col-xs-offset-${offset.sm}`]]: offset.sm,
+    [cls[`col-xs-offset-${offset.md}`]]: offset.md,
+    [cls[`col-xs-offset-${offset.lg}`]]: offset.lg,
 
-    if (xSize.sm) {
-      flexItemClassArray.push(classes[`col-sm-${xSize.sm}`]);
-    }
-
-    if (xSize.md) {
-      flexItemClassArray.push(classes[`col-md-${xSize.md}`]);
-    }
-
-    if (xSize.lg) {
-      flexItemClassArray.push(classes[`col-lg-${xSize.lg}`]);
-    }
-  }
-
-  if (offset) {
-    if (offset.xs) {
-      flexItemClassArray.push(classes[`col-xs-offset-${offset.xs}`]);
-    }
-
-    if (offset.sm) {
-      flexItemClassArray.push(classes[`col-sm-offset-${offset.sm}`]);
-    }
-
-    if (offset.md) {
-      flexItemClassArray.push(classes[`col-md-offset-${offset.md}`]);
-    }
-
-    if (offset.lg) {
-      flexItemClassArray.push(classes[`col-lg-offset-${offset.lg}`]);
-    }
-  }
-
-  if (alignment) {
-    if (alignment.xs) {
-      flexItemClassArray.push(classes[`${alignment.xs}-xs`]);
-    }
-
-    if (alignment.sm) {
-      flexItemClassArray.push(classes[`${alignment.sm}-sm`]);
-    }
-
-    if (alignment.md) {
-      flexItemClassArray.push(classes[`${alignment.md}-md`]);
-    }
-
-    if (alignment.lg) {
-      flexItemClassArray.push(classes[`${alignment.lg}-lg`]);
-    }
-  }
+    // Alignment Classes
+    [cls[`${alignment.xs}-xs`]]: alignment.xs,
+    [cls[`${alignment.sm}-xs`]]: alignment.sm,
+    [cls[`${alignment.md}-xs`]]: alignment.md,
+    [cls[`${alignment.lg}-xs`]]: alignment.lg,
+  }, customClass, cls.container);
 
   return (
-    <div className={cx(flexItemClassArray)}>
+    <div className={flexItemClasses}>
       {children || content}
     </div>
   );
 }
 
 FlexItem.propTypes = {
-  xSize: PropTypes.shape({
+  evenGrowth: PropTypes.bool,
+  size: PropTypes.shape({
     xs: PropTypes.number,
     sm: PropTypes.number,
     md: PropTypes.number,
@@ -99,7 +65,11 @@ FlexItem.propTypes = {
 }
 
 FlexItem.defaultProps = {
-  customClass: ''
+  customClass: '',
+  size: {},
+  offset: {},
+  alignment: {},
+  evenGrowth: false
 };
 
-export default FlexItem;
+export default FlexItem

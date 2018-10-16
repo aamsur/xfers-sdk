@@ -27,7 +27,7 @@ function StepperHeader({customClass, children}) {
 
 function Item({customClass, eleNode}) {
   return (
-    <FlexItem customClass={customClass}>
+    <FlexItem evenGrowth customClass={customClass}>
       {eleNode}
     </FlexItem>
   );

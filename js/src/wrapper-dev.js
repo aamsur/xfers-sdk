@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Panel, PanelTitle, SectionContainer, Button } from 'XfersComponents'
+import { Panel, PanelTitle, View, Button } from 'XfersComponents'
 import { Xfers } from './wrappers'
 
 export default class APIDevelopmentPanel extends Component {
@@ -28,7 +28,7 @@ export default class APIDevelopmentPanel extends Component {
     const { data } = this.state;
     return (
       <Panel>
-        <SectionContainer paddingTop paddingBtm>
+        <View layout="section" paddingTop paddingBtm>
           <PanelTitle>APIs Development Panel</PanelTitle>
           <Button onClick={this.testAPIRequest}>Click me to send Http Request</Button>
           <br/><br/>
@@ -36,7 +36,7 @@ export default class APIDevelopmentPanel extends Component {
             This is the response: <br/>
             {data}
           </div>
-        </SectionContainer>
+        </View>
       </Panel>
     )
   }

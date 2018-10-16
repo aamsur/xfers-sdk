@@ -1,6 +1,11 @@
+@import 'styles/_variables';
+
 .footerButtonGroup {
-  padding: 0 !important;
-  button {
-    border-radius: 0;
+  padding: 0 $extra_extra_large_space !important;
+}
+
+@media (max-width: $screen-small) {
+  .footerButtonGroup {
+    padding: 0 $medium_space !important;
   }
 }

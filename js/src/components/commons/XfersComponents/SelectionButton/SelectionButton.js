@@ -21,12 +21,12 @@ const componentDefaultProps = {
 
 function SelectionButton({ title, subtitle, image, disabled, onClick }) {
   return (
-    <View className={cls.selectionButton}>
+    <View customClass={cls.selectionButton}>
       <TwoColsRowBar
         customClass={cls.custom}
         noBottomMargin
         leftColProps={{
-          xSize: { sm: 4, md: 3 },
+          size: { sm: 4, md: 3 },
           content: <img className={cls.image} src={image} />
         }}
         rightColProps={{

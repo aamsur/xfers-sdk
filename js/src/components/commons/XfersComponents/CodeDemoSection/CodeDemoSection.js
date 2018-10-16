@@ -18,11 +18,11 @@ function CodeDemoSection({title, demoNode, children}) {
         <TwoColsRowBar
           noSidePadding
           leftColProps={{
-            xSize: {md: 5, sm: 12},
+            size: {md: 5, sm: 12},
             content: children[0]
           }}
           rightColProps={{
-            xSize: {md: 7, sm: 12},
+            size: {md: 7, sm: 12},
             content: children[1]
           }}
         />

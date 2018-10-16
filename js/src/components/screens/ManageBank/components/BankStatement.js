@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { View, Panel, FormTitle, ModalHeader, SectionContainer, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
+import { View, Panel, ModalHeader, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
 import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
@@ -27,7 +27,7 @@ function BankStatement({
   return (
     <Panel>
       <ModalHeader title="ADD BANK ACCOUNT" />
-      <SectionContainer paddingBtm>
+      <View layout="section" paddingBtm>
         <View>Upload Bank Statement</View>
         <View>To verify your bank account, please submit a recent bank statement issued within the past 3 months.</View>
         <br/>
@@ -48,9 +48,9 @@ function BankStatement({
         <View>
           <AnchorLink href="https://xfershelp.zendesk.com/hc/en-us/articles/360002335071" target>Don&#39;t have a bank statement?</AnchorLink>
         </View>
-      </SectionContainer>
+      </View>
       <FooterButtonGroup>
-        <Button xType="secondary">Proceed to upload</Button>
+        <Button type="secondary">Proceed to upload</Button>
       </FooterButtonGroup>
     </Panel>
   )

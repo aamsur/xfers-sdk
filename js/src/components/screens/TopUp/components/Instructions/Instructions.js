@@ -6,11 +6,11 @@ import {
   Panel,
   Button,
   NewModal,
+  View,
   AnchorLink,
   FooterButtonGroup
-} from 'XfersBasicComponents'
+} from 'XfersComponents'
 
-import {SectionContainer} from 'XfersLayoutComponents'
 import {toCurrency} from 'UtilityFunctions'
 import {
   DBSInstructions,
@@ -88,7 +88,7 @@ function Instructions({
   const {externalBankUrl, bankCommentLabel, bankAcronyms} = getBankSpecifics(selectedBank);
   return (
     <Panel>
-      <SectionContainer paddingTop paddingBtm noBottomMargin>
+      <View paddingTop paddingBtm>
         <div id="anchorTop" className={classes.headerNavbar}>
           <AnchorLink className={classes.leftNav} onClick={() => switchActiveStep("init")}>Back</AnchorLink>
           <AnchorLink className={classes.rightNav} onClick={() => switchActiveStep("status")}>I have transferred</AnchorLink>
@@ -121,10 +121,10 @@ function Instructions({
           An admin fee of 1% will be charged on your total amount transferred should you fail to comply with our
           <AnchorLink href="https://xfers.groovehq.com/knowledge_base/topics/when-will-you-incur-admin-fees" target> additional terms and conditions</AnchorLink>.
         </div>
-      </SectionContainer>
+      </View>
 
       <FooterButtonGroup>
-        <Button xType="primary" href={externalBankUrl} target="noopener" rel="noreferrer nofollow">
+        <Button type="primary" href={externalBankUrl} target="noopener" rel="noreferrer nofollow">
           Open {bankAcronyms} Internet Banking
         </Button>
       </FooterButtonGroup>

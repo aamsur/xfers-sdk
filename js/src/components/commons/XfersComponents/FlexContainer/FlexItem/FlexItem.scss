@@ -1,3 +1,12 @@
+.container {
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
 .col-xs,
 .col-xs-1,
 .col-xs-2,
@@ -24,12 +33,7 @@
 .col-xs-offset-10,
 .col-xs-offset-11,
 .col-xs-offset-12 {
-  box-sizing: border-box;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  composes: container;
 }
 
 .col-xs {
@@ -218,12 +222,7 @@
   .col-sm-offset-10,
   .col-sm-offset-11,
   .col-sm-offset-12 {
-    box-sizing: border-box;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    composes: container;
   }
 
   .col-sm {
@@ -413,12 +412,7 @@
   .col-md-offset-10,
   .col-md-offset-11,
   .col-md-offset-12 {
-    box-sizing: border-box;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    composes: container;
   }
 
   .col-md {
@@ -608,12 +602,7 @@
   .col-lg-offset-10,
   .col-lg-offset-11,
   .col-lg-offset-12 {
-    box-sizing: border-box;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    composes: container;
   }
 
   .col-lg {

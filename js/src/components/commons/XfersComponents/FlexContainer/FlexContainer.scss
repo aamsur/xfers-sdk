@@ -5,11 +5,6 @@
    content: normal; // IE doesn't support `initial`
 }
 
-.container {
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .row {
   width: 100%;
   box-sizing: border-box;
@@ -27,6 +22,14 @@
   flex-wrap: wrap;
   padding-right: -0.5rem;
   padding-left: -0.5rem;
+}
+
+.col {
+  composes: row;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .row-reverse {

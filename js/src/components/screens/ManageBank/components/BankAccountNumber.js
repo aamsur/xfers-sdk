@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Panel, FormTitle, ModalHeader, SectionContainer, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
+import { View, Panel, Title, ModalHeader, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
 import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
@@ -26,8 +26,8 @@ class BankAccountNumber extends Component {
     return (
       <Panel>
         <ModalHeader title="ADD BANK ACCOUNT" />
-        <SectionContainer paddingBtm>
-          <FormTitle>Enter your bank account number</FormTitle>
+        <View layout="section" paddingBtm>
+          <Title type="form">Enter your bank account number</Title>
           <FormInput
             type="number"
             placeholder="e.g. 1234567890"
@@ -35,9 +35,9 @@ class BankAccountNumber extends Component {
             onChange={updateForm}
             caption="Please exclude dashes"
           />
-        </SectionContainer>
+        </View>
         <FooterButtonGroup>
-          <Button xType="primary" disabled={disabled}>Next</Button>
+          <Button type="primary" disabled={disabled}>Next</Button>
         </FooterButtonGroup>
       </Panel>
     )

@@ -1,33 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import { FlexContainer, FlexItem } from 'XfersComponents'
 import cx from 'classnames'
 import cls from './View.scss'
 
-
 function View({
-  centerText,
-  paddingTop, paddingBtm,
-  noLeftPadding, noRightPadding,
-  noTopMargin, noBottomMargin,
-  children, className, ...style
+  layout,
+  paddingTop,
+  paddingBtm,
+  children,
+  customClass,
+  ...style
 }) {
+  const containerClasses = cx({
+    [cls.templateModal]: layout === 'modal',
+    [cls.templateSection]: layout === 'section',
+    [cls.paddingTop]: paddingTop,
+    [cls.paddingBtm]: paddingBtm,
+  }, customClass);
 
-  // const containerClasses = cx({
-  //   [cls.centerText]: centerText,
-  //   [cls.paddingTop]: paddingTop,
-  //   [cls.paddingBtm]: paddingBtm,
-  //   [cls.noTopMargin]: noTopMargin,
-  //   [cls.noBottomMargin]: noBottomMargin,
-  //   [cls.noLeftPadding]: noLeftPadding,
-  //   [cls.noRightPadding]: noRightPadding
-  // }, cls.container, customClass);
-  //
   return (
-    <div className={className} style={style}>
+    <div className={containerClasses} style={style}>
       {children}
     </div>
   )
 }
+
+const componentPropTypes = {
+  customClass: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  paddingTop: PropTypes.bool,
+  paddingBtm: PropTypes.bool,
+  layout: PropTypes.oneOf([
+    'section', 'modal'
+  ]),
+}
+
+const componentDefaultProps = {
+  customClass: '',
+  paddingTop: false,
+  paddingBtm: false,
+};
 
 export default View

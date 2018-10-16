@@ -35,8 +35,8 @@ function TwoColsRowBar({customClass, alignment, leftColProps, rightColProps, noS
   return (
     <div className={classes.twoColsRowBar}>
       <FlexContainer {...containerProps}>
-        <FlexItem {...leftColProps} customClass={leftItemClass} />
-        <FlexItem {...rightColProps} customClass={rightItemClass} />
+        <FlexItem evenGrowth {...leftColProps} customClass={leftItemClass} />
+        <FlexItem evenGrowth {...rightColProps} customClass={rightItemClass} />
       </FlexContainer>
     </div>
   )
@@ -65,7 +65,7 @@ TwoColsRowBar.propTypes =  {
   leftColProps: PropTypes.shape({
     content: PropTypes.node,
     customClass: PropTypes.string,
-    xSize: PropTypes.shape({
+    size: PropTypes.shape({
       xs: PropTypes.number,
       sm: PropTypes.number,
       md: PropTypes.number,
@@ -95,7 +95,7 @@ TwoColsRowBar.propTypes =  {
   rightColProps: PropTypes.shape({
     content: PropTypes.node,
     customClass: PropTypes.string,
-    xSize: PropTypes.shape({
+    size: PropTypes.shape({
       xs: PropTypes.number,
       sm: PropTypes.number,
       md: PropTypes.number,

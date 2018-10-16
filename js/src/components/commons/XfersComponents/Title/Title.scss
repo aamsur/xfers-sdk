@@ -1,0 +1,33 @@
+@import 'styles/_variables';
+
+.panelTitle {
+  margin-bottom: 36px;
+  h4 {
+    font-size: 24px;
+    color: $primary_xfers_blue;
+    font-weight: 400;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: $primary_xfers_blue;
+}
+
+.formTitle {
+  color: $xfers_black;
+  font-size: 20px;
+  margin-bottom: $medium_space;
+  display: block;
+  font-weight: $font_weight_light;
+}

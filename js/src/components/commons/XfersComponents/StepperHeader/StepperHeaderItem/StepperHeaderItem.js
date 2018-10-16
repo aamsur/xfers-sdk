@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import cls from './StepperHeaderItem.scss'
 
-import { FlexItem, FlexContainer } from 'XfersComponents'
-
 const componentPropTypes = {
   label: PropTypes.string.isRequired,
   image: PropTypes.string,
