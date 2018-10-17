@@ -4,15 +4,13 @@ import cls from './Panel.scss'
 import cx from 'classnames'
 
 const componentPropTypes = {
-  header: PropTypes.node,
   customClass: PropTypes.string,
 }
 
-function Panel({header, children, customClass}) {
+function Panel({children, customClass}) {
   return (
     <div className={cx(customClass, cls.panel)}>
-      {header && <div className={cls.panelHeader}>{header}</div>}
-      <div>{children}</div>
+      {children}
     </div>
   );
 }

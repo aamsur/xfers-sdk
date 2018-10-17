@@ -10,7 +10,7 @@ function mapStateToProps({manageBank}, props) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateForm: (v) => dispatch(updateBankAccountDetails("accountHolderName", v)),
+    updateForm: (e) => dispatch(updateBankAccountDetails("accountHolderName", e.target.value)),
   }
 }
 
@@ -24,10 +24,17 @@ class BankAccountName extends Component {
     const disabled = accountHolderName ? false : true
 
     return (
-      <StickyPanel showBrand>
-        <ModalHeader title="ADD BANK ACCOUNT" />
+      <StickyPanel showBrand
+        header={
+          <ModalHeader title="ADD BANK ACCOUNT" />
+        }
+        footer={
+          <FooterButtonGroup>
+            <Button type="primary" disabled={disabled}>Next</Button>
+          </FooterButtonGroup>
+        }>
         <View layout="modal">
-          <Title>Enter your full name</Title>
+          <Title type="form">Enter your full name</Title>
           <FormInput
             placeholder="e.g. Alice"
             value={accountHolderName}
@@ -35,9 +42,6 @@ class BankAccountName extends Component {
             caption="As reflected in your bank account statement"
           />
         </View>
-        <FooterButtonGroup>
-          <Button type="primary" disabled={disabled}>Next</Button>
-        </FooterButtonGroup>
       </StickyPanel>
     )
   }

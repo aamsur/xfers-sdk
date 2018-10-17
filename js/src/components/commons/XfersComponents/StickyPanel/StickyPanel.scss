@@ -2,10 +2,18 @@
 
 .stickyPanel {
   padding-bottom: $medium_space;
+  > div {
+    height: 660px;
+  }  
 }
 
 .stickyPanelFooter {
   margin-top: auto;
+}
+
+.sidePadding {
+  padding-left: $extra_extra_large_space;
+  padding-right: $extra_extra_large_space;
 }
 
 .noSidePadding {
@@ -16,4 +24,11 @@
 .branding {
   padding-top: $medium_space;
   text-align: center;
+}
+
+@media (max-width: $screen-small) {
+  .sidePadding {
+    padding-left: $medium_space;
+    padding-right: $medium_space;
+  }
 }

@@ -10,14 +10,18 @@ function StickyPanel({header, children, footer, showBrand}) {
   return (
     <Panel customClass={cls.stickyPanel}>
       <FlexContainer orientation="vertical">
-        { header && <FlexItem customClass={cls.noSidePadding}>{header}</FlexItem> }
-        <FlexItem customClass={cls.noSidePadding}>{children}</FlexItem>
-        { footer && <FlexItem customClass={cx(cls.noSidePadding, cls.stickyPanelFooter)}>{footer}</FlexItem> }
-        { showBrand &&
-          <FlexItem>
-            <View customClass={cls.branding}><img src={xfersPowered} /></View>
-          </FlexItem>
+        { header &&
+          <FlexItem customClass={cls.noSidePadding}>{header}</FlexItem>
         }
+
+        <FlexItem customClass={cls.noSidePadding}>
+          <View customClass={cls.sidePadding}>{children}</View>
+        </FlexItem>
+
+        <FlexItem customClass={cx(cls.noSidePadding, cls.stickyPanelFooter)}>
+          { footer && <View customClass={cls.sidePadding}>{footer}</View> }
+          { showBrand && <View customClass={cls.branding}><img src={xfersPowered} /></View> }
+        </FlexItem>
       </FlexContainer>
     </Panel>
   );

@@ -1,32 +1,21 @@
 @import 'styles/_variables';
 
-// STYLE GUIDE STYLES
-.fifty {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.body1 {
-  font-size: 14px
-}
-
-.body2 {
-  @extend .body1;
-  @extend .fifty;
-}
-
 // COMPONENT STYLES
 .formInput {
   input {
-    @extend .body1;
+    font-size: 30px;
+    font-weight: $font_weight_light;
     border-radius: 2px;
     height: 48px;
     width: 100%;
     border: none;
     background: transparent;
     border-bottom: 1px solid $xfers_clear_blue;
+    letter-spacing: 0.8px;
+    line-height: 36px;
 
     &::placeholder {
-      @extend .body2
+      font-size: 30px;
     }
 
     &:focus {
@@ -41,5 +30,13 @@
   .helpBlock {
     text-align: justify;
     text-justify: inter-word;
+  }
+
+  .caption {
+    color: $xfers_text_grey;
+    font-size: 12px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 16px;
   }
 }
