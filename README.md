@@ -19,8 +19,13 @@ Please refer to https://developer.android.com/training/basics/firstapp/building-
 
 Examples:
 
-1. [Coming Soon Page](https://user-images.githubusercontent.com/6291947/46936852-466ab100-d092-11e8-9925-696a88d25b11.png)
-2. [Base Example Page](https://user-images.githubusercontent.com/6291947/46936853-466ab100-d092-11e8-8359-38d2753810bb.png)
+1.
+
+![Coming Soon Page](https://user-images.githubusercontent.com/6291947/46936852-466ab100-d092-11e8-9925-696a88d25b11.png)
+
+2.
+
+![Base Example Page](https://user-images.githubusercontent.com/6291947/46936853-466ab100-d092-11e8-8359-38d2753810bb.png)
 
 The "Coming Soon Page" is presented via the base example page using the `flow` or `ui` APIs from the `Xfers` object.
 
