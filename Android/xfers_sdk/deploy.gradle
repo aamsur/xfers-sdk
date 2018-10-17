@@ -1,3 +1,18 @@
+// Script that is used to deploy the SDK to bintray
+
+// Setup:
+// Create a keystore.gradle file with the following
+// ext {
+//     bintray_key = "bintray_key_from_JFrog_account"
+// }
+
+// NOTE: DO NOT COMMIT THE KEY TO GIT
+
+// In order to deploy, do the following:
+// 1. Change libVersion to the corresponding version based on semantic versioning
+// 2. ./gradlew install
+// 3. ./gradlew bintrayUpload
+
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 apply from: 'keystore.gradle'//the file, containing the bintray API key
