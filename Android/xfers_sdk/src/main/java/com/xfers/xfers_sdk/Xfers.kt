@@ -5,7 +5,7 @@ import android.content.Intent
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.ComingSoonActivity
-import com.xfers.xfers_sdk.view.ConnectActivity
+import com.xfers.xfers_sdk.view.ConnectPhoneActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -46,7 +46,7 @@ class Xfers(val context: Context) {
 
     inner class Flow {
         fun startConnectFlow() {
-            context.startActivity(Intent(context, ConnectActivity::class.java))
+            context.startActivity(Intent(context, ConnectPhoneActivity::class.java))
         }
 
         fun startTopupFlow() {

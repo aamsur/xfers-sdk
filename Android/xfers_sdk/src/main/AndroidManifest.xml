@@ -4,7 +4,7 @@
 
     <application>
         <activity android:name=".view.ComingSoonActivity" />
-        <activity android:name=".view.ConnectActivity" />
+        <activity android:name=".view.ConnectPhoneActivity" />
     </application>
 
 </manifest>
