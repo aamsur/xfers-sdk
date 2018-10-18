@@ -1,5 +1,6 @@
 package com.xfers.example.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -20,7 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     // Put your logo source here, this is the image that we will use to refer to you in the SDK, for e.g.
     // R.drawable.your_logo
-    private val merchantLogo = R.drawable.ic_launcher_background
+    private val merchantLogo = R.drawable.ic_launcher_foreground
+
+    // Put your logo tint here, this is the color that we will use to tint your logo in the SDK, for e.g.
+    // R.color.your_color
+    private val merchantLogoTint = Color.CYAN
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         xfers.config.setMerchantApiBase(merchantApiBase)
         xfers.config.setMerchantName(merchantName)
         xfers.config.setMerchantLogo(merchantLogo)
+        xfers.config.setMerchantLogoTint(merchantLogoTint)
 
         // TODO: Build on top of sample code, deactivated for now
         // UpdateTextWithUserDetails(this.text, this).execute()

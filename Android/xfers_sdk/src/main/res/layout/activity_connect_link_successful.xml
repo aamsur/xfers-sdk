@@ -6,27 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".view.ConnectLinkSuccessfulActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/linkSuccessfulMerchantLogoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Merchant logo placeholder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <ImageView
+        android:id="@+id/linkSuccessfulXfersLogoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:text="Xfers logo placeholder"
+        android:tint="@color/clearBlue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/xfers_logo_72" />
 
     <TextView
         android:id="@+id/linkSuccessfulMerchantTextView"
@@ -38,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/linkSuccessfulMerchantLogoImageView" />
 
     <Button
         android:id="@+id/linkSuccessfulReturnButton"

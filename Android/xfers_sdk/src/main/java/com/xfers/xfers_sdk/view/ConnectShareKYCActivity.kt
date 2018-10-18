@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
@@ -16,14 +17,14 @@ class ConnectShareKYCActivity : AppCompatActivity() {
 
         title = "Link Xfers Account"
 
-        // TODO: Add Xfers logo to placeholder
-        // TODO: Populate Merchant logo placeholder
-
         val merchantAccessTextView = findViewById<TextView>(R.id.shareKYCMerchantAccessTextView)
         merchantAccessTextView.text = "${XfersConfiguration.getMerchantName()} would like to access your personal information from your Xfers account"
 
         val sharedInformationTextView = findViewById<TextView>(R.id.shareKYCSharedInformationTextView)
         sharedInformationTextView.text = listOf("Name", "Birthdate", "Nationality", "Location", "KTP", "Proof of Address").joinToString(separator = "\n")
+
+        val merchantLogoImageView = findViewById<ImageView>(R.id.shareKYCMerchantLogoImageView)
+        merchantLogoImageView.setColorFilter(XfersConfiguration.getMerchantLogoTint())
     }
 
     // TODO: To be replaced with Android "Back" and "Up"
