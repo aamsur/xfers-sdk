@@ -16,6 +16,7 @@ class ConnectPhoneActivity : AppCompatActivity() {
 
         title = "Link Xfers Account"
 
+        // TODO: To be removed, for proof of concept only
         val merchantTextView = findViewById<TextView>(R.id.phoneNumberMerchantTextView)
         merchantTextView.text = "Connecting to ${XfersConfiguration.getMerchantName()}"
     }

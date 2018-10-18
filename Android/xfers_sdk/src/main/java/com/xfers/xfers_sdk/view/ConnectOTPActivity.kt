@@ -28,7 +28,7 @@ class ConnectOTPActivity : AppCompatActivity() {
 
         // TODO: present the appropriate pages
         when {
-            isUserExistingVerified -> true
+            isUserExistingVerified -> startActivity(Intent(this, ConnectShareKYCActivity::class.java))
             isUserExistingUnverified -> true
             isUserNewUser -> true
         }
