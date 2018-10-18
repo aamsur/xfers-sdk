@@ -1,7 +1,7 @@
 import React from 'react'
 import {FormSelect} from 'XfersComponents'
 
-import nationality from 'XfersComponents/FormNationality/nationalities.json'
+import nationality from './nationalities.json'
 
 const nationality_options = nationality.map(v => ({value: v, label: v}));
 

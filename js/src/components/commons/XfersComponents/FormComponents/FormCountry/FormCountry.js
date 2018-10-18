@@ -1,7 +1,7 @@
 import React from 'react'
 import {FormSelect} from 'XfersComponents'
 
-import countries_options from 'XfersComponents/FormCountry/countries.js'
+import countries_options from './countries.js'
 
 function FormCountry({
   onChange,

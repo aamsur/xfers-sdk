@@ -1,0 +1,51 @@
+@import '../FormComponents';
+
+.formInputGroup {
+
+  :global(.input-group) {
+    display: block;
+    @extend .inputFont;
+    @extend .inputLayout;
+    width: 100%;
+    padding: 1px;
+
+    > :global(.input-group-addon:first-child) {
+      padding-right: $small_space;
+      @extend .inputFont;
+    }
+
+    > :global(.input-group-addon:last-child) {
+      padding-left: $small_space;
+      float: right;
+      @extend .inputFont;
+    }
+  }
+
+  input {
+    @extend .inputFont;
+    @extend .inputLayout;
+    padding: 0;
+    border-bottom: none;
+
+    &::placeholder {
+      @extend .inputFont;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  :global(.has-feedback .form-control) {
+    padding-right: 12px;
+  }
+
+  //
+  // :global(.input-group-addon) {
+  //   background-image: none;
+  //   width: 20%;
+  //
+  //   &:first-child {
+  //
+  //   }
+  // }
+}

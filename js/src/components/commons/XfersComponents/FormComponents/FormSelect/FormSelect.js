@@ -100,7 +100,7 @@ function FormSelect({
   }
 
   let labelDOM = label && (<BootstrapControlLabel>{label}</BootstrapControlLabel>);
-  let captionDOM = caption && (<BootstrapHelpBlock bsClass={cx(classes.helpBlock, 'help-block')}>{caption}</BootstrapHelpBlock>);
+  let captionDOM = caption && (<BootstrapHelpBlock bsClass={cx(classes.caption, 'help-block')}>{caption}</BootstrapHelpBlock>);
   let helpBlockDOM = helpBlock && (<BootstrapHelpBlock bsClass={cx(classes.helpBlock, 'help-block')}>{helpBlock}</BootstrapHelpBlock>);
   let errorMessageDOM = errorMessage && (<BootstrapHelpBlock bsClass={cx(classes.helpBlock, 'help-block')}>{errorMessage}</BootstrapHelpBlock>);
 

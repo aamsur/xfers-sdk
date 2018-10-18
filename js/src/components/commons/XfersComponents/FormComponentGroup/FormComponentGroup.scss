@@ -1,9 +1,0 @@
-.formComponentGroup {
-  :global(div.form-group) {
-    margin-bottom: 8px;
-  }
-
-  & > div:last-child :global(div.form-group) {
-    margin-bottom: 20px;
-  }
-}

@@ -3,18 +3,9 @@ export { default as AnchorLink } from './AnchorLink'
 export { default as Accordion } from './Accordion'
 export { default as BackButton } from './BackButton'
 export { default as Button } from './Button'
-export { default as Checkbox } from './Checkbox'
 export { default as CopyBox } from './CopyBox'
 export { default as CloseButton } from './CloseButton'
 export { default as Dropzone } from './Dropzone'
-export { default as FormComponentGroup } from './FormComponentGroup'
-export { default as FormDateInput } from './FormDateInput'
-export { default as FormInput } from './FormInput'
-export { default as FormInputGroup } from './FormInputGroup'
-export { default as FormGroup } from './FormGroup'
-export { default as FormTextarea } from './FormTextarea'
-export { default as FormSelect } from './FormSelect'
-export { default as FormLabel } from './FormLabel'
 export { default as ListingController } from './ListingController'
 export { default as Modal } from './Modal'
 export { default as ModalHeader } from './ModalHeader'
@@ -29,19 +20,31 @@ export { default as Stepper } from './Stepper'
 export { default as StepperHeader } from './StepperHeader'
 export { default as StepperHeaderItem } from './StepperHeader/StepperHeaderItem'
 export { default as FooterButtonGroup } from './FooterButtonGroup'
-export { default as FormCountry } from './FormCountry'
-export { default as FormMultipleDateInput } from './FormMultipleDateInput'
-export { default as FormNationality } from './FormNationality'
 export { default as Divider } from './Divider'
 export { default as AnimatedErrorMsg } from './AnimatedErrorMsg'
 export { default as ReactTable } from './ReactTable'
-export { default as FormDelayedInput } from './FormDelayedInput'
 export { default as CodeSnippetBlock } from './CodeSnippetBlock'
 export { default as ImageUploadBox } from './ImageUploadBox'
 export { default as View } from './View'
 export { default as SelectionButton } from './SelectionButton'
 export { default as SearchBar } from './SearchBar'
 export { default as StickyPanel } from './StickyPanel'
+
+// Form Components
+export {
+  FormInput,
+  FormSelect,
+  FormCountry,
+  FormNationality,
+  FormDelayedInput,
+  FormDateInput,
+  FormLabel,
+  FormMultipleDateInput,
+  FormTextarea,
+  FormInputGroup,
+  FormGroup,
+  Checkbox
+} from './FormComponents'
 
 // High Order Components
 export { default as FormValidateWrapper } from './FormValidateWrapper'

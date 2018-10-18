@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, StickyPanel, Title, ModalHeader, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
+import { View, StickyPanel, Title, ModalHeader, FormInput, FormInputGroup, Button, FooterButtonGroup } from 'XfersComponents'
 import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {

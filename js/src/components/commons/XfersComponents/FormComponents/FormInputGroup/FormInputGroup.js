@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import BootstrapInputGroup from 'react-bootstrap/lib/InputGroup'
-import BootstrapControlLabel from 'react-bootstrap/lib/ControlLabel';
-import BootstrapHelpBlock from 'react-bootstrap/lib/HelpBlock';
-import BootstrapFormControl from 'react-bootstrap/lib/FormControl';
+import BootstrapControlLabel from 'react-bootstrap/lib/ControlLabel'
+import BootstrapHelpBlock from 'react-bootstrap/lib/HelpBlock'
+import BootstrapFormControl from 'react-bootstrap/lib/FormControl'
 import {FormGroup} from 'XfersComponents'
 
 import cx from 'classnames'
@@ -87,7 +87,7 @@ function FormInputGroup ({
   }
 
   let labelDOM = label && (<BootstrapControlLabel>{label}</BootstrapControlLabel>);
-  let captionDOM = caption && (<BootstrapHelpBlock bsClass={cx(cls.helpBlock, 'help-block')}>{caption}</BootstrapHelpBlock>);
+  let captionDOM = caption && (<BootstrapHelpBlock bsClass={cx(cls.caption, 'help-block')}>{caption}</BootstrapHelpBlock>);
   let helpBlockDOM = helpBlock && (<BootstrapHelpBlock bsClass={cx(cls.helpBlock, 'help-block')}>{helpBlock}</BootstrapHelpBlock>);
   let errorMessageDOM = errorMessage && (<BootstrapHelpBlock bsClass={cx(cls.helpBlock, 'help-block')}>{errorMessage}</BootstrapHelpBlock>);
 
@@ -101,7 +101,7 @@ function FormInputGroup ({
   }
 
   formControlProps.key = "2";
-  inputGroupDOM.push(<ReactBootstrap.FormControl {...formControlProps}/>);
+  inputGroupDOM.push(<BootstrapFormControl {...formControlProps}/>);
 
   if (rightAddonContent) {
     inputGroupDOM.push(
