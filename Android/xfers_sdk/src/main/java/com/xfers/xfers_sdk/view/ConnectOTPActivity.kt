@@ -22,15 +22,16 @@ class ConnectOTPActivity : AppCompatActivity() {
     fun onClickNext(view: View) {
         // TODO: Ping merchant's connect OTP API URL
 
-        val isUserExistingVerified = true
-        val isUserExistingUnverified = false
+        // TODO: Set dynamically based on user status, for now hardcode to be able to develop
+        val isUserExistingVerified = false
+        val isUserExistingUnverified = true
         val isUserNewUser = false
 
         // TODO: present the appropriate pages
         when {
             isUserExistingVerified -> startActivity(Intent(this, ConnectShareKYCActivity::class.java))
-            isUserExistingUnverified -> true
-            isUserNewUser -> true
+            isUserExistingUnverified -> startActivity(Intent(this, ConnectIdentityVerificationActivity::class.java))
+            isUserNewUser -> startActivity(Intent(this, ConnectIdentityVerificationActivity::class.java))
         }
     }
 }
