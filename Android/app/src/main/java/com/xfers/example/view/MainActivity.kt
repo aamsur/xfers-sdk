@@ -32,40 +32,40 @@ class MainActivity : AppCompatActivity() {
         // UpdateTextWithUserDetails(this.text, this).execute()
     }
 
-    fun onXfersConnectClick(view: View) {
+    fun onClickXfersConnect(view: View) {
         Xfers(this).flow.startConnectFlow()
     }
 
-    fun onTopupClick(view: View) {
+    fun onClickTopup(view: View) {
         Xfers(this).flow.startTopupFlow()
     }
 
-    fun onTransactionsOverviewClick(view: View) {
+    fun onClickTransactionsOverview(view: View) {
         Xfers(this).ui.startTransactionsOverviewActivity()
     }
 
-    fun onKYCClick(view: View) {
+    fun onClickKYC(view: View) {
         Xfers(this).flow.startKYCFlow()
     }
 
-    fun onManageBanksClick(view: View) {
+    fun onClickManageBanks(view: View) {
         Xfers(this).flow.startManageBanksFlow()
     }
 
-    fun onWithdrawalClick(view: View) {
+    fun onClickWithdrawal(view: View) {
         Xfers(this).flow.startWithdrawalFlow()
     }
 
-    fun onPayClick(view: View) {
+    fun onClickPay(view: View) {
         // Pass in example 100
         Xfers(this).flow.startPaymentFlow(BigInteger("100"))
     }
 
-    fun onMenuClick(view: View) {
+    fun onClickMenu(view: View) {
         Xfers(this).ui.startMenuActivity()
     }
 
-    fun onSettingsClick(view: View) {
+    fun onClickSettings(view: View) {
         Xfers(this).ui.startSettingsActivity()
     }
 }
