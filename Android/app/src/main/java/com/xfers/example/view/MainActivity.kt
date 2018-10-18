@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         // UpdateTextWithUserDetails(this.text, this).execute()
     }
 
-    fun onSignupClick(view: View) {
-        Xfers(this).flow.startSignupFlow()
+    fun onXfersConnectClick(view: View) {
+        Xfers(this).flow.startConnectFlow()
     }
 
     fun onTopupClick(view: View) {

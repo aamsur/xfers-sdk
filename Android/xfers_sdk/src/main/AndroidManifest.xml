@@ -3,7 +3,8 @@
     package="com.xfers.xfers_sdk">
 
     <application>
-        <activity android:name=".view.ComingSoonActivity"></activity>
+        <activity android:name=".view.ComingSoonActivity" />
+        <activity android:name=".view.ConnectActivity" />
     </application>
 
 </manifest>

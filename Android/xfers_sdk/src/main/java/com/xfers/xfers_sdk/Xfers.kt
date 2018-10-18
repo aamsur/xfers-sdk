@@ -5,6 +5,7 @@ import android.content.Intent
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.ComingSoonActivity
+import com.xfers.xfers_sdk.view.ConnectActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -40,8 +41,8 @@ class Xfers(val context: Context) {
     }
 
     inner class Flow {
-        fun startSignupFlow() {
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        fun startConnectFlow() {
+            context.startActivity(Intent(context, ConnectActivity::class.java))
         }
 
         fun startTopupFlow() {
