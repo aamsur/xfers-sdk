@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, StickyPanel, Title, ModalHeader, FormInput, FormInputGroup, Button, FooterButtonGroup } from 'XfersComponents'
+import {
+  StickyPanel,
+  View,
+  Text,
+  ModalHeader,
+  FormInput,
+  Button,
+  FooterButtonGroup
+} from 'XfersComponents'
 import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
@@ -24,17 +32,10 @@ class BankAccountName extends Component {
     const disabled = accountHolderName ? false : true
 
     return (
-      <StickyPanel showBrand
-        header={
-          <ModalHeader title="ADD BANK ACCOUNT" />
-        }
-        footer={
-          <FooterButtonGroup>
-            <Button type="primary" disabled={disabled}>Next</Button>
-          </FooterButtonGroup>
-        }>
-        <View layout="modal">
-          <Title type="form">Enter your full name</Title>
+      <StickyPanel showBrand>
+        <ModalHeader spHeader title="ADD BANK ACCOUNT" />
+        <View spBody>
+          <Text type="panelTitle">Enter your full name</Text>
           <FormInput
             placeholder="e.g. Alice"
             value={accountHolderName}
@@ -42,6 +43,9 @@ class BankAccountName extends Component {
             caption="As reflected in your bank account statement"
           />
         </View>
+        <FooterButtonGroup spFooter>
+          <Button type="primary" disabled={disabled}>Next</Button>
+        </FooterButtonGroup>
       </StickyPanel>
     )
   }

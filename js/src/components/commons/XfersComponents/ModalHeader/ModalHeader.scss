@@ -5,12 +5,9 @@
   color: #ffffff;
 
   .title {
-    font-size: 12px;
-    font-weight: $font_weight_light;
-    letter-spacing: 0.5px;
-    line-height: $medium_space;
     height: $medium_space;
     padding: $medium_space;
+    text-align: center;
   }
 
   .desc {

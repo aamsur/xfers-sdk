@@ -20,8 +20,13 @@ const componentDefaultProps = {
 };
 
 function SelectionButton({ title, subtitle, image, disabled, onClick }) {
+
+  const handleClick = () => {
+    if (onClick) onClick();
+  }
+
   return (
-    <View customClass={cls.selectionButton}>
+    <View customClass={cls.selectionButton} onClick={handleClick}>
       <TwoColsRowBar
         customClass={cls.custom}
         noBottomMargin

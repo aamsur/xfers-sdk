@@ -11,7 +11,6 @@ export { default as Modal } from './Modal'
 export { default as ModalHeader } from './ModalHeader'
 export { default as Notification } from './Notification'
 export { default as Notepad } from './Notepad'
-export { default as Title } from './Title'
 export { default as PageLoader } from './PageLoader'
 export { default as Popover } from './Popover'
 export { default as ProgressBar } from './ProgressBar'
@@ -26,6 +25,7 @@ export { default as ReactTable } from './ReactTable'
 export { default as CodeSnippetBlock } from './CodeSnippetBlock'
 export { default as ImageUploadBox } from './ImageUploadBox'
 export { default as View } from './View'
+export { default as Text } from './Text'
 export { default as SelectionButton } from './SelectionButton'
 export { default as SearchBar } from './SearchBar'
 export { default as StickyPanel } from './StickyPanel'
@@ -38,7 +38,6 @@ export {
   FormNationality,
   FormDelayedInput,
   FormDateInput,
-  FormLabel,
   FormMultipleDateInput,
   FormTextarea,
   FormInputGroup,

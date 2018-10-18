@@ -3,6 +3,7 @@ import {
   INITIALIZATION_SUCCESS,
   UPDATE_BANK_ACCOUNT_DETAILS,
   UPDATE_SEARCH_FILTER,
+  SUBMIT_NEW_BANK_ACCOUNT_RESPONSE
 } from 'ManageBank/actions/constants'
 
 // ------------------------------------
@@ -20,6 +21,9 @@ const ACTION_HANDLERS = {
     return { ...state, newBankAccountDetails }
   },
   [UPDATE_SEARCH_FILTER]: (state, {filter}) => ({ ...state, filter }),
+  [SUBMIT_NEW_BANK_ACCOUNT_RESPONSE]: (state, {res}) => {
+    return { ...state, dataLoading: false }
+  }
 }
 
 // ------------------------------------

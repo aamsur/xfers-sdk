@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Panel, Title, ModalHeader, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
+import {
+  StickyPanel,
+  View,
+  Text,
+  ModalHeader,
+  FormInput,
+  Button,
+  FooterButtonGroup
+} from 'XfersComponents'
 import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
@@ -44,10 +52,10 @@ class BankAccountNumberRepeat extends Component {
     const disabled = repeatedAccountNo ? false : true
 
     return (
-      <Panel>
-        <ModalHeader title="ADD BANK ACCOUNT" />
-        <View layout="section" paddingBtm>
-          <Title type="form">Enter your bank account number</Title>
+      <StickyPanel showBrand>
+        <ModalHeader spHeader title="ADD BANK ACCOUNT" />
+        <View spBody>
+          <Text type="panelTitle">Re-enter your bank account number</Text>
           <FormInput
             type="number"
             placeholder="e.g. 1234567890"
@@ -56,10 +64,10 @@ class BankAccountNumberRepeat extends Component {
             caption="Please exclude dashes"
           />
         </View>
-        <FooterButtonGroup>
-          <Button type="primary" disabled={disabled} onClick={checkAccountNo}>Next</Button>
+        <FooterButtonGroup spFooter>
+          <Button type="primary" disabled={disabled} onClick={this.checkAccountNo}>Next</Button>
         </FooterButtonGroup>
-      </Panel>
+      </StickyPanel>
     )
   }
 }

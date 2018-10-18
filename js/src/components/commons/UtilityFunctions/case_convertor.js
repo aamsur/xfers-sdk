@@ -1,12 +1,13 @@
-import changeCase from "change-case-object"
+import camelCase from 'camel-case' // version 1.2.0
+import snakeCase from 'snake-case' // version 1.1.1
 
-function changeKeys (transformer, obj) {
+function changeKeys(transformer, obj) {
   let objectKeys;
 
   if (Array.isArray(obj)) {
     return obj.map(function keysMap(key) {
-      if (typeof key === 'string') {
-        return transformer(key);
+      if(typeof key === 'string') {
+        return key
       }
 
       return changeKeys(transformer, key);
@@ -29,13 +30,27 @@ function changeKeys (transformer, obj) {
   return obj;
 };
 
+function camelCaseObject(obj) {
+  if (typeof obj === 'string') {
+    return camelCase(obj);
+  }
+  return changeKeys(camelCase, obj);
+};
+
+function snakeCaseObject(obj) {
+  if (typeof obj === 'string') {
+    return snakeCase(obj);
+  }
+  return changeKeys(snakeCase, obj);
+};
+
 // exceptions is an object allow you assign key's name
 // { originKey: 'assignedKey' }
 
 const toSnake = (obj, exceptions={}) => {
-  let snakeObj = changeCase.snakeCase(obj)
+  let snakeObj = snakeCaseObject(obj)
   Object.entries(exceptions).forEach(([key, val])=>{
-    const transKey = Object.keys(changeCase.snakeCase({[key]:''}))[0]
+    const transKey = Object.keys(snakeCaseObject({[key]:''}))[0]
     snakeObj = changeKeys((objKey)=> transKey === objKey ? val : objKey , snakeObj)
   })
 
@@ -43,9 +58,9 @@ const toSnake = (obj, exceptions={}) => {
 }
 
 const toCamel = (obj, exceptions={}) => {
-  let camelObj = changeCase.camelCase(obj)
+  let camelObj = camelCaseObject(obj)
   Object.entries(exceptions).forEach(([key, val])=>{
-    const transKey = Object.keys(changeCase.camelCase({[key]:''}))[0]
+    const transKey = Object.keys(camelCaseObject({[key]:''}))[0]
     camelObj = changeKeys((objKey)=> transKey === objKey ? val : objKey , camelObj)
   })
 

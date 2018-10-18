@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Panel, Title, ModalHeader, FormInput, Button, FooterButtonGroup } from 'XfersComponents'
+import {
+  StickyPanel,
+  View,
+  Text,
+  ModalHeader,
+  FormInput,
+  Button,
+  FooterButtonGroup
+} from 'XfersComponents'
 import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
@@ -24,10 +32,10 @@ class BankAccountNumber extends Component {
     const disabled = accountNo ? false : true
 
     return (
-      <Panel>
-        <ModalHeader title="ADD BANK ACCOUNT" />
-        <View layout="section" paddingBtm>
-          <Title type="form">Enter your bank account number</Title>
+      <StickyPanel showBrand>
+        <ModalHeader spHeader title="ADD BANK ACCOUNT" />
+        <View spBody>
+          <Text type="panelTitle">Enter your bank account number</Text>
           <FormInput
             type="number"
             placeholder="e.g. 1234567890"
@@ -36,10 +44,10 @@ class BankAccountNumber extends Component {
             caption="Please exclude dashes"
           />
         </View>
-        <FooterButtonGroup>
+        <FooterButtonGroup spFooter>
           <Button type="primary" disabled={disabled}>Next</Button>
         </FooterButtonGroup>
-      </Panel>
+      </StickyPanel>
     )
   }
 }

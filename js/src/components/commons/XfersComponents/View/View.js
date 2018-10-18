@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlexContainer, FlexItem } from 'XfersComponents'
 import cx from 'classnames'
 import cls from './View.scss'
 
@@ -10,17 +9,17 @@ function View({
   paddingBtm,
   children,
   customClass,
+  onClick,
   ...style
 }) {
   const containerClasses = cx({
-    [cls.templateModal]: layout === 'modal',
     [cls.templateSection]: layout === 'section',
     [cls.paddingTop]: paddingTop,
     [cls.paddingBtm]: paddingBtm,
   }, customClass);
 
   return (
-    <div className={containerClasses} style={style}>
+    <div className={containerClasses} style={style} onClick={onClick}>
       {children}
     </div>
   )
@@ -32,8 +31,9 @@ const componentPropTypes = {
   paddingTop: PropTypes.bool,
   paddingBtm: PropTypes.bool,
   layout: PropTypes.oneOf([
-    'section', 'modal'
+    'section'
   ]),
+  onClick: PropTypes.func
 }
 
 const componentDefaultProps = {

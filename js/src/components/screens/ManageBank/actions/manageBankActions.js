@@ -3,7 +3,8 @@ import {
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_BANK_ACCOUNT_DETAILS,
-  UPDATE_SEARCH_FILTER
+  UPDATE_SEARCH_FILTER,
+  SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
 } from './constants'
 
 // TO-DO: To be removed from this location.
@@ -25,6 +26,17 @@ export const initializeComponent = () => (dispatch, getState) => {
     });
 }
 
+export const submitNewBankAccountDetails = () => (dispatch, getState) => {
+  dispatch({ type: SEND_HTTP_REQUEST });
+
+  const { newBankAccountDetails } = getState().manageBank;
+
+  xfers.addBankAccount(
+    caseConvert.toSnake(newBankAccountDetails,
+      {'bankStatementFile': 'bank_account_proof', 'fileData': 'fileData', 'fileName': 'fileName'})
+  ).then(res => dispatch({ type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE, res: res.data }));
+}
+
 export const updateBankAccountDetails = (type, data) => ({
   type: UPDATE_BANK_ACCOUNT_DETAILS,
   formType: type,
@@ -44,3 +56,37 @@ export const setErrorMsg = (msg)  => ({
 export const clearErrorMsg = () => ({
   type: CLEAR_ERROR_MSG
 })
+
+// export const submitNewBankAccountDetails = () => (dispatch) => {
+//   dispatch({ type: SEND_HTTP_REQUEST });
+//   SInfo.getItem('xfersApiToken', {}).then(token => {
+//     if (token) {
+//       fetchWithErrorHandling({
+//         endPointUrl: BANK_ACCOUNT_END_POINT,
+//         fetchOptions: getOptions({
+//           method: 'POST',
+//           body: JSON.stringify(caseConvert.toSnake({accountNo, bank, accountHolderName, bankStatementFile},
+//             {'bankStatementFile': 'bank_account_proof', 'fileData': 'fileData', 'fileName': 'fileName'})),
+//         }, token),
+//         onSuccess: (res) => {
+//           dispatch(clearErrorMsg());
+//           dispatch({type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE});
+//         },
+//         onError: (res) => {
+//           // This is specific for duplicate bank accounts error
+//           if (res.error.includes('is already taken.')) {
+//             let duplicateAccountError = accountNo + 'has already been taken by another user and cannot be added to this user.'
+//             dispatch(setErrorMsg(duplicateAccountError));
+//           } else {
+//             dispatch(setErrorMsg(res.error));
+//           }
+//           dispatch({
+//             type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
+//           });
+//         },
+//       });
+//     } else {
+//       // ... Do something about users who don't have tokens
+//     }
+//   });
+// }

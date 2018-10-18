@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
+import { View } from 'XfersComponents'
 import {
   BankTypeList,
   BankAccountName,
   BankAccountNumber,
   BankAccountNumberRepeat,
   BankStatement,
+  AddBankAccountConfirmation,
+  AddBankAccountStatus,
 } from './components'
 import { initializeComponent } from './actions'
 
@@ -32,7 +35,14 @@ class ManageBank extends Component {
 
   render() {
     return (
-      <BankAccountName />
+      <View>
+        <AddBankAccountStatus />
+        <BankTypeList />
+        <BankAccountName />
+        <BankAccountNumber />
+        <BankAccountNumberRepeat />
+        <AddBankAccountConfirmation />
+      </View>
     )
   }
 }

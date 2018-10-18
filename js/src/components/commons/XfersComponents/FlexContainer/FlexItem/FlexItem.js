@@ -3,9 +3,13 @@ import PropTypes from 'prop-types'
 import cls from './FlexItem.scss'
 import cx from 'classnames'
 
-function FlexItem({evenGrowth, size, offset, alignment, customClass, children, content}) {
+function FlexItem({
+  noSidePadding,
+  evenGrowth, size, offset, alignment, customClass, children, content
+}) {
 
   const flexItemClasses = cx({
+    [cls['sidePadding']]: !noSidePadding,
     [cls['col-xs']]: evenGrowth,
     // Size Classes
     [cls[`col-xs-${size.xs}`]]: size.xs,

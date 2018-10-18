@@ -47,6 +47,10 @@ export default class Xfers {
     return this.api.send('GET', 'banks');
   }
 
+  addBankAccount(params) {
+    return this.api.send('POST', 'user/bank_account', params);
+  }
+
   getTopUpInformation() {
     return this.api.send('GET', 'user/transfer_info');
   }
