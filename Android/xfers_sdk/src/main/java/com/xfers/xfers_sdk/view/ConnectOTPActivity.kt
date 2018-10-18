@@ -15,6 +15,7 @@ class ConnectOTPActivity : AppCompatActivity() {
         title = "Link Xfers Account"
     }
 
+    // TODO: To be replaced with Android "Back" and "Up"
     fun onClickBack(view: View) {
         finish()
     }
@@ -27,7 +28,6 @@ class ConnectOTPActivity : AppCompatActivity() {
         val isUserExistingUnverified = true
         val isUserNewUser = false
 
-        // TODO: present the appropriate pages
         when {
             isUserExistingVerified -> startActivity(Intent(this, ConnectShareKYCActivity::class.java))
             isUserExistingUnverified -> startActivity(Intent(this, ConnectIdentityVerificationActivity::class.java))

@@ -26,11 +26,15 @@ class ConnectShareKYCActivity : AppCompatActivity() {
         sharedInformationTextView.text = listOf("Name", "Birthdate", "Nationality", "Location", "KTP", "Proof of Address").joinToString(separator = "\n")
     }
 
+    // TODO: To be replaced with Android "Back" and "Up"
     fun onClickBack(view: View) {
         finish()
     }
 
     fun onClickReject(view: View) {
+        // TODO: Does not do anything at the moment, pending backend API to remember reject
+        // and restrict data shared upon rejection
+
         startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
     }
 

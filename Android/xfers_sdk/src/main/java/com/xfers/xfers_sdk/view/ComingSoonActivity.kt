@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.xfers.xfers_sdk.R
 
+// TODO: To be removed, only for initial integration purposes
 class ComingSoonActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
