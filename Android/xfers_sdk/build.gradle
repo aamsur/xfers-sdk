@@ -1,4 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 28
@@ -19,7 +24,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
 
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
 }
 
 dependencies {
@@ -36,5 +45,4 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 }
 
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply from: 'deploy.gradle'
