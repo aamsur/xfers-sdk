@@ -10,9 +10,13 @@ import java.math.BigInteger
 // TODO: Example Activity (to be turned into example app)
 class MainActivity : AppCompatActivity() {
 
-    // Put your Base URL here, for e.g.
+    // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
     // https://bright-sunshine-91728.herokuapp.com/
     val merchantApiBase = "<set_your_backend_api_base_here>"
+
+    // Put your name here, this is the name that we will use to refer to you in the SDK, for e.g.
+    // Xfers
+    val merchantName = "<set_your_name_here>"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         xfers.config.setSGSandbox()
         xfers.config.setMerchantApiBase(merchantApiBase)
+        xfers.config.setMerchantName(merchantName)
 
         // TODO: Build on top of sample code, deactivated for now
         // UpdateTextWithUserDetails(this.text, this).execute()

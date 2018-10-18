@@ -34,6 +34,10 @@ class Xfers(val context: Context) {
             XfersConfiguration.setMerchantApiBase(apiBase)
         }
 
+        fun setMerchantName(name: String) {
+            XfersConfiguration.setMerchantName(name)
+        }
+
         // TODO: Implement Android Keystore handling of userApiKey
         fun setUserApiKey() {
             return
