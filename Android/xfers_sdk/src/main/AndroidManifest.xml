@@ -5,6 +5,7 @@
     <application>
         <activity android:name=".view.ComingSoonActivity" />
         <activity android:name=".view.ConnectPhoneActivity" />
+        <activity android:name=".view.ConnectOTPActivity"></activity>
     </application>
 
 </manifest>
