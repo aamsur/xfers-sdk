@@ -55,41 +55,51 @@ class Xfers(val context: Context) {
 
     inner class Flow {
         fun startConnectFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ConnectPhoneActivity::class.java))
         }
 
         fun startTopupFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startKYCFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startManageBanksFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startWithdrawalFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         // Optional description, will appear in receipt
         fun startPaymentFlow(amount: BigInteger, description: String? = null) {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
+            // TODO: Pass amount and description into activity
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
     }
 
     inner class UI {
         fun startMenuActivity() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startSettingsActivity() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startTransactionsOverviewActivity() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
     }
