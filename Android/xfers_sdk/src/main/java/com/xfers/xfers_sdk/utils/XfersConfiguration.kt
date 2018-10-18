@@ -18,6 +18,7 @@ object XfersConfiguration {
     // Merchant Settings
     private var merchantApiBase = ""
     private var merchantName = ""
+    private var merchantLogo: Int? = null
 
     // TODO: Implement Android Keystore handling of userApiKey
     var userApiKey = ""
@@ -50,6 +51,10 @@ object XfersConfiguration {
         merchantName = name
     }
 
+    fun setMerchantLogo(logo: Int) {
+        merchantLogo = logo
+    }
+
     fun buildApiURL(apiPath: String): String {
         return "$apiBase/$apiPath"
     }
@@ -60,6 +65,10 @@ object XfersConfiguration {
 
     fun getMerchantName(): String {
         return merchantName
+    }
+
+    fun getMerchantLogo(): Int? {
+        return merchantLogo
     }
 
     fun getCurrentCountry(): Country? {

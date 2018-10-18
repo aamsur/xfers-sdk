@@ -12,11 +12,15 @@ class MainActivity : AppCompatActivity() {
 
     // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
     // https://bright-sunshine-91728.herokuapp.com/
-    val merchantApiBase = "<set_your_backend_api_base_here>"
+    private val merchantApiBase = "<set_your_backend_api_base_here>"
 
     // Put your name here, this is the name that we will use to refer to you in the SDK, for e.g.
-    // Xfers
-    val merchantName = "<set_your_name_here>"
+    // Best Merchant
+    private val merchantName = "<set_your_name_here>"
+
+    // Put your logo source here, this is the image that we will use to refer to you in the SDK, for e.g.
+    // R.drawable.your_logo
+    private val merchantLogo = R.drawable.ic_launcher_background
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         xfers.config.setSGSandbox()
         xfers.config.setMerchantApiBase(merchantApiBase)
         xfers.config.setMerchantName(merchantName)
+        xfers.config.setMerchantLogo(merchantLogo)
 
         // TODO: Build on top of sample code, deactivated for now
         // UpdateTextWithUserDetails(this.text, this).execute()
