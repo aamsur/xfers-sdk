@@ -42,24 +42,23 @@ WEB SDK
 
 Add the following lines into the `<head></head>` section:
 
-```javascript
+```html
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script type="text/javascript" src="dist/vendors~xfers.bundle.js"></script>
 <script type="text/javascript" src="dist/xfers.bundle.js"></script>
 ```
 
 Then initialize the components by adding the following javascript into the `<body></body>` section:
-```javascript
+```html
 <body>
   <div id="xfers_elements"></div>
 
   <script type="text/javascript">
-    // Mounting Element Id: 'xfers_elements'
-    /* Avaialble components: [
-      'banks'
-    ]
-    */
+
+    // 1st param => Mounting Element Id: 'xfers_elements'
+    // 2nd param => Avaialble components: ['banks']
     Xfers.Element.init('xfers_elements', 'banks');
+    
   </script>
 </body>
 ```
