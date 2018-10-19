@@ -1,7 +1,12 @@
+import { caseConvert } from 'UtilityFunctions'
 import Xfers from 'xfersWrapper.js'
 import {
+  NAVIGATE,
+  OPEN_MODAL,
+  CLOSE_MODAL,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
+  INIT_NEW_BANK_ACCOUNT,
   UPDATE_BANK_ACCOUNT_DETAILS,
   UPDATE_SEARCH_FILTER,
   SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
@@ -10,6 +15,18 @@ import {
 // TO-DO: To be removed from this location.
 const xfers = new Xfers("YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
 
+export const navigate = (route) => ({
+  type: NAVIGATE,
+  route
+})
+
+export const openModal = () => ({
+  type: OPEN_MODAL
+})
+
+export const closeModal = () => ({
+  type: CLOSE_MODAL
+})
 
 export const initializeComponent = () => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
@@ -18,15 +35,19 @@ export const initializeComponent = () => (dispatch, getState) => {
     xfers.getAvailableBanks().then(res => resolve(res.data));
   });
 
+  const userBanksAPI = new Promise((resolve, reject) => {
+    xfers.getUserBanks().then(res => resolve(res.data));
+  });
+
   Promise
-    .all([ bankOptionAPI ])
-    .then(([ bankOptions ]) => {
-      const res = { bankOptions };
+    .all([ bankOptionAPI, userBanksAPI ])
+    .then(([ bankOptions, userBanks ]) => {
+      const res = { bankOptions, userBanks };
       dispatch({ type: INITIALIZATION_SUCCESS, res });
     });
 }
 
-export const submitNewBankAccountDetails = () => (dispatch, getState) => {
+export const submitNewBankAccountDetails = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
 
   const { newBankAccountDetails } = getState().manageBank;
@@ -34,7 +55,13 @@ export const submitNewBankAccountDetails = () => (dispatch, getState) => {
   xfers.addBankAccount(
     caseConvert.toSnake(newBankAccountDetails,
       {'bankStatementFile': 'bank_account_proof', 'fileData': 'fileData', 'fileName': 'fileName'})
-  ).then(res => dispatch({ type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE, res: res.data }));
+  ).then(res => {
+    dispatch({ type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE, res: res.data })
+    if (successCallback) successCallback();
+  })
+  .catch(err => {
+    dispatch({ type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE, res: err.data })
+  });
 }
 
 export const updateBankAccountDetails = (type, data) => ({
@@ -48,14 +75,18 @@ export const updateSearchFilter = (filter) => ({
   filter
 })
 
-export const setErrorMsg = (msg)  => ({
-  type: SET_ERROR_MSG,
-  msg
+export const initNewBankAccount = () => ({
+  type: INIT_NEW_BANK_ACCOUNT,
 })
 
-export const clearErrorMsg = () => ({
-  type: CLEAR_ERROR_MSG
-})
+// export const setErrorMsg = (msg)  => ({
+//   type: SET_ERROR_MSG,
+//   msg
+// })
+//
+// export const clearErrorMsg = () => ({
+//   type: CLEAR_ERROR_MSG
+// })
 
 // export const submitNewBankAccountDetails = () => (dispatch) => {
 //   dispatch({ type: SEND_HTTP_REQUEST });

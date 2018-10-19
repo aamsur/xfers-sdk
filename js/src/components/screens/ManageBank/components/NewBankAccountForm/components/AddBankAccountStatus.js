@@ -7,34 +7,24 @@ import {
   FooterButtonGroup,
   StatusPanel
 } from 'XfersComponents'
-import {  } from 'ManageBank/actions'
+import { navigate } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
-  const { newBankAccountDetails: { bank, accountNo, accountHolderName }, bankOptions } = manageBank;
-
-  // Get the details of the selected Bank
-  let bankDetails = {};
-  for ( let i = 0; i < bankOptions.length; i++ ) {
-    if (bankOptions[i].abbreviation === bank) {
-      bankDetails = bankOptions[i];
-      break;
-    }
-  }
-
-  return { bankDetails, accountHolderName, accountNo };
+  const { userBanks } = manageBank;
+  return { newBankDetails: userBanks.last };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    navigateToHome: () => dispatch(navigate("index"))
+  }
 }
 
 class AddBankAccountConfirmation extends Component {
   render() {
     const {
-      bankDetails,
-      accountNo,
-      accountHolderName,
-      updateForm,
+      newBankDetails,
+      navigateToHome,
     } = this.props;
 
     return (
@@ -46,7 +36,7 @@ class AddBankAccountConfirmation extends Component {
           <Text>Your bank account has been added.</Text>
         </View>
         <FooterButtonGroup spFooter>
-          <Button type="primary">Okay</Button>
+          <Button type="primary" onClick={navigateToHome}>Okay</Button>
         </FooterButtonGroup>
       </StatusPanel>
     )

@@ -44,7 +44,7 @@ export default class Xfers {
   }
 
   getUserBanks() {
-    return this.api.send('GET', 'banks');
+    return this.api.send('GET', 'user/bank_account');
   }
 
   addBankAccount(params) {

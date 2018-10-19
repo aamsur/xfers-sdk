@@ -34,29 +34,31 @@ class BankAccountNumberRepeat extends Component {
     this.setState({ repeatedAccountNo: e.target.value })
   }
 
-  checkAccountNo() {
-    const { accountNo } = this.props;
+  checkAccountNo = () => {
+    const { accountNo, goNext } = this.props;
     const { repeatedAccountNo } = this.state;
     if ( accountNo === repeatedAccountNo ) {
       this.setState({error: ''});
+      goNext();
       // Next Step to decide to upload bank statement for verification or not
     } else {
-      this.setState(error: 'Bank account no did not match');
+      this.setState({error: 'Bank account number did not match'});
     }
   }
 
   render() {
-    const { accountNo } = this.props;
-    const { repeatedAccountNo } = this.state;
+    const { accountNo, goBack } = this.props;
+    const { repeatedAccountNo, error } = this.state;
 
     const disabled = repeatedAccountNo ? false : true
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader spHeader title="ADD BANK ACCOUNT" />
+        <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
         <View spBody>
           <Text type="panelTitle">Re-enter your bank account number</Text>
           <FormInput
+            autoFocus
             type="number"
             placeholder="e.g. 1234567890"
             value={repeatedAccountNo}
@@ -64,9 +66,12 @@ class BankAccountNumberRepeat extends Component {
             caption="Please exclude dashes"
           />
         </View>
-        <FooterButtonGroup spFooter>
-          <Button type="primary" disabled={disabled} onClick={this.checkAccountNo}>Next</Button>
-        </FooterButtonGroup>
+        <View spFooter>
+          <View marginBottom="20px"><Text type="error">{error}</Text></View>
+          <FooterButtonGroup spFooter>
+            <Button type="primary" disabled={disabled} onClick={this.checkAccountNo}>Next</Button>
+          </FooterButtonGroup>
+        </View>
       </StickyPanel>
     )
   }

@@ -3,6 +3,8 @@ import axios from 'axios'
 import joinUrl from 'proper-url-join'
 import queryString from 'query-string'
 
+// CoinHako Token: '2XWnEcCMufhqxpK6LsEiQVoE1UBPNG3fELCzNvUPhf4'
+
 export default class ApiHelper {
   constructor({baseURL, accessToken}) {
     if (!isUrl(baseURL)) throw new Error('The base URL provided is not valid');
@@ -13,7 +15,9 @@ export default class ApiHelper {
 
   send(method, url, data = {}) {
     let callURL = joinUrl(this.baseURL, url, { trailingSlash: true });
-    const accessToken = this.accessToken;
+    let headers = {
+      'X-XFERS-USER-API-KEY': this.accessToken
+    }
     let body = '';
 
     if (method === 'POST') {
@@ -24,9 +28,7 @@ export default class ApiHelper {
     }
 
     return new Promise((resolve, reject) => {
-      axios({ url: callURL, method, data: body, headers: {
-        'X-XFERS-USER-API-KEY': '2XWnEcCMufhqxpK6LsEiQVoE1UBPNG3fELCzNvUPhf4',
-      }})
+      axios({ url: callURL, method, data: body, headers })
       .then((res) => {
         if (res.status >= 400) { // check for 4XX & 5XX
           reject({ status: res.status, message: res.statusText });
@@ -35,6 +37,13 @@ export default class ApiHelper {
           resolve({ data: res.data, statusText: res.statusText });
         }
         return {}
+      })
+      .catch((err) => {
+        reject({
+          status: err.response.status,
+          statusText: err.response.statusText,
+          data: err.response.data
+        });
       });
     });
   }

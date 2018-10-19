@@ -1,5 +1,13 @@
 @import 'styles/_variables';
 
+.error {
+  color: $primary_xfers_red;
+  font-size: 14px;
+  font-weight: $font_weight_light;
+  letter-spacing: 0.5px;
+  line-height: $medium_space;
+}
+
 .modalHeader {
   color: #fff;
   font-size: 12px;

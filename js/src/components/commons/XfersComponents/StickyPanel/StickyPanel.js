@@ -18,7 +18,7 @@ function StickyPanel({ showBrand, ...elements }) {
     <Panel customClass={cls.stickyPanel}>
       <FlexContainer orientation="vertical">
         { header &&
-          <FlexItem customClass={cls.noSidePadding}>{header}</FlexItem>
+          <FlexItem noSidePadding customClass={cls.noSidePadding}>{header}</FlexItem>
         }
 
         <FlexItem noSidePadding>
@@ -41,9 +41,9 @@ function processElements({ header, footer, children }) {
   // If header & footer are passed as children in an array, process the elements;
   let body;
   for ( let i = 0; i < children.length; i++ ) {
-    header = children[i].props.spHeader ? children[i] : header;
-    body = children[i].props.spBody ? children[i] : body;
-    footer = children[i].props.spFooter ? children[i] : footer;
+    header = (children[i] && children[i].props.spHeader) ? children[i] : header;
+    body = (children[i] && children[i].props.spBody) ? children[i] : body;
+    footer = (children[i] && children[i].props.spFooter) ? children[i] : footer;
   }
   return { header, footer, children: body }
 }

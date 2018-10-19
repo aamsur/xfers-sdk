@@ -7,10 +7,9 @@ class XfersDevelopmentPanel extends Component {
   render() {
     return (
       <div>
-        { false ?
+        <ManageBank />
+        { false &&
           <APIDevelopmentPanel />
-          :
-          <ManageBank />
         }
       </div>
     )

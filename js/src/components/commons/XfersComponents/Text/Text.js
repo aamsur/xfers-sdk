@@ -11,6 +11,7 @@ function Text({
 }) {
 
   const titleClass = cx({
+    [cls.error]: type === 'error',
     [cls.modalHeader]: type === 'modalHeader',
     [cls.panelTitle]: type === 'panelTitle',
     [cls.label]: type === 'label',
@@ -27,7 +28,9 @@ function Text({
 const componentPropTypes = {
   customClass: PropTypes.string,
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(['modalHeader', 'panelTitle', 'label', 'boldValue'])
+  type: PropTypes.oneOf([
+    'error', 'modalHeader', 'panelTitle', 'label', 'boldValue'
+  ])
 }
 
 const componentDefaultProps = {

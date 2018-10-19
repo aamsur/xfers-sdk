@@ -2,47 +2,36 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-import { View } from 'XfersComponents'
+import { View, Button, Modal } from 'XfersComponents'
 import {
-  BankTypeList,
-  BankAccountName,
-  BankAccountNumber,
-  BankAccountNumberRepeat,
-  BankStatement,
-  AddBankAccountConfirmation,
-  AddBankAccountStatus,
+  BankAccountIndex,
+  NewBankAccountForm,
 } from './components'
-import { initializeComponent } from './actions'
+import { openModal, closeModal } from './actions'
 
-function mapStateToProps(state, props) {
-  return {}
+function mapStateToProps({manageBank}, props) {
+  const { showModal, route } = manageBank;
+  return { showModal, route }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    init: () => dispatch(initializeComponent())
+    openModal: () => dispatch(openModal()),
+    closeModal: () => dispatch(closeModal()),
   }
 }
 class ManageBank extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    this.props.init();
-  }
-
   render() {
+    const { showModal, route, openModal } = this.props;
     return (
       <View>
-        <AddBankAccountStatus />
-        <BankTypeList />
-        <BankAccountName />
-        <BankAccountNumber />
-        <BankAccountNumberRepeat />
-        <AddBankAccountConfirmation />
+        <Modal showModal={showModal} closeModal={closeModal}>
+          { route === 'index' && <BankAccountIndex /> }
+          { route === 'new' && <NewBankAccountForm /> }
+        </Modal>
+        <Button onClick={openModal}>Trigger Bank Modal</Button>
       </View>
+
     )
   }
 }

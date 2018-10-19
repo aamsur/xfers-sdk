@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
-export default () => {
+export default (props = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -18,7 +18,12 @@ export default () => {
 
   const initialState = {
     manageBank: {
+      showModal: false,
+      // Available routes: index, new
+      route: 'index',
+      error: '',
       dataLoading: false,
+      userBanks: [],
       bankOptions: [],
       filter: '',
       newBankAccountDetails: {

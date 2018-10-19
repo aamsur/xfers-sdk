@@ -9,10 +9,10 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import {  } from 'ManageBank/actions'
+import { submitNewBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
-  const { newBankAccountDetails: { bank, accountNo, accountHolderName }, bankOptions } = manageBank;
+  const { error, newBankAccountDetails: { bank, accountNo, accountHolderName }, bankOptions } = manageBank;
 
   // Get the details of the selected Bank
   let bankDetails = {};
@@ -23,20 +23,26 @@ function mapStateToProps({manageBank}, props) {
     }
   }
 
-  return { bankDetails, accountHolderName, accountNo };
+  return { error, bankDetails, accountHolderName, accountNo };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    submit: (successCallback) => dispatch(submitNewBankAccountDetails(successCallback))
+  }
 }
 
 class AddBankAccountConfirmation extends Component {
   render() {
     const {
+      error,
       bankDetails,
       accountNo,
       accountHolderName,
       updateForm,
+      submit,
+      goNext,
+      goBack,
     } = this.props;
 
     /* Example bankDetails data
@@ -49,9 +55,13 @@ class AddBankAccountConfirmation extends Component {
     }
     */
 
+    const submitWithCallback = () => {
+      submit(goNext);
+    }
+
     return (
       <StickyPanel showBrand>
-        <ModalHeader spHeader title="ADD BANK ACCOUNT" />
+        <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
         <View spBody>
           <Text type="panelTitle">Confirm details</Text>
           <View marginBottom="40px">
@@ -67,9 +77,12 @@ class AddBankAccountConfirmation extends Component {
             <Text type="boldValue">{accountNo}</Text>
           </View>
         </View>
-        <FooterButtonGroup spFooter>
-          <Button type="primary">Submit</Button>
-        </FooterButtonGroup>
+        <View spFooter>
+          <View marginBottom="20px"><Text type="error">{error}</Text></View>
+          <FooterButtonGroup spFooter>
+            <Button type="primary" onClick={submitWithCallback}>Submit</Button>
+          </FooterButtonGroup>
+        </View>
       </StickyPanel>
     )
   }

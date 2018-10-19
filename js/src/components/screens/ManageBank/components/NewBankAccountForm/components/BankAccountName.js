@@ -13,7 +13,7 @@ import { updateBankAccountDetails } from 'ManageBank/actions'
 
 function mapStateToProps({manageBank}, props) {
   const { newBankAccountDetails: { accountHolderName } } = manageBank;
-  return { accountHolderName };
+  return { accountHolderName, ...props };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -27,16 +27,19 @@ class BankAccountName extends Component {
     const {
       accountHolderName,
       updateForm,
+      goBack,
+      goNext,
     } = this.props;
 
     const disabled = accountHolderName ? false : true
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader spHeader title="ADD BANK ACCOUNT" />
+        <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
         <View spBody>
           <Text type="panelTitle">Enter your full name</Text>
           <FormInput
+            autoFocus
             placeholder="e.g. Alice"
             value={accountHolderName}
             onChange={updateForm}
@@ -44,7 +47,7 @@ class BankAccountName extends Component {
           />
         </View>
         <FooterButtonGroup spFooter>
-          <Button type="primary" disabled={disabled}>Next</Button>
+          <Button type="primary" disabled={disabled} onClick={goNext}>Next</Button>
         </FooterButtonGroup>
       </StickyPanel>
     )

@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Panel, Text, ModalHeader, SelectionButton, SearchBar } from 'XfersComponents'
+import {
+  StickyPanel,
+  View,
+  Text,
+  ModalHeader,
+  SelectionButton,
+  SearchBar
+} from 'XfersComponents'
+
 import { updateBankAccountDetails, updateSearchFilter } from 'ManageBank/actions'
 import { getFilteredBankOptions } from 'ManageBank/selectors'
 
 function mapStateToProps({manageBank}, props) {
   const { bankOptions, filter } = manageBank;
   const filteredBankOptions = getFilteredBankOptions(manageBank);
-  return { bankOptions: filteredBankOptions, filter };
+  return { bankOptions: filteredBankOptions, filter, ...props };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -23,26 +31,36 @@ class BankTypeList extends Component {
       bankOptions,
       filter,
       updateForm,
-      updateSearchFilter
+      updateSearchFilter,
+
+      // Stepper Fn:
+      goNext,
+      goBack,
     } = this.props;
 
+    const onSelect = (bankAbbreviation) => {
+      updateForm(bankAbbreviation);
+      goNext();
+    }
+
     return (
-      <Panel>
-        <ModalHeader title="ADD BANK ACCOUNT" />
-        <View layout="section" paddingBtm>
+      <StickyPanel showBrand>
+        <ModalHeader onBack={goBack} spHeader title="Add Bank Account" />
+        <View spBody>
           <Text type="panelTitle">Select bank name</Text>
           <SearchBar
             placeholder="Search bank name"
             value={filter}
             onChange={(e) => updateSearchFilter(e.target.value)}
           />
-          <View>
+        <View background="#fff" overflow="auto" height="340px" padding="20px" boxShadow="inset 0px 1px 4px #ccc">
             { bankOptions.length > 0 ?
               bankOptions.map((bank, index) =>
                 <SelectionButton
                   key={index}
-                  image={bank.img_src} title={`${bank.name} (${bank.abbreviation})`}
-                  onClick={() => updateForm(bank.abbreviation)}
+                  image={bank.img_src}
+                  title={`${bank.name} (${bank.abbreviation})`}
+                  onClick={() => onSelect(bank.abbreviation)}
                   />
                 )
               :
@@ -50,7 +68,7 @@ class BankTypeList extends Component {
             }
           </View>
         </View>
-      </Panel>
+      </StickyPanel>
     )
   }
 }
