@@ -58,10 +58,27 @@ Then initialize the components by adding the following javascript into the `<bod
     // 1st param => Mounting Element Id: 'xfers_elements'
     // 2nd param => Avaialble components: ['banks']
     Xfers.Element.init('xfers_elements', 'banks');
-    
+
   </script>
 </body>
 ```
 
+#### Through npm, import/export
+
+Install the package through npm or yarn:
+
+```
+  npm install xfers-js-sdk
+
+  // Or...
+  yarn add xfers-js-sdk
+```
+
+Then import the Xfers UI Elements into your code:
+```javascript
+import { Element } from 'xfers-js-sdk'
+```
+
 ## Example:
 https://cl.ly/81869d7de1b4
+=======
