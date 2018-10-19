@@ -62,3 +62,6 @@ Then initialize the components by adding the following javascript into the `<bod
   </script>
 </body>
 ```
+
+## Example:
+https://cl.ly/81869d7de1b4
