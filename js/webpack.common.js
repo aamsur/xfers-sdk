@@ -13,9 +13,6 @@ const MODULE_PATHS = [
 ];
 
 module.exports = {
-  entry: {
-    xfers: './src/index.js',
-  },
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',

@@ -1,26 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import { Verification, TopUp, ManageBank } from './components/screens'
-import APIDevelopmentPanel from './wrapper-dev'
 
-class XfersDevelopmentPanel extends Component {
-  render() {
-    return (
-      <div>
-        <ManageBank />
-        { false &&
-          <APIDevelopmentPanel />
-        }
-      </div>
-    )
+import {
+  ManageBank
+} from './components/screens'
+
+module.exports = {
+  Element: {
+    init: ( mountingElementId, elementType, options = {} ) => {
+
+      let element;
+      switch( elementType ) {
+        case 'banks':
+          element = ManageBank;
+          break;
+      }
+
+      ReactDOM.render(
+        React.createElement(ManageBank),
+        document.getElementById(mountingElementId)
+      );
+    },
+  },
+  Flow: {
+    init: ( mountingElementId, options = {} ) => {
+
+    }
   }
-}
-
-ReactDOM.render(
-  React.createElement(XfersDevelopmentPanel),
-  document.getElementById('xfers_elements')
-);
-
-if (module.hot) {
-  module.hot.accept();
 }
