@@ -70,12 +70,12 @@ Then initialize the components by adding the following javascript into the `<bod
 Install the package through npm or yarn:
 
 ```
-  npm install xfers-js-sdk
+npm install @xfers/xfers-js-sdk
 ```
 
 Then import the Xfers UI Elements into your code:
 ```javascript
-import { Element } from 'xfers-js-sdk'
+import { Element } from '@xfers/xfers-js-sdk'
 ```
 
 ## Example:
