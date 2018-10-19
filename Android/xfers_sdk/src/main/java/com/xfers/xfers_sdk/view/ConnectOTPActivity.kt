@@ -1,10 +1,11 @@
 package com.xfers.xfers_sdk.view
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.task.ConnectOTPTask
 
 class ConnectOTPActivity : AppCompatActivity() {
 
@@ -21,17 +22,9 @@ class ConnectOTPActivity : AppCompatActivity() {
     }
 
     fun onClickNext(view: View) {
-        // TODO: Ping merchant's connect OTP API URL
+        val OTPTextField = findViewById<EditText>(R.id.enterOTPTextField)
+        val OTP = OTPTextField.text.toString()
 
-        // TODO: Set dynamically based on user status, for now hardcode to be able to develop
-        val isUserExistingVerified = true
-        val isUserExistingUnverified = false
-        val isUserNewUser = false
-
-        when {
-            isUserExistingVerified -> startActivity(Intent(this, ConnectShareKYCActivity::class.java))
-            isUserExistingUnverified -> startActivity(Intent(this, ConnectIdentityVerificationActivity::class.java))
-            isUserNewUser -> startActivity(Intent(this, ConnectIdentityVerificationActivity::class.java))
-        }
+        ConnectOTPTask(this, OTP).execute()
     }
 }

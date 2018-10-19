@@ -38,9 +38,6 @@ class MainActivity : AppCompatActivity() {
         xfers.config.setMerchantName(merchantName)
         xfers.config.setMerchantLogo(merchantLogo)
         xfers.config.setMerchantLogoTint(merchantLogoTint)
-
-        // TODO: Build on top of sample code, deactivated for now
-        // UpdateTextWithUserDetails(this.text, this).execute()
     }
 
     fun onClickXfersConnect(view: View) {
