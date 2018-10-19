@@ -32,3 +32,14 @@ The "Coming Soon Page" is presented via the base example page using the `flow` o
 Check the APIs to see how an activity is started via an `Intent`.
 
 With the knowledge of layout editor and constraints, create a new activity and let it be presented instead of the "Coming Soon Page", you can follow the "Base Example Page" and build a placeholder page with buttons that navigates to other placeholder activities and build the UI as in `Overflow` by the designer. Chaining and API integration will be done in the near future.
+
+WEB SDK
+---
+
+## Usage
+
+```
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script type="text/javascript" src="dist/vendors~xfers.bundle.js"></script>
+<script type="text/javascript" src="dist/xfers.bundle.js"></script>
+```
