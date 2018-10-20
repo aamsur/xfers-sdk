@@ -33,6 +33,15 @@ Check the APIs to see how an activity is started via an `Intent`.
 
 With the knowledge of layout editor and constraints, create a new activity and let it be presented instead of the "Coming Soon Page", you can follow the "Base Example Page" and build a placeholder page with buttons that navigates to other placeholder activities and build the UI as in `Overflow` by the designer. Chaining and API integration will be done in the near future.
 
+# FAQ
+1. What is Gradle?
+Gradle allows all android studio projects to be configured precisely and version controlled. This ensures that every developer's IDE  works out of the box in the same way. 
+
+A must read on gradle file can be found here: https://developer.android.com/studio/build/ 
+
+
+
+
 WEB SDK
 ---
 
