@@ -3,7 +3,7 @@
 This section is for the Android SDK found in the Android folder
 ---
 
-## Setting Up
+## General Setting Up
 
 1. Install Android Studio at https://developer.android.com/studio/install
 2. Git pull xfers-sdk project
@@ -11,9 +11,14 @@ This section is for the Android SDK found in the Android folder
 4. Once Gradle is done syncing, manage your AVD, check https://developer.android.com/studio/run/managing-avds to see how to add a device
 5. Run it on a device to ensure that everything has been set up corretly
 
-## Building / Editing UI for the SDK
+## SDK development 
+This section is for SDK development notes. 
 
-*** Import step of editing the SDK, change `implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.0"` to `implementation project(':xfers_sdk')` under the `build.gradle` for the app, otherwise the app will be downloading the SDK from v0.1.0 from Maven which is now the one that you're currently editing. To be sure about doing this step correctly, make a change to a title or button and run it again on the device and make sure that the change is reflected. ***
+### Building / Editing UI for the SDK
+
+Before you can do any editing of the SDK, change `implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.0"` to `implementation project(':xfers_sdk')` under the `build.gradle` for the app.
+
+Otherwise the app will be downloading the SDK from v0.1.0 from Maven which is now the one that you're currently editing. To be sure about doing this step correctly, make a change to a title or button and run it again on the device and make sure that the change is reflected.
 
 Please refer to https://developer.android.com/training/basics/firstapp/building-ui for basics on layout editor and constraints.
 
