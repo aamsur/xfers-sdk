@@ -6,10 +6,12 @@ This section is for the Android SDK found in the Android folder
 ## General Setting Up
 
 1. Install Android Studio at https://developer.android.com/studio/install
-2. Git pull xfers-sdk project
-3. Open project with Android Studio and let Gradle sync
-4. Once Gradle is done syncing, manage your AVD, check https://developer.android.com/studio/run/managing-avds to see how to add a device
-5. Run it on a device to ensure that everything has been set up corretly
+1. Git pull xfers-sdk project
+1. In the xfers_sdk/ module, create a file called keystore.gradle with content: ```ext { bintray_key = "key" }```
+   this is the deploy key to publish to bintray. Populate it with an actual API key for prod deployment.
+1. Open project with Android Studio and let Gradle sync. 
+1. Once Gradle is done syncing, manage your AVD, check https://developer.android.com/studio/run/managing-avds to see how to add a device
+1. Run it on a device to ensure that everything has been set up corretly
 
 ## SDK development 
 This section is for SDK development notes. 
