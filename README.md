@@ -22,13 +22,10 @@ Otherwise the app will be downloading the SDK from v0.1.0 from Maven which is no
 
 Please refer to https://developer.android.com/training/basics/firstapp/building-ui for basics on layout editor and constraints.
 
-Examples:
-
-1.
-
+### Example 1
 ![Coming Soon Page](https://user-images.githubusercontent.com/6291947/46936852-466ab100-d092-11e8-9925-696a88d25b11.png)
 
-2.
+### Example 2
 
 ![Base Example Page](https://user-images.githubusercontent.com/6291947/46936853-466ab100-d092-11e8-8359-38d2753810bb.png)
 
@@ -38,7 +35,7 @@ Check the APIs to see how an activity is started via an `Intent`.
 
 With the knowledge of layout editor and constraints, create a new activity and let it be presented instead of the "Coming Soon Page", you can follow the "Base Example Page" and build a placeholder page with buttons that navigates to other placeholder activities and build the UI as in `Overflow` by the designer. Chaining and API integration will be done in the near future.
 
-# FAQ
+## FAQ
 1. What is Gradle?
 Gradle allows all android studio projects to be configured precisely and version controlled. This ensures that every developer's IDE  works out of the box in the same way. 
 
