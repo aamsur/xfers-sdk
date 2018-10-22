@@ -32,11 +32,11 @@ export const initializeComponent = () => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
 
   const bankOptionAPI = new Promise((resolve, reject) => {
-    getState().manageBank.network.getAvailableBanks().then(res => resolve(res.data));
+    xfers.getAvailableBanks().then(res => resolve(res.data));
   });
 
   const userBanksAPI = new Promise((resolve, reject) => {
-    getState().manageBank.network.getUserBanks().then(res => resolve(res.data));
+    xfers.getUserBanks().then(res => resolve(res.data));
   });
 
   Promise
