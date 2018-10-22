@@ -3,7 +3,7 @@ import React from 'react'
 import {StepContainer, FieldContainer, Field, FieldImage} from './BankField'
 import bocImage1 from 'instructionImages/mobile/Instruct_BOC_1.png'
 
-import {FormLabel} from 'XfersBasicComponents'
+import {FormLabel} from 'XfersComponents'
 import {toCurrency} from 'UtilityFunctions'
 
 function BOCInstructions({screenType, topUpAmount, xfersBankAccount}) {

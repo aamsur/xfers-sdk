@@ -7,7 +7,7 @@ class XfersDevelopmentPanel extends Component {
   render() {
     return (
       <div>
-        <ManageBank />
+        <TopUp />
         { false &&
           <APIDevelopmentPanel />
         }

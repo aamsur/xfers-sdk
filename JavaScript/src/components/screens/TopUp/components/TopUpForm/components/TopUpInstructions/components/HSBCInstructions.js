@@ -2,7 +2,7 @@ import React from 'react'
 
 import {StepContainer, FieldContainer, Field, FieldImage} from './BankField'
 
-import {FormLabel} from 'XfersBasicComponents'
+import {FormLabel} from 'XfersComponents'
 import {toCurrency} from 'UtilityFunctions'
 
 function HSBCInstructions({screenType, topUpAmount, xfersBankAccount}) {

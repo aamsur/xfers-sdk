@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cls from '../Instructions.scss'
 
-import {CopyBox} from 'XfersBasicComponents'
+import {CopyBox} from 'XfersComponents'
 
 const stepComponentPropTypes = {
   stepHeader: PropTypes.oneOfType([

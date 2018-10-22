@@ -24,7 +24,7 @@ import {
   MBBInstructions
 } from './components'
 
-import {switchActiveStep, selectScreenType, submitBankTopUpRequest, openModal, closeModal} from 'TopUpView/actions/topUpActions'
+import {switchActiveStep, selectScreenType, submitBankTopUpRequest, openModal, closeModal} from 'TopUp/actions/topUpActions'
 import getBankSpecifics from './bank_specific_instructions'
 
 function mapStateToProps({topUpView}, props) {

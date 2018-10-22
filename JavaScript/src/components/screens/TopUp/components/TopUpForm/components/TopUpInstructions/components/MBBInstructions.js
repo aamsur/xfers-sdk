@@ -3,7 +3,7 @@ import React from 'react'
 import {StepContainer, FieldContainer, Field, FieldImage} from './BankField'
 import mbbImage1 from 'instructionImages/mobile/Instruct_Maybank_1.png'
 
-import {FormLabel} from 'XfersBasicComponents'
+import {FormLabel} from 'XfersComponents'
 import {toCurrency} from 'UtilityFunctions'
 
 function MBBInstructions({screenType, topUpAmount, xfersBankAccount}) {

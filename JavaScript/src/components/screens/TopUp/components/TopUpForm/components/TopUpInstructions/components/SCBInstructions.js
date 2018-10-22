@@ -4,7 +4,7 @@ import {StepContainer, FieldContainer, Field, FieldImage} from './BankField'
 import scbImage1 from 'instructionImages/desktop/Instruct_SCB_1.png'
 import scbImage2 from 'instructionImages/desktop/Instruct_SCB_2.png'
 
-import {FormLabel} from 'XfersBasicComponents'
+import {FormLabel} from 'XfersComponents'
 import {toCurrency} from 'UtilityFunctions'
 
 function SCBInstructions({screenType, topUpAmount, xfersBankAccount}) {

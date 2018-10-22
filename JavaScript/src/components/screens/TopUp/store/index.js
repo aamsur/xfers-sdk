@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
-export default () => {
+export default (props = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -16,9 +16,22 @@ export default () => {
     }
   }
 
+  const { network } = props;
+
   const initialState = {
     topUp: {
+      network,
 
+      showModal: false,
+      // Available routes:
+      route: '',
+      error: '',
+      dataLoading: false,
+      userBanks: [],
+      newTopUpRequest: {
+        bank: '',
+        topUpAmount: ''
+      }
     }
   }
 

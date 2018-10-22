@@ -5,7 +5,7 @@ import dbsImage1 from 'instructionImages/mobile/Instruct_DBS_1.png'
 import dbsImage2 from 'instructionImages/mobile/Instruct_DBS_2.png'
 import dbsImage3 from 'instructionImages/mobile/Instruct_DBS_3.png'
 
-import {FormLabel} from 'XfersBasicComponents'
+import {FormLabel} from 'XfersComponents'
 import {toCurrency} from 'UtilityFunctions'
 
 function DBSInstructions({screenType, topUpAmount, xfersBankAccount}) {
