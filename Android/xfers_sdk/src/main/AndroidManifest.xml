@@ -5,6 +5,10 @@
     <application>
         <activity android:name=".view.ComingSoonActivity" />
         <activity android:name=".view.ConnectPhoneActivity" />
+        <activity android:name=".view.ConnectOTPActivity" />
+        <activity android:name=".view.ConnectShareKYCActivity" />
+        <activity android:name=".view.ConnectLinkSuccessfulActivity" />
+        <activity android:name=".view.ConnectIdentityVerificationActivity"></activity>
     </application>
 
 </manifest>

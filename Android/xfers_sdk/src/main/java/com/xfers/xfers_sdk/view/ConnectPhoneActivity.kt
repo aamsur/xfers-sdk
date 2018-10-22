@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,7 @@ class ConnectPhoneActivity : AppCompatActivity() {
 
         title = "Link Xfers Account"
 
+        // TODO: To be removed, for proof of concept only
         val merchantTextView = findViewById<TextView>(R.id.phoneNumberMerchantTextView)
         merchantTextView.text = "Connecting to ${XfersConfiguration.getMerchantName()}"
     }
@@ -24,7 +26,8 @@ class ConnectPhoneActivity : AppCompatActivity() {
     }
 
     fun onClickNext(view: View) {
-        // TODO: Do nothing for now, to ping merchant's API URL and OTP page
-        return
+        // TODO: Ping merchant's connect phone number API URL
+
+        startActivity(Intent(this, ConnectOTPActivity::class.java))
     }
 }
