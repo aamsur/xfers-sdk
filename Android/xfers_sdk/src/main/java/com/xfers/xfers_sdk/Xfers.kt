@@ -5,6 +5,7 @@ import android.content.Intent
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.ComingSoonActivity
+import com.xfers.xfers_sdk.view.ConnectPhoneActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -33,6 +34,10 @@ class Xfers(val context: Context) {
             XfersConfiguration.setMerchantApiBase(apiBase)
         }
 
+        fun setMerchantName(name: String) {
+            XfersConfiguration.setMerchantName(name)
+        }
+
         // TODO: Implement Android Keystore handling of userApiKey
         fun setUserApiKey() {
             return
@@ -40,8 +45,8 @@ class Xfers(val context: Context) {
     }
 
     inner class Flow {
-        fun startSignupFlow() {
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        fun startConnectFlow() {
+            context.startActivity(Intent(context, ConnectPhoneActivity::class.java))
         }
 
         fun startTopupFlow() {
