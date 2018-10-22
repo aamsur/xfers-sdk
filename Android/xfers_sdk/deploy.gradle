@@ -15,7 +15,6 @@
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-apply from: 'keystore.gradle'//the file, containing the bintray API key
 ext {
     // This configuration will result in:
     // compile '<groupId>:<artifactId>:<libVersion>'
@@ -27,22 +26,26 @@ version = libVersion
 group = groupId
 //take a look at https://github.com/bintray/gradle-bintray-plugin#buildgradle
 bintray {
-    user = 'xfers' // Your bintray User
-    key = bintray_key // Defined in keystore.gradle file
-    configurations = ['archives']
-    publish = true //[Default: false] Whether version should be auto published after an upload
-    override = false //[Default: false] Whether to override version artifacts already published
-    // Package configuration. The plugin will use the repo and name properties to check if the
-    // package already exists. In that case, there's no need to configure the other package
-    // properties (like userOrg, desc, etc).
-    pkg {
-        repo = "xfers-android" //bintray repo
-        name = "xfers_sdk" //bintray package
-        licenses = ["MIT"]
-        vcsUrl = "https://github.com/Xfers/xfers-sdk.git"
-        version {
-            name = libVersion
+    try {
+        user = BINTRAY_USER // Your bintray User
+        key = BINTRAY_KEY // Defined in keystore.gradle file
+        configurations = ['archives']
+        publish = true //[Default: false] Whether version should be auto published after an upload
+        override = false //[Default: false] Whether to override version artifacts already published
+        // Package configuration. The plugin will use the repo and name properties to check if the
+        // package already exists. In that case, there's no need to configure the other package
+        // properties (like userOrg, desc, etc).
+        pkg {
+            repo = "xfers-android" //bintray repo
+            name = "xfers_sdk" //bintray package
+            licenses = ["MIT"]
+            vcsUrl = "https://github.com/Xfers/xfers-sdk.git"
+            version {
+                name = libVersion
+            }
         }
+    } catch (ex) {
+        throw new InvalidUserDataException("You should define BINTRAY_USER and BINTRAY_KEY in gradle.properties.")
     }
 }
 install {
