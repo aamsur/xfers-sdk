@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,7 +26,6 @@ class ConnectLinkSuccessfulActivity : AppCompatActivity() {
     }
 
     fun onClickReturn(view: View) {
-        // TODO: Pop back to Merchant's context, finish() for now
-        finish()
+        startActivity(Intent(this, XfersConfiguration.getMerchantFlowStartingContextClass()))
     }
 }
