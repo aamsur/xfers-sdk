@@ -1,1 +1,6 @@
+/**
+ * The settings.gradle file, located in this root project directory, tells Gradle which modules it should include when building your app.
+ */
+
+// include the app and xfers_sdk module
 include ':app', ':xfers_sdk'
