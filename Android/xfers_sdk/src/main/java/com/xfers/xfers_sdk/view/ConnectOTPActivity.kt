@@ -15,6 +15,7 @@ class ConnectOTPActivity : AppCompatActivity() {
         title = "Link Xfers Account"
     }
 
+    // TODO: To be replaced with Android "Back" and "Up"
     fun onClickBack(view: View) {
         finish()
     }
@@ -23,11 +24,10 @@ class ConnectOTPActivity : AppCompatActivity() {
         // TODO: Ping merchant's connect OTP API URL
 
         // TODO: Set dynamically based on user status, for now hardcode to be able to develop
-        val isUserExistingVerified = false
-        val isUserExistingUnverified = true
+        val isUserExistingVerified = true
+        val isUserExistingUnverified = false
         val isUserNewUser = false
 
-        // TODO: present the appropriate pages
         when {
             isUserExistingVerified -> startActivity(Intent(this, ConnectShareKYCActivity::class.java))
             isUserExistingUnverified -> startActivity(Intent(this, ConnectIdentityVerificationActivity::class.java))

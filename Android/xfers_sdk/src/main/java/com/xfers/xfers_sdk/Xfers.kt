@@ -2,6 +2,7 @@ package com.xfers.xfers_sdk
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.ComingSoonActivity
@@ -36,6 +37,14 @@ class Xfers(val context: Context) {
 
         fun setMerchantName(name: String) {
             XfersConfiguration.setMerchantName(name)
+        }
+
+        fun setMerchantLogo(logo: Int) {
+            XfersConfiguration.setMerchantLogo(logo)
+        }
+
+        fun setMerchantLogoTint(tint: Int) {
+            XfersConfiguration.setMerchantLogoTint(tint)
         }
 
         // TODO: Implement Android Keystore handling of userApiKey

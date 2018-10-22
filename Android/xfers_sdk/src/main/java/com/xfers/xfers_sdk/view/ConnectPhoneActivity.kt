@@ -21,6 +21,7 @@ class ConnectPhoneActivity : AppCompatActivity() {
         merchantTextView.text = "Connecting to ${XfersConfiguration.getMerchantName()}"
     }
 
+    // TODO: To be replaced with Android "Back" and "Up"
     fun onClickBack(view: View) {
         finish()
     }

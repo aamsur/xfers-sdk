@@ -1,5 +1,7 @@
 package com.xfers.xfers_sdk.utils
 
+import android.graphics.Color
+
 enum class Country { SG, ID }
 
 object XfersConfiguration {
@@ -18,6 +20,8 @@ object XfersConfiguration {
     // Merchant Settings
     private var merchantApiBase = ""
     private var merchantName = ""
+    private var merchantLogo: Int? = null
+    private var merchantLogoTint = Color.TRANSPARENT
 
     // TODO: Implement Android Keystore handling of userApiKey
     var userApiKey = ""
@@ -50,6 +54,14 @@ object XfersConfiguration {
         merchantName = name
     }
 
+    fun setMerchantLogo(logo: Int) {
+        merchantLogo = logo
+    }
+
+    fun setMerchantLogoTint(tint: Int) {
+        merchantLogoTint = tint
+    }
+
     fun buildApiURL(apiPath: String): String {
         return "$apiBase/$apiPath"
     }
@@ -60,6 +72,14 @@ object XfersConfiguration {
 
     fun getMerchantName(): String {
         return merchantName
+    }
+
+    fun getMerchantLogo(): Int? {
+        return merchantLogo
+    }
+
+    fun getMerchantLogoTint(): Int {
+        return merchantLogoTint
     }
 
     fun getCurrentCountry(): Country? {
