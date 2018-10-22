@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="textColor">#4a4a4a</color>
+    <color name="nearWhite">#f7f7f7</color>
     <color name="clearBlue">#2f8dee</color>
+    <color name="lightGray">#9b9b9b</color>
 </resources>
