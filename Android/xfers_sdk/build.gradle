@@ -1,3 +1,11 @@
+/**
+ * The module-level build.gradle file, located in each project/module/ directory,
+ * allows you to configure build settings for the specific module it is located in.
+ * Configuring these build settings allows you to provide custom packaging options,
+ * such as additional build types and product flavors, and override settings in the main/
+ * app manifest or top-level build.gradle file.
+ */
+
 apply plugin: 'com.android.library'
 apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
@@ -27,6 +35,7 @@ android {
     }
 }
 
+// Configuration for the Kotlin-dokka documentation engine
 dokka {
     outputFormat = 'html'
     outputDirectory = "$buildDir/javadoc"
@@ -44,9 +53,9 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.google.code.gson:gson:2.8.5'
-
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.9.5'
+    implementation 'com.android.support:support-v4:28.0.0'
 }
 
 apply from: 'deploy.gradle'

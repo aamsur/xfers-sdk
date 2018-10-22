@@ -1,0 +1,36 @@
+.modal {
+  max-width: 420px;
+
+  :global(.modal-content) {
+    position: relative;
+  }
+
+  :global(.modal-body) {
+    // min-height: 750px;
+    padding: 0;
+    // padding: 42px 26px;
+  }
+
+  .closeBtn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+}
+
+.center {
+  @extend .modal;
+  height: 100%;
+  margin: auto !important;
+
+  :global(.modal-content) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+@media (min-width: 64em) {
+  .modal {
+  }
+}
