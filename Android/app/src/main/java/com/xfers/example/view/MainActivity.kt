@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val xfers = Xfers(this)
 
-        xfers.config.setSGSandbox()
+        xfers.config.setSDKConfigurations(Xfers.Country.SG, Xfers.Environment.SANDBOX)
         xfers.config.setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint)
     }
 

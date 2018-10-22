@@ -12,22 +12,19 @@ import java.math.BigInteger
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
 class Xfers(val context: Context) {
 
+    // enum classes
+    enum class Country {
+        SG, ID
+    }
+
+    enum class Environment {
+        PRODUCTION, SANDBOX
+    }
+
     // Nested classes
     inner class Config {
-        fun setSGSandbox() {
-            XfersConfiguration.setSGSandbox()
-        }
-
-        fun setSGProduction() {
-            XfersConfiguration.setSGProduction()
-        }
-
-        fun setIDSandbox() {
-            XfersConfiguration.setIDSandbox()
-        }
-
-        fun setIDProduction() {
-            XfersConfiguration.setIDProduction()
+        fun setSDKConfigurations(country: Country, environment: Environment) {
+            XfersConfiguration.setSDKConfigurations(country, environment)
         }
 
         fun setMerchantConfigurations(apiBase: String, name: String, logo: Int, logoTint: Int) {
