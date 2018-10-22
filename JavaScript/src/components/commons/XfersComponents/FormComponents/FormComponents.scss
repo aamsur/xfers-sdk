@@ -1,0 +1,39 @@
+@import 'styles/_variables';
+
+.inputFont {
+  font-size: 30px;
+  font-weight: $font_weight_light;
+  letter-spacing: 0.8px;
+  line-height: 36px;
+}
+
+.inputLayout {
+  border-radius: 2px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid $xfers_clear_blue;
+}
+
+.helpBlock {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.caption {
+  color: $xfers_text_grey;
+  font-size: 12px;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 16px;
+}
+
+:global(.has-feedback .form-control) {
+  padding-right: 12px;
+}
+
+:global(.input-group) {
+  width: 100%;
+}
+
+// COMPONENT STYLES

@@ -1,0 +1,14 @@
+@import 'styles/_variables';
+
+.searchField {
+  input {
+    height: 56px;
+    font-size: 14px;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,27 @@
+@import 'styles/_variables';
+
+.progressBar {
+  text-align: center;
+
+  label {
+    width: 100%;
+    font-weight: $font_weight_medium;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .progress {
+    width: 100%;
+    background-color: $primary_xfers_grey;
+  }
+
+  .bar {
+    height: 18px;
+    background-color: #4fb9de;
+  }
+
+  .red {
+    background-color: $primary_xfers_red;
+  }
+}
