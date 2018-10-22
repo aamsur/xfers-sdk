@@ -15,6 +15,9 @@ object XfersConfiguration {
     private var apiBase = ""
     private var currentCountry: Country? = null
 
+    // Merchant Settings
+    private var merchantApiBase = ""
+
     // TODO: Implement Android Keystore handling of userApiKey
     var userApiKey = ""
 
@@ -38,8 +41,16 @@ object XfersConfiguration {
         apiBase = idProductionApiBase
     }
 
+    fun setMerchantApiBase(apiBase: String) {
+        merchantApiBase = apiBase
+    }
+
     fun buildApiURL(apiPath: String): String {
         return "$apiBase/$apiPath"
+    }
+
+    fun buildMerchantApiURL(apiPath: String): String {
+        return "$merchantApiBase/$apiPath"
     }
 
     fun getCurrentCountry(): Country? {

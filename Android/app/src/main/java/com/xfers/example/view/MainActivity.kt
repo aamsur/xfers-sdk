@@ -9,11 +9,19 @@ import java.math.BigInteger
 
 // TODO: Example Activity (to be turned into example app)
 class MainActivity : AppCompatActivity() {
+
+    // Put your Base URL here, for e.g.
+    // https://bright-sunshine-91728.herokuapp.com/
+    val merchantApiBase = "<set_your_backend_api_base_here>"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Xfers(this).config.setSGSandbox()
+        val xfers = Xfers(this)
+
+        xfers.config.setSGSandbox()
+        xfers.config.setMerchantApiBase(merchantApiBase)
 
         // TODO: Build on top of sample code, deactivated for now
         // UpdateTextWithUserDetails(this.text, this).execute()
