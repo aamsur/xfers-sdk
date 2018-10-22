@@ -8,15 +8,16 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import { submitNewTopUpRequest } from 'TopUp/actions/'
+import { toCurrency } from 'UtilityFunctions'
+import { submitNewTopUpRequest } from 'TopUp/actions'
 
 function mapStateToProps({topUp}, props) {
-  const { error, newTopUpRequest: { topUpAmount }, bankOptions } = topUp;
+  const { error, newTopUpRequest: { bank, topUpAmount }, userBanks } = topUp;
 
   // Get the details of the selected Bank
   let bankDetails = {};
-  for ( let i = 0; i < bankOptions.length; i++ ) {
-    if (bankOptions[i].abbreviation === bank) {
+  for ( let i = 0; i < userBanks.length; i++ ) {
+    if (userBanks[i].bank_abbrev === bank) {
       bankDetails = bankOptions[i];
       break;
     }
@@ -67,16 +68,16 @@ class TopUpConfirmation extends Component {
           </View>
           <View marginBottom="40px">
             <Text type="label">Payment To</Text>
-            <Text type="boldValue"></Text>
+            <Text type="boldValue">nothing</Text>
           </View>
           <View marginBottom="40px">
             <Text type="label">Payment Amount</Text>
-            <Text type="boldValue">{topUpAmount}</Text>
+            <Text type="boldValue">{toCurrency(topUpAmount)}</Text>
           </View>
         </View>
         <View spFooter>
           <View marginBottom="20px"><Text type="error">{error}</Text></View>
-          <FooterButtonGroup spFooter>
+          <FooterButtonGroup>
             <Button type="primary" onClick={submitWithCallback}>Submit</Button>
           </FooterButtonGroup>
         </View>

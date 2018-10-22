@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Verification, TopUp, ManageBank } from './components/screens'
+import { Verification, TopUp, ManageBank, Payment } from './components/screens'
 import APIDevelopmentPanel from './wrapper-dev'
 
 class XfersDevelopmentPanel extends Component {
   render() {
     return (
       <div>
-        <TopUp />
+        <Payment />
         { false &&
           <APIDevelopmentPanel />
         }

@@ -27,13 +27,13 @@ import {
 import {switchActiveStep, selectScreenType, submitBankTopUpRequest, openModal, closeModal} from 'TopUp/actions/topUpActions'
 import getBankSpecifics from './bank_specific_instructions'
 
-function mapStateToProps({topUpView}, props) {
-  const {xfersBankAccount, userVerifiedBankList, requestIndex, bankId, screenType, topUpRequestList} = topUpView;
+function mapStateToProps({topUp}, props) {
+  const {xfersBankAccount, userBanks, requestIndex, bankId, screenType, topUpRequestList} = topUp;
 
   let selectedBankId = topUpRequestList[requestIndex].user_bank_account_id;
   let senderBankAccount;
-  for (let i = 0; i < userVerifiedBankList.length; i++) {
-    if (userVerifiedBankList[i].id == selectedBankId) {
+  for (let i = 0; i < userBanks.length; i++) {
+    if (userBanks[i].id == selectedBankId) {
       senderBankAccount = userVerifiedBankList[i];
       break;
     }

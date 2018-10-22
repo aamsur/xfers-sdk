@@ -19,7 +19,7 @@ export default (props = {}) => {
   const { network } = props;
 
   const initialState = {
-    topUp: {
+    payment: {
       network,
 
       showModal: false,
@@ -27,18 +27,6 @@ export default (props = {}) => {
       route: 'index',
       error: '',
       dataLoading: false,
-      userBanks: [],
-      newTopUpRequest: {
-        bank: '',
-        topUpAmount: ''
-      },
-      xfersBankAccount: {
-        accountNo: '',
-        abbreviation: '',
-        bankName: '',
-        uniqueId: '',
-        payeeName: ''
-      },
     }
   }
 

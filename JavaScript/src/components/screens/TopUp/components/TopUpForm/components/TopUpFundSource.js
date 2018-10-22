@@ -10,6 +10,7 @@ import {
 } from 'XfersComponents'
 
 import { updateTopUpDetails } from 'TopUp/actions'
+import bankIcon from 'icons/Bank_Acc_23.png'
 
 function mapStateToProps({topUp}, props) {
   const { userBanks } = topUp;
@@ -46,7 +47,9 @@ class TopUpFundSource extends Component {
                 />
             )}
           </View>
-          <View><AnchorLink onClick={() => console.log()}>Edit bank accounts</AnchorLink></View>
+          <View marginTop="20px">
+            <AnchorLink onClick={() => console.log()}>Edit bank accounts</AnchorLink>
+          </View>
         </View>
       </StickyPanel>
     )

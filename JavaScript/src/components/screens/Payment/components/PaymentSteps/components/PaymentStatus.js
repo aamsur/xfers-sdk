@@ -7,10 +7,10 @@ import {
   FooterButtonGroup,
   StatusPanel
 } from 'XfersComponents'
-import { navigate } from 'TopUp/actions'
+import { navigate } from 'Payment/actions'
 
 
-function mapStateToProps({topUp}, props) {
+function mapStateToProps({payment}, props) {
   return {}
 }
 
@@ -20,19 +20,25 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-class TopUpStatus extends Component {
+class PaymentStatus extends Component {
   render() {
     const { navigateToHome } = this.props;
 
     return (
       <StatusPanel
-        type="tertiary"
-        iconType="pending"
+        type="secondary"
+        iconType="success"
         title="Make Payment">
         <View spBody>
-          <View><Text>Thank you for making a transfer via Xfers.</Text></View>
-          <br/>
-          <View><Text>You will receive an email notification once the payment has been processed.</Text></View>
+          <View><Text>Your payment has been completed.</Text></View>
+          <br/><br/><br/>
+          <View>
+            <Text fontSize="12px" fontWeight="300">XFERS WALLET BALANCE</Text>
+            <br/><br/>
+            <Text fontWeight="bold">Payment Amount: </Text>
+            <br/><br/>
+            <Text fontWeight="bold">New Balance: </Text>
+          </View>
         </View>
         <FooterButtonGroup spFooter>
           <Button type="primary" onClick={navigateToHome}>Return to Merchant</Button>
@@ -42,4 +48,4 @@ class TopUpStatus extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpStatus)
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentStatus)

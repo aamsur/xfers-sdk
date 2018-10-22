@@ -3,5 +3,4 @@ export {
   openModal,
   closeModal,
   initializeComponent,
-  updateTopUpDetails,
-} from './topUpActions'
+} from './paymentActions'

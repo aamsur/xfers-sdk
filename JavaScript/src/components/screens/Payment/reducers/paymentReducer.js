@@ -5,7 +5,7 @@ import {
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
-} from 'TopUp/actions/constants'
+} from 'Payment/actions/constants'
 
 
 // ------------------------------------
@@ -17,24 +17,20 @@ const ACTION_HANDLERS = {
   [OPEN_MODAL]: (state, action) => ({ ...state, showModal: true }),
   [CLOSE_MODAL]: (state, action) => ({ ...state, showModal: false }),
   [SEND_HTTP_REQUEST]: (state, action) => ({ ...state, dataLoading: true }),
-  [INITIALIZATION_SUCCESS]: (state, {res}) => {
-    const { userBanks } = res;
-    return { ...state,  userBanks, dataLoading: false }
-  },
-  [UPDATE_TOP_UP_DETAILS]: (state, { formType, formData }) => {
-    let newTopUpRequest = { ...state['newTopUpRequest'], [formType]: formData };
-    return { ...state, newTopUpRequest, error: '' }
-  },
+  // [INITIALIZATION_SUCCESS]: (state, {res}) => {
+  //   const { userBanks } = res;
+  //   return { ...state,  userBanks, dataLoading: false }
+  // },
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
 
-const topUpReducer = (state = {}, action) => {
+const paymentReducer = (state = {}, action) => {
   const handler = ACTION_HANDLERS[action.type];
 
   return handler ? handler(state, action) : state;
 };
 
-export default topUpReducer
+export default paymentReducer

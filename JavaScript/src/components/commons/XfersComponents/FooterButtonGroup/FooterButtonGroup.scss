@@ -3,3 +3,7 @@
 .footerButtonGroup {
   padding: 0 !important;
 }
+
+.footerButtonGroup + .footerButtonGroup {
+  padding-left: $medium_space !important; 
+}
