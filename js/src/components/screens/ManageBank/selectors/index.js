@@ -1,3 +1,0 @@
-export {
-  getFilteredBankOptions
-} from './manageBankSelectors'

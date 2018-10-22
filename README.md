@@ -88,7 +88,7 @@ npm install @xfers/xfers-js-sdk
 
 Then import the Xfers UI Elements into your code:
 ```javascript
-import { Element } from '@xfers/xfers-js-sdk'
+import { Elements } from '@xfers/xfers-js-sdk'
 ```
 
 ## Example:
