@@ -48,20 +48,11 @@ object XfersConfiguration {
         apiBase = idProductionApiBase
     }
 
-    fun setMerchantApiBase(apiBase: String) {
+    fun setMerchantConfigurations(apiBase: String, name: String, logo: Int, logoTint: Int) {
         merchantApiBase = apiBase
-    }
-
-    fun setMerchantName(name: String) {
         merchantName = name
-    }
-
-    fun setMerchantLogo(logo: Int) {
         merchantLogo = logo
-    }
-
-    fun setMerchantLogoTint(tint: Int) {
-        merchantLogoTint = tint
+        merchantLogoTint = logoTint
     }
 
     fun setMerchantFlowStartingContext(context: Context) {
