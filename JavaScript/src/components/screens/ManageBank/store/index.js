@@ -21,8 +21,6 @@ export default (props = {}) => {
   const initialState = {
     manageBank: {
       network,
-
-      showModal: false,
       // Available routes: index, new
       route: 'index',
       error: '',

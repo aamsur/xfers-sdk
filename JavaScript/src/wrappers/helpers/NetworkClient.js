@@ -1,4 +1,4 @@
-import ApiHelper from './apiHelper'
+import ApiHelper from './ApiHelper'
 import sha1 from 'js-sha1'
 import joinUrl from 'proper-url-join'
 
@@ -53,6 +53,26 @@ export default class Xfers {
 
   getTopUpInformation() {
     return this.api.send('GET', 'user/transfer_info');
+  }
+
+  /**
+    * Create a charge to user from xfers wallet.
+    * @see {@link https://docs.xfers.io/#creating-a-charge | API Call}
+    * @param {String} amount - [REQUIRED] The charge amount imposed on user.
+    * @param {String} currency - [REQUIRED]The currency applied onto the charge amount.
+    * @param {String} order_id - [REQUIRED] Unique ref no provided by you to prevent double charging, this cannot be repeated
+    * @param {String} redirect - When this is true, instead of the JSON response, Xfers will automatically redirect the request to our checkout page
+    * @param {String} notify_url - URL to receive callback notifications on charge success/failure/expiration
+    * @param {String} return_url - URL Xfers will redirect customer to on completion of Xfers checkout
+    * @param {String} cancel_url - URL Xfers will redirect customer to on cancellation of Xfers checkout
+    * @param {String} description - Description of transaction for display purposes
+    * @param {String} items - (For display for receipts) A JSON array of item with attributes ‘description, name, price, quantity’, represented in String
+    * @param {Object} meta_data - A set of key/value pairs that you can attach to a charge as additional information.
+    * @return {Promise} - Return a Promise that, when fulfilled: If a user_api_token is given and the user has insufficient xfers wallet balance,
+    * the response will return the transfer_info object containing information about the bank the user should transfer to.
+    */
+  createCharge() {
+    return this.api.send('POST', 'charges', params);
   }
 }
 

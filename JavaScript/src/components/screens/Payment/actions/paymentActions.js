@@ -1,5 +1,4 @@
 import { caseConvert } from 'UtilityFunctions'
-import Xfers from 'xfersWrapper.js'
 import {
   NAVIGATE,
   OPEN_MODAL,
@@ -8,9 +7,6 @@ import {
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS
 } from './constants'
-
-// TO-DO: To be removed from this location.
-const xfers = new Xfers("YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
 
 export const navigate = (route) => ({
   type: NAVIGATE,
@@ -27,9 +23,10 @@ export const closeModal = () => ({
 
 export const initializeComponent = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
+  const xfersApi = getState().payment.network;
 
   const userBanksAPI = new Promise((resolve, reject) => {
-    xfers.getUserBanks().then(res => resolve(res.data));
+    xfersApi.getUserBanks().then(res => resolve(res.data));
   });
 
   Promise
