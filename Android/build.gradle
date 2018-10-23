@@ -1,15 +1,46 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+/**
+ * The top-level build.gradle file, located in the root project directory,
+ * defines build configurations that apply to all modules in your project.
+ * By default, the top-level build file uses the buildscript block to define
+ * the Gradle repositories and dependencies that are common to all modules in the project.
+ *
+ * To master gradle specifically for android, read: https://developer.android.com/studio/build/
+ */
 
 buildscript {
-    ext.kotlin_version = '1.2.30'
+    /**
+     * The buildscript block is where you configure the repositories and
+     * dependencies for Gradle itself—meaning, you should not include dependencies
+     * for your modules here.
+     */
+    ext.kotlin_version = '1.2.71'
     ext.dokka_version = '0.9.15'
+
+    /**
+     * The repositories block configures the repositories Gradle uses to
+     * search or download the dependencies. Gradle pre-configures support for remote
+     * repositories such as JCenter, Maven Central, and Ivy. You can also use local
+     * repositories or define your own remote repositories. The code below defines
+     * JCenter as the repository Gradle should use to look for its dependencies.
+     *
+     * New projects created using Android Studio 3.0 and higher also include
+     * Google's Maven repository.
+     */
     repositories {
         google()
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
     }
+
+    /**
+     * The dependencies block configures the dependencies Gradle needs to use to build your project.
+     */
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.3'
+        /**
+         * This block includes the Android plugin for Gradle as a dependency because it provides
+         * the additional instructions Gradle needs to build Android app modules.
+         **/
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         classpath 'com.google.gms:google-services:4.0.1'
@@ -17,8 +48,10 @@ buildscript {
 
         // The Gradle Bintray Plugin allows you to publish artifacts to Bintray.
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+
         // Modification to the standard Maven plugin to be compatible with android-library projects (aar).
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+
         // Dokka is a documentation engine for Kotlin, performing the same function as javadoc for Java.
         // Just like Kotlin itself, Dokka fully supports mixed-language Java/Kotlin projects.
         // It understands standard Javadoc comments in Java files and KDoc comments in Kotlin files,
@@ -31,6 +64,14 @@ buildscript {
     }
 }
 
+/**
+ * The allprojects block is where you configure the repositories and
+ * dependencies used by all modules in your project, such as third-party plugins
+ * or libraries. However, you should configure module-specific dependencies in
+ * each module-level build.gradle file. For new projects, Android Studio
+ * includes JCenter and Google's Maven repository by default, but it does not
+ * configure any dependencies (unless you select a template that requires some).
+ */
 allprojects {
     repositories {
         google()

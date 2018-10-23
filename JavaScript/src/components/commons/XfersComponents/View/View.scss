@@ -1,0 +1,27 @@
+@import 'styles/_variables';
+
+.paddingTop {
+  padding-top: $large_space;
+}
+
+.paddingBtm {
+  padding-bottom: $large_space;
+}
+
+// Template Styling
+.templateSection {
+  margin: $medium_space 0px;
+  padding: 0px $extra_large_space;
+  line-height: 1.65em;
+  text-align: initial;
+}
+
+@media (max-width: $screen-small) {
+
+  // Template Styling
+  .templateSection {
+    margin: 36px 0px;
+    padding: 0px 18px;
+    line-height: 1.5em;
+  }
+}
