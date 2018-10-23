@@ -24,7 +24,8 @@ allprojects {
     }
 }
 ```
-1. In your App project's `build.gradle`, add the following dependency:
+
+2. In your App project's `build.gradle`, add the following dependency:
 
 ```gradle
 dependencies {
@@ -32,7 +33,8 @@ dependencies {
     implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.1"
 }
 ```
-1. Sync gradle
+
+3. Sync gradle
 
 You have now successfully downloaded and added the Xfers Android SDK to your app.
 
@@ -104,7 +106,7 @@ new Xfers(this).flow.startConnectFlow();
 
 ![Xfers Connect Flow UI](https://user-images.githubusercontent.com/6291947/47300564-5f093700-d64f-11e8-8afa-7050d5fddaba.png)
 
-1. Xfers Topup Flow
+2. Xfers Topup Flow
 
 This is the flow that you'll call in order to allow the user to topup to their Xfers wallet.
 
@@ -114,7 +116,7 @@ new Xfers(this).flow.startTopupFlow();
 
 ![Xfers Topup Flow UI](https://user-images.githubusercontent.com/6291947/47300659-a55e9600-d64f-11e8-90a1-a485dc3443fd.png)
 
-1. Xfers KYC Flow
+3. Xfers KYC Flow
 
 This is the flow that you'll call in order to allow the user to KYC with Xfers, often having benefits such as higher wallet limits.
 
@@ -124,7 +126,7 @@ new Xfers(this).flow.startKYCFlow();
 
 ![Xfers KYC Flow UI](https://user-images.githubusercontent.com/6291947/47300703-bc9d8380-d64f-11e8-909a-a53010dc40db.png)
 
-1. Xfers Manage Banks Flow
+4. Xfers Manage Banks Flow
 
 This is the flow that you'll call in order to allow the user to manage their bank accounts with Xfers, such as adding / deleting the bank accounts or modifying details.
 
@@ -134,7 +136,7 @@ new Xfers(this).flow.startManageBanksFlow();
 
 ![Xfers Manage Banks Flow UI](https://user-images.githubusercontent.com/6291947/47300750-d76ff800-d64f-11e8-96ca-1c6a91c96d07.png)
 
-1. Xfers Withdrawal Flow
+5. Xfers Withdrawal Flow
 
 This is the flow that you'll call in order to allow the user to withdraw from their Xfers wallet to their bank account(s).
 
@@ -144,7 +146,7 @@ new Xfers(this).flow.startWithdrawalFlow();
 
 ![Xfers Withdrawal Flow UI](https://user-images.githubusercontent.com/6291947/47300797-f8384d80-d64f-11e8-94f3-dfe6bb0ef09a.png)
 
-1. Xfers Payment Flow
+6. Xfers Payment Flow
 
 This is the flow that you'll call with an amount in `BigInteger` in order to allow the user to pay you through their Xfers wallet.
 
@@ -168,7 +170,7 @@ new Xfers(this).ui.startMenuActivity();
 
 ![Xfers Menu UI](https://user-images.githubusercontent.com/6291947/47300368-dc807780-d64e-11e8-9c7a-9fdc18a96117.png)
 
-1. Xfers Settings
+2. Xfers Settings
 
 This is the UI that you'll call to present the Xfers settings page which allows the user to modify their Xfers account information such as name, email etc.
 
@@ -178,7 +180,7 @@ new Xfers(this).ui.startSettingsActivity();
 
 ![Xfers Settings UI](https://user-images.githubusercontent.com/6291947/47300493-2a957b00-d64f-11e8-874c-b4876eb08220.png)
 
-1. Xfers Transactions Overview
+3. Xfers Transactions Overview
 
 This is the UI that you'll call to present the Xfers transactions overview page which allows the user to see the transactions that they have conducted through Xfers recently with you (the Merchant).
 
@@ -190,11 +192,108 @@ new Xfers(this).ui.startTransactionsOverviewActivity();
 
 ### Backend integration
 
-<TBD>
-  
-### Setting up the Xfers Connect Flow
+Example backend (PHP):
 
-<TBD>
+1. Install the xfers-php SDK from https://github.com/Xfers/xfers-php
+2. Set up 2 post routes with the following specifications on your PHP backend:
+
+- First POST route should point to `base_url/signup_login`, this will be used to send the OTP to the user which will be used to get the `user_api_key`
+
+```php
+<?php
+require_once('vendor/autoload.php');
+
+\Xfers\Xfers::setIDSandbox();
+$xfers_app_api_key = '<your_actual_app_api_key>';
+try {
+    $resp = \Xfers\Connect::authorize(array(
+        'phone_no' => '<user_phone_number>', // the phone number will be in the params that we send via the POST request, i.e. params['phoneNumber']
+        'signature' => '178502abfa891b69a9a2f72192d51f5fc141f978' // this should be a SHA1-hex of (phone_no + APP_SECRET_KEY)
+    ), $xfers_app_api_key);
+    
+    print_r($resp);
+    
+    $data = [ 'msg' => 'success' ];
+
+    header('Content-type: application/json');
+    echo json_encode( $data ); // you must echo this back so that our Android SDK will know that it is a successful operation and continue
+} catch (\Xfers\Error\Api $e) {
+    echo 'Caught Api exception: ', $e->getMessage(), "\n";
+}
+php>
+```
+
+- Second POST route should point to `base_url/get_token`, this will be used to authenticate the OTP sent in the previous route to dispense the `user_api_key`
+
+```php
+<?php
+require_once('vendor/autoload.php');
+
+\Xfers\Xfers::setIDSandbox();
+$xfers_app_api_key = '<your_actual_app_api_key>';
+try {
+    $resp = \Xfers\Connect::getToken(array(
+        'otp' => '123456', // the OTP will be in the params that we send via the POST request, i.e. params['OTP']
+        'phone_no' => '<user_phone_number>', // the phone number should be provided by you from your server, you will need to tag the `user_api_key` to the number
+        'signature' => '178502abfa891b69a9a2f72192d51f5fc141f978', // this should be a SHA1-hex of (phone_no + APP_SECRET_KEY)
+    ), $xfers_app_api_key);
+    print_r($resp);
+    
+    $user_api_token = $resp['user_api_token'];
+    
+    // NOTE: You have to remember the `user_api_token`, tagging it to the user's phone_no as you can use the `user_api_token` to initialise the Android SDK in the future without having the user go through the Connect flow again
+
+    $data = [ 'apiKey' => $user_api_token ];
+
+    header('Content-type: application/json');
+    echo json_encode( $data ); // you must echo this back so that the Android SDK will be able to securely store the `user_api_key` and continue
+} catch (\Xfers\Error\Api $e) {
+    echo 'Caught Api exception: ', $e->getMessage(), "\n";
+}
+php>
+```
+  
+### Setting up the Xfers Connect Flow (Without the user's `apiKey`)
+
+1. The only thing you need to do is to start the connect flow on the Android SDK on an Activity of your choice:
+
+```java
+new Xfers(this).startConnectFlow();
+```
+
+* NOTE: You must have supplied a `merchantApiBase` in order for this to work
+
+Part 1:
+
+- Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under "Backend Integration"
+
+- The SDK will call the url with the following format: `{"phoneNumber":"<a_phone_number>"`
+
+- Your POST API should echo a JSON with the following format `{"msg":"success"}` upon a successful creation of the user on Xfers
+
+- Your user will also receive an OTP to the phone number that they have entered
+
+Part 2:
+
+- Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under "Backend Integration"
+
+- The SDK will call the url with the following format: `{"OTP":"<an_OTP>"`
+
+- Your POST API should echo a JSON with the following format `{"apiKey":"<an_api_key>"}` upon a successful authentication of the OTP
+
+* NOTE: You should save the `apiKey` on your backend tagged to the number as it can be used to initialise the SDK the next time without having the user go through the entire connect flow again, refer to "Initialising the Xfers SDK (With the user's `apiKey`) for more information
+
+After this is set up, you can call any of the other flows and UI to interact with the user's Xfers account.
+
+### Initilisaing the Xfers SDK (With the user's `apiKey`)
+
+If you have already connected with the user before through the section "Setting up the Xfers Connect Flow" and have the user's `apiKey` in your server, you can query your own server the `apiKey` and call the following command to have the SDK initialised:
+
+```java
+new Xfers(this).config.setUserApiKey("<the_user_api_key>");
+```
+
+Once you have set this up,  you can call any of the other flows and UI to interact with the user's Xfers account.
 
 ## Web SDK Usage Overview
 
