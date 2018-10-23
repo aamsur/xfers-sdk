@@ -16,11 +16,11 @@ export default (props = {}) => {
     }
   }
 
-  const { network } = props;
+  const { networkClient } = props;
 
   const initialState = {
     topUp: {
-      network,
+      networkClient,
 
       // Available routes: index, topUpForm
       route: 'index',

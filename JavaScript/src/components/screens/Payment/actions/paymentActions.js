@@ -1,8 +1,6 @@
 import { caseConvert } from 'UtilityFunctions'
 import {
   NAVIGATE,
-  OPEN_MODAL,
-  CLOSE_MODAL,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS
@@ -13,26 +11,18 @@ export const navigate = (route) => ({
   route
 })
 
-export const openModal = () => ({
-  type: OPEN_MODAL
-})
-
-export const closeModal = () => ({
-  type: CLOSE_MODAL
-})
-
 export const initializeComponent = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
-  const xfersApi = getState().payment.network;
+  const xfersApi = getState().payment.networkClient;
 
-  const userBanksAPI = new Promise((resolve, reject) => {
-    xfersApi.getUserBanks().then(res => resolve(res.data));
+  const userDetailsAPI = new Promise((resolve, reject) => {
+    xfersApi.getUserDetails().then(res => resolve(res.data));
   });
 
   Promise
-    .all([ userBanksAPI ])
-    .then(([ userBanks ]) => {
-      const res = { userBanks };
+    .all([ userDetailsAPI ])
+    .then(([ userDetails ]) => {
+      const res = { userDetails };
       dispatch({ type: INITIALIZATION_SUCCESS, res });
       if (successCallback) successCallback();
     });

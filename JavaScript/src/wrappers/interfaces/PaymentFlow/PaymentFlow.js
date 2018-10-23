@@ -2,7 +2,7 @@ import React, { Component, PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import NetworkClient from 'NetworkClient'
 
-import ManageBank from 'ManageBank'
+import Payment from 'Payment'
 import { Modal } from 'XfersComponents'
 
 export default class PaymentFlow extends Component {
@@ -50,7 +50,7 @@ class ModalWrapper extends PureComponent {
     const { networkClient } = this.props;
     return (
       <Modal showModal={showModal} closeModal={this.closeModal}>
-        <ManageBank
+        <Payment
           networkClient={networkClient}
           closeModal={this.closeModal}
           />

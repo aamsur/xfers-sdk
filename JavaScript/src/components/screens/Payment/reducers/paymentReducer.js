@@ -1,7 +1,5 @@
 import {
   NAVIGATE,
-  OPEN_MODAL,
-  CLOSE_MODAL,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
@@ -14,13 +12,23 @@ import {
 
 const ACTION_HANDLERS = {
   [NAVIGATE]: (state, {route}) => ({ ...state, route }),
-  [OPEN_MODAL]: (state, action) => ({ ...state, showModal: true }),
-  [CLOSE_MODAL]: (state, action) => ({ ...state, showModal: false }),
   [SEND_HTTP_REQUEST]: (state, action) => ({ ...state, dataLoading: true }),
-  // [INITIALIZATION_SUCCESS]: (state, {res}) => {
-  //   const { userBanks } = res;
-  //   return { ...state,  userBanks, dataLoading: false }
-  // },
+  [INITIALIZATION_SUCCESS]: (state, {res}) => {
+    const { userDetails } = res;
+    return {
+      ...state,
+      availableBalance: userDetails.available_balance,
+      gauthEnabled: userDetails.gauth_enabled,
+      bitcoinUser: userDetails.bitcoin_user,
+      vipBetaUser: userDetails.vip_beta_user,
+      acceptedTnc: userDetails.accepted_tnc,
+      kycVerified: userDetails.kyc_verified,
+      accountLocked: userDetails.account_locked,
+      multiBankAccountLocked: userDetails.multi_bank_account_detected,
+      userBanks: userDetails.bank_accounts,
+      dataLoading: false,
+    }
+  },
 }
 
 // ------------------------------------

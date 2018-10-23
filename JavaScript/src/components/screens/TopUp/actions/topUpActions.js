@@ -1,8 +1,6 @@
 import { caseConvert } from 'UtilityFunctions'
 import {
   NAVIGATE,
-  OPEN_MODAL,
-  CLOSE_MODAL,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS
@@ -11,14 +9,6 @@ import {
 export const navigate = (route) => ({
   type: NAVIGATE,
   route
-})
-
-export const openModal = () => ({
-  type: OPEN_MODAL
-})
-
-export const closeModal = () => ({
-  type: CLOSE_MODAL
 })
 
 export const initializeComponent = (successCallback) => (dispatch, getState) => {

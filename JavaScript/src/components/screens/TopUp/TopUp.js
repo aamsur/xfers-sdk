@@ -2,20 +2,12 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-import { View, Button, Modal } from 'XfersComponents'
+import { View } from 'XfersComponents'
 import { TopUpIndex, TopUpForm } from './components'
-import { openModal, closeModal } from './actions'
 
 function mapStateToProps({topUp}, props) {
-  const { showModal, route } = topUp;
-  return { showModal, route }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    openModal: () => dispatch(openModal()),
-    closeModal: () => dispatch(closeModal()),
-  }
+  const { route } = topUp;
+  return { route }
 }
 
 class TopUp extends Component {
@@ -25,20 +17,16 @@ class TopUp extends Component {
       <View>
         { route === 'index' && <TopUpIndex /> }
         { route === 'topUpForm' && <TopUpForm /> }
-        <Modal showModal={showModal} closeModal={closeModal}>
-
-        </Modal>
-        <Button onClick={openModal}>Trigger Top Up Modal</Button>
       </View>
     )
   }
 }
 
-const ConnectedTopUp = connect(mapStateToProps, mapDispatchToProps)(TopUp);
+const ConnectedTopUp = connect(mapStateToProps, () => ({}))(TopUp);
 
 const TopUpModal = ({ closeModal, networkClient }) => (
-  <Provider store={createStore()}>
-    <ConnectedTopUp />
+  <Provider store={createStore({networkClient})}>
+    <ConnectedTopUp closeModal={closeModal} />
   </Provider>
 ){
 

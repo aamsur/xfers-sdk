@@ -35,6 +35,10 @@ export default class Xfers {
     return this.api.send('POST', 'authorize/signup_login', parsedParams);
   }
 
+  getUserDetails() {
+    return this.api.send('GET', 'user');
+  }
+
   updateUser(params) {
     return this.api.send('POST', params);
   }
