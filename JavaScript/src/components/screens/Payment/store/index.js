@@ -21,8 +21,6 @@ export default (props = {}) => {
   const initialState = {
     payment: {
       network,
-
-      showModal: false,
       // Available routes: index, topUpForm
       route: 'index',
       error: '',

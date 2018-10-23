@@ -13,8 +13,8 @@ import {
 } from './components'
 import { navigate, initNewBankAccount } from 'ManageBank/actions'
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state, props) {
+  return { ...props }
 }
 
 function mapDispatchToProps(dispatch) {

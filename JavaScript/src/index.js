@@ -10,3 +10,12 @@ function selectComponent(name) {
 }
 
 module.exports = PaymentFlow
+
+// new Xfers(this).flow.startPaymentFlow(new BigInteger("100"))
+
+/*
+
+  const xfers = new Xfers('xfers_elements', 'abckedgfjgj123456788');
+  xfers.startPaymentFlow(200)
+
+*/

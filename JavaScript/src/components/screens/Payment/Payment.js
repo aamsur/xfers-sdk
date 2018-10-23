@@ -35,10 +35,12 @@ class Payment extends Component {
 
 const ConnectedPayment = connect(mapStateToProps, mapDispatchToProps)(Payment);
 
-const PaymentModal = (props) => (
-  <Provider store={createStore(props)}>
-    <ConnectedPayment />
-  </Provider>
-)
+const PaymentModal = ({ closeModal, networkClient }) => {
+  return (
+    <Provider store={createStore()}>
+      <ConnectedPayment />
+    </Provider>
+  )
+}
 
 export default PaymentModal

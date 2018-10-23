@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
@@ -10,7 +10,7 @@ function mapStateToProps({manageBank}, props) {
   return { route, ...props }
 }
 
-class ManageBank extends Component {
+class ManageBank extends PureComponent {
   render() {
     const { route, closeModal } = this.props;
     return (
@@ -23,12 +23,16 @@ class ManageBank extends Component {
   }
 }
 
-const ConnectedManageBank = connect(mapStateToProps, () => {})(ManageBank);
+const ConnectedManageBank = connect(mapStateToProps, () => ({}))(ManageBank);
 
-const ManageBankModal = (props) => (
-  <Provider store={createStore(props)}>
-    <ConnectedManageBank {...props} />
-  </Provider>
-)
+const ManageBankModal = ({ closeModal, networkClient }) => {
+  const store = createStore({networkClient});
+  console.log("yoyo;:");
+  return (
+    <Provider store={store}>
+      <ConnectedManageBank closeModal={closeModal} networkClient={networkClient} />
+    </Provider>
+  )
+}
 
 export default ManageBankModal

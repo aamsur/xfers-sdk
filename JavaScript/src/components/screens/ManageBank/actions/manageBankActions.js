@@ -2,8 +2,6 @@ import { caseConvert } from 'UtilityFunctions'
 
 import {
   NAVIGATE,
-  OPEN_MODAL,
-  CLOSE_MODAL,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   INIT_NEW_BANK_ACCOUNT,
@@ -17,17 +15,9 @@ export const navigate = (route) => ({
   route
 })
 
-export const openModal = () => ({
-  type: OPEN_MODAL
-})
-
-export const closeModal = () => ({
-  type: CLOSE_MODAL
-})
-
 export const initializeComponent = () => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
-  const xfersApi = getState().manageBank.network;
+  const xfersApi = getState().manageBank.networkClient;
 
   const bankOptionAPI = new Promise((resolve, reject) => {
     xfersApi.getAvailableBanks().then(res => resolve(res.data));

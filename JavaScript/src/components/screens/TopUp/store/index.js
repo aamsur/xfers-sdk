@@ -22,7 +22,6 @@ export default (props = {}) => {
     topUp: {
       network,
 
-      showModal: false,
       // Available routes: index, topUpForm
       route: 'index',
       error: '',

@@ -36,10 +36,12 @@ class TopUp extends Component {
 
 const ConnectedTopUp = connect(mapStateToProps, mapDispatchToProps)(TopUp);
 
-const TopUpModal = (props) => (
-  <Provider store={createStore(props)}>
-    <ConnectedTopUp />
-  </Provider>
-)
+const TopUpModal = ({ closeModal, networkClient }) => {
+  return (
+    <Provider store={createStore()}>
+      <ConnectedTopUp />
+    </Provider>
+  )
+}
 
 export default TopUpModal
