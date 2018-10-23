@@ -20,7 +20,7 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-class AddBankAccountConfirmation extends Component {
+class AddBankAccountStatus extends Component {
   render() {
     const {
       newBankDetails,
@@ -43,4 +43,4 @@ class AddBankAccountConfirmation extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddBankAccountConfirmation)
+export default connect(mapStateToProps, mapDispatchToProps)(AddBankAccountStatus)
