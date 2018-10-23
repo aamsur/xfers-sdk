@@ -25,14 +25,10 @@ class ManageBank extends PureComponent {
 
 const ConnectedManageBank = connect(mapStateToProps, () => ({}))(ManageBank);
 
-const ManageBankModal = ({ closeModal, networkClient }) => {
-  const store = createStore({networkClient});
-  console.log("yoyo;:");
-  return (
-    <Provider store={store}>
-      <ConnectedManageBank closeModal={closeModal} networkClient={networkClient} />
-    </Provider>
-  )
-}
+const ManageBankModal = ({ closeModal, networkClient }) => (
+  <Provider store={createStore({networkClient})}>
+    <ConnectedManageBank closeModal={closeModal} />
+  </Provider>
+)
 
 export default ManageBankModal
