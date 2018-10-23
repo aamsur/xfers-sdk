@@ -53,7 +53,7 @@ class BankTypeList extends Component {
             value={filter}
             onChange={(e) => updateSearchFilter(e.target.value)}
           />
-        <View background="#fff" overflow="auto" height="340px" padding="20px" boxShadow="inset 0px 1px 4px #ccc">
+          <View background="#fff" overflow="auto" height="340px" padding="20px" boxShadow="inset 0px 1px 4px #ccc">
             { bankOptions.length > 0 ?
               bankOptions.map((bank, index) =>
                 <SelectionButton

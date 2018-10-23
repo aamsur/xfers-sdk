@@ -1,11 +1,4 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-import XfersAPI from 'xfersWrapper.js'
-
-import {
-  ManageBank
-} from './components/screens'
+import PaymentFlow from './wrappers/interfaces/PaymentFlow'
 
 function selectComponent(name) {
   switch (name) {
@@ -16,20 +9,4 @@ function selectComponent(name) {
   }
 }
 
-module.exports = class Xfers {
-  constructor(accessToken, options = {}) {
-    if (!accessToken) throw new Error('Please provide a valid access token.');
-
-    this.network = new XfersAPI(accessToken);
-  }
-
-  renderComponent(name) {
-    return selectComponent(name);
-  }
-
-  mountComponent(mountingElementId, name) {
-    const network = this.network;
-    const element = selectComponent(name);
-    ReactDOM.render(React.createElement(element, { network }), document.getElementById(mountingElementId));
-  }
-}
+module.exports = PaymentFlow
