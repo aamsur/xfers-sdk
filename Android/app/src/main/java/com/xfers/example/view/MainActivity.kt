@@ -1,5 +1,6 @@
 package com.xfers.example.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -9,50 +10,73 @@ import java.math.BigInteger
 
 // TODO: Example Activity (to be turned into example app)
 class MainActivity : AppCompatActivity() {
+
+    // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
+    // https://bright-sunshine-91728.herokuapp.com/
+    private val merchantApiBase = "<set_your_backend_api_base_here>"
+
+    // Put your name here, this is the name that we will use to refer to you in the SDK, for e.g.
+    // Best Merchant
+    private val merchantName = "<set_your_name_here>"
+
+    // Put your logo source here, this is the image that we will use to refer to you in the SDK, for e.g.
+    // R.drawable.your_logo
+    private val merchantLogo = R.drawable.ic_launcher_foreground
+
+    // Put your logo tint here, this is the color that we will use to tint your logo in the SDK, for e.g.
+    // R.color.your_color
+    private val merchantLogoTint = Color.CYAN
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Xfers(this).config.setSGSandbox()
+        val xfers = Xfers(this)
+
+        xfers.config.setSGSandbox()
+        xfers.config.setMerchantApiBase(merchantApiBase)
+        xfers.config.setMerchantName(merchantName)
+        xfers.config.setMerchantLogo(merchantLogo)
+        xfers.config.setMerchantLogoTint(merchantLogoTint)
 
         // TODO: Build on top of sample code, deactivated for now
         // UpdateTextWithUserDetails(this.text, this).execute()
     }
 
-    fun onSignupClick(view: View) {
-        Xfers(this).flow.startSignupFlow()
+    fun onClickXfersConnect(view: View) {
+        Xfers(this).flow.startConnectFlow()
     }
 
-    fun onTopupClick(view: View) {
+    fun onClickTopup(view: View) {
         Xfers(this).flow.startTopupFlow()
     }
 
-    fun onTransactionsOverviewClick(view: View) {
+    fun onClickTransactionsOverview(view: View) {
         Xfers(this).ui.startTransactionsOverviewActivity()
     }
 
-    fun onKYCClick(view: View) {
+    fun onClickKYC(view: View) {
         Xfers(this).flow.startKYCFlow()
     }
 
-    fun onManageBanksClick(view: View) {
+    fun onClickManageBanks(view: View) {
         Xfers(this).flow.startManageBanksFlow()
     }
 
-    fun onWithdrawalClick(view: View) {
+    fun onClickWithdrawal(view: View) {
         Xfers(this).flow.startWithdrawalFlow()
     }
 
-    fun onPayClick(view: View) {
+    fun onClickPay(view: View) {
         // Pass in example 100
         Xfers(this).flow.startPaymentFlow(BigInteger("100"))
     }
 
-    fun onMenuClick(view: View) {
+    fun onClickMenu(view: View) {
         Xfers(this).ui.startMenuActivity()
     }
 
-    fun onSettingsClick(view: View) {
+    fun onClickSettings(view: View) {
         Xfers(this).ui.startSettingsActivity()
     }
 }

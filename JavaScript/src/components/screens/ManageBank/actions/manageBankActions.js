@@ -1,5 +1,5 @@
 import { caseConvert } from 'UtilityFunctions'
-import Xfers from 'xfersWrapper.js'
+
 import {
   NAVIGATE,
   OPEN_MODAL,
@@ -11,9 +11,6 @@ import {
   UPDATE_SEARCH_FILTER,
   SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
 } from './constants'
-
-// TO-DO: To be removed from this location.
-const xfers = new Xfers("YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
 
 export const navigate = (route) => ({
   type: NAVIGATE,
@@ -30,13 +27,14 @@ export const closeModal = () => ({
 
 export const initializeComponent = () => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
+  const xfersApi = getState().manageBank.network;
 
   const bankOptionAPI = new Promise((resolve, reject) => {
-    xfers.getAvailableBanks().then(res => resolve(res.data));
+    xfersApi.getAvailableBanks().then(res => resolve(res.data));
   });
 
   const userBanksAPI = new Promise((resolve, reject) => {
-    xfers.getUserBanks().then(res => resolve(res.data));
+    xfersApi.getUserBanks().then(res => resolve(res.data));
   });
 
   Promise

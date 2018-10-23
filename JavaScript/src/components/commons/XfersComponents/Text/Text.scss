@@ -1,9 +1,17 @@
 @import 'styles/_variables';
 
+.note {
+  color: $xfers_clear_yellow;
+  font-size: 14px;
+  font-weight: $font_weight_regular;
+  letter-spacing: 0.5px;
+  line-height: $medium_space;
+}
+
 .error {
   color: $primary_xfers_red;
   font-size: 14px;
-  font-weight: $font_weight_light;
+  font-weight: $font_weight_regular;
   letter-spacing: 0.5px;
   line-height: $medium_space;
 }

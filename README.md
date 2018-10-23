@@ -1,95 +1,203 @@
-# xfers-sdk-public
+# Project overview 
 
-This section is for the Android SDK found in the Android folder
----
+## Android SDK Usage Overview
 
-## General Setting Up
+### Sign up for an Xfers Merchant account
 
-1. Install Android Studio at https://developer.android.com/studio/install
-1. Git pull xfers-sdk project
-1. In the xfers_sdk/ module, create a file called keystore.gradle with content: ```ext { bintray_key = "key" }```
-   this is the deploy key to publish to bintray. Populate it with an actual API key for prod deployment.
-1. Open project with Android Studio and let Gradle sync. 
-1. Once Gradle is done syncing, manage your AVD, check https://developer.android.com/studio/run/managing-avds to see how to add a device
-1. Run it on a device to ensure that everything has been set up corretly
+You need to first have an Xfers Merchant account before being able to integrate the Xfers SDK.
 
-## SDK development 
-This section is for SDK development notes. 
+If you're from Singapore - Sign up for an Xfers Merchant account through https://www.xfers.io/account_registration and make sure to get an api_key.
 
-### Building / Editing UI for the SDK
+If you're from Indonesia - Sign up for an Xfers Merchant account by emailing support@xfers.com.
 
-Before you can do any editing of the SDK, change `implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.0"` to `implementation project(':xfers_sdk')` under the `build.gradle` for the app.
+### Android integration
 
-Otherwise the app will be downloading the SDK from v0.1.0 from Maven which is now the one that you're currently editing. To be sure about doing this step correctly, make a change to a title or button and run it again on the device and make sure that the change is reflected.
+#### Download Xfers Android SDK
 
-Please refer to https://developer.android.com/training/basics/firstapp/building-ui for basics on layout editor and constraints.
+1. In your Android project's `build.gradle`, add the following repository:
 
-### Example 1
-![Coming Soon Page](https://user-images.githubusercontent.com/6291947/46936852-466ab100-d092-11e8-9925-696a88d25b11.png)
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://dl.bintray.com/xfers/xfers-android' }
+    }
+}
+```
+1. In your App project's `build.gradle`, add the following dependency:
 
-### Example 2
+```gradle
+dependencies {
+    ...
+    implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.1"
+}
+```
+1. Sync gradle
 
-![Base Example Page](https://user-images.githubusercontent.com/6291947/46936853-466ab100-d092-11e8-8359-38d2753810bb.png)
+You have now successfully downloaded and added the Xfers Android SDK to your app.
 
-The "Coming Soon Page" is presented via the base example page using the `flow` or `ui` APIs from the `Xfers` object.
+#### Set up your merchant specific settings
 
-Check the APIs to see how an activity is started via an `Intent`.
+You will need the following in order to successfully integrate with Xfers Android SDK:
 
-With the knowledge of layout editor and constraints, create a new activity and let it be presented instead of the "Coming Soon Page", you can follow the "Base Example Page" and build a placeholder page with buttons that navigates to other placeholder activities and build the UI as in `Overflow` by the designer. Chaining and API integration will be done in the near future.
+1. Merchant name - the name that you prefer to be addressed by through the SDK, for e.g. Xfers.
+1. Merchant logo - the logo that you prefer to have displayed when we refer to you through the SDK, for e.g. the Xfers logo.
+1. Merchant logo's tint - the tint of your logo that you prefer to have displayed when we refer to you through the SDK, for e.g. the Xfers logo's blue.
+1. Merchant's api_base - the base url of your backend server, we will be sending HTTP requests to this server during the authentication phase, see `Backend integration` for more information as to how to set up this backend server.
 
-## FAQ
-1. What is Gradle?
-Gradle allows all android studio projects to be configured precisely and version controlled. This ensures that every developer's IDE  works out of the box in the same way. 
+To set up the above details, in your main activity, add the following code into the `onCreate` method:
 
-A must read on gradle file can be found here: https://developer.android.com/studio/build/ 
+```Java
+// Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
+// https://bright-sunshine-91728.herokuapp.com/
+private String merchantApiBase = "<set_your_backend_api_base_here>"
 
+// Put your name here, this is the name that we will use to refer to you in the SDK, for e.g.
+// Best Merchant
+private String merchantName = "<set_your_name_here>"
 
+// Put your logo source here, this is the image that we will use to refer to you in the SDK, for e.g.
+// R.drawable.your_logo
+private int merchantLogo = R.drawable.ic_launcher_foreground
 
+// Put your logo tint here, this is the color that we will use to tint your logo in the SDK, for e.g.
+// R.color.your_color
+private int merchantLogoTint = Color.BLACK
 
-WEB SDK
----
-
-## Usage
-
-#### Through <script> Tag
-
-Add the following lines into the `<head></head>` section:
-
-```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- The following files can be downloaded from the js folder in this repository -->
-<script type="text/javascript" src="dist/vendors~xfers.bundle.js"></script>
-<script type="text/javascript" src="dist/xfers.bundle.js"></script>
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    
+    Xfers xfers = new Xfers(this); // this here refers to the Context
+    
+    xfers.config.setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
+    xfers.config.setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
+}
 ```
 
-Then initialize the components by adding the following javascript into the `<body></body>` section:
-```html
-<body>
-  <div id="xfers_elements"></div>
+*** NOTE: It is recommended that you first try to integrate with SANDBOX before trying to integrate with PRODUCTION.
 
-  <script type="text/javascript">
+At this point, you are ready to start calling features from the Xfers SDK.
 
-    // 1st param => Mounting Element Id: 'xfers_elements'
-    // 2nd param => Avaialble components: ['banks']
-    Xfers.Element.init('xfers_elements', 'banks');
+#### Features of Xfers SDK
 
-  </script>
-</body>
+* When you call any of these methods, we will present a new activity on top of `this` where `this` being the context that you initialised the `Xfers` object with, such as your `MainActivity`.
+
+* Note that some of the flows and UI are still currently under construction and you will see the following UI:
+
+![Xfers Under Construction](https://user-images.githubusercontent.com/6291947/47300198-7c89d100-d64e-11e8-9541-263097340abd.png)
+
+This does not mean that you have integrated the SDK wrongly, in fact, this means that you have integrated the SDK correctly and the feature will be live in a soon-to-be-coming update to the SDK!
+
+##### Flows
+
+* NOTE: The only flow that does not require a `user_api_key` to be supplied to work is the `Xfers Connect Flow`, that is the flow which after being set up, will supply you with a `user_api_key` that can be used to perform interactions between you (the Merchant) and your user (the user). Please refer to the section on `Setting up the Xfers Connect Flow` for more detailed explanation on how to integrate the connect flow and get the user's `user_api_key`.
+
+1. Xfers Connect Flow
+
+This is the flow that you'll integrate with in order to get the user's `user_api_key` in order to initiate the other flows.
+
+```Java
+new Xfers(this).flow.startConnectFlow();
 ```
 
-#### Through npm, import/export
+![Xfers Connect Flow UI](https://user-images.githubusercontent.com/6291947/47300564-5f093700-d64f-11e8-8afa-7050d5fddaba.png)
 
-Install the package through npm or yarn:
+1. Xfers Topup Flow
 
-```
-npm install @xfers/xfers-js-sdk
-```
+This is the flow that you'll call in order to allow the user to topup to their Xfers wallet.
 
-Then import the Xfers UI Elements into your code:
-```javascript
-import { Elements } from '@xfers/xfers-js-sdk'
+```Java
+new Xfers(this).flow.startTopupFlow();
 ```
 
-## Example:
-https://cl.ly/81869d7de1b4
+![Xfers Topup Flow UI](https://user-images.githubusercontent.com/6291947/47300659-a55e9600-d64f-11e8-90a1-a485dc3443fd.png)
+
+1. Xfers KYC Flow
+
+This is the flow that you'll call in order to allow the user to KYC with Xfers, often having benefits such as higher wallet limits.
+
+```Java
+new Xfers(this).flow.startKYCFlow();
+```
+
+![Xfers KYC Flow UI](https://user-images.githubusercontent.com/6291947/47300703-bc9d8380-d64f-11e8-909a-a53010dc40db.png)
+
+1. Xfers Manage Banks Flow
+
+This is the flow that you'll call in order to allow the user to manage their bank accounts with Xfers, such as adding / deleting the bank accounts or modifying details.
+
+```Java
+new Xfers(this).flow.startManageBanksFlow();
+```
+
+![Xfers Manage Banks Flow UI](https://user-images.githubusercontent.com/6291947/47300750-d76ff800-d64f-11e8-96ca-1c6a91c96d07.png)
+
+1. Xfers Withdrawal Flow
+
+This is the flow that you'll call in order to allow the user to withdraw from their Xfers wallet to their bank account(s).
+
+```Java
+new Xfers(this).flow.startWithdrawalFlow();
+```
+
+![Xfers Withdrawal Flow UI](https://user-images.githubusercontent.com/6291947/47300797-f8384d80-d64f-11e8-94f3-dfe6bb0ef09a.png)
+
+1. Xfers Payment Flow
+
+This is the flow that you'll call with an amount in `BigInteger` in order to allow the user to pay you through their Xfers wallet.
+
+* Note that you can pass in an additional description as the 2nd parameter
+
+```Java
+new Xfers(this).flow.startPaymentFlow(new BigInteger("100")); // Note that the BigInteger represents the amount that you wish for the user to pay you
+```
+
+![Xfers Payment Flow UI](https://user-images.githubusercontent.com/6291947/47300833-0c7c4a80-d650-11e8-8f05-2ae45ce0424b.png)
+
+##### Misc UI
+
+1. Xfers Menu
+
+This is the UI that you'll call to present the Xfers menu which allows the user to have an overview and details of their connected Xfers account.
+
+```Java
+new Xfers(this).ui.startMenuActivity();
+```
+
+![Xfers Menu UI](https://user-images.githubusercontent.com/6291947/47300368-dc807780-d64e-11e8-9c7a-9fdc18a96117.png)
+
+1. Xfers Settings
+
+This is the UI that you'll call to present the Xfers settings page which allows the user to modify their Xfers account information such as name, email etc.
+
+```Java
+new Xfers(this).ui.startSettingsActivity();
+```
+
+![Xfers Settings UI](https://user-images.githubusercontent.com/6291947/47300493-2a957b00-d64f-11e8-874c-b4876eb08220.png)
+
+1. Xfers Transactions Overview
+
+This is the UI that you'll call to present the Xfers transactions overview page which allows the user to see the transactions that they have conducted through Xfers recently with you (the Merchant).
+
+```Java
+new Xfers(this).ui.startTransactionsOverviewActivity();
+```
+
+![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/6291947/47300403-f28e3800-d64e-11e8-8187-1d5e46df3c8a.png)
+
+### Backend integration
+
+<TBD>
+  
+### Setting up the Xfers Connect Flow
+
+<TBD>
+
+## Web SDK Usage Overview
+
+
+## Contributing to our SDK 
+Please refer to our [SDK development notes here](https://github.com/Xfers/xfers-sdk/wiki)

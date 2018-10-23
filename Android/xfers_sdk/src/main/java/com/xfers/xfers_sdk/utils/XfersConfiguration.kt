@@ -1,5 +1,8 @@
 package com.xfers.xfers_sdk.utils
 
+import android.content.Context
+import android.graphics.Color
+
 enum class Country { SG, ID }
 
 object XfersConfiguration {
@@ -14,6 +17,13 @@ object XfersConfiguration {
     // Settings
     private var apiBase = ""
     private var currentCountry: Country? = null
+
+    // Merchant Settings
+    private var merchantApiBase = ""
+    private var merchantName = ""
+    private var merchantLogo: Int? = null
+    private var merchantLogoTint = Color.TRANSPARENT
+    private var merchantFlowStartingContextClass: Class<out Context>? = null
 
     // TODO: Implement Android Keystore handling of userApiKey
     var userApiKey = ""
@@ -38,8 +48,48 @@ object XfersConfiguration {
         apiBase = idProductionApiBase
     }
 
+    fun setMerchantApiBase(apiBase: String) {
+        merchantApiBase = apiBase
+    }
+
+    fun setMerchantName(name: String) {
+        merchantName = name
+    }
+
+    fun setMerchantLogo(logo: Int) {
+        merchantLogo = logo
+    }
+
+    fun setMerchantLogoTint(tint: Int) {
+        merchantLogoTint = tint
+    }
+
+    fun setMerchantFlowStartingContext(context: Context) {
+        merchantFlowStartingContextClass = context::class.java
+    }
+
     fun buildApiURL(apiPath: String): String {
         return "$apiBase/$apiPath"
+    }
+
+    fun buildMerchantApiURL(apiPath: String): String {
+        return "$merchantApiBase/$apiPath"
+    }
+
+    fun getMerchantName(): String {
+        return merchantName
+    }
+
+    fun getMerchantLogo(): Int? {
+        return merchantLogo
+    }
+
+    fun getMerchantLogoTint(): Int {
+        return merchantLogoTint
+    }
+
+    fun getMerchantFlowStartingContextClass(): Class<out Context>? {
+        return merchantFlowStartingContextClass
     }
 
     fun getCurrentCountry(): Country? {

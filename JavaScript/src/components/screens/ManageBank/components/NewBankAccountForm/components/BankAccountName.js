@@ -45,6 +45,14 @@ class BankAccountName extends Component {
             onChange={updateForm}
             caption="As reflected in your bank account statement"
           />
+          <FormInputGroup
+            autoFocus
+            leftAddonContent="+65"
+            placeholder="e.g. Alice"
+            value={accountHolderName}
+            onChange={updateForm}
+            caption="As reflected in your bank account statement"
+            />
         </View>
         <FooterButtonGroup spFooter>
           <Button type="primary" disabled={disabled} onClick={goNext}>Next</Button>

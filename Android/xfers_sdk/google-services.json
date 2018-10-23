@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "128573986295",
+    "firebase_url": "https://xfers-sdk.firebaseio.com",
+    "project_id": "xfers-sdk",
+    "storage_bucket": "xfers-sdk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128573986295:android:a17c8abc2841f562",
+        "android_client_info": {
+          "package_name": "com.xfers.xfers_sdk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128573986295-l85529lo0h5nida02ldeogirt12nr8ij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxFkU6gcdfsbrP2IhEsiLdjmkIbznyW9k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

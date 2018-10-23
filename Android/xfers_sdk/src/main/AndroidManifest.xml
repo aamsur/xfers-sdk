@@ -2,8 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xfers.xfers_sdk">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application>
-        <activity android:name=".view.ComingSoonActivity"></activity>
+        <activity android:name=".view.ComingSoonActivity" />
+        <activity android:name=".view.ConnectPhoneActivity" />
+        <activity android:name=".view.ConnectOTPActivity" />
+        <activity android:name=".view.ConnectShareKYCActivity" />
+        <activity android:name=".view.ConnectLinkSuccessfulActivity" />
+        <activity android:name=".view.ConnectIdentityVerificationActivity"></activity>
     </application>
 
 </manifest>

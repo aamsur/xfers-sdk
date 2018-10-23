@@ -2,18 +2,34 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-function mapStateToProps(state, props) {
-  return {}
+import { View, Button, Modal } from 'XfersComponents'
+import { TopUpIndex, TopUpForm } from './components'
+import { openModal, closeModal } from './actions'
+
+function mapStateToProps({topUp}, props) {
+  const { showModal, route } = topUp;
+  return { showModal, route }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    openModal: () => dispatch(openModal()),
+    closeModal: () => dispatch(closeModal()),
+  }
 }
 
 class TopUp extends Component {
   render() {
+    const { showModal, openModal, route } = this.props;
     return (
-      <div></div>
+      <View>
+        { route === 'index' && <TopUpIndex /> }
+        { route === 'topUpForm' && <TopUpForm /> }
+        <Modal showModal={showModal} closeModal={closeModal}>
+
+        </Modal>
+        <Button onClick={openModal}>Trigger Top Up Modal</Button>
+      </View>
     )
   }
 }

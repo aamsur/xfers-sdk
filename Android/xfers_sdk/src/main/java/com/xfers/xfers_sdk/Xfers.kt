@@ -2,9 +2,11 @@ package com.xfers.xfers_sdk
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.ComingSoonActivity
+import com.xfers.xfers_sdk.view.ConnectPhoneActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -29,6 +31,22 @@ class Xfers(val context: Context) {
             XfersConfiguration.setIDProduction()
         }
 
+        fun setMerchantApiBase(apiBase: String) {
+            XfersConfiguration.setMerchantApiBase(apiBase)
+        }
+
+        fun setMerchantName(name: String) {
+            XfersConfiguration.setMerchantName(name)
+        }
+
+        fun setMerchantLogo(logo: Int) {
+            XfersConfiguration.setMerchantLogo(logo)
+        }
+
+        fun setMerchantLogoTint(tint: Int) {
+            XfersConfiguration.setMerchantLogoTint(tint)
+        }
+
         // TODO: Implement Android Keystore handling of userApiKey
         fun setUserApiKey() {
             return
@@ -36,42 +54,52 @@ class Xfers(val context: Context) {
     }
 
     inner class Flow {
-        fun startSignupFlow() {
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+        fun startConnectFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
+            context.startActivity(Intent(context, ConnectPhoneActivity::class.java))
         }
 
         fun startTopupFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startKYCFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startManageBanksFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startWithdrawalFlow() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         // Optional description, will appear in receipt
         fun startPaymentFlow(amount: BigInteger, description: String? = null) {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
+            // TODO: Pass amount and description into activity
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
     }
 
     inner class UI {
         fun startMenuActivity() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startSettingsActivity() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
 
         fun startTransactionsOverviewActivity() {
+            XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, ComingSoonActivity::class.java))
         }
     }
