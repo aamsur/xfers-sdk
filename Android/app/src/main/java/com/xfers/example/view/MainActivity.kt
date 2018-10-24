@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     // Put your logo tint here, this is the color that we will use to tint your logo in the SDK, for e.g.
     // R.color.your_color
-    private val merchantLogoTint = Color.CYAN
+    private val merchantLogoTint = Color.BLACK
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +34,7 @@ class MainActivity : AppCompatActivity() {
         val xfers = Xfers(this)
 
         xfers.config.setSGSandbox()
-        xfers.config.setMerchantApiBase(merchantApiBase)
-        xfers.config.setMerchantName(merchantName)
-        xfers.config.setMerchantLogo(merchantLogo)
-        xfers.config.setMerchantLogoTint(merchantLogoTint)
+        xfers.config.setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint)
     }
 
     fun onClickXfersConnect(view: View) {

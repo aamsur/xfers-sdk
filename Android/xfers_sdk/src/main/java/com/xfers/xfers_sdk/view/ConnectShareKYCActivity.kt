@@ -24,6 +24,9 @@ class ConnectShareKYCActivity : AppCompatActivity() {
         sharedInformationTextView.text = listOf("Name", "Birthdate", "Nationality", "Location", "KTP", "Proof of Address").joinToString(separator = "\n")
 
         val merchantLogoImageView = findViewById<ImageView>(R.id.shareKYCMerchantLogoImageView)
+        XfersConfiguration.getMerchantLogo()?.let {
+            merchantLogoImageView.setImageResource(it)
+        }
         merchantLogoImageView.setColorFilter(XfersConfiguration.getMerchantLogoTint())
     }
 
