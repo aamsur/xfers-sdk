@@ -1,7 +1,6 @@
 WEB SDK
 ---
-
-## Usage
+## Web SDK Usage Overview
 
 #### Through <script> Tag
 

@@ -1,14 +1,6 @@
-# Project overview 
+# Project overview
 
 ## Android SDK Usage Overview
-
-### Sign up for an Xfers Merchant account
-
-You need to first have an Xfers Merchant account before being able to integrate the Xfers SDK.
-
-If you're from Singapore - Sign up for an Xfers Merchant account through https://www.xfers.io/account_registration and make sure to get an api_key.
-
-If you're from Indonesia - Sign up for an Xfers Merchant account by emailing support@xfers.com.
 
 ### Android integration
 
@@ -70,9 +62,9 @@ private int merchantLogoTint = Color.BLACK
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    
+
     Xfers xfers = new Xfers(this); // this here refers to the Context
-    
+
     xfers.config.setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
     xfers.config.setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
 }
@@ -210,9 +202,9 @@ try {
         'phone_no' => '<user_phone_number>', // the phone number will be in the params that we send via the POST request, i.e. params['phoneNumber']
         'signature' => '178502abfa891b69a9a2f72192d51f5fc141f978' // this should be a SHA1-hex of (phone_no + APP_SECRET_KEY)
     ), $xfers_app_api_key);
-    
+
     print_r($resp);
-    
+
     $data = [ 'msg' => 'success' ];
 
     header('Content-type: application/json');
@@ -238,9 +230,9 @@ try {
         'signature' => '178502abfa891b69a9a2f72192d51f5fc141f978', // this should be a SHA1-hex of (phone_no + APP_SECRET_KEY)
     ), $xfers_app_api_key);
     print_r($resp);
-    
+
     $user_api_token = $resp['user_api_token'];
-    
+
     // NOTE: You have to remember the `user_api_token`, tagging it to the user's phone_no as you can use the `user_api_token` to initialise the Android SDK in the future without having the user go through the Connect flow again
 
     $data = [ 'apiKey' => $user_api_token ];
@@ -252,7 +244,7 @@ try {
 }
 php>
 ```
-  
+
 ### Setting up the Xfers Connect Flow (Without the user's `apiKey`)
 
 1. The only thing you need to do is to start the connect flow on the Android SDK on an Activity of your choice:
@@ -294,9 +286,3 @@ new Xfers(this).config.setUserApiKey("<the_user_api_key>");
 ```
 
 Once you have set this up,  you can call any of the other flows and UI to interact with the user's Xfers account.
-
-## Web SDK Usage Overview
-
-
-## Contributing to our SDK 
-Please refer to our [SDK development notes here](https://github.com/Xfers/xfers-sdk/wiki)
