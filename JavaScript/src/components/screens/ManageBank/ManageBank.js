@@ -1,42 +1,29 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-import { View, Button, Modal } from 'XfersComponents'
-import {
-  BankAccountIndex,
-  NewBankAccountForm,
-} from './components'
-import { openModal, closeModal } from './actions'
+import { View } from 'XfersComponents'
+import { BankAccountIndex, NewBankAccountForm } from './components'
 
 function mapStateToProps({manageBank}, props) {
-  const { showModal, route } = manageBank;
-  return { showModal, route }
+  const { route } = manageBank;
+  return { route }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    openModal: () => dispatch(openModal()),
-    closeModal: () => dispatch(closeModal()),
-  }
-}
-class ManageBank extends Component {
+class ManageBank extends PureComponent {
   render() {
-    const { showModal, route, openModal } = this.props;
+    const { route } = this.props;
     return (
       <View>
-        <Modal showModal={showModal} closeModal={closeModal}>
-          { route === 'index' && <BankAccountIndex /> }
-          { route === 'new' && <NewBankAccountForm /> }
-        </Modal>
-        <Button onClick={openModal}>Trigger Bank Modal</Button>
+        { route === 'index' && <BankAccountIndex /> }
+        { route === 'new' && <NewBankAccountForm /> }
       </View>
 
     )
   }
 }
 
-const ConnectedManageBank = connect(mapStateToProps, mapDispatchToProps)(ManageBank);
+const ConnectedManageBank = connect(mapStateToProps, () => ({}))(ManageBank);
 
 const ManageBankModal = (props) => (
   <Provider store={createStore(props)}>

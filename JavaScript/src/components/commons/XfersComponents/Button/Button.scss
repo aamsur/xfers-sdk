@@ -25,17 +25,17 @@
 
   &.colorTertiary {
     color: white;
-    background-color: $primary_xfers_orange;
+    background-color: $xfers_clear_yellow;
 
     &:hover {opacity: 0.85}
 
     &.outline {
       background-color: transparent;
-      border: 1px solid $primary_xfers_orange;
-      color: $primary_xfers_orange;
+      border: 1px solid $xfers_clear_yellow;
+      color: $xfers_clear_yellow;
 
       &:hover {
-        background-color: $primary_xfers_orange;
+        background-color: $xfers_clear_yellow;
         color: white;
       }
     }
@@ -43,17 +43,17 @@
 
   &.colorSecondary {
     color: white;
-    background-color: $primary_xfers_green;
+    background-color: $xfers_clear_green;
 
     &:hover {opacity: 0.85}
 
     &.outline {
       background-color: transparent;
-      border: 1px solid $primary_xfers_green;
-      color: $primary_xfers_green;
+      border: 1px solid $xfers_clear_green;
+      color: $xfers_clear_green;
 
       &:hover {
-        background-color: $primary_xfers_green;
+        background-color: $xfers_clear_green;
         color: white;
       }
     }

@@ -1,3 +1,5 @@
+@import 'styles/_variables';
+
 .modal {
   max-width: 420px;
 
@@ -30,7 +32,8 @@
 }
 
 
-@media (min-width: 64em) {
+@media (min-width: $screen-desktop) {
   .modal {
+    max-width: 600px;
   }
 }

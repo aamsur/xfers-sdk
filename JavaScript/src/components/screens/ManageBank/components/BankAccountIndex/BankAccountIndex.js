@@ -10,19 +10,18 @@ import {
   CenterContent,
   PageLoader
 } from 'XfersComponents'
-import { navigate, initializeComponent, closeModal } from 'ManageBank/actions'
+import { navigate, initializeComponent } from 'ManageBank/actions'
 
 import bankIcon from 'icons/Bank_Acc_23.png'
 
 function mapStateToProps({manageBank}, props) {
-  const { dataLoading, userBanks } = manageBank;
-  return { dataLoading, userBanks }
+  const { dataLoading, userBanks, closeModal } = manageBank;
+  return { dataLoading, userBanks, closeModal }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     init: () => dispatch(initializeComponent()),
-    closeModal: () => dispatch(closeModal()),
     navigateToForm: () => dispatch(navigate('new'))
   }
 }

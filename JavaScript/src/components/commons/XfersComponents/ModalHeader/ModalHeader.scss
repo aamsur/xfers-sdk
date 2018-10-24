@@ -3,10 +3,10 @@
 .modalHeader {
   background-color: $xfers_clear_blue;
   color: #ffffff;
-  height: 60px;
 
   .title {
-    height: $medium_space;
+    display: block;
+    height: $medium_space * 3;
     padding: $medium_space;
     text-align: center;
 
@@ -19,12 +19,18 @@
     }
   }
 
+  .subHeading {
+    font-size: 24px;
+    text-align: center;
+    line-height: 26px;
+    font-weight: $font_weight_bold;
+  }
+
   .desc {
     font-size: 20px;
     line-height: 26px;
-    font-weight: $font_weight_regular;
-    height: $extra_extra_large_space + $medium_space;
-    padding-bottom: $medium_space;
+    font-weight: $font_weight_light;
+    padding: $medium_space;
     display: flex;
     justify-content: center;
     align-items: center;
