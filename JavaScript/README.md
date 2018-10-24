@@ -75,11 +75,17 @@ import { Xfers } from '@xfers/xfers-js-sdk'
 ### Transaction
 #### 1. startPaymentFlow(paymentParamsObject)
 ```
-paymentParamsObject:
+@param {String} amount - [REQUIRED] The charge amount imposed on user.
+@param {String} currency - [REQUIRED]The currency applied onto the charge amount.
+@param {String} orderId - [REQUIRED] Unique ref no provided by you to prevent double charging, this cannot be repeated
 
-* @param {String} amount - [REQUIRED] The charge amount imposed on user.
-* @param {String} currency - [REQUIRED]The currency applied onto the charge amount.
-* @param {String} orderId - [REQUIRED] Unique ref no provided by you to prevent double charging, this cannot be repeated
+// Example:
+const paymentParamsObject = {
+  amount: '3000',
+  currency: 'SGD',
+  orderId: 'AZ30183'
+}
+
 ```
 Payment Flow allows merchant to create a charge on users' Xfers Wallets.
 
