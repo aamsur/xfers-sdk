@@ -4,7 +4,7 @@
 
 ### 1. Xfers User Access Token
 
-Web SDK requires user access token to be instantiated. If you have not gone through the process to setup **Xfers Connect**, please refer to the **Backend Integration** guide in the root, or click [here]https://github.com/Xfers/xfers-sdk)
+Web SDK requires user access token to be instantiated. If you have not gone through the process to setup **Xfers Connect**, please refer to the **Backend Integration** guide in the root, or click [here](https://github.com/Xfers/xfers-sdk)
 
 ## Download Xfers Web SDK
 
