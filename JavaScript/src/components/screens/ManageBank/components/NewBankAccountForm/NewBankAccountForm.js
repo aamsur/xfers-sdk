@@ -13,10 +13,6 @@ import {
 } from './components'
 import { navigate, initNewBankAccount } from 'ManageBank/actions'
 
-function mapStateToProps() {
-  return {}
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     initNewBankAccount: () => dispatch(initNewBankAccount()),
@@ -45,4 +41,4 @@ class NewBankAccountForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewBankAccountForm)
+export default connect(() => ({}), mapDispatchToProps)(NewBankAccountForm)

@@ -5,7 +5,6 @@ import {
   View,
   Text,
   ModalHeader,
-  FormInput,
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
@@ -39,7 +38,6 @@ class AddBankAccountConfirmation extends Component {
       bankDetails,
       accountNo,
       accountHolderName,
-      updateForm,
       submit,
       goNext,
       goBack,
