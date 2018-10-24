@@ -8,7 +8,8 @@ const MODULE_PATHS = [
   path.resolve(__dirname, 'src/assets/images'),
   path.resolve(__dirname, 'src/components/commons'),
   path.resolve(__dirname, 'src/components/screens'),
-  path.resolve(__dirname, 'src/wrappers'),
+  path.resolve(__dirname, 'src/wrappers/helpers'),
+  path.resolve(__dirname, 'src/wrappers/interfaces'),
   'node_modules'
 ];
 

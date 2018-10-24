@@ -7,25 +7,28 @@ import {
   CenterContent,
   PageLoader
 } from 'XfersComponents'
-import { initializeComponent, navigate } from 'TopUp/actions'
+import { initializeComponent, navigate } from 'Payment/actions'
 
-function mapStateToProps({topUp}, props) {
-  const { closeModal } = topUp;
-  return { closeModal }
+function mapStateToProps({payment}, props) {
+  return {...props}
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     init: (successCallback) => dispatch(initializeComponent(successCallback)),
-    navigateToPage: () => dispatch(navigate('topUpForm'))
+    navigateToPage: (page) => dispatch(navigate(page))
   }
 }
 
-class TopUpIndex extends Component {
+class PaymentIndex extends Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
-    const callback = () => {
-      this.props.navigateToPage();
+    const callback = (page) => {
+      this.props.navigateToPage(page);
     }
     this.props.init(callback);
   }
@@ -36,15 +39,15 @@ class TopUpIndex extends Component {
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader spHeader onClose={closeModal} title="Bank Accounts" />
+        <ModalHeader spHeader onClose={closeModal} title="Make Payment" />
           <View spBody>
             <CenterContent>
               <PageLoader />
             </CenterContent>
           </View>
       </StickyPanel>
-    );
+    )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentIndex)

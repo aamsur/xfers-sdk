@@ -1,7 +1,6 @@
 export {
   navigate,
-  openModal,
-  closeModal,
   initializeComponent,
   updateTopUpDetails,
+  submitNewTopUpRequest
 } from './topUpActions'

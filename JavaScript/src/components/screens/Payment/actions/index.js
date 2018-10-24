@@ -1,6 +1,5 @@
 export {
   navigate,
-  openModal,
-  closeModal,
+  confirmPayment,
   initializeComponent,
 } from './paymentActions'

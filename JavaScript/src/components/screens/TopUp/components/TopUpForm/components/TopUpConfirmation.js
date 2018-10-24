@@ -18,11 +18,10 @@ function mapStateToProps({topUp}, props) {
   let bankDetails = {};
   for ( let i = 0; i < userBanks.length; i++ ) {
     if (userBanks[i].bank_abbrev === bank) {
-      bankDetails = bankOptions[i];
+      bankDetails = userBanks[i];
       break;
     }
   }
-
   return { error, bankDetails, topUpAmount };
 }
 
@@ -64,11 +63,11 @@ class TopUpConfirmation extends Component {
           <Text type="panelTitle">Confirm details</Text>
           <View marginBottom="40px">
             <Text type="label">Pay Using</Text>
-            <Text type="boldValue">{`${bankDetails.name} (${bankDetails.abbreviation})`}</Text>
+            <Text type="boldValue">{`${bankDetails.bank_abbrev} - ${bankDetails.account_no}`}</Text>
           </View>
           <View marginBottom="40px">
             <Text type="label">Payment To</Text>
-            <Text type="boldValue">nothing</Text>
+            <Text type="boldValue">Merchant</Text>
           </View>
           <View marginBottom="40px">
             <Text type="label">Payment Amount</Text>

@@ -9,7 +9,7 @@ import {
   SelectionButton
 } from 'XfersComponents'
 
-import { updateTopUpDetails } from 'TopUp/actions'
+import { navigate, updateTopUpDetails } from 'TopUp/actions'
 import bankIcon from 'icons/Bank_Acc_23.png'
 
 function mapStateToProps({topUp}, props) {
@@ -20,12 +20,13 @@ function mapStateToProps({topUp}, props) {
 function mapDispatchToProps(dispatch) {
   return {
     updateForm: (v) => dispatch(updateTopUpDetails("bank", v)),
+    navigateToManageBank: () => dispatch(navigate("bank"))
   }
 }
 
 class TopUpFundSource extends Component {
   render() {
-    const { userBanks, updateForm, goBack, goNext } = this.props;
+    const { userBanks, updateForm, goBack, goNext, navigateToManageBank } = this.props;
 
     const onSelect = (bankAbbreviation) => {
       updateForm(bankAbbreviation);
@@ -48,7 +49,7 @@ class TopUpFundSource extends Component {
             )}
           </View>
           <View marginTop="20px">
-            <AnchorLink onClick={() => console.log()}>Edit bank accounts</AnchorLink>
+            <AnchorLink onClick={navigateToManageBank}>Edit bank accounts</AnchorLink>
           </View>
         </View>
       </StickyPanel>

@@ -16,17 +16,32 @@ export default (props = {}) => {
     }
   }
 
-  const { network } = props;
+  const { closeModal, networkClient, amount, orderId, currency } = props;
 
   const initialState = {
     payment: {
-      network,
 
-      showModal: false,
-      // Available routes: index, topUpForm
+      // External props
+      closeModal,
+      networkClient,
+      amount,
+      orderId,
+      currency,
+
+      // Available routes: index, payment
       route: 'index',
       error: '',
       dataLoading: false,
+
+      availableBalance: '',
+      gauthEnabled: false,
+      bitcoinUser: false,
+      vipBetaUser: false,
+      acceptedTnc: false,
+      kycVerified: false,
+      accountLocked: false,
+      multiBankAccountLocked: false,
+      userBanks: [],
     }
   }
 

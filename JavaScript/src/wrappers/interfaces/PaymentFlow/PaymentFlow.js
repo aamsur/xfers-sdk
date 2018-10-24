@@ -1,48 +1,62 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import ReactDOM from 'react-dom'
-import XfersNetwork from '../../helpers/NetworkClient'
-import ManageBank from 'ManageBank'
+import NetworkClient from 'NetworkClient'
 
-function wrapWithModal(component) {
-  return (
-    <Modal showModal={showModal} closeModal={closeModal}>
-      {component}
-    </Modal>
-  )
-}
+import Payment from 'Payment'
+import { Modal } from 'XfersComponents'
 
-class PaymentFlow extends Component {
+export default class PaymentFlow extends Component {
   constructor(mountingElementId, accessToken, options = {}) {
     super();
+    if (!mountingElementId) throw new Error('Please provide a valid mounting element ID');
     if (!accessToken) throw new Error('Please provide a valid access token.');
 
-    const network = new XfersNetwork("YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+      const networkClient = new NetworkClient("YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
 
-    this.state = {
-      network,
-      showModal: false,
+    this.networkClient = networkClient;
+    this.mountingElementId = mountingElementId;
+  }
+
+  startPaymentFlow = (params) => {
+    if (this.element) {
+      this.element.openModal();
+    } else {
+      this.element = ReactDOM.render(
+        React.createElement(ModalWrapper, {
+          ...params,
+          networkClient: this.networkClient,
+        }),
+        document.getElementById(this.mountingElementId)
+      );
     }
-    this.mountComponent(mountingElementId);
+  }
+}
+
+
+class ModalWrapper extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = { showModal: true }
   }
 
-  mountComponent(mountingElementId) {
-    const network = this.network;
-    const props = { ...this.state, closeModal: this.closeModal }
-    const componentModal = wrapWithModal(ManageBank);
-    ReactDOM.render(React.createElement(componentModal, props), document.getElementById(mountingElementId));
-  }
-
-  openModal() {
+  openModal = () => {
     this.setState({ showModal: true });
   }
 
-  closeModal() {
+  closeModal = () => {
     this.setState({ showModal: false });
   }
 
-  createCharge() {
-    this.openModal()
+  render() {
+    const { showModal } = this.state;
+    return (
+      <Modal showModal={showModal} closeModal={this.closeModal}>
+        <Payment
+          {...this.props}
+          closeModal={this.closeModal}
+          />
+      </Modal>
+    )
   }
 }
-
-export default PaymentFlow

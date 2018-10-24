@@ -1,33 +1,25 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
-import { View } from 'XfersComponents'
+import { Stepper } from 'XfersComponents'
 import {
   TopUpAmount,
   TopUpFundSource,
   TopUpConfirmation,
   TopUpStatus,
+  TopUpInstructions
 } from './components'
-
-function mapStateToProps() {
-  return {}
-}
-
-function mapDispatchToProps(dispatch) {
-  return {}
-}
 
 class TopUpForm extends Component {
   render() {
     return (
-      <View>
+      <Stepper>
         <TopUpAmount />
         <TopUpFundSource />
         <TopUpConfirmation />
+        <TopUpInstructions />
         <TopUpStatus />
-      </View>
+      </Stepper>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpForm)
+export default TopUpForm

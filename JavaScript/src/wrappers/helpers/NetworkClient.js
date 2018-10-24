@@ -35,6 +35,10 @@ export default class Xfers {
     return this.api.send('POST', 'authorize/signup_login', parsedParams);
   }
 
+  getUserDetails() {
+    return this.api.send('GET', 'user');
+  }
+
   updateUser(params) {
     return this.api.send('POST', params);
   }
@@ -49,10 +53,6 @@ export default class Xfers {
 
   addBankAccount(params) {
     return this.api.send('POST', 'user/bank_account', params);
-  }
-
-  getTopUpInformation() {
-    return this.api.send('GET', 'user/transfer_info');
   }
 
   /**
@@ -71,8 +71,14 @@ export default class Xfers {
     * @return {Promise} - Return a Promise that, when fulfilled: If a user_api_token is given and the user has insufficient xfers wallet balance,
     * the response will return the transfer_info object containing information about the bank the user should transfer to.
     */
+
   createCharge() {
     return this.api.send('POST', 'charges', params);
+  }
+
+  createTopUpRequest() {
+    // TODO: Update the API endpoint
+    return this.api.send('POST', 'user/transfer_info');
   }
 }
 
