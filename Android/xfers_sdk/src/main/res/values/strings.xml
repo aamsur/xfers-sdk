@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Xfers SDK</string>
+    <string name="coming_soon_title">HANG ON TIGHT</string>
+    <string name="coming_soon_subtitle">Coming Soon!</string>
+    <string name="coming_soon_copy">This feature is currently in the works and will launch soon!</string>
+    <string name="coming_soon_return_copy">Return to %1$s</string>
 </resources>
