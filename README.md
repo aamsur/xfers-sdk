@@ -8,11 +8,11 @@ If you're from Singapore - Sign up for an Xfers Merchant account through https:/
 
 If you're from Indonesia - Sign up for an Xfers Merchant account by emailing support@xfers.com.
 
-## SDK - Android
+### SDK - Android
 Please refer to our Android SDK Getting Started Guide here by going to Android folder or click on the link [here](https://github.com/Xfers/xfers-sdk/tree/master/Android)
 
-## SDK - Web
+### SDK - Web
 Please refer to our Web SDK Getting Started Guide here by going to JavaScript folder or click on the link [here](https://github.com/Xfers/xfers-sdk/tree/master/JavaScript)
 
-## Contributing to our SDK
+### Contributing to our SDK
 Please refer to our [SDK development notes here](https://github.com/Xfers/xfers-sdk/wiki)
