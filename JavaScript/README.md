@@ -10,39 +10,50 @@ Web SDK requires user access token to be instantiated. If you have not gone thro
 
 Once the setup for **User Access Token** is complete, proceed to download Xfers Web SDK either through **CDN** or **npm install**
 
-### Through CDN & <script> Tag
+### 1. Through CDN & <script> Tag
 
-Add the following lines into the `<head></head>` section:
+Add the following lines into the corresponding HTML file `<head></head>` section:
 
 ```html
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- The following files can be downloaded from the js folder in this repository -->
+<!-- The following files can also be downloaded from the js folder in this repository -->
 <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/vendors~xfers.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/xfers.bundle.js"></script>
-
 ```
 
-Then initialize the components by adding the following javascript into the `<body></body>` section:
+Note that Xfers Web SDK requires a mounting point on a HTML DOM, add the following line into the same HTML file `<body></body>` section:
+
 ```html
-<body>
+  <!-- The ID of the DOM element is to be used to instantiate Web SDK later -->
+  <!-- Make sure the following line is executed before the instantiation in the next segment -->
   <div id="xfers_elements"></div>
+```
 
-  <script type="text/javascript">
+Next step, initialize the components by adding the following javascript into the same `<body></body>` section:
 
-    // 1st param => Mounting Element Id: 'xfers_elements'
-    // 2nd param => Avaialble components: ['XFERS_USER_API_KEY']
+```html
+<script type="text/javascript">
+  
+  
+    /* Instantiation takes in two parameters:
+     * 1st param => mountingElementId: 'xfers_elements'
+     * 2nd param => accessToken: e.g. - 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'
+     */
     const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+  
+    /* The following code triggers the payment flow from the SDK,
+     * Please refer to the next segment to see all supported flow from the SDK and examples
+     */
     xfers.startPaymentFlow({
       amount: 30000,
       currency: 'SGD',
       orderId: 'AZ03273'
     });
   </script>
-</body>
 ```
 
-### Through npm, import/export
+### 2. Through npm, import/export
 
 Install the package through npm or yarn:
 
@@ -52,7 +63,7 @@ npm install @xfers/xfers-js-sdk
 
 Then import the Xfers UI Elements into your code:
 ```javascript
-import { Elements } from '@xfers/xfers-js-sdk'
+import { Xfers } from '@xfers/xfers-js-sdk'
 ```
 
 ## Example:
