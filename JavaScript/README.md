@@ -8,7 +8,7 @@ Web SDK requires user access token to be instantiated. If you have not gone thro
 
 ## Download Xfers Web SDK
 
-Once the setup of **User Access Token** is complete, proceed to download Xfers Web SDK either through **CDN** or **npm install*
+Once the setup for **User Access Token** is complete, proceed to download Xfers Web SDK either through **CDN** or **npm install**
 
 ### Through CDN & <script> Tag
 
