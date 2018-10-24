@@ -73,12 +73,20 @@ import { Xfers } from '@xfers/xfers-js-sdk'
 * startVerificationFlow (Coming Soon)
 
 ### Transaction
-* ```startPaymentFlow```
-Payment Flow allows merchant to create a charge on users' Xfers Wallets. 
+* ```startPaymentFlow(paymentParamsObject)```
+```
+* @param {String} amount - [REQUIRED] The charge amount imposed on user.
+* @param {String} currency - [REQUIRED]The currency applied onto the charge amount.
+* @param {String} orderId - [REQUIRED] Unique ref no provided by you to prevent double charging, this cannot be repeated
+```
+---
+
+Payment Flow allows merchant to create a charge on users' Xfers Wallets.
+
 - If there is enough balance, the flow will deduct the fund from users' Xfers Wallets automatically and move it to Merchants' Xfers Wallets.
 - If there isn't enough balance, the flow will guide users on how to top-up Xfers Wallets.
 - It will also check if transacting users are KYC-verified, if verification is required, it will guide the users to go through Verification process.
-
+---
 * startTopUpFlow (Coming Soon)
 * startManageBankFlow (Coming Soon)
 
