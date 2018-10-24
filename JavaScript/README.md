@@ -2,13 +2,15 @@
 
 ## Pre-requisite
 
-1. Xfers User Access Token
+### 1. Xfers User Access Token
 
-Web SDK requires user access token to be instantiated. If you have not gone through the process to setup **Xfers Connect**, please refer to the **Backend Integration** guide in the root, or click [here](https://github.com/Xfers/xfers-sdk/edit/master/README.md)
+Web SDK requires user access token to be instantiated. If you have not gone through the process to setup **Xfers Connect**, please refer to the **Backend Integration** guide in the root, or click [here]https://github.com/Xfers/xfers-sdk)
 
 ## Download Xfers Web SDK
 
-### Through <script> Tag
+Once the setup of **User Access Token** is complete, proceed to download Xfers Web SDK either through **CDN** or **npm install*
+
+### Through CDN & <script> Tag
 
 Add the following lines into the `<head></head>` section:
 
