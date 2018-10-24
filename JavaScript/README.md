@@ -10,8 +10,9 @@ Add the following lines into the `<head></head>` section:
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- The following files can be downloaded from the js folder in this repository -->
-<script type="text/javascript" src="dist/vendors~xfers.bundle.js"></script>
-<script type="text/javascript" src="dist/xfers.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/vendors~xfers.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/xfers.bundle.js"></script>
+
 ```
 
 Then initialize the components by adding the following javascript into the `<body></body>` section:
