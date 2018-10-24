@@ -35,24 +35,23 @@ Next step, initialize the components by adding the following javascript into the
 ```html
 <script type="text/javascript">
   
+  // Paste your own Xfers User Access Token here
+  const accessToken = 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'  
   
-    /* Instantiation takes in two parameters:
-     * 1st param => mountingElementId: 'xfers_elements'
-     * 2nd param => accessToken: e.g. - 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'
-     */
-    
-    const accessToken = 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z' // Paste your user access token here
-    const xfers = new Xfers("xfers_elements", accessToken);
+  /* Instantiation takes in two parameters:
+   * 1st param => mountingElementId: 'xfers_elements'
+   * 2nd param => accessToken: e.g. - 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'
+   */
+  const xfers = new Xfers("xfers_elements", accessToken);
   
-    /* The following code triggers the payment flow from the SDK,
-     * Please refer to the next segment to see all supported flow from the SDK and examples
-     */
-    xfers.startPaymentFlow({
-      amount: 30000,
-      currency: 'SGD',
-      orderId: 'AZ03273'
-    });
   </script>
+```
+
+Next step, trigger SDK flows by executing the following command
+
+```javascript
+  const paymentFlowParam = { amount: 3000, currency: 'SGD', orderId: 'AZ03283' }
+  xfers.startPaymentFlow(paymentFlowParam);
 ```
 
 ### 2. Through npm, import/export
