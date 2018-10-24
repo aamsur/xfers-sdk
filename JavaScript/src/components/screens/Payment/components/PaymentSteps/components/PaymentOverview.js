@@ -12,7 +12,8 @@ import { toCurrency } from 'UtilityFunctions'
 import { confirmPayment } from 'Payment/actions'
 
 function mapStateToProps({payment}, props) {
-  return {}
+  const { amount, orderId, closeModal } = payment;
+  return { amount, orderId, closeModal }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -24,9 +25,12 @@ function mapDispatchToProps(dispatch) {
 class TopUpConfirmation extends Component {
   render() {
     const {
+      orderId,
+      amount,
       confirm,
       goNext,
       goBack,
+      closeModal
     } = this.props;
 
     const confirmWithCallback = () => {
@@ -35,23 +39,21 @@ class TopUpConfirmation extends Component {
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
+        <ModalHeader onClose={closeModal} spHeader title="Make Payment" />
         <View spBody>
           <Text type="panelTitle">Transaction Overview</Text>
-          <View marginBottom="20px">
-            <Text>Your are about to make a payment via your Xfers Wallet to the following details. Please confirm.</Text>
-          </View>
-          <View marginBottom="20px">
-            <Text type="label">Pay Using</Text>
-            <Text type="boldValue">sdfsd</Text>
-          </View>
+          <Text type="panelSubtitle">Your are about to make a payment via your Xfers Wallet to the following details. Please confirm.</Text>
           <View marginBottom="20px">
             <Text type="label">Payment To</Text>
-            <Text type="boldValue">nothing</Text>
+            <Text type="boldValue">Merchant</Text>
           </View>
           <View marginBottom="20px">
-            <Text type="label">Payment Amount</Text>
-            <Text type="boldValue">{12312}</Text>
+            <Text type="label">Order ID</Text>
+            <Text type="boldValue">{orderId}</Text>
+          </View>
+          <View marginBottom="20px">
+            <Text type="label">Description</Text>
+            <Text type="boldValue">This is a place for description</Text>
           </View>
         </View>
         <View spFooter>
@@ -63,11 +65,11 @@ class TopUpConfirmation extends Component {
             borderTop="1px solid #ccc"
             borderBottom="1px solid #ccc" >
             <View><Text type="label">Total Payment Amount</Text></View>
-            <View><Text fontSize="24px" fontWeight="bold">{toCurrency(2000)}</Text></View>
+            <View><Text fontSize="24px" fontWeight="bold">{toCurrency(amount)}</Text></View>
           </View>
 
           <FooterButtonGroup>
-            <Button onClick={() => console.log()}>Cancel</Button>
+            <Button onClick={closeModal}>Cancel</Button>
             <Button type="primary" onClick={confirmWithCallback}>Confirm</Button>
           </FooterButtonGroup>
         </View>

@@ -10,10 +10,11 @@ import {
   FooterButtonGroup
 } from 'XfersComponents'
 import { updateTopUpDetails } from 'TopUp/actions'
+import { toCurrency } from 'UtilityFunctions'
 
 function mapStateToProps({topUp}, props) {
-  const { newTopUpRequest: { topUpAmount } } = topUp;
-  return { topUpAmount, ...props }
+  const { availableBalance, newTopUpRequest: { topUpAmount } } = topUp;
+  return { availableBalance, topUpAmount, ...props }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -25,6 +26,7 @@ function mapDispatchToProps(dispatch) {
 class TopUpAmount extends Component {
   render() {
     const {
+      availableBalance,
       topUpAmount,
       updateForm,
       goBack,
@@ -58,8 +60,8 @@ class TopUpAmount extends Component {
           </View>
         </View>
         <View spFooter>
-          <View marginBottom="10px"><Text>Current Balance: </Text></View>
-          <View marginBottom="20px"><Text type="note">Remaining top-up limit:</Text></View>
+          <View marginBottom="10px"><Text>Current Balance: {toCurrency(availableBalance)}</Text></View>
+          {false && <View marginBottom="20px"><Text type="note">Remaining top-up limit:</Text></View>}
           <FooterButtonGroup>
             <Button type="primary" disabled={disabled} onClick={goNext}>Next</Button>
           </FooterButtonGroup>

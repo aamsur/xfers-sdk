@@ -35,6 +35,16 @@
   line-height: 26px;
 }
 
+.panelSubtitle {
+  color: $xfers_black;
+  font-size: 16px;
+  margin-top: $medium_space;
+  margin-bottom: $medium_space;
+  display: block;
+  font-weight: $font_weight_light;
+  line-height: 24px;
+}
+
 .label {
   color: $xfers_clear_blue;
   font-size: 14px;

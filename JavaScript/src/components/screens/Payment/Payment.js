@@ -5,19 +5,21 @@ import createStore from './store'
 import { View } from 'XfersComponents'
 import { PaymentIndex, PaymentSteps } from './components'
 import { initializeComponent } from 'Payment/actions'
+import TopUp from 'TopUp'
 
 function mapStateToProps({payment}, props) {
-  const { route } = payment;
-  return { route }
+  const { networkClient, route } = payment;
+  return { networkClient, route }
 }
 
 class Payment extends Component {
   render() {
-    const { route } = this.props;
+    const { networkClient, route } = this.props;
     return (
       <View>
         { route === 'index' && <PaymentIndex /> }
         { route === 'payment' && <PaymentSteps /> }
+        { route === 'topup' && <TopUp networkClient={networkClient} close /> }
       </View>
     )
   }
@@ -25,9 +27,9 @@ class Payment extends Component {
 
 const ConnectedPayment = connect(mapStateToProps, () => ({}))(Payment);
 
-const PaymentModal = ({ closeModal, networkClient }) => (
-  <Provider store={createStore({networkClient})}>
-    <ConnectedPayment closeModal={closeModal} />
+const PaymentModal = (props) => (
+  <Provider store={createStore(props)}>
+    <ConnectedPayment />
   </Provider>
 )
 

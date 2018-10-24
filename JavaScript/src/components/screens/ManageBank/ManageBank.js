@@ -7,16 +7,16 @@ import { BankAccountIndex, NewBankAccountForm } from './components'
 
 function mapStateToProps({manageBank}, props) {
   const { route } = manageBank;
-  return { route, ...props }
+  return { route }
 }
 
 class ManageBank extends PureComponent {
   render() {
-    const { route, closeModal } = this.props;
+    const { route } = this.props;
     return (
       <View>
-        { route === 'index' && <BankAccountIndex closeModal={closeModal} /> }
-        { route === 'new' && <NewBankAccountForm closeModal={closeModal} /> }
+        { route === 'index' && <BankAccountIndex /> }
+        { route === 'new' && <NewBankAccountForm /> }
       </View>
 
     )
@@ -25,9 +25,9 @@ class ManageBank extends PureComponent {
 
 const ConnectedManageBank = connect(mapStateToProps, () => ({}))(ManageBank);
 
-const ManageBankModal = ({ closeModal, networkClient }) => (
-  <Provider store={createStore({networkClient})}>
-    <ConnectedManageBank closeModal={closeModal} />
+const ManageBankModal = (props) => (
+  <Provider store={createStore(props)}>
+    <ConnectedManageBank />
   </Provider>
 )
 

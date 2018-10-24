@@ -17,12 +17,15 @@ export default class PaymentFlow extends Component {
     this.mountingElementId = mountingElementId;
   }
 
-  startPaymentFlow = () => {
+  startPaymentFlow = (params) => {
     if (this.element) {
       this.element.openModal();
     } else {
       this.element = ReactDOM.render(
-        React.createElement(ModalWrapper, { networkClient: this.networkClient }),
+        React.createElement(ModalWrapper, {
+          ...params,
+          networkClient: this.networkClient,
+        }),
         document.getElementById(this.mountingElementId)
       );
     }
@@ -47,11 +50,10 @@ class ModalWrapper extends PureComponent {
 
   render() {
     const { showModal } = this.state;
-    const { networkClient } = this.props;
     return (
       <Modal showModal={showModal} closeModal={this.closeModal}>
         <Payment
-          networkClient={networkClient}
+          {...this.props}
           closeModal={this.closeModal}
           />
       </Modal>

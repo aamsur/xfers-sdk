@@ -3,6 +3,7 @@ import {
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
+  SUBMIT_TOP_UP_REQUEST_RESPONSE
 } from 'TopUp/actions/constants'
 
 
@@ -21,6 +22,10 @@ const ACTION_HANDLERS = {
     let newTopUpRequest = { ...state['newTopUpRequest'], [formType]: formData };
     return { ...state, newTopUpRequest, error: '' }
   },
+  [SUBMIT_TOP_UP_REQUEST_RESPONSE]: (state, {res}) => {
+    // TODO: Retrieve transfer-in information
+    return { ...state }
+  }
 }
 
 // ------------------------------------

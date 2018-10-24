@@ -4,19 +4,28 @@ import createStore from './store'
 
 import { View } from 'XfersComponents'
 import { TopUpIndex, TopUpForm } from './components'
+import ManageBank from 'ManageBank'
+import { navigate } from 'TopUp/actions'
 
 function mapStateToProps({topUp}, props) {
-  const { route } = topUp;
-  return { route }
+  const { networkClient, route } = topUp;
+  return { networkClient, route }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    navigateBack: () => dispatch(navigate('topUpForm'))
+  }
 }
 
 class TopUp extends Component {
   render() {
-    const { showModal, openModal, route } = this.props;
+    const { networkClient, route, navigateBack } = this.props;
     return (
       <View>
         { route === 'index' && <TopUpIndex /> }
         { route === 'topUpForm' && <TopUpForm /> }
+        { route === 'bank' && <ManageBank networkClient={networkClient} goBack={navigateBack} /> }
       </View>
     )
   }
@@ -24,10 +33,10 @@ class TopUp extends Component {
 
 const ConnectedTopUp = connect(mapStateToProps, () => ({}))(TopUp);
 
-const TopUpModal = ({ closeModal, networkClient }) => (
-  <Provider store={createStore({networkClient})}>
-    <ConnectedTopUp closeModal={closeModal} />
+const TopUpModal = (props) => (
+  <Provider store={createStore(props)}>
+    <ConnectedTopUp />
   </Provider>
-){
+)
 
 export default TopUpModal

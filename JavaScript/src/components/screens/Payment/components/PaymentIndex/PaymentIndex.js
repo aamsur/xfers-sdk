@@ -16,7 +16,7 @@ function mapStateToProps({payment}, props) {
 function mapDispatchToProps(dispatch) {
   return {
     init: (successCallback) => dispatch(initializeComponent(successCallback)),
-    navigateToPage: () => dispatch(navigate('payment'))
+    navigateToPage: (page) => dispatch(navigate(page))
   }
 }
 
@@ -27,8 +27,8 @@ class PaymentIndex extends Component {
   }
 
   componentDidMount() {
-    const callback = () => {
-      this.props.navigateToPage();
+    const callback = (page) => {
+      this.props.navigateToPage(page);
     }
     this.props.init(callback);
   }

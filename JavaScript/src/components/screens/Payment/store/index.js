@@ -16,11 +16,18 @@ export default (props = {}) => {
     }
   }
 
-  const { networkClient } = props;
+  const { closeModal, networkClient, amount, orderId, currency } = props;
 
   const initialState = {
     payment: {
+
+      // External props
+      closeModal,
       networkClient,
+      amount,
+      orderId,
+      currency,
+
       // Available routes: index, payment
       route: 'index',
       error: '',

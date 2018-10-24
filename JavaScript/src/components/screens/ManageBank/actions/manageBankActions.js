@@ -38,9 +38,9 @@ export const initializeComponent = () => (dispatch, getState) => {
 export const submitNewBankAccountDetails = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
 
-  const { newBankAccountDetails } = getState().manageBank;
+  const { newBankAccountDetails, networkClient: xfersApi } = getState().manageBank;
 
-  xfers.addBankAccount(
+  xfersApi.addBankAccount(
     caseConvert.toSnake(newBankAccountDetails,
       {'bankStatementFile': 'bank_account_proof', 'fileData': 'fileData', 'fileName': 'fileName'})
   ).then(res => {

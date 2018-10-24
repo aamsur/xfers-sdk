@@ -15,8 +15,8 @@ import { navigate, initializeComponent } from 'ManageBank/actions'
 import bankIcon from 'icons/Bank_Acc_23.png'
 
 function mapStateToProps({manageBank}, props) {
-  const { dataLoading, userBanks } = manageBank;
-  return { dataLoading, userBanks, ...props }
+  const { dataLoading, userBanks, closeModal } = manageBank;
+  return { dataLoading, userBanks, closeModal }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -16,11 +16,15 @@ export default (props = {}) => {
     }
   }
 
-  const { networkClient } = props;
+  const { closeModal, networkClient } = props;
 
   const initialState = {
     manageBank: {
+
+      // External Props
+      closeModal,
       networkClient,
+      
       // Available routes: index, new
       route: 'index',
       error: '',

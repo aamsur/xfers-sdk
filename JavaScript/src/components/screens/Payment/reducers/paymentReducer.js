@@ -2,7 +2,7 @@ import {
   NAVIGATE,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
-  UPDATE_TOP_UP_DETAILS,
+  CONFIRM_PAYMENT_RESPONSE,
 } from 'Payment/actions/constants'
 
 
@@ -17,6 +17,7 @@ const ACTION_HANDLERS = {
     const { userDetails } = res;
     return {
       ...state,
+      walletName: userDetails.wallet_name + ' Wallet',
       availableBalance: userDetails.available_balance,
       gauthEnabled: userDetails.gauth_enabled,
       bitcoinUser: userDetails.bitcoin_user,
@@ -29,6 +30,10 @@ const ACTION_HANDLERS = {
       dataLoading: false,
     }
   },
+  [CONFIRM_PAYMENT_RESPONSE]: (state, {res}) => {
+    // TODO: Receive updates on available balance
+    return { ...state }
+  }
 }
 
 // ------------------------------------

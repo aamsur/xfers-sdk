@@ -16,27 +16,32 @@ export default (props = {}) => {
     }
   }
 
-  const { networkClient } = props;
+  const { closeModal, networkClient } = props;
 
   const initialState = {
     topUp: {
+
+      // External Props
+      closeModal,
       networkClient,
 
       // Available routes: index, topUpForm
       route: 'index',
       error: '',
       dataLoading: false,
+      availableBalance: '',
       userBanks: [],
+      screenType: 'mobile',
       newTopUpRequest: {
         bank: '',
         topUpAmount: ''
       },
       xfersBankAccount: {
-        accountNo: '',
-        abbreviation: '',
-        bankName: '',
-        uniqueId: '',
-        payeeName: ''
+        accountNo: '123456789',
+        abbreviation: 'DBS',
+        bankName: 'CIMB Bank',
+        uniqueId: '94463205',
+        payeeName: 'XV PTED LTD'
       },
     }
   }

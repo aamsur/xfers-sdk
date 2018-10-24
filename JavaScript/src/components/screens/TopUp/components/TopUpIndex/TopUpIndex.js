@@ -10,7 +10,8 @@ import {
 import { initializeComponent, navigate } from 'TopUp/actions'
 
 function mapStateToProps({topUp}, props) {
-  return { ...props }
+  const { closeModal } = topUp;
+  return { closeModal }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -21,10 +22,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 class TopUpIndex extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     const callback = () => {
