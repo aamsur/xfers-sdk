@@ -47,7 +47,7 @@ Next step, initialize the components by adding the following javascript into the
   </script>
 ```
 
-Next step, trigger SDK flows by executing the following command
+Next step, trigger SDK flows by executing the following command:
 
 ```javascript
   const paymentFlowParam = { amount: 3000, currency: 'SGD', orderId: 'AZ03283' }
@@ -66,6 +66,16 @@ Then import the Xfers UI Elements into your code:
 ```javascript
 import { Xfers } from '@xfers/xfers-js-sdk'
 ```
+
+## Flows Available
+
+### Verification
+* startVerificationFlow (Coming Soon)
+
+### Transaction
+* startPaymentFlow
+* startTopUpFlow (Coming Soon)
+* startManageBankFlow (Coming Soon)
 
 ## Example:
 https://cl.ly/81869d7de1b4
