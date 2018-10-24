@@ -67,13 +67,13 @@ Then import the Xfers UI Elements into your code:
 import { Xfers } from '@xfers/xfers-js-sdk'
 ```
 
-## Flows Available
+## Flows Available & Documentations
 
 ### Verification
 * startVerificationFlow (Coming Soon)
 
 ### Transaction
-* ```startPaymentFlow(paymentParamsObject)```
+#### 1. startPaymentFlow(paymentParamsObject)
 ```
 paymentParamsObject:
 
