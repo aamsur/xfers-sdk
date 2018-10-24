@@ -7,6 +7,12 @@ import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
+import android.text.Spannable
+import android.graphics.Typeface
+import android.text.style.StyleSpan
+import android.text.SpannableString
+import android.widget.ImageView
+import android.widget.TextView
 
 // TODO: To be removed, only for initial integration purposes
 class ComingSoonActivity : AppCompatActivity() {
@@ -25,8 +31,20 @@ class ComingSoonActivity : AppCompatActivity() {
 
         title = getString(R.string.coming_soon_title)
 
-        val comingSoonBackButton = findViewById<Button>(R.id.comingSoonBackButton)
-        comingSoonBackButton.text = getString(R.string.coming_soon_return_copy, XfersConfiguration.getMerchantName())
+        val comingSoonIconImageView = findViewById<ImageView>(R.id.cardActivityIconImageView)
+        comingSoonIconImageView.setImageResource(R.drawable.status_wip_60)
+
+        val comingSoonTextView = findViewById<TextView>(R.id.cardActivityTextView)
+
+        val boldText = getString(R.string.coming_soon_subtitle)
+        val normalText = getString(R.string.coming_soon_copy)
+        val combinedText = SpannableString("$boldText\n\n$normalText")
+        combinedText.setSpan(StyleSpan(Typeface.BOLD), 0, boldText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        comingSoonTextView.text = combinedText
+
+        val comingSoonReturnButton = findViewById<Button>(R.id.cardActivityReturnButton)
+        comingSoonReturnButton.text = getString(R.string.coming_soon_return_copy, XfersConfiguration.getMerchantName())
     }
 
     fun onButtonClick(view: View) {
