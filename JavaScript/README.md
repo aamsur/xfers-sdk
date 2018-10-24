@@ -54,7 +54,7 @@ Next step, trigger SDK flows by executing the following command:
   xfers.startPaymentFlow(paymentFlowParam);
 ```
 
-### 2. Through npm, import/export
+### 2. Through npm, import/export (Coming Soon)
 
 Install the package through npm or yarn:
 
@@ -85,7 +85,6 @@ const paymentParamsObject = {
   currency: 'SGD',
   orderId: 'AZ30183'
 }
-
 ```
 Payment Flow allows merchant to create a charge on users' Xfers Wallets.
 
