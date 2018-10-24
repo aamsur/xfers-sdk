@@ -1,8 +1,8 @@
-WEB SDK
----
-## Web SDK Usage Overview
+# Web SDK Usage Overview
 
-#### Through <script> Tag
+## Download Xfers Web SDK
+
+### Through <script> Tag
 
 Add the following lines into the `<head></head>` section:
 
@@ -22,14 +22,18 @@ Then initialize the components by adding the following javascript into the `<bod
   <script type="text/javascript">
 
     // 1st param => Mounting Element Id: 'xfers_elements'
-    // 2nd param => Avaialble components: ['banks']
-    Xfers.Element.init('xfers_elements', 'banks');
-
+    // 2nd param => Avaialble components: ['XFERS_USER_API_KEY']
+    const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+    xfers.startPaymentFlow({
+      amount: 30000,
+      currency: 'SGD',
+      orderId: 'AZ03273'
+    });
   </script>
 </body>
 ```
 
-#### Through npm, import/export
+### Through npm, import/export
 
 Install the package through npm or yarn:
 
