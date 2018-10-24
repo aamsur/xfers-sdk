@@ -1,9 +1,17 @@
 @import 'styles/_variables';
 
+.note {
+  color: $xfers_clear_yellow;
+  font-size: 14px;
+  font-weight: $font_weight_regular;
+  letter-spacing: 0.5px;
+  line-height: $medium_space;
+}
+
 .error {
   color: $primary_xfers_red;
   font-size: 14px;
-  font-weight: $font_weight_light;
+  font-weight: $font_weight_regular;
   letter-spacing: 0.5px;
   line-height: $medium_space;
 }
@@ -25,6 +33,16 @@
   display: block;
   font-weight: $font_weight_light;
   line-height: 26px;
+}
+
+.panelSubtitle {
+  color: $xfers_black;
+  font-size: 16px;
+  margin-top: $medium_space;
+  margin-bottom: $medium_space;
+  display: block;
+  font-weight: $font_weight_light;
+  line-height: 24px;
 }
 
 .label {

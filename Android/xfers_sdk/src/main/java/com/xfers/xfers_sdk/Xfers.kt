@@ -32,7 +32,7 @@ class Xfers(val context: Context) {
         }
 
         // TODO: Implement Android Keystore handling of userApiKey
-        fun setUserApiKey() {
+        fun setUserApiKey(apiKey: String) {
             return
         }
     }

@@ -1,9 +1,7 @@
 import { caseConvert } from 'UtilityFunctions'
-import Xfers from 'xfersWrapper.js'
+
 import {
   NAVIGATE,
-  OPEN_MODAL,
-  CLOSE_MODAL,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   INIT_NEW_BANK_ACCOUNT,
@@ -12,31 +10,21 @@ import {
   SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
 } from './constants'
 
-// TO-DO: To be removed from this location.
-const xfers = new Xfers("YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
-
 export const navigate = (route) => ({
   type: NAVIGATE,
   route
 })
 
-export const openModal = () => ({
-  type: OPEN_MODAL
-})
-
-export const closeModal = () => ({
-  type: CLOSE_MODAL
-})
-
 export const initializeComponent = () => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
+  const xfersApi = getState().manageBank.networkClient;
 
   const bankOptionAPI = new Promise((resolve, reject) => {
-    getState().manageBank.network.getAvailableBanks().then(res => resolve(res.data));
+    xfersApi.getAvailableBanks().then(res => resolve(res.data));
   });
 
   const userBanksAPI = new Promise((resolve, reject) => {
-    getState().manageBank.network.getUserBanks().then(res => resolve(res.data));
+    xfersApi.getUserBanks().then(res => resolve(res.data));
   });
 
   Promise
@@ -50,9 +38,9 @@ export const initializeComponent = () => (dispatch, getState) => {
 export const submitNewBankAccountDetails = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
 
-  const { newBankAccountDetails } = getState().manageBank;
+  const { newBankAccountDetails, networkClient: xfersApi } = getState().manageBank;
 
-  xfers.addBankAccount(
+  xfersApi.addBankAccount(
     caseConvert.toSnake(newBankAccountDetails,
       {'bankStatementFile': 'bank_account_proof', 'fileData': 'fileData', 'fileName': 'fileName'})
   ).then(res => {

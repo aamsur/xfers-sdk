@@ -1,7 +1,5 @@
 export {
   navigate,
-  openModal,
-  closeModal,
   initNewBankAccount,
   initializeComponent,
   updateBankAccountDetails,

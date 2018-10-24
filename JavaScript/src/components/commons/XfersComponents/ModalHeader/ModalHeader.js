@@ -6,15 +6,8 @@ import { View, Text, FlexContainer, FlexItem } from 'XfersComponents'
 import closeIcon from 'icons/Close_16.png'
 import backIcon from 'icons/Back_16.png'
 
-const componentPropTypes = {
-  title: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
-}
-
-function ModalHeader({title, children, onBack, onClose}) {
+function ModalHeader({title, children, onBack, onClose }) {
+  const { subHeading, desc } = processElements(children);
   return (
     <View customClass={cls.modalHeader}>
       <View customClass={cls.title}>
@@ -23,9 +16,28 @@ function ModalHeader({title, children, onBack, onClose}) {
         <Text type="modalHeader">{title}</Text>
       </View>
 
-      { children && <View customClass={cls.desc}>{children}</View> }
+      { subHeading && <View customClass={cls.subHeading}>{subHeading}</View> }
+      { desc && <View customClass={cls.desc}>{desc}</View> }
     </View>
   )
+}
+
+function processElements(children) {
+
+  if ( !children || !children.length ) return {};
+
+  // If subHeading & desc are passed as children in an array, process the elements;
+  let subHeading, desc;
+  for ( let i = 0; i < children.length; i++ ) {
+    subHeading = (children[i] && children[i].props.spHeader) ? children[i] : subHeading;
+    desc = (children[i] && children[i].props.spBody) ? children[i] : desc;
+  }
+  return { subHeading, desc }
+}
+
+const componentPropTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node
 }
 
 ModalHeader.propTypes = componentPropTypes;
