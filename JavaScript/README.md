@@ -40,7 +40,9 @@ Next step, initialize the components by adding the following javascript into the
      * 1st param => mountingElementId: 'xfers_elements'
      * 2nd param => accessToken: e.g. - 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'
      */
-    const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+    
+    const accessToken = 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z' // Paste your user access token here
+    const xfers = new Xfers("xfers_elements", accessToken);
   
     /* The following code triggers the payment flow from the SDK,
      * Please refer to the next segment to see all supported flow from the SDK and examples
