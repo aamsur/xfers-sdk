@@ -1,5 +1,11 @@
 # Web SDK Usage Overview
 
+## Pre-requisite
+
+1. Xfers User Access Token
+
+Web SDK requires the token to instantiate the Interface Class. If you have not gone through the process to retrieve the access token, please refer to the *Backend Integration* guide in the root, or click [here](https://github.com/Xfers/xfers-sdk/edit/master/README.md)
+
 ## Download Xfers Web SDK
 
 ### Through <script> Tag
