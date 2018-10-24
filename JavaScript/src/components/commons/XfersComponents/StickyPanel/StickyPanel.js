@@ -36,7 +36,7 @@ function StickyPanel({ showBrand, ...elements }) {
 
 function processElements({ header, footer, children }) {
 
-  if ( !children.length ) return { header, footer, children };
+  if ( !children || !children.length ) return { header, footer, children };
 
   // If header & footer are passed as children in an array, process the elements;
   let body;

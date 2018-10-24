@@ -6,11 +6,9 @@
     @extend .inputLayout;
     width: 100%;
 
-    &::placeholder {
-      @extend .inputFont;
-    }
     &:focus {
       outline: 0;
+      box-shadow: none;
     }
   }
 }

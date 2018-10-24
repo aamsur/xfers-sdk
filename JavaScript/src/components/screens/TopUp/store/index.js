@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
-export default () => {
+export default (props = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -16,9 +16,33 @@ export default () => {
     }
   }
 
+  const { closeModal, networkClient } = props;
+
   const initialState = {
     topUp: {
 
+      // External Props
+      closeModal,
+      networkClient,
+
+      // Available routes: index, topUpForm
+      route: 'index',
+      error: '',
+      dataLoading: false,
+      availableBalance: '',
+      userBanks: [],
+      screenType: 'mobile',
+      newTopUpRequest: {
+        bank: '',
+        topUpAmount: ''
+      },
+      xfersBankAccount: {
+        accountNo: '123456789',
+        abbreviation: 'DBS',
+        bankName: 'CIMB Bank',
+        uniqueId: '94463205',
+        payeeName: 'XV PTED LTD'
+      },
     }
   }
 
