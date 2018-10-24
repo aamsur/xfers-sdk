@@ -2,8 +2,7 @@ package com.xfers.xfers_sdk.utils
 
 import android.content.Context
 import android.graphics.Color
-
-enum class Country { SG, ID }
+import com.xfers.xfers_sdk.Xfers
 
 object XfersConfiguration {
     // SG
@@ -16,7 +15,7 @@ object XfersConfiguration {
 
     // Settings
     private var apiBase = ""
-    private var currentCountry: Country? = null
+    private var currentCountry: Xfers.Country? = null
 
     // Merchant Settings
     private var merchantApiBase = ""
@@ -28,24 +27,21 @@ object XfersConfiguration {
     // TODO: Implement Android Keystore handling of userApiKey
     var userApiKey = ""
 
-    fun setSGSandbox() {
-        currentCountry = Country.SG
-        apiBase = sgSandboxApiBase
-    }
+    fun setSDKConfigurations(country: Xfers.Country, environment: Xfers.Environment) {
+        if (country == Xfers.Country.SG && environment == Xfers.Environment.PRODUCTION) {
+            apiBase = sgProductionApiBase
+        } else if (country == Xfers.Country.SG && environment == Xfers.Environment.SANDBOX) {
+            apiBase = sgSandboxApiBase
+        } else if (country == Xfers.Country.ID && environment == Xfers.Environment.PRODUCTION) {
+            apiBase = idProductionApiBase
+        } else if (country == Xfers.Country.ID && environment == Xfers.Environment.SANDBOX) {
+            apiBase = idSandboxApiBase
+        } else {
+            // TODO: Throw custom Xfers exception with better error message
+            throw Exception("Not a valid Xfers SDK configuration, please refer to README.md on GitHub for more information.")
+        }
 
-    fun setSGProduction() {
-        currentCountry = Country.SG
-        apiBase = sgProductionApiBase
-    }
-
-    fun setIDSandbox() {
-        currentCountry = Country.ID
-        apiBase = idSandboxApiBase
-    }
-
-    fun setIDProduction() {
-        currentCountry = Country.ID
-        apiBase = idProductionApiBase
+        currentCountry = country
     }
 
     fun setMerchantConfigurations(apiBase: String, name: String, logo: Int, logoTint: Int) {
@@ -83,7 +79,7 @@ object XfersConfiguration {
         return merchantFlowStartingContextClass
     }
 
-    fun getCurrentCountry(): Country? {
+    fun getCurrentCountry(): Xfers.Country? {
         return currentCountry
     }
 }

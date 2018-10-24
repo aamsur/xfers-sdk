@@ -14,7 +14,7 @@ buildscript {
      * for your modules here.
      */
     ext.kotlin_version = '1.2.71'
-    ext.dokka_version = '0.9.15'
+    ext.dokka_version = '0.9.17'
 
     /**
      * The repositories block configures the repositories Gradle uses to
