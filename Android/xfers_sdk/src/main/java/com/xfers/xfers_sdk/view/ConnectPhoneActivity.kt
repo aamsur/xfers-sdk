@@ -1,11 +1,12 @@
 package com.xfers.xfers_sdk.view
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import com.xfers.xfers_sdk.R
 import android.widget.TextView
+import com.xfers.xfers_sdk.task.ConnectPhoneTask
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 
 class ConnectPhoneActivity : AppCompatActivity() {
@@ -27,8 +28,9 @@ class ConnectPhoneActivity : AppCompatActivity() {
     }
 
     fun onClickNext(view: View) {
-        // TODO: Ping merchant's connect phone number API URL
+        val phoneNumberTextField = findViewById<EditText>(R.id.editPhoneNumberTextField)
+        val userPhoneNumber = phoneNumberTextField.text.toString()
 
-        startActivity(Intent(this, ConnectOTPActivity::class.java))
+        ConnectPhoneTask(this, userPhoneNumber).execute()
     }
 }

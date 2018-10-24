@@ -2,9 +2,11 @@ package com.xfers.xfers_sdk.utils
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
+import okhttp3.MediaType
 import java.io.InputStream
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -32,6 +34,16 @@ object NetworkClient {
         val body = response.body()
 
         return body?.byteStream()
+    }
+
+    fun post(url: String, paramsJson: String): InputStream? {
+        val requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), paramsJson)
+        val request = Request.Builder().url(url).post(requestBody).build()
+
+        val response = OkHttpClient().newCall(request).execute()
+        val responseBody = response.body()
+
+        return responseBody?.byteStream()
     }
 
     // Utility methods

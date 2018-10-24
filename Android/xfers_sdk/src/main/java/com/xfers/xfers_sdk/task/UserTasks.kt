@@ -8,6 +8,7 @@ import com.xfers.xfers_sdk.model.User
 import com.xfers.xfers_sdk.utils.NetworkClient
 import java.lang.ref.WeakReference
 
+// Example AsyncTask for future implementation
 class UpdateTextWithUserDetails(textView: TextView, context: Context) : AsyncTask<Unit, Unit, User>() {
     private val innerTextView: WeakReference<TextView> = WeakReference(textView)
     private val innerContext: WeakReference<Context> = WeakReference(context)
