@@ -8,7 +8,7 @@ The Xfers user acccess token is a token that is required to initialize our SDK. 
 
 **Xfers connect** is backend process in which you can obtain an Xfers user access token. If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk/wiki/Backend-requirements-for-SDK) 
 
-<insert diagram of the above> 
+>>  insert diagram of the above
 
 
 ## Download and installation of the Xfers Web SDK
@@ -74,7 +74,7 @@ Next step, trigger the SDK flows by executing the following command:
   ```
 
 ## Updating the Xfers SDK 
-<insert instructions here on how to update the SDK> 
+>> insert instructions here on how to update the SDK 
 
 
 ## Flows Available & Documentations
