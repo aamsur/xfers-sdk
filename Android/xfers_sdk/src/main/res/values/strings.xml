@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Xfers SDK</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="connect_identity_verification_topbar_copy">Would you like to proceed with verification?</string>
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
     <string name="coming_soon_copy">This feature is currently in the works and will launch soon!</string>
