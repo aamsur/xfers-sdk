@@ -43,14 +43,14 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        classpath 'com.google.gms:google-services:4.0.1'
+        classpath 'com.google.gms:google-services:4.0.2'
         classpath 'io.fabric.tools:gradle:1.25.4'
 
         // The Gradle Bintray Plugin allows you to publish artifacts to Bintray.
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
 
         // Modification to the standard Maven plugin to be compatible with android-library projects (aar).
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
         // Dokka is a documentation engine for Kotlin, performing the same function as javadoc for Java.
         // Just like Kotlin itself, Dokka fully supports mixed-language Java/Kotlin projects.
