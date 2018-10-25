@@ -42,7 +42,7 @@ Next step, initialize the components by adding the following javascript into the
 <script type="text/javascript">
   
   // Paste your own Xfers User Access Token here
-  const accessToken = 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'  
+  const accessToken = 'insert the xfers user access token here upon retrieving it from your server backend'  
   
   /* Instantiation takes in two parameters:
    * 1st param => mountingElementId: 'xfers_elements'
