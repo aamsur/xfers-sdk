@@ -8,7 +8,7 @@
     tools:context=".view.connect.ConnectShareKYCActivity">
 
     <include
-        android:id="@+id/include2"
+        android:id="@+id/connectShareKYCXfersMerchantLogos"
         layout="@layout/xfers_merchant_xfers_logos" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include2" />
+        app:layout_constraintTop_toBottomOf="@+id/connectShareKYCXfersMerchantLogos" />
 
     <TextView
         android:id="@+id/shareKYCSharedInformationTextView"
