@@ -4,19 +4,19 @@
 
 ### 1. Xfers User Access Token
 
-The Xfers user acccess token is a token that is required to initialize the SDK. It resides on the client side in order to authenticate itself with to the Xfers server. 
+The Xfers user acccess token is a token that is required to initialize our SDK. The SDK relies on this token to communicate with the Xfers backend. 
 
-The Web SDK requires a user access token to be instantiated. If you have not gone through the process to setup **Xfers Connect**, please refer to the **Backend Integration** guide in the root, or click [here](https://github.com/Xfers/xfers-sdk)
+If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk) 
 
 
+## Download and installation of the Xfers Web SDK
 
-## Download Xfers Web SDK
+Once the setup for **Xfers User Access Token** is complete, proceed to download Xfers Web SDK either through our **Content Delivery Network (CDN)** or **via a npm install**
 
-Once the setup for **User Access Token** is complete, proceed to download Xfers Web SDK either through **CDN** or **npm install**
 
 ### 1. Through CDN & <script> Tag
 
-Add the following lines into the corresponding HTML file `<head></head>` section:
+Add the following lines into the corresponding HTML file's `<head></head>` section:
 
 ```html
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -26,7 +26,7 @@ Add the following lines into the corresponding HTML file `<head></head>` section
 <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/xfers.bundle.js"></script>
 ```
 
-Note that Xfers Web SDK requires a mounting point on a HTML DOM, add the following line into the same HTML file `<body></body>` section:
+Note that the Xfers Web SDK requires a mounting point on a HTML DOM. Add the following line into the same HTML file `<body></body>` section:
 
 ```html
   <!-- The ID of the DOM element is to be used to instantiate Web SDK later -->
@@ -34,7 +34,7 @@ Note that Xfers Web SDK requires a mounting point on a HTML DOM, add the followi
   <div id="xfers_elements"></div>
 ```
 
-Next step, initialize the components by adding the following javascript into the same `<body></body>` section:
+Next step, initialize the components by adding the following javascript into the same `<body></body>` section. This is required on all the pages that uses the Xfers SDK 
 
 ```html
 <script type="text/javascript">
@@ -51,25 +51,25 @@ Next step, initialize the components by adding the following javascript into the
   </script>
 ```
 
-Next step, trigger SDK flows by executing the following command:
+Next step, trigger the SDK flows by executing the following command:
 
 ```javascript
   const paymentFlowParam = { amount: 3000, currency: 'SGD', orderId: 'AZ03283' }
   xfers.startPaymentFlow(paymentFlowParam);
 ```
 
-### 2. Through npm, import/export (Coming Soon)
+  ### 2. Through npm, import/export (Coming Soon)
 
-Install the package through npm or yarn:
+  Install the package through npm or yarn:
 
-```
-npm install @xfers/xfers-js-sdk
-```
+  ```
+  npm install @xfers/xfers-js-sdk
+  ```
 
-Then import the Xfers UI Elements into your code:
-```javascript
-import { Xfers } from '@xfers/xfers-js-sdk'
-```
+  Then import the Xfers UI Elements into your code:
+  ```javascript
+  import { Xfers } from '@xfers/xfers-js-sdk'
+  ```
 
 ## Flows Available & Documentations
 
