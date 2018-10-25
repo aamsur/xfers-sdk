@@ -10,6 +10,11 @@ If you're from Indonesia - Sign up for an Xfers Merchant account by emailing sup
 
 ## Integrate Xfers Wallet SDK for different platforms
 
+### Pre-requisite
+Complete set up of backend for Xfers Connect Flow, users' backend needs to be able to perform the following through Xfers API:
+- signup/login users using phone number and retrieve Xfers User Access Token
+- send otp
+
 ### SDK - Android
 Please refer to our Android SDK Getting Started Guide here by going to Android folder or click on the link [here](https://github.com/Xfers/xfers-sdk/tree/master/Android).
 

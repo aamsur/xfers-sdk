@@ -22,7 +22,7 @@ allprojects {
 ```gradle
 dependencies {
     ...
-    implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.1"
+    implementation "com.xfers.xfers_sdk:xfers_sdk:0.1.4"
 }
 ```
 
