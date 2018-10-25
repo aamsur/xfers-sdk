@@ -6,7 +6,9 @@
 
 The Xfers user acccess token is a token that is required to initialize our SDK. The SDK relies on this token to communicate with the Xfers backend. 
 
-If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk) 
+**Xfers connect** is backend process in which you can obtain an Xfers user access token. If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk/wiki/Backend-requirements-for-SDK) 
+
+>>  insert diagram of the above
 
 
 ## Download and installation of the Xfers Web SDK
@@ -40,7 +42,7 @@ Next step, initialize the components by adding the following javascript into the
 <script type="text/javascript">
   
   // Paste your own Xfers User Access Token here
-  const accessToken = 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'  
+  const accessToken = 'insert the xfers user access token here upon retrieving it from your server backend'  
   
   /* Instantiation takes in two parameters:
    * 1st param => mountingElementId: 'xfers_elements'
@@ -70,6 +72,10 @@ Next step, trigger the SDK flows by executing the following command:
   ```javascript
   import { Xfers } from '@xfers/xfers-js-sdk'
   ```
+
+## Updating the Xfers SDK 
+>> insert instructions here on how to update the SDK 
+
 
 ## Flows Available & Documentations
 
