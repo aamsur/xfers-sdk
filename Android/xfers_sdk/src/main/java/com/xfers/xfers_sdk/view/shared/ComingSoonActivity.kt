@@ -1,4 +1,4 @@
-package com.xfers.xfers_sdk.view
+package com.xfers.xfers_sdk.view.shared
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

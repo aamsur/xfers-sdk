@@ -1,10 +1,11 @@
-package com.xfers.xfers_sdk.view
+package com.xfers.xfers_sdk.view.connect
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 
 class ConnectIdentityVerificationActivity : AppCompatActivity() {
 

@@ -8,7 +8,7 @@ import com.xfers.xfers_sdk.model.OkMessage
 import com.xfers.xfers_sdk.model.SignupLoginRequest
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
-import com.xfers.xfers_sdk.view.ConnectOTPActivity
+import com.xfers.xfers_sdk.view.connect.ConnectOTPActivity
 import java.io.BufferedInputStream
 import java.lang.ref.WeakReference
 
