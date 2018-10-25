@@ -3,6 +3,7 @@ package com.xfers.xfers_sdk.view.connect
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import com.xfers.xfers_sdk.R
 import android.widget.TextView
@@ -30,12 +31,13 @@ class ConnectPhoneActivity : AppCompatActivity() {
 
         val formInputNotesTextView = findViewById<TextView>(R.id.xfersFormInputNotesTextView)
         formInputNotesTextView.visibility = View.GONE
-    }
 
-    fun onClickNext(view: View) {
-        val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
-        val userPhoneNumber = phoneNumberTextField.text.toString()
+        val formInputNextButton = findViewById<Button>(R.id.xfersFormInputNextButton)
+        formInputNextButton.setOnClickListener {
+            val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
+            val userPhoneNumber = phoneNumberTextField.text.toString()
 
-        ConnectPhoneTask(this, userPhoneNumber).execute()
+            ConnectPhoneTask(this, userPhoneNumber).execute()
+        }
     }
 }
