@@ -8,8 +8,8 @@ import com.xfers.xfers_sdk.model.OTPRequest
 import com.xfers.xfers_sdk.model.UserApiKey
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
-import com.xfers.xfers_sdk.view.ConnectIdentityVerificationActivity
-import com.xfers.xfers_sdk.view.ConnectShareKYCActivity
+import com.xfers.xfers_sdk.view.connect.ConnectIdentityVerificationActivity
+import com.xfers.xfers_sdk.view.connect.ConnectShareKYCActivity
 import java.io.BufferedInputStream
 import java.lang.ref.WeakReference
 

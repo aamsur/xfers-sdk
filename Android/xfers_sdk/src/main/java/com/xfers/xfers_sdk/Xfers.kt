@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
-import com.xfers.xfers_sdk.view.ComingSoonActivity
-import com.xfers.xfers_sdk.view.ConnectPhoneActivity
+import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
+import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
