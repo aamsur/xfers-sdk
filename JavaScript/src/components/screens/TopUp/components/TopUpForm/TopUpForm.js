@@ -8,18 +8,27 @@ import {
   TopUpInstructions
 } from './components'
 
-class TopUpForm extends Component {
+export default class TopUpForm extends Component {
   render() {
-    return (
-      <Stepper>
-        <TopUpAmount />
-        <TopUpFundSource />
-        <TopUpConfirmation />
-        <TopUpInstructions />
-        <TopUpStatus />
-      </Stepper>
-    )
+    if (!this.props.params || this.props.params.flowType === 'topup') {
+      return (
+        <Stepper>
+          <TopUpAmount {...this.props} />
+          <TopUpFundSource {...this.props} />
+          <TopUpConfirmation {...this.props} />
+          <TopUpInstructions {...this.props} />
+          <TopUpStatus {...this.props} />
+        </Stepper>
+      );
+    } else {
+      return (
+        <Stepper>
+          <TopUpFundSource {...this.props} />
+          <TopUpConfirmation {...this.props} />
+          <TopUpInstructions {...this.props} />
+          <TopUpStatus {...this.props} />
+        </Stepper>
+      )
+    }
   }
 }
-
-export default TopUpForm

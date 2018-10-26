@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   View,
   Text,
@@ -7,25 +6,15 @@ import {
   FooterButtonGroup,
   StatusPanel
 } from 'XfersComponents'
-import { navigate } from 'ManageBank/actions'
 
-function mapStateToProps({manageBank}, props) {
-  const { userBanks } = manageBank;
-  return { newBankDetails: userBanks.last };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    navigateToHome: () => dispatch(navigate("index"))
-  }
-}
-
-class AddBankAccountStatus extends Component {
+export default class AddBankAccountStatus extends Component {
   render() {
     const {
-      newBankDetails,
-      navigateToHome,
+      userBanks,
+      goHome,
     } = this.props;
+
+    const newBankDetails = userBanks.last;
 
     return (
       <StatusPanel
@@ -36,11 +25,9 @@ class AddBankAccountStatus extends Component {
           <Text>Your bank account has been added.</Text>
         </View>
         <FooterButtonGroup spFooter>
-          <Button type="primary" onClick={navigateToHome}>Okay</Button>
+          <Button type="primary" onClick={goHome}>Okay</Button>
         </FooterButtonGroup>
       </StatusPanel>
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddBankAccountStatus)

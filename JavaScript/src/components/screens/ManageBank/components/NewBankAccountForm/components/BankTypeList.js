@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,26 +8,10 @@ import {
   SearchBar
 } from 'XfersComponents'
 
-import { updateBankAccountDetails, updateSearchFilter } from 'ManageBank/actions'
-import { getFilteredBankOptions } from 'ManageBank/selectors'
-
-function mapStateToProps({manageBank}, props) {
-  const { bankOptions, filter } = manageBank;
-  const filteredBankOptions = getFilteredBankOptions(manageBank);
-  return { bankOptions: filteredBankOptions, filter, ...props };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updateForm: (v) => dispatch(updateBankAccountDetails("bank", v)),
-    updateSearchFilter: (v) => dispatch(updateSearchFilter(v))
-  }
-}
-
-class BankTypeList extends Component {
+export default class BankTypeList extends Component {
   render() {
     const {
-      bankOptions,
+      filteredBankOptions,
       filter,
       updateForm,
       updateSearchFilter,
@@ -39,7 +22,7 @@ class BankTypeList extends Component {
     } = this.props;
 
     const onSelect = (bankAbbreviation) => {
-      updateForm(bankAbbreviation);
+      updateForm('bank', bankAbbreviation);
       goNext();
     }
 
@@ -54,8 +37,8 @@ class BankTypeList extends Component {
             onChange={(e) => updateSearchFilter(e.target.value)}
           />
           <View background="#fff" overflow="auto" height="340px" padding="20px" boxShadow="inset 0px 1px 4px #ccc">
-            { bankOptions.length > 0 ?
-              bankOptions.map((bank, index) =>
+            { filteredBankOptions.length > 0 ?
+              filteredBankOptions.map((bank, index) =>
                 <SelectionButton
                   key={index}
                   image={bank.img_src}
@@ -72,5 +55,3 @@ class BankTypeList extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(BankTypeList)

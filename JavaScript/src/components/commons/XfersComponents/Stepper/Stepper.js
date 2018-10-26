@@ -76,8 +76,12 @@ class Stepper extends React.Component {
         {React.cloneElement(
           children[activeTab],
           {
-            goNext: overwriteNextTab ? overwriteNextTab : this.handleActivateTab(activeTab + 1),
-            goBack: overwritePreviousTab ? overwritePreviousTab : this.handleActivateTab(activeTab - 1),
+            goNext: overwriteNextTab ? overwriteNextTab :
+                    (activeTab !== children.length - 1) ? this.handleActivateTab(activeTab + 1) :
+                    undefined,
+            goBack: overwritePreviousTab ? overwritePreviousTab :
+                    (activeTab !== 0) ? this.handleActivateTab(activeTab - 1) :
+                    undefined,
             goToStep: (stepIndex) => this.handleActivateTab(stepIndex)
           }
         )}

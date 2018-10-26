@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import { Stepper } from 'XfersComponents'
 import { PaymentOverview, PaymentStatus } from './components'
 
-class PaymentForm extends Component {
+export default class PaymentForm extends Component {
   render() {
     return (
       <Stepper>
-        <PaymentOverview />
-        <PaymentStatus />
+        <PaymentOverview {...this.props} />
+        <PaymentStatus {...this.props} />
       </Stepper>
     )
   }
 }
-
-export default PaymentForm

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import cls from './Instructions.scss'
 import getBankSpecifics from './bank_specific_instructions'
 
@@ -13,39 +12,27 @@ import {
   HSBCInstructions, CITIInstructions, CIMBInstructions, BOCInstructions, MBBInstructions
 } from './components'
 
-import { selectScreenType } from 'TopUp/actions'
-
-function mapStateToProps({topUp}, props) {
-  const { screenType, xfersBankAccount, userBanks, newTopUpRequest: { bank, topUpAmount } } = topUp;
-
-  // let senderBankAccount;
-  // for ( let i = 0; i < userBanks.length; i++ ) {
-  //   if (userBanks[i].bank_abbrev == bank) {
-  //     senderBankAccount = userBanks[i];
-  //     break;
-  //   }
-  // }
-  // const selectedBank = senderBankAccount.bank_abbrev.toUpperCase();
-  const selectedBank = 'DBS'
-  return { screenType, xfersBankAccount, topUpAmount, selectedBank }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    selectScreenType: (screenType) => dispatch(selectScreenType(screenType))
-  }
-}
-
-class Instructions extends Component {
+export default class Instructions extends Component {
   render() {
 
     const {
       screenType,
       xfersBankAccount,
-      topUpAmount,
-      selectedBank,
+      newTopUpRequest: { bank, topUpAmount },
       selectScreenType,
+      goNext
     } = this.props;
+
+    // let senderBankAccount;
+    // for ( let i = 0; i < userBanks.length; i++ ) {
+    //   if (userBanks[i].bank_abbrev == bank) {
+    //     senderBankAccount = userBanks[i];
+    //     break;
+    //   }
+    // }
+    // const selectedBank = senderBankAccount.bank_abbrev.toUpperCase();
+
+    const selectedBank = 'DBS'
 
     const {externalBankUrl, bankCommentLabel, bankAcronyms} = getBankSpecifics(selectedBank);
 
@@ -77,7 +64,7 @@ class Instructions extends Component {
             </Text>
           </View>
           <FooterButtonGroup>
-            <Button type="primary">I have transferred</Button>
+            <Button type="primary" onClick={goNext}>I have transferred</Button>
           </FooterButtonGroup>
         </View>
       </StickyPanel>
@@ -93,6 +80,3 @@ class Instructions extends Component {
 // {selectedBank === "CIMB" && <CIMBInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
 // {selectedBank === "BOC" && <BOCInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
 // {selectedBank === "MBB" && <MBBInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Instructions)

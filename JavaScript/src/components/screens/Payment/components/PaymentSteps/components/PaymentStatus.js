@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   View,
   Text,
@@ -7,18 +6,12 @@ import {
   FooterButtonGroup,
   StatusPanel
 } from 'XfersComponents'
-import { navigate } from 'Payment/actions'
 import { toCurrency } from 'UtilityFunctions'
 
-function mapStateToProps({payment}, props) {
-  const { amount, availableBalance, walletName, closeModal } = payment;
-  return { amount, availableBalance, walletName, closeModal }
-}
-
-class PaymentStatus extends Component {
+export default class PaymentStatus extends Component {
   render() {
     const {
-      amount,
+      params: {amount},
       availableBalance,
       walletName,
       closeModal
@@ -47,5 +40,3 @@ class PaymentStatus extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, () => ({}))(PaymentStatus)

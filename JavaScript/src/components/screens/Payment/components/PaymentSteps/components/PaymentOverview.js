@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,24 +8,11 @@ import {
   FooterButtonGroup
 } from 'XfersComponents'
 import { toCurrency } from 'UtilityFunctions'
-import { confirmPayment } from 'Payment/actions'
 
-function mapStateToProps({payment}, props) {
-  const { amount, orderId, closeModal } = payment;
-  return { amount, orderId, closeModal }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    confirm: (successCallback) => dispatch(confirmPayment(successCallback))
-  }
-}
-
-class TopUpConfirmation extends Component {
+export default class PaymentOverview extends Component {
   render() {
     const {
-      orderId,
-      amount,
+      params: {amount, orderId},
       confirm,
       goNext,
       goBack,
@@ -43,15 +29,15 @@ class TopUpConfirmation extends Component {
         <View spBody>
           <Text type="panelTitle">Transaction Overview</Text>
           <Text type="panelSubtitle">Your are about to make a payment via your Xfers Wallet to the following details. Please confirm.</Text>
-          <View marginBottom="20px">
+          <View marginBottom="10px">
             <Text type="label">Payment To</Text>
             <Text type="boldValue">Merchant</Text>
           </View>
-          <View marginBottom="20px">
+          <View marginBottom="10px">
             <Text type="label">Order ID</Text>
             <Text type="boldValue">{orderId}</Text>
           </View>
-          <View marginBottom="20px">
+          <View marginBottom="10px">
             <Text type="label">Description</Text>
             <Text type="boldValue">This is a place for description</Text>
           </View>
@@ -78,5 +64,3 @@ class TopUpConfirmation extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpConfirmation)

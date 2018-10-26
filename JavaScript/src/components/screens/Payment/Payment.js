@@ -1,36 +1,50 @@
 import React, { Component } from 'react'
-import { Provider, connect } from 'react-redux'
-import createStore from './store'
-
-import { View } from 'XfersComponents'
-import { PaymentIndex, PaymentSteps } from './components'
-import { initializeComponent } from 'Payment/actions'
+import {
+  StickyPanel,
+  ModalHeader,
+  View,
+  CenterContent,
+  PageLoader
+} from 'XfersComponents'
+import { PaymentSteps } from './components'
 import TopUp from 'TopUp'
 
-function mapStateToProps({payment}, props) {
-  const { networkClient, route } = payment;
-  return { networkClient, route }
-}
-
-class Payment extends Component {
+export default class Payment extends Component {
   render() {
-    const { networkClient, route } = this.props;
+    const {
+      params,
+      route,
+      networkClient,
+      closeModal,
+      ...paymentStore
+    } = this.props;
+
+    const topUpParams = {
+      ...params,
+      flowType: 'payment'
+    }
+
     return (
       <View>
-        { route === 'index' && <PaymentIndex /> }
-        { route === 'payment' && <PaymentSteps /> }
-        { route === 'topup' && <TopUp networkClient={networkClient} close /> }
+        { route === '' &&
+          <StickyPanel showBrand>
+            <ModalHeader spHeader onClose={closeModal} title="Make Payment" />
+              <View spBody>
+                <CenterContent>
+                  <PageLoader />
+                </CenterContent>
+              </View>
+          </StickyPanel>
+        }
+        { route === 'payment' && <PaymentSteps {...paymentStore} params={params} closeModal={closeModal} /> }
+        { route === 'topup' &&
+          <TopUp
+            params={topUpParams}
+            closeModal={closeModal}
+            networkClient={networkClient}
+            />
+        }
       </View>
     )
   }
 }
-
-const ConnectedPayment = connect(mapStateToProps, () => ({}))(Payment);
-
-const PaymentModal = (props) => (
-  <Provider store={createStore(props)}>
-    <ConnectedPayment />
-  </Provider>
-)
-
-export default PaymentModal
