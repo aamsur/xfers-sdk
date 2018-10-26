@@ -8,8 +8,8 @@ const MODULE_PATHS = [
   path.resolve(__dirname, 'src/assets/images'),
   path.resolve(__dirname, 'src/components/commons'),
   path.resolve(__dirname, 'src/components/screens'),
+  path.resolve(__dirname, 'src/components/flows'),
   path.resolve(__dirname, 'src/wrappers/helpers'),
-  path.resolve(__dirname, 'src/wrappers/interfaces'),
   'node_modules'
 ];
 
@@ -81,14 +81,24 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/i,
-        use: {
-          loader: 'file-loader',
+        use: [{
+          loader: 'url-loader',
           options: {
-            name: '[name].[ext]',
-            outputPath: 'images/'
+              limit: 8000, // Convert images < 8kb to base64 strings
+              name: 'images/[hash]-[name].[ext]'
           }
-        }
+        }]
       },
+      // {
+      //   test: /\.(jpg|jpeg|png|gif|svg)$/i,
+      //   use: {
+      //     loader: 'file-loader',
+      //     options: {
+      //       name: '[name].[ext]',
+      //       outputPath: 'images/'
+      //     }
+      //   }
+      // },
       {
         test: /\.(ttc|ttf|eot|woff|woff2)$/,
         use: {

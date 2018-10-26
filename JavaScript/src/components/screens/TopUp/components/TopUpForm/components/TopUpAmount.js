@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,25 +8,13 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import { updateTopUpDetails } from 'TopUp/actions'
 import { toCurrency } from 'UtilityFunctions'
 
-function mapStateToProps({topUp}, props) {
-  const { availableBalance, newTopUpRequest: { topUpAmount } } = topUp;
-  return { availableBalance, topUpAmount, ...props }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updateForm: (v) => dispatch(updateTopUpDetails("topUpAmount", v)),
-  }
-}
-
-class TopUpAmount extends Component {
+export default class TopUpAmount extends Component {
   render() {
     const {
       availableBalance,
-      topUpAmount,
+      newTopUpRequest: { topUpAmount },
       updateForm,
       goBack,
       goNext
@@ -45,17 +32,20 @@ class TopUpAmount extends Component {
             leftAddonContent="SGD"
             placeholder="2000.00"
             value={topUpAmount}
-            onChange={(e) => updateForm(e.target.value)}
+            onChange={(e) => updateForm('topUpAmount', e.target.value)}
             />
           <View>
             <View display="inline" marginRight="12px">
-              <Button size="small" type="secondary" onClick={() => updateForm(100)}>100.00</Button>
+              <Button size="small" type="secondary" onClick={() => updateForm('topUpAmount', 50)}>50.00</Button>
             </View>
             <View display="inline" marginRight="12px">
-              <Button size="small" type="secondary" onClick={() => updateForm(500)}>500.00</Button>
+              <Button size="small" type="secondary" onClick={() => updateForm('topUpAmount', 100)}>100.00</Button>
             </View>
             <View display="inline" marginRight="12px">
-              <Button size="small" type="secondary" onClick={() => updateForm(1000)}>1000.00</Button>
+              <Button size="small" type="secondary" onClick={() => updateForm('topUpAmount', 500)}>500.00</Button>
+            </View>
+            <View display="inline" marginRight="12px">
+              <Button size="small" type="secondary" onClick={() => updateForm('topUpAmount', 1000)}>1000.00</Button>
             </View>
           </View>
         </View>
@@ -70,5 +60,3 @@ class TopUpAmount extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpAmount)

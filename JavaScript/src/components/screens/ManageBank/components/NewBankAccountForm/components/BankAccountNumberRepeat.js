@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,18 +8,8 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import { updateBankAccountDetails } from 'ManageBank/actions'
 
-function mapStateToProps({manageBank}, props) {
-  const { newBankAccountDetails: { accountNo } } = manageBank;
-  return { accountNo };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {}
-}
-
-class BankAccountNumberRepeat extends Component {
+export default class BankAccountNumberRepeat extends Component {
 
   constructor(props) {
     super(props);
@@ -35,7 +24,7 @@ class BankAccountNumberRepeat extends Component {
   }
 
   checkAccountNo = () => {
-    const { accountNo, goNext } = this.props;
+    const { newBankAccountDetails: { accountNo }, goNext } = this.props;
     const { repeatedAccountNo } = this.state;
     if ( accountNo === repeatedAccountNo ) {
       this.setState({error: ''});
@@ -76,5 +65,3 @@ class BankAccountNumberRepeat extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(BankAccountNumberRepeat)

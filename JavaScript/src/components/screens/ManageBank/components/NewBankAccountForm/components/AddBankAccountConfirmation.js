@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -8,40 +7,27 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import { submitNewBankAccountDetails } from 'ManageBank/actions'
 
-function mapStateToProps({manageBank}, props) {
-  const { error, newBankAccountDetails: { bank, accountNo, accountHolderName }, bankOptions } = manageBank;
-
-  // Get the details of the selected Bank
-  let bankDetails = {};
-  for ( let i = 0; i < bankOptions.length; i++ ) {
-    if (bankOptions[i].abbreviation === bank) {
-      bankDetails = bankOptions[i];
-      break;
-    }
-  }
-
-  return { error, bankDetails, accountHolderName, accountNo };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    submit: (successCallback) => dispatch(submitNewBankAccountDetails(successCallback))
-  }
-}
-
-class AddBankAccountConfirmation extends Component {
+export default class AddBankAccountConfirmation extends Component {
   render() {
     const {
       error,
-      bankDetails,
-      accountNo,
-      accountHolderName,
+      newBankAccountDetails: { bank, accountNo, accountHolderName },
+      bankOptions,
       submit,
       goNext,
       goBack,
+      params,
     } = this.props;
+
+    // Get the details of the selected Bank
+    let bankDetails = {};
+    for ( let i = 0; i < bankOptions.length; i++ ) {
+      if (bankOptions[i].abbreviation === bank) {
+        bankDetails = bankOptions[i];
+        break;
+      }
+    }
 
     /* Example bankDetails data
     bankDetails = {
@@ -54,7 +40,10 @@ class AddBankAccountConfirmation extends Component {
     */
 
     const submitWithCallback = () => {
-      submit(goNext);
+      submit((newBank) => {
+        goNext();
+        param.addUserBank(newBank);
+      });
     }
 
     return (
@@ -85,5 +74,3 @@ class AddBankAccountConfirmation extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddBankAccountConfirmation)

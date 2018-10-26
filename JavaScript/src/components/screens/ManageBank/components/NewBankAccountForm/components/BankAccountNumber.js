@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,23 +8,11 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import { updateBankAccountDetails } from 'ManageBank/actions'
 
-function mapStateToProps({manageBank}, props) {
-  const { newBankAccountDetails: { accountNo } } = manageBank;
-  return { accountNo };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updateForm: (e) => dispatch(updateBankAccountDetails("accountNo", e.target.value)),
-  }
-}
-
-class BankAccountNumber extends Component {
+export default class BankAccountNumber extends Component {
   render() {
     const {
-      accountNo,
+      newBankAccountDetails: { accountNo },
       updateForm,
       goBack,
       goNext,
@@ -43,7 +30,7 @@ class BankAccountNumber extends Component {
             type="number"
             placeholder="e.g. 1234567890"
             value={accountNo}
-            onChange={updateForm}
+            onChange={(e) => updateForm('accountNo', e.target.value)}
             caption="Please exclude dashes"
           />
         </View>
@@ -54,5 +41,3 @@ class BankAccountNumber extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(BankAccountNumber)

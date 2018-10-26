@@ -4,7 +4,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   entry: {
-    xfers: './src/index-dev.js',
+    xfers: './src/index.js',
   },
   mode: 'development',
   devtool: 'cheap-eval-source-map',

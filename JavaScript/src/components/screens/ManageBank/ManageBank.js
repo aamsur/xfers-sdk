@@ -1,34 +1,17 @@
-import React, { PureComponent } from 'react'
-import { Provider, connect } from 'react-redux'
-import createStore from './store'
-
-import { View } from 'XfersComponents'
+import React, { Component } from 'react'
+import { View, LoadingPanel } from 'XfersComponents'
 import { BankAccountIndex, NewBankAccountForm } from './components'
 
-function mapStateToProps({manageBank}, props) {
-  const { route } = manageBank;
-  return { route }
-}
-
-class ManageBank extends PureComponent {
+export default class ManageBank extends Component {
   render() {
-    const { route } = this.props;
+    const { route, closeModal } = this.props;
     return (
       <View>
-        { route === 'index' && <BankAccountIndex /> }
-        { route === 'new' && <NewBankAccountForm /> }
+        { route === '' && <LoadingPanel title="Bank Accounts" onClose={closeModal} /> }
+        { route === 'index' && <BankAccountIndex {...this.props}  /> }
+        { route === 'new' && <NewBankAccountForm {...this.props}  /> }
       </View>
 
     )
   }
 }
-
-const ConnectedManageBank = connect(mapStateToProps, () => ({}))(ManageBank);
-
-const ManageBankModal = (props) => (
-  <Provider store={createStore(props)}>
-    <ConnectedManageBank />
-  </Provider>
-)
-
-export default ManageBankModal

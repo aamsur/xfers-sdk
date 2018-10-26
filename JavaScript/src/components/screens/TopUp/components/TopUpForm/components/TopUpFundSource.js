@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -8,28 +7,14 @@ import {
   ModalHeader,
   SelectionButton
 } from 'XfersComponents'
-
-import { navigate, updateTopUpDetails } from 'TopUp/actions'
 import bankIcon from 'icons/Bank_Acc_23.png'
 
-function mapStateToProps({topUp}, props) {
-  const { userBanks } = topUp;
-  return { userBanks }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updateForm: (v) => dispatch(updateTopUpDetails("bank", v)),
-    navigateToManageBank: () => dispatch(navigate("bank"))
-  }
-}
-
-class TopUpFundSource extends Component {
+export default class TopUpFundSource extends Component {
   render() {
-    const { userBanks, updateForm, goBack, goNext, navigateToManageBank } = this.props;
+    const { userBanks, updateForm, goBack, goNext, navigate } = this.props;
 
     const onSelect = (bankAbbreviation) => {
-      updateForm(bankAbbreviation);
+      updateForm('bank', bankAbbreviation);
       goNext();
     }
 
@@ -49,12 +34,10 @@ class TopUpFundSource extends Component {
             )}
           </View>
           <View marginTop="20px">
-            <AnchorLink onClick={navigateToManageBank}>Edit bank accounts</AnchorLink>
+            <AnchorLink onClick={() => navigate('bank')}>Edit bank accounts</AnchorLink>
           </View>
         </View>
       </StickyPanel>
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpFundSource)

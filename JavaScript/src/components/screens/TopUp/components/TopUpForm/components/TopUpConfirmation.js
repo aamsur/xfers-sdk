@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,38 +8,26 @@ import {
   FooterButtonGroup
 } from 'XfersComponents'
 import { toCurrency } from 'UtilityFunctions'
-import { submitNewTopUpRequest } from 'TopUp/actions'
 
-function mapStateToProps({topUp}, props) {
-  const { error, newTopUpRequest: { bank, topUpAmount }, userBanks } = topUp;
-
-  // Get the details of the selected Bank
-  let bankDetails = {};
-  for ( let i = 0; i < userBanks.length; i++ ) {
-    if (userBanks[i].bank_abbrev === bank) {
-      bankDetails = userBanks[i];
-      break;
-    }
-  }
-  return { error, bankDetails, topUpAmount };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    submit: (successCallback) => dispatch(submitNewTopUpRequest(successCallback))
-  }
-}
-
-class TopUpConfirmation extends Component {
+export default class TopUpConfirmation extends Component {
   render() {
     const {
       error,
-      bankDetails,
-      topUpAmount,
+      newTopUpRequest: { bank, topUpAmount },
+      userBanks,
       submit,
       goNext,
       goBack,
     } = this.props;
+
+    // Get the details of the selected Bank
+    let bankDetails = {};
+    for ( let i = 0; i < userBanks.length; i++ ) {
+      if (userBanks[i].bank_abbrev === bank) {
+        bankDetails = userBanks[i];
+        break;
+      }
+    }
 
     /* Example bankDetails data
     bankDetails = {
@@ -61,15 +48,15 @@ class TopUpConfirmation extends Component {
         <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
         <View spBody>
           <Text type="panelTitle">Confirm details</Text>
-          <View marginBottom="40px">
+          <View marginBottom="10px">
             <Text type="label">Pay Using</Text>
             <Text type="boldValue">{`${bankDetails.bank_abbrev} - ${bankDetails.account_no}`}</Text>
           </View>
-          <View marginBottom="40px">
+          <View marginBottom="10px">
             <Text type="label">Payment To</Text>
             <Text type="boldValue">Merchant</Text>
           </View>
-          <View marginBottom="40px">
+          <View marginBottom="10px">
             <Text type="label">Payment Amount</Text>
             <Text type="boldValue">{toCurrency(topUpAmount)}</Text>
           </View>
@@ -84,5 +71,3 @@ class TopUpConfirmation extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TopUpConfirmation)

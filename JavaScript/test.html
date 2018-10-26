@@ -11,12 +11,20 @@
   <body>
     <div id="xfers_elements"></div>
 
-    <script type="text/javascript" src="vendors~xfers.bundle.js"></script>
-    <script type="text/javascript" src="xfers.bundle.js"></script>
+    <script src="vendors~xfers.bundle.js"></script>
+    <script src="xfers.bundle.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/vendors~xfers.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/xfers.bundle.js"></script> -->
 
     <script type="text/javascript">
 
       const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+
+      // xfers.startManageBankFlow();
+
+      // xfers.startTopUpFlow()
+
       xfers.startPaymentFlow({
         amount: 30000,
         currency: 'SGD',

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
   StickyPanel,
   View,
@@ -9,23 +8,11 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
-import { updateBankAccountDetails } from 'ManageBank/actions'
 
-function mapStateToProps({manageBank}, props) {
-  const { newBankAccountDetails: { accountHolderName } } = manageBank;
-  return { accountHolderName, ...props };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updateForm: (e) => dispatch(updateBankAccountDetails("accountHolderName", e.target.value)),
-  }
-}
-
-class BankAccountName extends Component {
+export default class BankAccountName extends Component {
   render() {
     const {
-      accountHolderName,
+      newBankAccountDetails: { accountHolderName },
       updateForm,
       goBack,
       goNext,
@@ -40,9 +27,9 @@ class BankAccountName extends Component {
           <Text type="panelTitle">Enter your full name</Text>
           <FormInput
             autoFocus
-            placeholder="e.g. Alice"
+            placeholder="e.g. Lau Tian Hao"
             value={accountHolderName}
-            onChange={updateForm}
+            onChange={(e) => updateForm('accountHolderName', e.target.value)}
             caption="As reflected in your bank account statement"
           />
         </View>
@@ -53,5 +40,3 @@ class BankAccountName extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(BankAccountName)

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
 import { Stepper } from 'XfersComponents'
 import {
   BankTypeList,
@@ -11,34 +9,24 @@ import {
   AddBankAccountConfirmation,
   AddBankAccountStatus,
 } from './components'
-import { navigate, initNewBankAccount } from 'ManageBank/actions'
 
-function mapDispatchToProps(dispatch) {
-  return {
-    initNewBankAccount: () => dispatch(initNewBankAccount()),
-    goBack: () => dispatch(navigate('index'))
-  }
-}
-
-class NewBankAccountForm extends Component {
+export default class NewBankAccountForm extends Component {
 
   componentDidMount() {
     this.props.initNewBankAccount();
   }
 
   render() {
-    const { goBack } = this.props;
+    const { navigate } = this.props;
     return (
       <Stepper>
-        <BankTypeList goBack={goBack} />
-        <BankAccountName />
-        <BankAccountNumber />
-        <BankAccountNumberRepeat />
-        <AddBankAccountConfirmation />
-        <AddBankAccountStatus />
+        <BankTypeList goBack={() => navigate("index")} {...this.props} />
+        <BankAccountName {...this.props} />
+        <BankAccountNumber {...this.props} />
+        <BankAccountNumberRepeat {...this.props} />
+        <AddBankAccountConfirmation {...this.props} />
+        <AddBankAccountStatus {...this.props} />
       </Stepper>
     )
   }
 }
-
-export default connect(() => ({}), mapDispatchToProps)(NewBankAccountForm)
