@@ -17,7 +17,7 @@ export default class AddBankAccountConfirmation extends Component {
       submit,
       goNext,
       goBack,
-      addUserBank,
+      params,
     } = this.props;
 
     // Get the details of the selected Bank
@@ -41,10 +41,8 @@ export default class AddBankAccountConfirmation extends Component {
 
     const submitWithCallback = () => {
       submit((newBank) => {
-        console.log("AGAIN:", this.props);
-        console.log("FUCK YOU: ", newBank);
         goNext();
-        addUserBank(newBank);
+        param.addUserBank(newBank);
       });
     }
 

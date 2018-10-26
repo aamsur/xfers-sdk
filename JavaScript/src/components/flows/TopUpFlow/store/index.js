@@ -16,8 +16,6 @@ export default (props = {}) => {
     }
   }
 
-  const { params, closeModal, networkClient } = props;
-
   /* Acceptable params:
    * { amount, flowType, userBanks, availableBalance }
    */
@@ -26,9 +24,8 @@ export default (props = {}) => {
     topUpFlow: {
 
       // External Props
-      params,
-      closeModal,
-      networkClient,
+      params: {},
+      ...props,
 
       // Available routes: index, topUpForm
       route: '',
@@ -39,7 +36,7 @@ export default (props = {}) => {
       screenType: 'mobile',
       newTopUpRequest: {
         bank: '',
-        topUpAmount: (params && params.amount) || ''
+        topUpAmount: (props.params && props.params.amount) || ''
       },
       xfersBankAccount: {
         accountNo: '123456789',

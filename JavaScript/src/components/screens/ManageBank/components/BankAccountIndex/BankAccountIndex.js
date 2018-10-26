@@ -12,14 +12,13 @@ import bankIcon from 'icons/Bank_Acc_23.png'
 
 export default class BankAccountIndex extends Component {
   render() {
-
-    const { userBanks, navigate, closeModal, goBackPreviousModule } = this.props;
+    const { userBanks, navigate, closeModal, params } = this.props;
     const userBankExist = userBanks.length ? true : false;
 
     return (
       <StickyPanel showBrand>
-        { goBackPreviousModule ?
-          <ModalHeader spHeader onBack={goBackPreviousModule} title="Bank Accounts" />
+        { params.goBackPreviousModule ?
+          <ModalHeader spHeader onBack={params.goBackPreviousModule} title="Bank Accounts" />
           :
           <ModalHeader spHeader onClose={closeModal} title="Bank Accounts" />
         }

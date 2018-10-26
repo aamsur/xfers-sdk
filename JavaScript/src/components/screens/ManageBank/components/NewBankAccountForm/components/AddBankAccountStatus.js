@@ -12,7 +12,7 @@ export default class AddBankAccountStatus extends Component {
     const {
       userBanks,
       navigate,
-      goBackPreviousModule
+      params,
     } = this.props;
 
     const newBankDetails = userBanks.last;
@@ -26,8 +26,8 @@ export default class AddBankAccountStatus extends Component {
           <Text>Your bank account has been added.</Text>
         </View>
         <FooterButtonGroup spFooter>
-          { goBackPreviousModule ?
-            <Button type="primary" onClick={goBackPreviousModule}>Return to Top-up</Button>
+          { params.goBackPreviousModule ?
+            <Button type="primary" onClick={params.goBackPreviousModule}>Return to Top-up</Button>
             :
             <Button type="primary" onClick={() => navigate('index')}>Okay</Button>
           }

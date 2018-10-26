@@ -28,7 +28,6 @@ const ACTION_HANDLERS = {
     return { ...state }
   },
   [ADD_USER_BANK]: (state, {bank}) => {
-    console.log("WTF", bank);
     let newList = state.userBanks.slice();
     newList.push(bank);
     return { ...state, userBanks: newList }

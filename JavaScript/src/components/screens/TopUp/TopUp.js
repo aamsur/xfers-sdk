@@ -15,7 +15,7 @@ export default class TopUp extends Component {
         { route === '' && <LoadingPanel title="Make Payment" onClose={closeModal} /> }
         { route === 'topUpForm' && <TopUpForm {...this.props} /> }
         { route === 'bank' &&
-          <ManageBankFlow networkClient={networkClient} closeModal={closeModal} {...manageBankParams} />
+          <ManageBankFlow networkClient={networkClient} closeModal={closeModal} params={manageBankParams} />
         }
       </View>
     )

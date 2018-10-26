@@ -19,11 +19,11 @@ export default (props = {}) => {
   /* Acceptable params:
    * { goBackPreviousModule, addBankAccount }
    */
-
   const initialState = {
     manageBankFlow: {
 
       // External Props
+      params: {},
       ...props,
 
       // Available routes: index, new

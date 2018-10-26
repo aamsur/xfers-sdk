@@ -16,19 +16,12 @@ export default (props = {}) => {
     }
   }
 
-  const {
-    params,
-    closeModal,
-    networkClient
-  } = props;
-
   const initialState = {
     paymentFlow: {
 
       // External props
-      params,
-      closeModal,
-      networkClient,
+      params: {},
+      ...props,
 
       // Available routes: index, payment
       route: '',

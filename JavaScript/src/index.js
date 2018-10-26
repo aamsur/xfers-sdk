@@ -46,7 +46,7 @@ class ModalWrapper extends Component {
     this.networkClient = props.networkClient;
   }
 
-  openModal = (flow, params) =>  this.setState({ flow, params, showModal: true });
+  openModal = (flow, params = {}) =>  this.setState({ flow, params, showModal: true });
 
   closeModal = () => this.setState({ flow: '', params: {}, showModal: false });
 
