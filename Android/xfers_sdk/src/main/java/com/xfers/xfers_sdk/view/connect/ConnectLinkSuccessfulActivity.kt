@@ -21,7 +21,7 @@ class ConnectLinkSuccessfulActivity : AppCompatActivity() {
         val returnButton = findViewById<TextView>(R.id.linkSuccessfulReturnButton)
         returnButton.text = "Return to ${XfersConfiguration.getMerchantName()}"
 
-        val merchantLogoImageView = findViewById<ImageView>(R.id.linkSuccessfulMerchantLogoImageView)
+        val merchantLogoImageView = findViewById<ImageView>(R.id.merchantXfersLogoMerchantImageView)
         XfersConfiguration.getMerchantLogo()?.let {
             merchantLogoImageView.setImageResource(it)
         }
