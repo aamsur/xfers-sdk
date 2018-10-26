@@ -6,12 +6,19 @@
     <string name="number_ipsum">3000.00</string>
 
     <string name="next_button_copy">Next</string>
+    <string name="later_button_copy">Later</string>
+    <string name="proceed_button_copy">Proceed</string>
 
     <string name="form_input_page_title_copy">Step %1$s</string>
 
     <string name="mobile_phone_number_field_title">Enter your mobile number</string>
 
+    <string name="connect_identity_verification_title">Identity Verification</string>
     <string name="connect_identity_verification_topbar_copy">Would you like to proceed with verification?</string>
+    <string name="connect_identity_verification_summary_title">Having a verified account will activate the following features</string>
+    <string name="connect_identity_verification_listview_topup_withdrawal_copy">Top-ups &amp; Withdrawals</string>
+    <string name="connect_identity_verification_listview_increased_holding_copy">An increased holding limit of XXX.XXX</string>
+
     <string name="connect_flow_title">Link xfers account</string>
     <string name="connect_mobile_phone_number_subtitle">We will text a one-time secure link to your mobile to proceed with a mobile verification</string>
 

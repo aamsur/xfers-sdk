@@ -14,38 +14,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        android:id="@+id/connectIdentityVerificationListView"
-        layout="@layout/xfers_list_view"
+        android:id="@+id/connectIdentityVerificationSummaryTitle"
+        layout="@layout/xfers_summary_title"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/connectIdentityVerificationLaterButton"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationExtendedTopbar" />
 
-    <Button
-        android:id="@+id/connectIdentityVerificationLaterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <include
+        android:id="@+id/connectIdentityVerificationListView"
+        layout="@layout/xfers_list_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="20dp"
-        android:onClick="onClickReject"
-        android:text="Reject"
-        app:layout_constraintBottom_toTopOf="@+id/connectIdentityVerificationProceedButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/connectIdentityVerificationProceedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:onClick="onClickProceed"
-        android:text="Proceed"
         app:layout_constraintBottom_toTopOf="@+id/connectIdentityVerificationPoweredByXfers"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationSummaryTitle" />
 
     <include
         android:id="@+id/connectIdentityVerificationPoweredByXfers"
@@ -53,8 +45,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/connectIdentityVerificationXfersDoubleButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/connectIdentityVerificationXfersDoubleButtons"
+        layout="@layout/xfers_double_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

@@ -6,16 +6,16 @@
     android:layout_height="180dp">
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/xfersMerchantLogosVerticalMiddleGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="192dp" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/xfersMerchantLogosVerticalMiddleGuideline"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline">
+        app:layout_constraintStart_toStartOf="@+id/xfersMerchantLogosVerticalMiddleGuideline">
 
         <ImageView
             android:id="@+id/merchantXfersLogoXfersImageView"
