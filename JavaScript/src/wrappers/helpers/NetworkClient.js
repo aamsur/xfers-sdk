@@ -9,11 +9,8 @@ const V3_API_NAMESPACE = '/api/v3';
 
 function getBaseURL( isSandbox ) {
   const isNotProduction = process.env.NODE_ENV !== 'production'
-  // const baseDomain = isNotProduction ? LOCAL_DOMAIN :
-  //                    isSandbox ? SANDBOX_DOMAIN : PROD_DOMAIN;
-
-  const baseDomain = LOCAL_DOMAIN;
-
+  const baseDomain = isNotProduction ? LOCAL_DOMAIN :
+                     isSandbox ? SANDBOX_DOMAIN : PROD_DOMAIN;
   return joinUrl(baseDomain, V3_API_NAMESPACE, { trailingSlash: true });
 }
 

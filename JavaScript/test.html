@@ -6,31 +6,44 @@
     <link rel="stylesheet" type="text/css" href="src/assets/styles/global_style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
   </head>
   <body>
     <div id="xfers_elements"></div>
 
-    <script src="vendors~xfers.bundle.js"></script>
-    <script src="xfers.bundle.js"></script>
+    <button id="auth" onclick="triggerAuth()">Run Authentication Flow</button>
+    <Button id="bank" onclick="triggerBank()">Run Manage Bank Flow</button>
+    <button id="topup" onclick="triggerTopup()">Run Top Up Flow</button>
+    <button id="payment" onclick="triggerPayment()">Run Payment Flow</button>
 
-    <!-- <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/vendors~xfers.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/xfers.bundle.js"></script> -->
+    <!-- <script src="vendors~xfers.bundle.js"></script>
+    <script src="xfers.bundle.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@1d7dcd745cc6b41b60b71819f7ce97a2b2d795c6/JavaScript/dist/vendors~xfers.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@1d7dcd745cc6b41b60b71819f7ce97a2b2d795c6/JavaScript/dist/xfers.bundle.js"></script>
 
     <script type="text/javascript">
 
       const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
 
-      // xfers.startManageBankFlow();
+      function triggerAuth() {
+        xfers.startAuthenticationFlow();
+      }
 
-      // xfers.startTopUpFlow()
+      function triggerBank() {
+        xfers.startManageBankFlow();
+      }
 
-      xfers.startPaymentFlow({
-        amount: 30000,
-        currency: 'SGD',
-        orderId: 'AZ03273'
-      });
+      function triggerTopup() {
+        xfers.startTopUpFlow();
+      }
 
+      function triggerPayment() {
+        xfers.startPaymentFlow({
+          amount: 30000,
+          currency: 'SGD',
+          orderId: 'AZ03273'
+        });
+      }
     </script>
   </body>
 </html>
