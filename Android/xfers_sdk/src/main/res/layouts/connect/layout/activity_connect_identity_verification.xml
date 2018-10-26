@@ -7,7 +7,7 @@
     tools:context=".view.connect.ConnectIdentityVerificationActivity">
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/connectIdentityVerificationExtendedTopbar"
         layout="@layout/xfers_extended_topbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:text="Having a verified account will activate the following features:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationExtendedTopbar" />
 
     <ImageView
         android:id="@+id/connectIdentitiyVerificationTopupImageView"
