@@ -1,5 +1,7 @@
 package com.xfers.xfers_sdk.view.shared
 
+import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
@@ -9,6 +11,7 @@ import com.xfers.xfers_sdk.R
 import android.view.LayoutInflater
 
 class XfersItemRowAdapter(
+        private val context: Context,
         private val icons: ArrayList<Int>,
         private val iconTints: ArrayList<Int>,
         private val copies: ArrayList<String>
@@ -25,7 +28,7 @@ class XfersItemRowAdapter(
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.xfersItemRowImageView?.setImageResource(icons[position])
-        viewHolder.xfersItemRowImageView?.setColorFilter(iconTints[position])
+        viewHolder.xfersItemRowImageView?.setColorFilter(ContextCompat.getColor(context, iconTints[position]))
         viewHolder.xfersItemRowTextView?.text = copies[position]
     }
 

@@ -31,8 +31,8 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
                 R.drawable.status_success_50
         )
         val iconTints = arrayListOf(
-                ContextCompat.getColor(this, R.color.clearBlue),
-                ContextCompat.getColor(this, R.color.clearBlue)
+                R.color.clearBlue,
+                R.color.clearBlue
         )
         val copies = arrayListOf(
                 getString(R.string.connect_identity_verification_listview_topup_withdrawal_copy),
@@ -41,7 +41,7 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
 
         val listViewRecyclerView = findViewById<RecyclerView>(R.id.listViewRecyclerView)
         listViewRecyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = XfersItemRowAdapter(icons, iconTints, copies)
+        val adapter = XfersItemRowAdapter(this, icons, iconTints, copies)
         listViewRecyclerView.adapter = adapter
 
         val xfersDoubleButtonsNegativeButton = findViewById<Button>(R.id.xfersDoubleButtonsNegativeButton)
