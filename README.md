@@ -3,11 +3,11 @@ Xfers SDK provides the functions of Connect (OTP), KYC verification, Pay, Top-up
 
 ## Sign up for an Xfers Merchant account
 
-You need to first have an Xfers Merchant account before being able to integrate the Xfers SDK.
+An Xfers Merchant Account is required in order to integrate the Xfers SDK.
 
-If you're from Singapore - Sign up for an Xfers Merchant account through https://www.xfers.io/account_registration and make sure to get an api_key.
+For Singapore Merchants - Sign up for an Xfers Merchant account through [our webpage](https://www.xfers.io/account_registration) and make sure to get an `api_key`.
 
-If you're from Indonesia - Sign up for an Xfers Merchant account by emailing support@xfers.com.
+For Indonesia Merchants - Sign up for an Xfers Merchant account by emailing support@xfers.com.
 
 ## Integrate Xfers Wallet SDK for different platforms
 
