@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".view.connect.ConnectShareKYCActivity">
 
+    <include
+        android:id="@+id/connectShareKYCXfersMerchantLogos"
+        layout="@layout/xfers_merchant_xfers_logos" />
+
     <TextView
         android:id="@+id/shareKYCMerchantAccessTextView"
         android:layout_width="wrap_content"
@@ -15,32 +19,8 @@
         android:gravity="center"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shareKYCMerchantLogoImageView" />
-
-    <ImageView
-        android:id="@+id/shareKYCMerchantLogoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
-
-    <ImageView
-        android:id="@+id/shareKYCXfersLogoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:tint="@color/clearBlue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/xfers_logo_72" />
+        app:layout_constraintTop_toBottomOf="@+id/connectShareKYCXfersMerchantLogos" />
 
     <TextView
         android:id="@+id/shareKYCSharedInformationTextView"

@@ -3,6 +3,7 @@
 
     <string name="lorem_ipsum">Lorem ipsum</string>
     <string name="phone_number_lorem_ipsum">1234 567 890</string>
+    <string name="number_ipsum">3000.00</string>
 
     <string name="next_button_copy">Next</string>
 
