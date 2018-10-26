@@ -1,4 +1,4 @@
-# Project overview
+# Introduction
 
 ## Sign up for an Xfers Merchant account
 
