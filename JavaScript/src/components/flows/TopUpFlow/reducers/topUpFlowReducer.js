@@ -3,7 +3,8 @@ import {
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
-  SUBMIT_TOP_UP_REQUEST_RESPONSE
+  SUBMIT_TOP_UP_REQUEST_RESPONSE,
+  ADD_USER_BANK,
 } from 'TopUpFlow/actions/constants'
 
 
@@ -25,6 +26,12 @@ const ACTION_HANDLERS = {
   [SUBMIT_TOP_UP_REQUEST_RESPONSE]: (state, {res}) => {
     // TODO: Retrieve transfer-in information
     return { ...state }
+  },
+  [ADD_USER_BANK]: (state, {bank}) => {
+    console.log("WTF", bank);
+    let newList = state.userBanks.slice();
+    newList.push(bank);
+    return { ...state, userBanks: newList }
   }
 }
 

@@ -13,7 +13,7 @@ import bankIcon from 'icons/Bank_Acc_23.png'
 export default class BankAccountIndex extends Component {
   render() {
 
-    const { dataLoading, userBanks, navigate, closeModal, goBackPreviousModule } = this.props;
+    const { userBanks, navigate, closeModal, goBackPreviousModule } = this.props;
     const userBankExist = userBanks.length ? true : false;
 
     return (

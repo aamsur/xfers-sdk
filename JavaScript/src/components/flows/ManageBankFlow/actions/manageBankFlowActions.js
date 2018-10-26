@@ -48,7 +48,7 @@ export const submitNewBankAccountDetails = (successCallback) => (dispatch, getSt
       {'bankStatementFile': 'bank_account_proof', 'fileData': 'fileData', 'fileName': 'fileName'})
   ).then(res => {
     dispatch({ type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE, res: res.data })
-    if (successCallback) successCallback();
+    if (successCallback) successCallback(res.data[0]);
   })
   .catch(err => {
     dispatch({ type: SUBMIT_NEW_BANK_ACCOUNT_RESPONSE, res: err.data })

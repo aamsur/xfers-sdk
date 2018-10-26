@@ -2,5 +2,6 @@ export {
   navigate,
   initializeComponent,
   updateTopUpDetails,
-  submitNewTopUpRequest
+  submitNewTopUpRequest,
+  addUserBank,
 } from './topUpFlowActions'

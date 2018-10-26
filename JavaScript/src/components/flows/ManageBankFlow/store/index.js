@@ -16,20 +16,15 @@ export default (props = {}) => {
     }
   }
 
-  const { params, closeModal, networkClient, goBackPreviousModule } = props;
-
   /* Acceptable params:
-   * { userBanks, availableBalance goBackPreviousModule }
+   * { goBackPreviousModule, addBankAccount }
    */
 
   const initialState = {
     manageBankFlow: {
 
       // External Props
-      params,
-      closeModal,
-      networkClient,
-      goBackPreviousModule,
+      ...props,
 
       // Available routes: index, new
       route: '',

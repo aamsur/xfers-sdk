@@ -17,10 +17,10 @@ export default class NewBankAccountForm extends Component {
   }
 
   render() {
-    const { goBack } = this.props;
+    const { navigate } = this.props;
     return (
       <Stepper>
-        <BankTypeList goBack={goBack} {...this.props} />
+        <BankTypeList goBack={() => navigate("index")} {...this.props} />
         <BankAccountName {...this.props} />
         <BankAccountNumber {...this.props} />
         <BankAccountNumberRepeat {...this.props} />

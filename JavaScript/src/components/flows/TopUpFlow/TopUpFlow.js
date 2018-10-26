@@ -8,7 +8,8 @@ import {
   initializeComponent,
   updateTopUpDetails,
   submitNewTopUpRequest,
-  selectScreenType
+  selectScreenType,
+  addUserBank
 } from 'TopUpFlow/actions'
 
 function mapStateToProps({topUpFlow}, props) {
@@ -25,7 +26,9 @@ function mapDispatchToProps(dispatch) {
 
     submit: (successCallback) => dispatch(submitNewTopUpRequest(successCallback)),
 
-    selectScreenType: (screenType) => dispatch(selectScreenType(screenType))
+    selectScreenType: (screenType) => dispatch(selectScreenType(screenType)),
+
+    addUserBank: (bank) => dispatch(addUserBank(bank))
   }
 }
 

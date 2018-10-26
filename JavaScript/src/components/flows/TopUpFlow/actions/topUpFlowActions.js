@@ -4,7 +4,8 @@ import {
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
-  SUBMIT_TOP_UP_REQUEST_RESPONSE
+  SUBMIT_TOP_UP_REQUEST_RESPONSE,
+  ADD_USER_BANK
 } from './constants'
 
 export const navigate = (route) => ({
@@ -42,6 +43,11 @@ export const initializeComponent = (navigationCallback) => (dispatch, getState) 
       }
     });
 }
+
+export const addUserBank = (bank) => ({
+  type: ADD_USER_BANK,
+  bank
+})
 
 export const submitNewTopUpRequest = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });

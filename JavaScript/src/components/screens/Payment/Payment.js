@@ -12,7 +12,7 @@ export default class Payment extends Component {
         { route === '' && <LoadingPanel title="Make Payment" onClose={closeModal} /> }
         { route === 'payment' && <PaymentSteps {...this.props} /> }
         { route === 'topup' &&
-          <TopUpFlow networkClient={networkClient} closeModal={closeModal} />
+          <TopUpFlow networkClient={networkClient} closeModal={closeModal} {...topUpParams} />
         }
       </View>
     )
