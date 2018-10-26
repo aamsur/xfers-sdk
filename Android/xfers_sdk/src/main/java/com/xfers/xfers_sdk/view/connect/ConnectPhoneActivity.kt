@@ -32,8 +32,8 @@ class ConnectPhoneActivity : AppCompatActivity() {
         val formInputNotesTextView = findViewById<TextView>(R.id.xfersFormInputNotesTextView)
         formInputNotesTextView.visibility = View.GONE
 
-        val formInputNextButton = findViewById<Button>(R.id.xfersFormInputNextButton)
-        formInputNextButton.setOnClickListener {
+        val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
+        xfersFullWidthButton.setOnClickListener {
             val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
             val userPhoneNumber = phoneNumberTextField.text.toString()
 

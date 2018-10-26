@@ -43,11 +43,10 @@ class ComingSoonActivity : AppCompatActivity() {
 
         comingSoonTextView.text = combinedText
 
-        val comingSoonReturnButton = findViewById<Button>(R.id.cardActivityReturnButton)
-        comingSoonReturnButton.text = getString(R.string.coming_soon_return_copy, XfersConfiguration.getMerchantName())
-    }
-
-    fun onButtonClick(view: View) {
-        finish()
+        val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
+        xfersFullWidthButton.text = getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
+        xfersFullWidthButton.setOnClickListener {
+            finish()
+        }
     }
 }
