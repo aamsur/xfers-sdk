@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     // Put your logo tint here, this is the color that we will use to tint your logo in the SDK, for e.g.
     // R.color.your_color
-    private val merchantLogoTint = Color.BLACK
+    private val merchantLogoTint = R.color.colorPrimary
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
