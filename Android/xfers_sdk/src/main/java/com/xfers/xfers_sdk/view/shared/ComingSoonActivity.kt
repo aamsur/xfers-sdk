@@ -2,7 +2,6 @@ package com.xfers.xfers_sdk.view.shared
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
