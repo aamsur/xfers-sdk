@@ -81,14 +81,24 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/i,
-        use: {
-          loader: 'file-loader',
+        use: [{
+          loader: 'url-loader',
           options: {
-            name: '[name].[ext]',
-            outputPath: 'images/'
+              limit: 8000, // Convert images < 8kb to base64 strings
+              name: 'images/[hash]-[name].[ext]'
           }
-        }
+        }]
       },
+      // {
+      //   test: /\.(jpg|jpeg|png|gif|svg)$/i,
+      //   use: {
+      //     loader: 'file-loader',
+      //     options: {
+      //       name: '[name].[ext]',
+      //       outputPath: 'images/'
+      //     }
+      //   }
+      // },
       {
         test: /\.(ttc|ttf|eot|woff|woff2)$/,
         use: {
