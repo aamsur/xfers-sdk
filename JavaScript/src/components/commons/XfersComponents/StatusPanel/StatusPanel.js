@@ -8,6 +8,7 @@ import successLogo from 'icons/Status_Success_50.png'
 import warningLogo from 'icons/Status_Alert_60.png'
 
 import { Panel, View, Text, FlexContainer, FlexItem } from 'XfersComponents'
+import closeIcon from 'icons/Close_16.png'
 
 /* COMPONENT USAGE TIPS */
 // In order for StatusPanel Body and Footer to function as expected,
@@ -15,7 +16,7 @@ import { Panel, View, Text, FlexContainer, FlexItem } from 'XfersComponents'
 // OR pass in boolean value true to the props "spBody", & "spFooter" respectively
 // to indicate respective elements in the children[array].
 
-function StatusPanel({ type, iconType, title, ...elements }) {
+function StatusPanel({ type, iconType, title, onClose, ...elements }) {
 
   const { children, footer } = processElements(elements);
 
@@ -32,6 +33,7 @@ function StatusPanel({ type, iconType, title, ...elements }) {
     <Panel customClass={cls.statusPanel}>
       <View customClass={backgroundClass}>
         <View customClass={cls.title}>
+          { onClose && <img src={closeIcon} onClick={onClose} /> }
           <Text type="modalHeader">{title}</Text>
         </View>
       </View>
@@ -72,7 +74,9 @@ const componentPropTypes = {
   ]).isRequired,
   iconType: PropTypes.oneOf([
     'success', 'pending', 'warning'
-  ]).isRequired
+  ]).isRequired,
+  title: PropTypes.string,
+  onClose: PropTypes.func
 }
 
 const componentDefaultProps = {

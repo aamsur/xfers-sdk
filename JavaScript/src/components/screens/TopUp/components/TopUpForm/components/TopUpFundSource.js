@@ -11,7 +11,7 @@ import bankIcon from 'icons/Bank_Acc_23.png'
 
 export default class TopUpFundSource extends Component {
   render() {
-    const { userBanks, updateForm, goBack, goNext, navigate } = this.props;
+    const { userBanks, updateForm, goBack, goNext, navigate, params } = this.props;
 
     const onSelect = (bankAbbreviation) => {
       updateForm('bank', bankAbbreviation);
@@ -20,7 +20,13 @@ export default class TopUpFundSource extends Component {
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader onBack={goBack} spHeader title="Make Payment" />
+        
+        {params.flowType === 'payment' ?
+          <ModalHeader onBack={goBack} spHeader title="Make Payment" />
+          :
+          <ModalHeader onBack={goBack} spHeader title="Transfer Funds" />
+        }
+
         <View spBody>
           <Text type="panelTitle">Pay using bank account</Text>
           <View>

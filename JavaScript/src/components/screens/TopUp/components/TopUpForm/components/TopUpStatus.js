@@ -9,13 +9,15 @@ import {
 
 export default class TopUpStatus extends Component {
   render() {
-    const { closeModal } = this.props;
+    const { closeModal, params } = this.props;
 
     return (
       <StatusPanel
         type="tertiary"
         iconType="pending"
-        title="Make Payment">
+        title={params.flowType === 'payment' ? "Make Payment" : "Transfer Funds"}
+        onClose={closeModal}
+        >
         <View spBody>
           <View><Text>Thank you for making a transfer via Xfers.</Text></View>
           <br/>

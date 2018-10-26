@@ -9,11 +9,11 @@ import {
 } from './components'
 
 export default class TopUpForm extends Component {
+
   render() {
-    if (!this.props.params || this.props.params.flowType === 'topup') {
+    if (this.props.params && this.props.params.flowType === 'payment') {
       return (
         <Stepper>
-          <TopUpAmount {...this.props} />
           <TopUpFundSource {...this.props} />
           <TopUpConfirmation {...this.props} />
           <TopUpInstructions {...this.props} />
@@ -23,6 +23,7 @@ export default class TopUpForm extends Component {
     } else {
       return (
         <Stepper>
+          <TopUpAmount {...this.props} />
           <TopUpFundSource {...this.props} />
           <TopUpConfirmation {...this.props} />
           <TopUpInstructions {...this.props} />

@@ -19,7 +19,6 @@ export default (props = {}) => {
   /* Acceptable params:
    * { amount, flowType, userBanks, availableBalance }
    */
-
   const initialState = {
     topUpFlow: {
 

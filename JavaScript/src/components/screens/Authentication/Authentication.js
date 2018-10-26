@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Stepper } from 'XfersComponents'
-import { PhoneNumber, OTP } from './components'
+import { PhoneNumber, OTP, Status } from './components'
 
 class Authentication extends Component {
 
@@ -43,6 +43,7 @@ class Authentication extends Component {
       <Stepper>
         <PhoneNumber {...phoneProps} />
         <OTP {...otpProps} />
+        <Status />
       </Stepper>
     )
   }

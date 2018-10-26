@@ -20,6 +20,7 @@ export default class Instructions extends Component {
       xfersBankAccount,
       newTopUpRequest: { bank, topUpAmount },
       selectScreenType,
+      closeModal,
       goNext
     } = this.props;
 
@@ -38,7 +39,7 @@ export default class Instructions extends Component {
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader spHeader title="Transfer Instructions">
+        <ModalHeader spHeader onClose={closeModal} title="Transfer Instructions">
           <Text spHeader>Make a FAST Transfer</Text>
           <Text spBody textAlign="center">To complete your payment, please proceed to make a transfer with the details below</Text>
         </ModalHeader>

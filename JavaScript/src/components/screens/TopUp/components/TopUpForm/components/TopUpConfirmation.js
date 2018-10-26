@@ -12,6 +12,7 @@ import { toCurrency } from 'UtilityFunctions'
 export default class TopUpConfirmation extends Component {
   render() {
     const {
+      params,
       error,
       newTopUpRequest: { bank, topUpAmount },
       userBanks,
@@ -45,7 +46,13 @@ export default class TopUpConfirmation extends Component {
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
+
+        {params.flowType === 'payment' ?
+          <ModalHeader onBack={goBack} spHeader title="Make Payment" />
+          :
+          <ModalHeader onBack={goBack} spHeader title="Transfer Funds" />
+        }
+
         <View spBody>
           <Text type="panelTitle">Confirm details</Text>
           <View marginBottom="10px">

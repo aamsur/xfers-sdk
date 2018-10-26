@@ -13,6 +13,7 @@ export default class AddBankAccountStatus extends Component {
       userBanks,
       navigate,
       params,
+      closeModal,
     } = this.props;
 
     const newBankDetails = userBanks.last;
@@ -21,7 +22,8 @@ export default class AddBankAccountStatus extends Component {
       <StatusPanel
         type="secondary"
         iconType="success"
-        title="Add Bank Account">
+        title="Add Bank Account"
+        onClose={closeModal}>
         <View spBody>
           <Text>Your bank account has been added.</Text>
         </View>

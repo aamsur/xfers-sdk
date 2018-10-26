@@ -21,7 +21,8 @@ export default class PaymentStatus extends Component {
       <StatusPanel
         type="secondary"
         iconType="success"
-        title="Make Payment">
+        title="Make Payment"
+        onClose={closeModal}>
         <View spBody>
           <View><Text>Your payment has been completed.</Text></View>
           <br/><br/><br/>

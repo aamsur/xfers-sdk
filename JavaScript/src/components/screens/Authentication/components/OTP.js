@@ -26,7 +26,12 @@ class OTP extends Component {
 
   render() {
     const { interval } = this.state;
-    const { otp, updateOtp, verifyOtp, goBack } = this.props
+    const { otp, updateOtp, verifyOtp, goBack, goNext } = this.props
+
+    const verifyOtpWithCallback = () => {
+      // verifyOtp()
+      goNext()
+    }
 
     return (
       <StickyPanel showBrand>
@@ -47,7 +52,7 @@ class OTP extends Component {
           }
         </View>
         <FooterButtonGroup spFooter>
-          <Button type="primary" onClick={verifyOtp}>Next</Button>
+          <Button type="primary" onClick={verifyOtpWithCallback}>Next</Button>
         </FooterButtonGroup>
       </StickyPanel>
     )
