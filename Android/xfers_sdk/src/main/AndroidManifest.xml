@@ -9,11 +9,13 @@
 
     <application>
         <activity android:name=".view.shared.ComingSoonActivity" />
-        <activity android:name=".view.connect.ConnectPhoneActivity" />
+        <activity
+            android:name=".view.connect.ConnectPhoneActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".view.connect.ConnectOTPActivity" />
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
         <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />
-        <activity android:name=".view.connect.ConnectIdentityVerificationActivity"></activity>
+        <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
     </application>
 
 </manifest>
