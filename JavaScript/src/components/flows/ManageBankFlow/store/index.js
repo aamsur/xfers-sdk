@@ -32,7 +32,7 @@ export default (props = {}) => {
       goBackPreviousModule,
 
       // Available routes: index, new
-      route: 'index',
+      route: '',
       error: '',
       dataLoading: false,
       userBanks: [],

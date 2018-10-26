@@ -36,6 +36,9 @@ export default class TopUpAmount extends Component {
             />
           <View>
             <View display="inline" marginRight="12px">
+              <Button size="small" type="secondary" onClick={() => updateForm('topUpAmount', 50)}>50.00</Button>
+            </View>
+            <View display="inline" marginRight="12px">
               <Button size="small" type="secondary" onClick={() => updateForm('topUpAmount', 100)}>100.00</Button>
             </View>
             <View display="inline" marginRight="12px">

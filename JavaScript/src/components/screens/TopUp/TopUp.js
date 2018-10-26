@@ -1,42 +1,20 @@
 import React, { Component } from 'react'
-import {
-  StickyPanel,
-  ModalHeader,
-  View,
-  CenterContent,
-  PageLoader
-} from 'XfersComponents'
+import { View, LoadingPanel } from 'XfersComponents'
 import { TopUpForm } from './components'
-import ManageBank from 'ManageBank'
+import ManageBankFlow from 'ManageBankFlow'
 
 export default class TopUp extends Component {
   render() {
-
-    const {
-      route,
-      networkClient,
-      closeModal,
-      navigateBack,
-      ...topUpStore
-    } = this.props;
-
+    const { route, networkClient, closeModal, navigate } = this.props;
     return (
       <View>
-        { route === '' &&
-          <StickyPanel showBrand>
-            <ModalHeader spHeader onClose={closeModal} title="Bank Accounts" />
-              <View spBody>
-                <CenterContent>
-                  <PageLoader />
-                </CenterContent>
-              </View>
-          </StickyPanel>
-        }
-        { route === 'topUpForm' && <TopUpForm {...topUpStore} closeModal={closeModal} /> }
+        { route === '' && <LoadingPanel title="Make Payment" onClose={closeModal} /> }
+        { route === 'topUpForm' && <TopUpForm {...this.props} /> }
         { route === 'bank' &&
-          <ManageBank
+          <ManageBankFlow
             networkClient={networkClient}
-            goBackPreviousModule={navigateBack} />
+            closeModal={closeModal}
+            goBackPreviousModule={() => navigate('topUpForm')} />
         }
       </View>
     )

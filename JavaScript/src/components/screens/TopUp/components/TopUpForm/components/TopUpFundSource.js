@@ -11,7 +11,7 @@ import bankIcon from 'icons/Bank_Acc_23.png'
 
 export default class TopUpFundSource extends Component {
   render() {
-    const { userBanks, updateForm, goBack, goNext, navigateToManageBank } = this.props;
+    const { userBanks, updateForm, goBack, goNext, navigate } = this.props;
 
     const onSelect = (bankAbbreviation) => {
       updateForm('bank', bankAbbreviation);
@@ -34,7 +34,7 @@ export default class TopUpFundSource extends Component {
             )}
           </View>
           <View marginTop="20px">
-            <AnchorLink onClick={navigateToManageBank}>Edit bank accounts</AnchorLink>
+            <AnchorLink onClick={() => navigate('bank')}>Edit bank accounts</AnchorLink>
           </View>
         </View>
       </StickyPanel>

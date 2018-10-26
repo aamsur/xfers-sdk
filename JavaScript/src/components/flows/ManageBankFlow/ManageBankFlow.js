@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-import { View } from 'XfersComponents'
 import ManageBank from 'ManageBank'
 import {
   navigate,
@@ -21,26 +20,23 @@ function mapStateToProps({manageBankFlow}, props) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    init: () => dispatch(initializeComponent()),
-    navigateToPage: (page) => dispatch(navigate(page)),
-    navigateToForm: () => dispatch(navigate('new')),
+    init: (callback) => dispatch(initializeComponent(callback)),
+
+    navigate: (page) => dispatch(navigate(page)),
+
     initNewBankAccount: () => dispatch(initNewBankAccount()),
-    goHome: () => dispatch(navigate('index')),
 
     updateForm: (k, v) => dispatch(updateBankAccountDetails(k, v)),
+
     updateSearchFilter: (v) => dispatch(updateSearchFilter(v)),
+
     submit: (successCallback) => dispatch(submitNewBankAccountDetails(successCallback))
   }
 }
 
-class ManageBankFlow extends PureComponent {
+class ManageBankFlow extends Component {
 
-  componentDidMount() {
-    const callback = (page) => {
-      this.props.navigateToPage('index');
-    }
-    this.props.init(callback);
-  }
+  componentDidMount() { this.props.init(() => this.props.navigate('index')) }
 
   render() {
     return (

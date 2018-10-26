@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import createStore from './store'
 
-import { View } from 'XfersComponents'
 import TopUp from 'TopUp'
-
 import {
   navigate,
   initializeComponent,
@@ -20,33 +18,24 @@ function mapStateToProps({topUpFlow}, props) {
 function mapDispatchToProps(dispatch) {
   return {
     init: (successCallback) => dispatch(initializeComponent(successCallback)),
-    navigateToPage: (page) => dispatch(navigate(page)),
-    navigateBack: () => dispatch(navigate('topUpForm')),
+
+    navigate: (page) => dispatch(navigate(page)),
+
     updateForm: (k, v) => dispatch(updateTopUpDetails(k, v)),
-    navigateToManageBank: () => dispatch(navigate("bank")),
+
     submit: (successCallback) => dispatch(submitNewTopUpRequest(successCallback)),
+
     selectScreenType: (screenType) => dispatch(selectScreenType(screenType))
   }
 }
 
 class TopUpFlow extends Component {
 
-  componentDidMount() {
-    const callback = (page) => {
-      this.props.navigateToPage(page);
-    }
-    this.props.init(callback);
-  }
+  componentDidMount() { this.props.init((page) => this.props.navigate(page)) }
 
   render() {
-    const { navigateBack, ...topUpStore } = this.props;
     return (
-      <View>
-        <TopUp
-          {...topUpStore}
-          navigateBack={navigateBack}
-        />
-      </View>
+      <TopUp {...this.props} />
     )
   }
 }

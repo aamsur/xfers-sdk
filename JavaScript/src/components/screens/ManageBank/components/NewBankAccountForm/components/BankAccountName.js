@@ -27,7 +27,7 @@ export default class BankAccountName extends Component {
           <Text type="panelTitle">Enter your full name</Text>
           <FormInput
             autoFocus
-            placeholder="e.g. Alice"
+            placeholder="e.g. Lau Tian Hao"
             value={accountHolderName}
             onChange={(e) => updateForm('accountHolderName', e.target.value)}
             caption="As reflected in your bank account statement"
