@@ -8,7 +8,11 @@ import android.widget.ImageView
 import com.xfers.xfers_sdk.R
 import android.view.LayoutInflater
 
-class XfersItemRowAdapter(private val icons: ArrayList<Int>, private val copies: ArrayList<String>) : RecyclerView.Adapter<XfersItemRowAdapter.ViewHolder>() {
+class XfersItemRowAdapter(
+        private val icons: ArrayList<Int>,
+        private val iconTints: ArrayList<Int>,
+        private val copies: ArrayList<String>
+) : RecyclerView.Adapter<XfersItemRowAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var xfersItemRowImageView: ImageView? = view.findViewById(R.id.xfersItemRowImageView)
@@ -21,6 +25,7 @@ class XfersItemRowAdapter(private val icons: ArrayList<Int>, private val copies:
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.xfersItemRowImageView?.setImageResource(icons[position])
+        viewHolder.xfersItemRowImageView?.setColorFilter(iconTints[position])
         viewHolder.xfersItemRowTextView?.text = copies[position]
     }
 
