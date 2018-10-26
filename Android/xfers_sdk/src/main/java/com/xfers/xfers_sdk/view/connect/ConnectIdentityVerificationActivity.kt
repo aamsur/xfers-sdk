@@ -3,6 +3,7 @@ package com.xfers.xfers_sdk.view.connect
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Button
@@ -30,8 +31,8 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
                 R.drawable.status_success_50
         )
         val iconTints = arrayListOf(
-                R.color.clearBlue,
-                R.color.clearBlue
+                ContextCompat.getColor(this, R.color.clearBlue),
+                ContextCompat.getColor(this, R.color.clearBlue)
         )
         val copies = arrayListOf(
                 getString(R.string.connect_identity_verification_listview_topup_withdrawal_copy),
