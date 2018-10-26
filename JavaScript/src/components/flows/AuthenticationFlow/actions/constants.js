@@ -1,0 +1,1 @@
+export const SEND_HTTP_REQUEST = 'SEND_HTTP_REQUEST'

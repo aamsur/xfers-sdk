@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import NetworkClient from 'NetworkClient'
 
-import Authentication from 'Authentication'
-
+import AuthenticationFlow from 'AuthenticationFlow'
 import ManageBankFlow from 'ManageBankFlow'
 import PaymentFlow from 'PaymentFlow'
 import TopUpFlow from 'TopUpFlow'
+
 import { Modal } from 'XfersComponents'
 
 const TOP_UP_FLOW = 'TOP_UP_FLOW';
@@ -20,7 +20,7 @@ function selectFlow(flow) {
       return PaymentFlow
       break;
     case AUTHENTICATION_FLOW:
-      return Authentication
+      return AuthenticationFlow
       break;
     case TOP_UP_FLOW:
       return TopUpFlow

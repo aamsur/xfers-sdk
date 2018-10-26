@@ -9,7 +9,8 @@ class PhoneNumber extends Component {
       phoneNoAccepted,
       updatePhoneNo,
       requestOtp,
-      goNext
+      goNext,
+      closeModal
     } = this.props
 
     const requestOtpWithCallback = () => {
@@ -19,7 +20,7 @@ class PhoneNumber extends Component {
 
     return (
       <StickyPanel showBrand>
-        <ModalHeader spHeader title="Link Xfers Account" />
+        <ModalHeader spHeader onClose={closeModal} title="Link Xfers Account" />
         <View spBody>
           <Text type="panelTitle">Enter your mobile number</Text>
           <FormInputGroup

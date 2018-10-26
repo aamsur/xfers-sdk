@@ -26,24 +26,25 @@ class Authentication extends Component {
   }
 
   render() {
-
     const phoneProps = {
       phoneNo: this.state.phoneNo,
       phoneNoAccepted: this.state.phoneNoAccepted,
       updatePhoneNo: this.updatePhoneNo,
       requestOtp: this.requestOtp,
+      ...this.props
     }
 
     const otpProps = {
       otp: this.state.otp,
       updateOtp: this.updateOtp,
+      ...this.props
     }
 
     return (
       <Stepper>
         <PhoneNumber {...phoneProps} />
         <OTP {...otpProps} />
-        <Status />
+        <Status {...this.props} />
       </Stepper>
     )
   }
