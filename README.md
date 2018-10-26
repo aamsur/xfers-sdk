@@ -1,4 +1,6 @@
 # Project overview
+Xfers SDK provides the functions of Connect (OTP), KYC verification, Pay, Top-up, Withdrawal, Edit-bank, Transaction Overview with UI flow for your business. What you need to do is to do an easy integration properly and call our SDK when needed. All the features and UI will be handled and managed by us.
+
 
 ## Sign up for an Xfers Merchant account
 
