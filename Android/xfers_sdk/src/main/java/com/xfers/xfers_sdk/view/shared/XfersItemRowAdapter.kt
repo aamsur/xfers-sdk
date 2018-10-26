@@ -1,6 +1,5 @@
 package com.xfers.xfers_sdk.view.shared
 
-import android.graphics.PorterDuff
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
