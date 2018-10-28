@@ -68,6 +68,9 @@ protected void onCreate(Bundle savedInstanceState) {
 
     xfers.getConfig().setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
     xfers.getConfig().setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
+    
+    // Un comment this to start a flow.
+    // xfers.getFlow().startTopupFlow();
 }
 ```
 
