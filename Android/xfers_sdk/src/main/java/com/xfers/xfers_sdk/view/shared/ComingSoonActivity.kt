@@ -8,6 +8,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import android.text.Spannable
 import android.graphics.Typeface
+import android.support.v4.content.ContextCompat
 import android.text.style.StyleSpan
 import android.text.SpannableString
 import android.widget.ImageView
@@ -32,6 +33,7 @@ class ComingSoonActivity : AppCompatActivity() {
 
         val comingSoonIconImageView = findViewById<ImageView>(R.id.cardActivityIconImageView)
         comingSoonIconImageView.setImageResource(R.drawable.status_wip_60)
+        comingSoonIconImageView.setColorFilter(ContextCompat.getColor(this, R.color.lightGray))
 
         val comingSoonTextView = findViewById<TextView>(R.id.cardActivityTextView)
 
