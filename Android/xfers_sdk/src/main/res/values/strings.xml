@@ -22,6 +22,11 @@
     <string name="connect_flow_title">Link xfers account</string>
     <string name="connect_mobile_phone_number_subtitle">We will text a one-time secure link to your mobile to proceed with a mobile verification</string>
 
+    <string name="topup_bank_selection_title">XFERS WALLET</string>
+    <string name="topup_bank_selection_page_title">Top up using</string>
+    <string name="topup_bank_selection_bank_ipsum">DBS 123-XXXXX-3</string>
+    <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
+
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
     <string name="coming_soon_copy">This feature is currently in the works and will launch soon!</string>

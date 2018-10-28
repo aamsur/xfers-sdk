@@ -9,6 +9,8 @@
 
     <application>
         <activity android:name=".view.shared.ComingSoonActivity" />
+
+        <activity android:name=".view.topup.TopupBankSelectionActivity" />
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
             android:windowSoftInputMode="adjustResize" />
