@@ -41,23 +41,23 @@ You will need the following in order to successfully integrate with Xfers Androi
 
 To set up the above details, in your main activity, add the following code into the `onCreate` method:
 
-### Sample Kotlin code
-```Kotlin
+### Sample Java code
+```Java
 // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
 // https://bright-sunshine-91728.herokuapp.com/
-private String merchantApiBase = "<set_your_backend_api_base_here>"
+private String merchantApiBase = "<set_your_backend_api_base_here>";
 
 // Put your name here, this is the name that we will use to refer to you in the SDK, for e.g.
 // Best Merchant
-private String merchantName = "<set_your_name_here>"
+private String merchantName = "<set_your_name_here>";
 
 // Put your logo source here, this is the image that we will use to refer to you in the SDK, for e.g.
 // R.drawable.your_logo
-private int merchantLogo = R.drawable.ic_launcher_foreground
+private int merchantLogo = R.drawable.ic_launcher_foreground;
 
 // Put your logo tint here, this is the color that we will use to tint your logo in the SDK, for e.g.
 // R.color.your_color
-private int merchantLogoTint = Color.BLACK
+private int merchantLogoTint = Color.BLACK;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
