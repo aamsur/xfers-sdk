@@ -66,8 +66,8 @@ protected void onCreate(Bundle savedInstanceState) {
 
     Xfers xfers = new Xfers(this); // this here refers to the Context
 
-    xfers.config.setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
-    xfers.config.setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
+    xfers.getConfig().setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
+    xfers.getConfig().setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
 }
 ```
 
