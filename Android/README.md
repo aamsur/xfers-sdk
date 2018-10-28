@@ -41,7 +41,8 @@ You will need the following in order to successfully integrate with Xfers Androi
 
 To set up the above details, in your main activity, add the following code into the `onCreate` method:
 
-```Java
+### Sample Kotlin code
+```Kotlin
 // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
 // https://bright-sunshine-91728.herokuapp.com/
 private String merchantApiBase = "<set_your_backend_api_base_here>"
