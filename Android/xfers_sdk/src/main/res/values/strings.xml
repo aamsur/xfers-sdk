@@ -21,6 +21,9 @@
     <string name="connect_identity_verification_listview_topup_withdrawal_copy">Top-ups &amp; Withdrawals</string>
     <string name="connect_identity_verification_listview_increased_holding_copy">An increased holding limit of XXX.XXX</string>
 
+    <string name="connect_otp_page_title_copy">Enter Verification Code</string>
+    <string name="connect_otp_resend_otp_copy">Resend OTP</string>
+
     <string name="connect_flow_title">Link xfers account</string>
     <string name="connect_mobile_phone_number_subtitle">We will text a one-time secure link to your mobile to proceed with a mobile verification</string>
 

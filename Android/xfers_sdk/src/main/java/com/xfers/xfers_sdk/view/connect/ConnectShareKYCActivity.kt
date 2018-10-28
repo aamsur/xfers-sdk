@@ -23,9 +23,6 @@ class ConnectShareKYCActivity : AppCompatActivity() {
         val merchantAccessTextView = findViewById<TextView>(R.id.shareKYCMerchantAccessTextView)
         merchantAccessTextView.text = getString(R.string.connect_share_kyc_page_title_copy, XfersConfiguration.getMerchantName())
 
-        val sharedInformationTextView = findViewById<TextView>(R.id.shareKYCSharedInformationTextView)
-        sharedInformationTextView.text = getString(R.string.connect_share_kyc_information_copy)
-
         val merchantLogoImageView = findViewById<ImageView>(R.id.merchantXfersLogoMerchantImageView)
         XfersConfiguration.getMerchantLogo()?.let {
             merchantLogoImageView.setImageResource(it)

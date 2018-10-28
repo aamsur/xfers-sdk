@@ -12,7 +12,9 @@
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".view.connect.ConnectOTPActivity" />
+        <activity
+            android:name=".view.connect.ConnectOTPActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
         <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
