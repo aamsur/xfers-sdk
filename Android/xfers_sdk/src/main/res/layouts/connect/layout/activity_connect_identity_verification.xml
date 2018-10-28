@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,107 +14,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/connectIdentityVerificationActivateTextView"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/connectIdentityVerificationSummaryTitle"
+        layout="@layout/xfers_summary_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Having a verified account will activate the following features:"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationExtendedTopbar" />
 
-    <ImageView
-        android:id="@+id/connectIdentitiyVerificationTopupImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationActivateTextView"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
-
-    <ImageView
-        android:id="@+id/connectIdentityVerificationHoldingLimitImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentitiyVerificationTopupImageView"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
-
-    <TextView
-        android:id="@+id/connectIdentityVerificationTopupsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Top-ups &amp; Withdrawals"
-        app:layout_constraintStart_toEndOf="@+id/connectIdentitiyVerificationTopupImageView"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationActivateTextView" />
-
-    <TextView
-        android:id="@+id/connectIdentityVerificationHoldingLimitTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="An increased holding limit of XXX,XXX"
-        app:layout_constraintStart_toEndOf="@+id/connectIdentityVerificationHoldingLimitImageView"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationTopupsTextView" />
-
-    <Button
-        android:id="@+id/connectIdentityVerificationBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="onClickBack"
-        android:text="Back"
+    <include
+        android:id="@+id/connectIdentityVerificationListView"
+        layout="@layout/xfers_list_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/connectIdentityVerificationPoweredByXfers"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationHoldingLimitTextView" />
-
-    <Button
-        android:id="@+id/connectIdentityVerificationLaterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="onClickReject"
-        android:text="Reject"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationBackButton" />
-
-    <Button
-        android:id="@+id/connectIdentityVerificationProceedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="onClickProceed"
-        android:text="Proceed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationLaterButton" />
+        app:layout_constraintTop_toBottomOf="@+id/connectIdentityVerificationSummaryTitle" />
 
     <include
+        android:id="@+id/connectIdentityVerificationPoweredByXfers"
         layout="@layout/xfers_powered_by_xfers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/connectIdentityVerificationXfersDoubleButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/connectIdentityVerificationXfersDoubleButtons"
+        layout="@layout/xfers_double_buttons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

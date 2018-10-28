@@ -3,7 +3,9 @@
     <color name="textColor">#4a4a4a</color>
     <color name="nearWhite">#f7f7f7</color>
     <color name="clearBlue">#2f8dee</color>
+    <color name="veryLightGray">#cecece</color>
     <color name="lightGray">#9b9b9b</color>
     <color name="emphasis">#4a4a4a</color>
     <color name="emphasisBarBackground">#e6e6e6</color>
+    <color name="aquaMarine">#1de9b6</color>
 </resources>

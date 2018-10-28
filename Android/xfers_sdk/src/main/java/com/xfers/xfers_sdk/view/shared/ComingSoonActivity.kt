@@ -2,7 +2,6 @@ package com.xfers.xfers_sdk.view.shared
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
@@ -43,11 +42,10 @@ class ComingSoonActivity : AppCompatActivity() {
 
         comingSoonTextView.text = combinedText
 
-        val comingSoonReturnButton = findViewById<Button>(R.id.cardActivityReturnButton)
-        comingSoonReturnButton.text = getString(R.string.coming_soon_return_copy, XfersConfiguration.getMerchantName())
-    }
-
-    fun onButtonClick(view: View) {
-        finish()
+        val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
+        xfersFullWidthButton.text = getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
+        xfersFullWidthButton.setOnClickListener {
+            finish()
+        }
     }
 }

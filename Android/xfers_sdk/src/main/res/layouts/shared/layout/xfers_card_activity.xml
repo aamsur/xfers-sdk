@@ -46,18 +46,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/cardActivityReturnButton"
-                android:layout_width="wrap_content"
+            <include
+                android:id="@+id/xfersCardActivityXfersButtonView"
+                layout="@layout/xfers_button"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/clearBlue"
-                android:onClick="onButtonClick"
-                android:text="@string/coming_soon_return_copy"
-                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
@@ -97,6 +93,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/status_wip_60" />
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
