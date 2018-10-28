@@ -1,10 +1,12 @@
 package com.xfers.xfers_sdk.view.connect
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
-import android.view.View
+import android.support.v4.view.ViewCompat
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.xfers.xfers_sdk.R
@@ -16,36 +18,36 @@ class ConnectShareKYCActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect_share_kyc)
 
-        title = "Link Xfers Account"
+        title = getString(R.string.connect_flow_title)
 
         val merchantAccessTextView = findViewById<TextView>(R.id.shareKYCMerchantAccessTextView)
-        merchantAccessTextView.text = "${XfersConfiguration.getMerchantName()} would like to access your personal information from your Xfers account"
+        merchantAccessTextView.text = getString(R.string.connect_share_kyc_page_title_copy, XfersConfiguration.getMerchantName())
 
         val sharedInformationTextView = findViewById<TextView>(R.id.shareKYCSharedInformationTextView)
-        sharedInformationTextView.text = listOf("Name", "Birthdate", "Nationality", "Location", "KTP", "Proof of Address").joinToString(separator = "\n")
+        sharedInformationTextView.text = getString(R.string.connect_share_kyc_information_copy)
 
         val merchantLogoImageView = findViewById<ImageView>(R.id.merchantXfersLogoMerchantImageView)
         XfersConfiguration.getMerchantLogo()?.let {
             merchantLogoImageView.setImageResource(it)
         }
         merchantLogoImageView.setColorFilter(ContextCompat.getColor(this, XfersConfiguration.getMerchantLogoTint()))
-    }
 
-    // TODO: To be replaced with Android "Back" and "Up"
-    fun onClickBack(view: View) {
-        finish()
-    }
+        val xfersDoubleButtonsNegativeButton = findViewById<Button>(R.id.xfersDoubleButtonsNegativeButton)
+        xfersDoubleButtonsNegativeButton.text = getString(R.string.not_accept_button_copy)
+        ViewCompat.setBackgroundTintList(xfersDoubleButtonsNegativeButton, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.aquaMarine)))
+        xfersDoubleButtonsNegativeButton.setOnClickListener {
+            // TODO: Does not do anything at the moment, pending backend API to remember reject
+            // and restrict data shared upon rejection
 
-    fun onClickReject(view: View) {
-        // TODO: Does not do anything at the moment, pending backend API to remember reject
-        // and restrict data shared upon rejection
+             startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
+        }
 
-        startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
-    }
+        val xfersDoubleButtonsPositiveButton = findViewById<Button>(R.id.xfersDoubleButtonsPositiveButton)
+        xfersDoubleButtonsPositiveButton.text = getString(R.string.accept_button_copy)
+        xfersDoubleButtonsPositiveButton.setOnClickListener {
+            // TODO: Share KYC information with Merchant through piping data to their API
 
-    fun onClickAccept(view: View) {
-        // TODO: Share KYC information with Merchant through piping data to their API
-
-        startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
+             startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
+        }
     }
 }
