@@ -188,7 +188,7 @@ new Xfers(this).ui.startTransactionsOverviewActivity();
 
 Example backend (PHP):
 
-1. Install the xfers-php SDK from https://github.com/Xfers/xfers-php
+1. Install the Xfers PHP bindings from https://github.com/Xfers/xfers-php
 2. Set up 2 post routes with the following specifications on your PHP backend:
 
 - First POST route should point to `base_url/signup_login`, this will be used to send the OTP to the user which will be used to get the `user_api_key`
