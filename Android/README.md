@@ -279,7 +279,7 @@ Part 2:
 
 After this is set up, you can call any of the other flows and UI to interact with the user's Xfers account.
 
-### Initilisaing the Xfers SDK (With the user's `apiKey`)
+### Initialising the Xfers SDK (With the user's `apiKey`)
 
 If you have already connected with the user before through the section "Setting up the Xfers Connect Flow" and have the user's `apiKey` in your server, you can query your own server the `apiKey` and call the following command to have the SDK initialised:
 
