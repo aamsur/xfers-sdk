@@ -257,7 +257,7 @@ new Xfers(this).startConnectFlow();
 
 * NOTE: You must have supplied a `merchantApiBase` in order for this to work
 
-Part 1:
+#### Part 1:
 
 - Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
@@ -267,7 +267,7 @@ Part 1:
 
 - Your user will also receive an OTP to the phone number that they have entered
 
-Part 2:
+#### Part 2:
 
 - Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
