@@ -17,10 +17,10 @@ Complete set up of backend for Xfers Connect Flow, users' backend needs to be ab
 - send otp
 
 ### SDK - Android
-Please refer to our Android SDK Getting Started Guide here by going to Android folder or click on the link [here](https://github.com/Xfers/xfers-sdk/tree/master/Android).
+Please refer to our Android SDK Getting Started Guide here by going to [Android folder](./Android).
 
 ### SDK - Web
-Please refer to our Web SDK Getting Started Guide here by going to JavaScript folder or click on the link [here](https://github.com/Xfers/xfers-sdk/tree/master/JavaScript).
+Please refer to our Web SDK Getting Started Guide here by going to [JavaScript folder](./JavaScript).
 
 ## Contributing to our SDK
 Please refer to our [SDK development notes here](https://github.com/Xfers/xfers-sdk/wiki)
