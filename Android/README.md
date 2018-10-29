@@ -148,7 +148,7 @@ This is the flow that you'll call with an amount in `BigInteger` in order to all
 * Note that you can pass in an additional description as the 2nd parameter
 
 ```Java
-new Xfers(this).flow.startPaymentFlow(new BigInteger("100")); // Note that the BigInteger represents the amount that you wish for the user to pay you
+new Xfers(this).flow.startPaymentFlow(new BigInteger("20000")); // Note that the BigInteger represents the amount that you wish for the user to pay you
 ```
 ![screenshot 2018-10-29 at 3 54 04 pm](https://user-images.githubusercontent.com/32061326/47636338-e6483480-db92-11e8-8b3c-bb83f28bf0be.png)
 
