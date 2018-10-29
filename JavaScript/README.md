@@ -31,9 +31,9 @@ Add the following lines into the corresponding HTML file's `<head></head>` secti
 Note that the Xfers Web SDK requires a mounting point on a HTML DOM. Add the following line into the same HTML file `<body></body>` section:
 
 ```html
-  <!-- The ID of the DOM element is to be used to instantiate Web SDK later -->
-  <!-- Make sure the following line is executed before the instantiation in the next segment -->
-  <div id="xfers_elements"></div>
+<!-- The ID of the DOM element is to be used to instantiate Web SDK later -->
+<!-- Make sure the following line is executed before the instantiation in the next segment -->
+<div id="xfers_elements"></div>
 ```
 
 Next step, initialize the components by adding the following javascript into the same `<body></body>` section. This is required on all the pages that uses the Xfers SDK 
@@ -50,28 +50,28 @@ Next step, initialize the components by adding the following javascript into the
    */
   const xfers = new Xfers("xfers_elements", accessToken);
   
-  </script>
+</script>
 ```
 
 Next step, trigger the SDK flows by executing the following command:
 
 ```javascript
-  const paymentFlowParam = { amount: 3000, currency: 'SGD', orderId: 'AZ03283' }
-  xfers.startPaymentFlow(paymentFlowParam);
+const paymentFlowParam = { amount: 3000, currency: 'SGD', orderId: 'AZ03283' }
+xfers.startPaymentFlow(paymentFlowParam);
 ```
 
-  ### 2. Through npm, import/export (Coming Soon)
+### 2. Through npm, import/export (Coming Soon)
 
-  Install the package through npm or yarn:
+Install the package through npm or yarn:
 
-  ```
-  npm install @xfers/xfers-js-sdk
-  ```
+```bash
+npm install @xfers/xfers-js-sdk
+```
 
-  Then import the Xfers UI Elements into your code:
-  ```javascript
-  import { Xfers } from '@xfers/xfers-js-sdk'
-  ```
+Then import the Xfers UI Elements into your code:
+```javascript
+import { Xfers } from '@xfers/xfers-js-sdk'
+```
 
 ## Updating the Xfers SDK 
 >> insert instructions here on how to update the SDK 
@@ -84,7 +84,7 @@ Next step, trigger the SDK flows by executing the following command:
 
 ### Transaction
 #### 1. startPaymentFlow(paymentParamsObject)
-```
+```javascript
 @param {String} amount - [REQUIRED] The charge amount imposed on user.
 @param {String} currency - [REQUIRED]The currency applied onto the charge amount.
 @param {String} orderId - [REQUIRED] Unique ref no provided by you to prevent double charging, this cannot be repeated
