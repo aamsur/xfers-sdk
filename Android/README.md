@@ -2,9 +2,7 @@
 
 ## Android SDK Usage Overview
 
-### Android integration
-
-#### Download Xfers Android SDK
+#### Download
 
 1. In your Android project's `build.gradle`, add the following repository:
 
@@ -41,7 +39,8 @@ You will need the following in order to successfully integrate with Xfers Androi
 
 To set up the above details, in your main activity, add the following code into the `onCreate` method:
 
-### Sample Java code
+#### Sample Java code
+
 ```Java
 // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
 // https://bright-sunshine-91728.herokuapp.com/
@@ -78,7 +77,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 At this point, you are ready to start calling features from the Xfers SDK.
 
-#### Features of Xfers SDK
+#### Features
 
 * When you call any of these methods, we will present a new activity on top of `this` where `this` being the context that you initialised the `Xfers` object with, such as your `MainActivity`.
 
@@ -88,7 +87,7 @@ At this point, you are ready to start calling features from the Xfers SDK.
 
 This does not mean that you have integrated the SDK wrongly, in fact, this means that you have integrated the SDK correctly and the feature will be live in a soon-to-be-coming update to the SDK!
 
-##### Flows
+#### Flows
 
 * NOTE: The only flow that does not require a `user_api_key` to be supplied to work is the `Xfers Connect Flow`, that is the flow which after being set up, will supply you with a `user_api_key` that can be used to perform interactions between you (the Merchant) and your user (the user). Please refer to the section on `Setting up the Xfers Connect Flow` for more detailed explanation on how to integrate the connect flow and get the user's `user_api_key`.
 
@@ -152,7 +151,7 @@ new Xfers(this).flow.startPaymentFlow(new BigInteger("100")); // Note that the B
 ```
 ![screenshot 2018-10-29 at 3 54 04 pm](https://user-images.githubusercontent.com/32061326/47636338-e6483480-db92-11e8-8b3c-bb83f28bf0be.png)
 
-##### Misc UI
+#### Miscellaneous UI
 
 1. Xfers Menu
 
@@ -184,7 +183,7 @@ new Xfers(this).ui.startTransactionsOverviewActivity();
 
 ![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/6291947/47300403-f28e3800-d64e-11e8-8187-1d5e46df3c8a.png)
 
-### Backend integration
+#### Backend integration
 
 Example backend (PHP):
 
@@ -247,7 +246,7 @@ try {
 php>
 ```
 
-### Setting up the Xfers Connect Flow (Without the user's `apiKey`)
+#### Setting up the Xfers Connect Flow (Without the user's `apiKey`)
 
 1. The only thing you need to do is to start the connect flow on the Android SDK on an Activity of your choice:
 
@@ -279,7 +278,7 @@ Part 2:
 
 After this is set up, you can call any of the other flows and UI to interact with the user's Xfers account.
 
-### Initialising the Xfers SDK (With the user's `apiKey`)
+#### Initialisation (With the user's `apiKey`)
 
 If you have already connected with the user before through the section "Setting up the Xfers Connect Flow" and have the user's `apiKey` in your server, you can query your own server the `apiKey` and call the following command to have the SDK initialised:
 
