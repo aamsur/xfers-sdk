@@ -84,7 +84,7 @@ At this point, you are ready to start calling features from the Xfers SDK.
 
 * Note that some of the flows and UI are still currently under construction and you will see the following UI:
 
-![Xfers Under Construction](https://user-images.githubusercontent.com/6291947/47300198-7c89d100-d64e-11e8-9541-263097340abd.png)
+![screenshot 2018-10-29 at 3 21 25 pm](https://user-images.githubusercontent.com/32061326/47634984-51dbd300-db8e-11e8-94a1-8dfb341714d5.png)
 
 This does not mean that you have integrated the SDK wrongly, in fact, this means that you have integrated the SDK correctly and the feature will be live in a soon-to-be-coming update to the SDK!
 
@@ -100,7 +100,7 @@ This is the flow that you'll integrate with in order to get the user's `user_api
 new Xfers(this).flow.startConnectFlow();
 ```
 
-![Xfers Connect Flow UI](https://user-images.githubusercontent.com/6291947/47300564-5f093700-d64f-11e8-8afa-7050d5fddaba.png)
+![screenshot 2018-10-29 at 3 22 48 pm](https://user-images.githubusercontent.com/32061326/47635031-864f8f00-db8e-11e8-9eed-a3e3eb9dc70b.png)
 
 2. Xfers Topup Flow
 
@@ -120,7 +120,7 @@ This is the flow that you'll call in order to allow the user to KYC with Xfers, 
 new Xfers(this).flow.startKYCFlow();
 ```
 
-![Xfers KYC Flow UI](https://user-images.githubusercontent.com/6291947/47300703-bc9d8380-d64f-11e8-909a-a53010dc40db.png)
+![screenshot 2018-10-29 at 3 29 26 pm](https://user-images.githubusercontent.com/32061326/47635295-72f0f380-db8f-11e8-8d4b-caba511a7235.png)
 
 4. Xfers Manage Banks Flow
 
@@ -130,7 +130,7 @@ This is the flow that you'll call in order to allow the user to manage their ban
 new Xfers(this).flow.startManageBanksFlow();
 ```
 
-![Xfers Manage Banks Flow UI](https://user-images.githubusercontent.com/6291947/47300750-d76ff800-d64f-11e8-96ca-1c6a91c96d07.png)
+![screenshot 2018-10-29 at 3 46 07 pm](https://user-images.githubusercontent.com/32061326/47636009-e3007900-db91-11e8-8a9f-de1a48943aaa.png)
 
 5. Xfers Withdrawal Flow
 
@@ -139,8 +139,7 @@ This is the flow that you'll call in order to allow the user to withdraw from th
 ```Java
 new Xfers(this).flow.startWithdrawalFlow();
 ```
-
-![Xfers Withdrawal Flow UI](https://user-images.githubusercontent.com/6291947/47300797-f8384d80-d64f-11e8-94f3-dfe6bb0ef09a.png)
+![screenshot 2018-10-29 at 3 50 59 pm](https://user-images.githubusercontent.com/32061326/47636202-7f2a8000-db92-11e8-9eda-0b6ae08588b1.png)
 
 6. Xfers Payment Flow
 
@@ -151,8 +150,7 @@ This is the flow that you'll call with an amount in `BigInteger` in order to all
 ```Java
 new Xfers(this).flow.startPaymentFlow(new BigInteger("100")); // Note that the BigInteger represents the amount that you wish for the user to pay you
 ```
-
-![Xfers Payment Flow UI](https://user-images.githubusercontent.com/6291947/47300833-0c7c4a80-d650-11e8-8f05-2ae45ce0424b.png)
+![screenshot 2018-10-29 at 3 54 04 pm](https://user-images.githubusercontent.com/32061326/47636338-e6483480-db92-11e8-8b3c-bb83f28bf0be.png)
 
 ##### Misc UI
 
