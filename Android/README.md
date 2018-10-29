@@ -110,7 +110,7 @@ This is the flow that you'll call in order to allow the user to topup to their X
 new Xfers(this).flow.startTopupFlow();
 ```
 
-![Xfers Topup Flow UI](https://user-images.githubusercontent.com/6291947/47300659-a55e9600-d64f-11e8-90a1-a485dc3443fd.png)
+![screenshot 2018-10-29 at 3 29 26 pm](https://user-images.githubusercontent.com/32061326/47635295-72f0f380-db8f-11e8-8d4b-caba511a7235.png)
 
 3. Xfers KYC Flow
 
@@ -120,7 +120,7 @@ This is the flow that you'll call in order to allow the user to KYC with Xfers, 
 new Xfers(this).flow.startKYCFlow();
 ```
 
-![screenshot 2018-10-29 at 3 29 26 pm](https://user-images.githubusercontent.com/32061326/47635295-72f0f380-db8f-11e8-8d4b-caba511a7235.png)
+![screenshot 2018-10-29 at 3 32 34 pm](https://user-images.githubusercontent.com/32061326/47637106-8f902a00-db95-11e8-8aff-ea21c1fcd838.png)
 
 4. Xfers Manage Banks Flow
 
