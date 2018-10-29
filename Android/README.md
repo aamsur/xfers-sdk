@@ -261,7 +261,7 @@ Part 1:
 
 - Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
-- The SDK will call the url with the following format: `{"phoneNumber":"<a_phone_number>"`
+- The SDK will call the url with the following format: `{"phoneNumber":"<a_phone_number>"}`
 
 - Your POST API should echo a JSON with the following format `{"msg":"success"}` upon a successful creation of the user on Xfers
 
@@ -271,7 +271,7 @@ Part 2:
 
 - Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
-- The SDK will call the url with the following format: `{"OTP":"<an_OTP>"`
+- The SDK will call the url with the following format: `{"OTP":"<an_OTP>"}`
 
 - Your POST API should echo a JSON with the following format `{"apiKey":"<an_api_key>"}` upon a successful authentication of the OTP
 
