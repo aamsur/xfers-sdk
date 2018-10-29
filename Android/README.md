@@ -173,6 +173,7 @@ new Xfers(this).ui.startSettingsActivity();
 
 ![Xfers Settings UI](https://user-images.githubusercontent.com/6291947/47300493-2a957b00-d64f-11e8-874c-b4876eb08220.png)
 
+
 3. Xfers Transactions Overview
 
 This is the UI that you'll call to present the Xfers transactions overview page which allows the user to see the transactions that they have conducted through Xfers recently with you (the Merchant).
