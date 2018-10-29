@@ -7,7 +7,7 @@ An Xfers Merchant Account is required in order to integrate the Xfers SDK.
 
 For Singapore Merchants - Sign up for an Xfers Merchant account through [our webpage](https://www.xfers.io/account_registration) and make sure to get an `api_key`.
 
-For Indonesia Merchants - Sign up for an Xfers Merchant account by emailing support@xfers.com.
+For Indonesia Merchants - Sign up for an Xfers Merchant account by emailing https://bit.ly/XfersSupport.
 
 ## Integrate Xfers Wallet SDK for different platforms
 
