@@ -37,7 +37,7 @@ You will need the following in order to successfully integrate with Xfers Androi
 1. Merchant name - the name that you prefer to be addressed by through the SDK, for e.g. Xfers.
 1. Merchant logo - the logo that you prefer to have displayed when we refer to you through the SDK, for e.g. the Xfers logo.
 1. Merchant logo's tint - the tint of your logo that you prefer to have displayed when we refer to you through the SDK, for e.g. the Xfers logo's blue.
-1. Merchant's api_base - the base url of your backend server, we will be sending HTTP requests to this server during the authentication phase, see `Backend integration` for more information as to how to set up this backend server.
+1. Merchant's api_base - the base url of your backend server, we will be sending HTTP requests to this server during the authentication phase, see [Backend integration](#backend-integration) for more information as to how to set up this backend server.
 
 To set up the above details, in your main activity, add the following code into the `onCreate` method:
 
@@ -259,7 +259,7 @@ new Xfers(this).startConnectFlow();
 
 Part 1:
 
-- Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under "Backend Integration"
+- Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
 - The SDK will call the url with the following format: `{"phoneNumber":"<a_phone_number>"`
 
@@ -269,7 +269,7 @@ Part 1:
 
 Part 2:
 
-- Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under "Backend Integration"
+- Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
 - The SDK will call the url with the following format: `{"OTP":"<an_OTP>"`
 
