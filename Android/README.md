@@ -109,7 +109,8 @@ This is the flow that you'll call in order to allow the user to topup to their X
 new Xfers(this).flow.startTopupFlow();
 ```
 
-![Xfers Topup Flow UI](https://user-images.githubusercontent.com/6291947/47300659-a55e9600-d64f-11e8-90a1-a485dc3443fd.png)
+![Xfers Topup Flow UI](https://user-images.githubusercontent.com/21217702/47662333-4956bd00-dbcd-11e8-9889-8f06c2b7ac85.png)
+
 
 3. Xfers KYC Flow
 
@@ -161,7 +162,7 @@ This is the UI that you'll call to present the Xfers menu which allows the user 
 new Xfers(this).ui.startMenuActivity();
 ```
 
-![Xfers Menu UI](https://user-images.githubusercontent.com/6291947/47300368-dc807780-d64e-11e8-9c7a-9fdc18a96117.png)
+![Xfers Menu UI](https://user-images.githubusercontent.com/21217702/47662318-42c84580-dbcd-11e8-9a8a-6a71987bb4fc.png)
 
 2. Xfers Settings
 
@@ -171,7 +172,7 @@ This is the UI that you'll call to present the Xfers settings page which allows 
 new Xfers(this).ui.startSettingsActivity();
 ```
 
-![Xfers Settings UI](https://user-images.githubusercontent.com/6291947/47300493-2a957b00-d64f-11e8-874c-b4876eb08220.png)
+![Xfers Settings UI](https://user-images.githubusercontent.com/21217702/47662319-4360dc00-dbcd-11e8-8641-f83439322651.png)
 
 
 3. Xfers Transactions Overview
@@ -182,7 +183,7 @@ This is the UI that you'll call to present the Xfers transactions overview page 
 new Xfers(this).ui.startTransactionsOverviewActivity();
 ```
 
-![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/6291947/47300403-f28e3800-d64e-11e8-8187-1d5e46df3c8a.png)
+![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/21217702/47662322-44920900-dbcd-11e8-8ffb-90a9e09966b7.png)
 
 #### Backend integration
 
