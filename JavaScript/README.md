@@ -1,6 +1,6 @@
 # Web SDK Usage Overview
 
-## Pre-requisite
+## Prerequisites
 
 ### 1. Xfers User Access Token
 

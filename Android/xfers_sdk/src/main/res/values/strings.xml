@@ -7,6 +7,8 @@
 
     <string name="next_button_copy">Next</string>
     <string name="later_button_copy">Later</string>
+    <string name="not_accept_button_copy">I Do Not Accept</string>
+    <string name="accept_button_copy">I Accept</string>
     <string name="proceed_button_copy">Proceed</string>
 
     <string name="form_input_page_title_copy">Step %1$s</string>
@@ -19,8 +21,14 @@
     <string name="connect_identity_verification_listview_topup_withdrawal_copy">Top-ups &amp; Withdrawals</string>
     <string name="connect_identity_verification_listview_increased_holding_copy">An increased holding limit of XXX.XXX</string>
 
+    <string name="connect_otp_page_title_copy">Enter Verification Code</string>
+    <string name="connect_otp_resend_otp_copy">Resend OTP</string>
+
     <string name="connect_flow_title">Link xfers account</string>
     <string name="connect_mobile_phone_number_subtitle">We will text a one-time secure link to your mobile to proceed with a mobile verification</string>
+
+    <string name="connect_share_kyc_page_title_copy">%1$s would like to access your personal information from your Xfers account</string>
+    <string name="connect_share_kyc_information_copy">Name\nBirthdate\nNationality\nLocation\nKTP\nProof of Address</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
