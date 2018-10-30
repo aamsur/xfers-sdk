@@ -8,8 +8,7 @@ import android.widget.TextView
 import com.xfers.xfers_sdk.R
 
 class XfersTextRowAdapter(
-        private val titles: ArrayList<String>,
-        private val copies: ArrayList<String>
+        private val textRowItems: List<TextRowItem>
 ) : RecyclerView.Adapter<XfersTextRowAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -18,15 +17,18 @@ class XfersTextRowAdapter(
     }
 
     override fun getItemCount(): Int {
-        return titles.size
+        return textRowItems.size
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.xfersTextRowTitleTextView?.text = titles[position]
-        viewHolder.xfersTextRowCopyTextView?.text = copies[position]
+        val textRowItem = textRowItems[position]
+        viewHolder.xfersTextRowTitleTextView?.text = textRowItem.title
+        viewHolder.xfersTextRowCopyTextView?.text = textRowItem.copy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.xfers_text_row, parent, false))
     }
 }
+
+data class TextRowItem(val title: String, val copy: String)
