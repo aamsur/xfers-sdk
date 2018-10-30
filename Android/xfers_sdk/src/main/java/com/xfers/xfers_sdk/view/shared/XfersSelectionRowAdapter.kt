@@ -12,9 +12,7 @@ import com.xfers.xfers_sdk.R
 
 class XfersSelectionRowAdapter(
         private val context: Context,
-        private val icons: ArrayList<Int>,
-        private val iconTints: ArrayList<Int>,
-        private val copies: ArrayList<String>
+        private val selectionRowItems: List<SelectionRowItem>
 ) : RecyclerView.Adapter<XfersSelectionRowAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -23,16 +21,19 @@ class XfersSelectionRowAdapter(
     }
 
     override fun getItemCount(): Int {
-        return icons.size
+        return selectionRowItems.size
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.xfersSelectionRowImageView?.setImageResource(icons[position])
-        viewHolder.xfersSelectionRowImageView?.setColorFilter(ContextCompat.getColor(context, iconTints[position]))
-        viewHolder.xfersSelectionRowTextView?.text = copies[position]
+        val selectionRowItem = selectionRowItems[position]
+        viewHolder.xfersSelectionRowImageView?.setImageResource(selectionRowItem.icon)
+        viewHolder.xfersSelectionRowImageView?.setColorFilter(ContextCompat.getColor(context, selectionRowItem.iconTint))
+        viewHolder.xfersSelectionRowTextView?.text = selectionRowItem.copy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.xfers_selection_row, parent, false))
     }
 }
+
+data class SelectionRowItem(val icon: Int, val iconTint: Int, val copy: String)
