@@ -2,9 +2,7 @@
 
 ## Android SDK Usage Overview
 
-### Android integration
-
-#### Download Xfers Android SDK
+#### Download
 
 1. In your Android project's `build.gradle`, add the following repository:
 
@@ -37,11 +35,12 @@ You will need the following in order to successfully integrate with Xfers Androi
 1. Merchant name - the name that you prefer to be addressed by through the SDK, for e.g. Xfers.
 1. Merchant logo - the logo that you prefer to have displayed when we refer to you through the SDK, for e.g. the Xfers logo.
 1. Merchant logo's tint - the tint of your logo that you prefer to have displayed when we refer to you through the SDK, for e.g. the Xfers logo's blue.
-1. Merchant's api_base - the base url of your backend server, we will be sending HTTP requests to this server during the authentication phase, see `Backend integration` for more information as to how to set up this backend server.
+1. Merchant's api_base - the base url of your backend server, we will be sending HTTP requests to this server during the authentication phase, see [Backend integration](#backend-integration) for more information as to how to set up this backend server.
 
 To set up the above details, in your main activity, add the following code into the `onCreate` method:
 
-### Sample Java code
+#### Sample Java code
+
 ```Java
 // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
 // https://bright-sunshine-91728.herokuapp.com/
@@ -66,8 +65,11 @@ protected void onCreate(Bundle savedInstanceState) {
 
     Xfers xfers = new Xfers(this); // this here refers to the Context
 
-    xfers.config.setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
-    xfers.config.setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
+    xfers.getConfig().setSDKConfigurations(Xfers.Country.ID, Xfers.Environment.SANDBOX);
+    xfers.getConfig().setMerchantConfigurations(merchantApiBase, merchantName, merchantLogo, merchantLogoTint);
+    
+    // Un comment this to start a flow.
+    // xfers.getFlow().startTopupFlow();
 }
 ```
 
@@ -75,17 +77,17 @@ protected void onCreate(Bundle savedInstanceState) {
 
 At this point, you are ready to start calling features from the Xfers SDK.
 
-#### Features of Xfers SDK
+#### Features
 
 * When you call any of these methods, we will present a new activity on top of `this` where `this` being the context that you initialised the `Xfers` object with, such as your `MainActivity`.
 
 * Note that some of the flows and UI are still currently under construction and you will see the following UI:
 
-![Xfers Under Construction](https://user-images.githubusercontent.com/6291947/47300198-7c89d100-d64e-11e8-9541-263097340abd.png)
+![screenshot 2018-10-29 at 3 21 25 pm](https://user-images.githubusercontent.com/32061326/47634984-51dbd300-db8e-11e8-94a1-8dfb341714d5.png)
 
 This does not mean that you have integrated the SDK wrongly, in fact, this means that you have integrated the SDK correctly and the feature will be live in a soon-to-be-coming update to the SDK!
 
-##### Flows
+#### Flows
 
 * NOTE: The only flow that does not require a `user_api_key` to be supplied to work is the `Xfers Connect Flow`, that is the flow which after being set up, will supply you with a `user_api_key` that can be used to perform interactions between you (the Merchant) and your user (the user). Please refer to the section on `Setting up the Xfers Connect Flow` for more detailed explanation on how to integrate the connect flow and get the user's `user_api_key`.
 
@@ -97,7 +99,7 @@ This is the flow that you'll integrate with in order to get the user's `user_api
 new Xfers(this).flow.startConnectFlow();
 ```
 
-![Xfers Connect Flow UI](https://user-images.githubusercontent.com/6291947/47300564-5f093700-d64f-11e8-8afa-7050d5fddaba.png)
+![screenshot 2018-10-29 at 3 22 48 pm](https://user-images.githubusercontent.com/32061326/47635031-864f8f00-db8e-11e8-9eed-a3e3eb9dc70b.png)
 
 2. Xfers Topup Flow
 
@@ -107,7 +109,7 @@ This is the flow that you'll call in order to allow the user to topup to their X
 new Xfers(this).flow.startTopupFlow();
 ```
 
-![Xfers Topup Flow UI](https://user-images.githubusercontent.com/6291947/47300659-a55e9600-d64f-11e8-90a1-a485dc3443fd.png)
+![screenshot 2018-10-29 at 3 29 26 pm](https://user-images.githubusercontent.com/32061326/47635295-72f0f380-db8f-11e8-8d4b-caba511a7235.png)
 
 3. Xfers KYC Flow
 
@@ -117,7 +119,7 @@ This is the flow that you'll call in order to allow the user to KYC with Xfers, 
 new Xfers(this).flow.startKYCFlow();
 ```
 
-![Xfers KYC Flow UI](https://user-images.githubusercontent.com/6291947/47300703-bc9d8380-d64f-11e8-909a-a53010dc40db.png)
+![screenshot 2018-10-29 at 3 32 34 pm](https://user-images.githubusercontent.com/32061326/47637106-8f902a00-db95-11e8-8aff-ea21c1fcd838.png)
 
 4. Xfers Manage Banks Flow
 
@@ -127,7 +129,7 @@ This is the flow that you'll call in order to allow the user to manage their ban
 new Xfers(this).flow.startManageBanksFlow();
 ```
 
-![Xfers Manage Banks Flow UI](https://user-images.githubusercontent.com/6291947/47300750-d76ff800-d64f-11e8-96ca-1c6a91c96d07.png)
+![screenshot 2018-10-29 at 3 46 07 pm](https://user-images.githubusercontent.com/32061326/47636009-e3007900-db91-11e8-8a9f-de1a48943aaa.png)
 
 5. Xfers Withdrawal Flow
 
@@ -136,8 +138,7 @@ This is the flow that you'll call in order to allow the user to withdraw from th
 ```Java
 new Xfers(this).flow.startWithdrawalFlow();
 ```
-
-![Xfers Withdrawal Flow UI](https://user-images.githubusercontent.com/6291947/47300797-f8384d80-d64f-11e8-94f3-dfe6bb0ef09a.png)
+![screenshot 2018-10-29 at 3 50 59 pm](https://user-images.githubusercontent.com/32061326/47636202-7f2a8000-db92-11e8-9eda-0b6ae08588b1.png)
 
 6. Xfers Payment Flow
 
@@ -146,12 +147,11 @@ This is the flow that you'll call with an amount in `BigInteger` in order to all
 * Note that you can pass in an additional description as the 2nd parameter
 
 ```Java
-new Xfers(this).flow.startPaymentFlow(new BigInteger("100")); // Note that the BigInteger represents the amount that you wish for the user to pay you
+new Xfers(this).flow.startPaymentFlow(new BigInteger("20000")); // Note that the BigInteger represents the amount that you wish for the user to pay you
 ```
+![screenshot 2018-10-29 at 3 54 04 pm](https://user-images.githubusercontent.com/32061326/47636338-e6483480-db92-11e8-8b3c-bb83f28bf0be.png)
 
-![Xfers Payment Flow UI](https://user-images.githubusercontent.com/6291947/47300833-0c7c4a80-d650-11e8-8f05-2ae45ce0424b.png)
-
-##### Misc UI
+#### Miscellaneous UI
 
 1. Xfers Menu
 
@@ -161,7 +161,7 @@ This is the UI that you'll call to present the Xfers menu which allows the user 
 new Xfers(this).ui.startMenuActivity();
 ```
 
-![Xfers Menu UI](https://user-images.githubusercontent.com/6291947/47300368-dc807780-d64e-11e8-9c7a-9fdc18a96117.png)
+![Xfers Menu UI](https://user-images.githubusercontent.com/21217702/47662318-42c84580-dbcd-11e8-9a8a-6a71987bb4fc.png)
 
 2. Xfers Settings
 
@@ -171,7 +171,8 @@ This is the UI that you'll call to present the Xfers settings page which allows 
 new Xfers(this).ui.startSettingsActivity();
 ```
 
-![Xfers Settings UI](https://user-images.githubusercontent.com/6291947/47300493-2a957b00-d64f-11e8-874c-b4876eb08220.png)
+![Xfers Settings UI](https://user-images.githubusercontent.com/21217702/47662319-4360dc00-dbcd-11e8-8641-f83439322651.png)
+
 
 3. Xfers Transactions Overview
 
@@ -181,13 +182,13 @@ This is the UI that you'll call to present the Xfers transactions overview page 
 new Xfers(this).ui.startTransactionsOverviewActivity();
 ```
 
-![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/6291947/47300403-f28e3800-d64e-11e8-8187-1d5e46df3c8a.png)
+![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/21217702/47662322-44920900-dbcd-11e8-8ffb-90a9e09966b7.png)
 
-### Backend integration
+#### Backend integration
 
 Example backend (PHP):
 
-1. Install the xfers-php SDK from https://github.com/Xfers/xfers-php
+1. Install the Xfers PHP bindings from https://github.com/Xfers/xfers-php
 2. Set up 2 post routes with the following specifications on your PHP backend:
 
 - First POST route should point to `base_url/signup_login`, this will be used to send the OTP to the user which will be used to get the `user_api_key`
@@ -246,7 +247,7 @@ try {
 php>
 ```
 
-### Setting up the Xfers Connect Flow (Without the user's `apiKey`)
+#### Setting up the Xfers Connect Flow (Without the user's `apiKey`)
 
 1. The only thing you need to do is to start the connect flow on the Android SDK on an Activity of your choice:
 
@@ -256,21 +257,21 @@ new Xfers(this).startConnectFlow();
 
 * NOTE: You must have supplied a `merchantApiBase` in order for this to work
 
-Part 1:
+#### Part 1:
 
-- Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under "Backend Integration"
+- Your user will be prompted to key in their phone number, once the user has entered their phone number, the SDK will proceed to call the url `merchantApiBase/signup_login`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
-- The SDK will call the url with the following format: `{"phoneNumber":"<a_phone_number>"`
+- The SDK will call the url with the following format: `{"phoneNumber":"<a_phone_number>"}`
 
 - Your POST API should echo a JSON with the following format `{"msg":"success"}` upon a successful creation of the user on Xfers
 
 - Your user will also receive an OTP to the phone number that they have entered
 
-Part 2:
+#### Part 2:
 
-- Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under "Backend Integration"
+- Your user will be prompted to key in the OTP that they have received, once the user has entered the OTP, the SDK will proceed to call the url `merchantApiBase/get_token`, it has to be set up as in the above under [Backend Integration](#backend-integration)
 
-- The SDK will call the url with the following format: `{"OTP":"<an_OTP>"`
+- The SDK will call the url with the following format: `{"OTP":"<an_OTP>"}`
 
 - Your POST API should echo a JSON with the following format `{"apiKey":"<an_api_key>"}` upon a successful authentication of the OTP
 
@@ -278,7 +279,7 @@ Part 2:
 
 After this is set up, you can call any of the other flows and UI to interact with the user's Xfers account.
 
-### Initilisaing the Xfers SDK (With the user's `apiKey`)
+#### Initialisation (With the user's `apiKey`)
 
 If you have already connected with the user before through the section "Setting up the Xfers Connect Flow" and have the user's `apiKey` in your server, you can query your own server the `apiKey` and call the following command to have the SDK initialised:
 
