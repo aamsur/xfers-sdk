@@ -2,7 +2,7 @@ package com.xfers.xfers_sdk.view.connect
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.task.ConnectOTPTask
@@ -13,18 +13,16 @@ class ConnectOTPActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect_otp)
 
-        title = "Link Xfers Account"
-    }
+        title = getString(R.string.connect_flow_title)
 
-    // TODO: To be replaced with Android "Back" and "Up"
-    fun onClickBack(view: View) {
-        finish()
-    }
+        val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
+        xfersFullWidthButton.setOnClickListener {
+            val OTPTextField = findViewById<EditText>(R.id.enterOTPTextField)
+            val OTP = OTPTextField.text.toString()
 
-    fun onClickNext(view: View) {
-        val OTPTextField = findViewById<EditText>(R.id.enterOTPTextField)
-        val OTP = OTPTextField.text.toString()
+            ConnectOTPTask(this, OTP).execute()
+        }
 
-        ConnectOTPTask(this, OTP).execute()
+        // TODO: Make Resend OTP text view clickable and actually resend OTP
     }
 }
