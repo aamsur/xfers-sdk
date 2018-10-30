@@ -1,6 +1,6 @@
 package com.xfers.xfers_sdk.view.shared
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -8,7 +8,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import android.text.Spannable
 import android.graphics.Typeface
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.text.style.StyleSpan
 import android.text.SpannableString
 import android.widget.ImageView
