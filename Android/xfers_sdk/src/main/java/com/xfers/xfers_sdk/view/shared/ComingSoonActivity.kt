@@ -6,13 +6,12 @@ import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
-import android.text.Spannable
-import android.graphics.Typeface
 import androidx.core.content.ContextCompat
-import android.text.style.StyleSpan
-import android.text.SpannableString
+import android.text.SpannedString
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
 
 // TODO: To be removed, only for initial integration purposes
 class ComingSoonActivity : AppCompatActivity() {
@@ -37,12 +36,15 @@ class ComingSoonActivity : AppCompatActivity() {
 
         val comingSoonTextView = findViewById<TextView>(R.id.cardActivityTextView)
 
-        val boldText = getString(R.string.coming_soon_subtitle)
-        val normalText = getString(R.string.coming_soon_copy)
-        val combinedText = SpannableString("$boldText\n\n$normalText")
-        combinedText.setSpan(StyleSpan(Typeface.BOLD), 0, boldText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        val comingSoonText: SpannedString = buildSpannedString {
+            bold {
+                append(getString(R.string.coming_soon_subtitle))
+            }
+            append("\n\n")
+            append(getString(R.string.coming_soon_copy))
+        }
 
-        comingSoonTextView.text = combinedText
+        comingSoonTextView.text = comingSoonText
 
         val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
         xfersFullWidthButton.text = getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
