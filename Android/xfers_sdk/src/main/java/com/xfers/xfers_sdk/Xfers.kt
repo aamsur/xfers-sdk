@@ -6,6 +6,7 @@ import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
+import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -67,7 +68,7 @@ class Xfers(val context: Context) {
         fun startPaymentFlow(amount: BigInteger, description: String? = null) {
             XfersConfiguration.setMerchantFlowStartingContext(context)
             // TODO: Pass amount and description into activity
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, PaymentConfirmationActivity::class.java))
         }
     }
 

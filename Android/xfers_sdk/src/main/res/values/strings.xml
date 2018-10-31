@@ -10,6 +10,8 @@
     <string name="not_accept_button_copy">I Do Not Accept</string>
     <string name="accept_button_copy">I Accept</string>
     <string name="proceed_button_copy">Proceed</string>
+    <string name="cancel_button_copy">Cancel</string>
+    <string name="confirm_button_copy">Confirm</string>
 
     <string name="form_input_page_title_copy">Step %1$s</string>
 
@@ -33,6 +35,20 @@
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
     <string name="coming_soon_copy">This feature is currently in the works and will launch soon!</string>
+
+    <string name="payment_confirmation_title">MAKE PAYMENT</string>
+    <string name="payment_confirmation_page_title">Transaction Overview</string>
+    <string name="payment_confirmation_copy">You are about to make a payment via your Xfers Wallet to the following details.\nPlease confirm.</string>
+    <string name="payment_confirmation_payment_to_copy">Payment to</string>
+    <string name="payment_confirmation_payment_to_ipsum_copy">Merchant</string>
+    <string name="payment_confirmation_order_id_copy">Order ID</string>
+    <string name="payment_confirmation_order_id_ipsum_copy">1234567890</string>
+    <string name="payment_confirmation_description_copy">Description</string>
+    <string name="payment_confirmation_description_ipsum_copy">Item/Service</string>
+    <string name="payment_confirmation_emphasis_title">Total Payment Amount</string>
+    <string name="payment_confirmation_number_ipsum">Rp 20.000</string>
+    <string name="payment_confirmation_negative_button_copy">Cancel</string>
+    <string name="payment_confirmation_positive_button_copy">Confirm</string>
 
     <string name="return_to_merchant_copy">Return to %1$s</string>
 </resources>
