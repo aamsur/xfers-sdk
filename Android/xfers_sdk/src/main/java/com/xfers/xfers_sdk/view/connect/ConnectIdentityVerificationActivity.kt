@@ -1,11 +1,12 @@
 package com.xfers.xfers_sdk.view.connect
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
+import com.xfers.xfers_sdk.view.shared.ItemRowItem
 import com.xfers.xfers_sdk.view.shared.XfersItemRowAdapter
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_extended_topbar.*
@@ -23,21 +24,19 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
         extendedTopbarTextView.text = getString(R.string.connect_identity_verification_topbar_copy)
         xfersSummaryTitleTextView.text = getString(R.string.connect_identity_verification_summary_title)
 
-        val icons = arrayListOf(
-                R.drawable.status_success_50,
-                R.drawable.status_success_50
-        )
-        val iconTints = arrayListOf(
-                R.color.clearBlue,
-                R.color.clearBlue
-        )
-        val copies = arrayListOf(
-                getString(R.string.connect_identity_verification_listview_topup_withdrawal_copy),
-                getString(R.string.connect_identity_verification_listview_increased_holding_copy)
+        val itemRowItems = listOf(
+                ItemRowItem(
+                        R.drawable.status_success_50, R.color.clearBlue,
+                        getString(R.string.connect_identity_verification_listview_topup_withdrawal_copy)
+                ),
+                ItemRowItem(
+                        R.drawable.status_success_50, R.color.clearBlue,
+                        getString(R.string.connect_identity_verification_listview_increased_holding_copy)
+                )
         )
 
         listViewRecyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = XfersItemRowAdapter(this, icons, iconTints, copies)
+        val adapter = XfersItemRowAdapter(this, itemRowItems)
         listViewRecyclerView.adapter = adapter
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.later_button_copy)

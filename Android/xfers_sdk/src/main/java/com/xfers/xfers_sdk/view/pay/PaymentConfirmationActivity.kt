@@ -1,8 +1,8 @@
 package com.xfers.xfers_sdk.view.pay
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
