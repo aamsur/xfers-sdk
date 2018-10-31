@@ -33,7 +33,6 @@
   
     <string name="topup_bank_selection_title">XFERS WALLET</string>
     <string name="topup_bank_selection_page_title">Top up using</string>
-    <string name="topup_bank_selection_bank_ipsum">DBS 123-XXXXX-3</string>
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
