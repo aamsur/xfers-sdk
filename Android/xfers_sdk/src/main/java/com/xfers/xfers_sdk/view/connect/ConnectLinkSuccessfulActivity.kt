@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
+import kotlinx.android.synthetic.main.activity_connect_link_successful.*
+import kotlinx.android.synthetic.main.xfers_merchant_xfers_logos.*
 
 class ConnectLinkSuccessfulActivity : AppCompatActivity() {
 
@@ -16,17 +16,13 @@ class ConnectLinkSuccessfulActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect_link_successful)
 
-        val merchantTextView = findViewById<TextView>(R.id.linkSuccessfulMerchantTextView)
-        merchantTextView.text = "Your Xfers account has now been successfully linked to ${XfersConfiguration.getMerchantName()}."
+        linkSuccessfulMerchantTextView.text = "Your Xfers account has now been successfully linked to ${XfersConfiguration.getMerchantName()}."
+        linkSuccessfulReturnButton.text = "Return to ${XfersConfiguration.getMerchantName()}"
 
-        val returnButton = findViewById<TextView>(R.id.linkSuccessfulReturnButton)
-        returnButton.text = "Return to ${XfersConfiguration.getMerchantName()}"
-
-        val merchantLogoImageView = findViewById<ImageView>(R.id.merchantXfersLogoMerchantImageView)
         XfersConfiguration.getMerchantLogo()?.let {
-            merchantLogoImageView.setImageResource(it)
+            merchantXfersLogoMerchantImageView.setImageResource(it)
         }
-        merchantLogoImageView.setColorFilter(ContextCompat.getColor(this, XfersConfiguration.getMerchantLogoTint()))
+        merchantXfersLogoMerchantImageView.setColorFilter(ContextCompat.getColor(this, XfersConfiguration.getMerchantLogoTint()))
     }
 
     fun onClickReturn(view: View) {
