@@ -6,6 +6,7 @@ import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
+import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
@@ -46,7 +47,7 @@ class Xfers(val context: Context) {
 
         fun startTopupFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, TopupBankSelectionActivity::class.java))
         }
 
         fun startKYCFlow() {

@@ -8,4 +8,5 @@
     <color name="emphasis">#4a4a4a</color>
     <color name="emphasisBarBackground">#e6e6e6</color>
     <color name="aquaMarine">#1de9b6</color>
+    <color name="black">#000000</color>
 </resources>
