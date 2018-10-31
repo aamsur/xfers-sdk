@@ -2,7 +2,6 @@ package com.xfers.xfers_sdk.view.shared
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
@@ -11,8 +10,8 @@ import android.graphics.Typeface
 import android.support.v4.content.ContextCompat
 import android.text.style.StyleSpan
 import android.text.SpannableString
-import android.widget.ImageView
-import android.widget.TextView
+import kotlinx.android.synthetic.main.xfers_button.*
+import kotlinx.android.synthetic.main.xfers_card_activity.*
 
 // TODO: To be removed, only for initial integration purposes
 class ComingSoonActivity : AppCompatActivity() {
@@ -31,20 +30,16 @@ class ComingSoonActivity : AppCompatActivity() {
 
         title = getString(R.string.coming_soon_title)
 
-        val comingSoonIconImageView = findViewById<ImageView>(R.id.cardActivityIconImageView)
-        comingSoonIconImageView.setImageResource(R.drawable.status_wip_60)
-        comingSoonIconImageView.setColorFilter(ContextCompat.getColor(this, R.color.lightGray))
-
-        val comingSoonTextView = findViewById<TextView>(R.id.cardActivityTextView)
+        cardActivityIconImageView.setImageResource(R.drawable.status_wip_60)
+        cardActivityIconImageView.setColorFilter(ContextCompat.getColor(this, R.color.lightGray))
 
         val boldText = getString(R.string.coming_soon_subtitle)
         val normalText = getString(R.string.coming_soon_copy)
         val combinedText = SpannableString("$boldText\n\n$normalText")
         combinedText.setSpan(StyleSpan(Typeface.BOLD), 0, boldText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        comingSoonTextView.text = combinedText
+        cardActivityTextView.text = combinedText
 
-        val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
         xfersFullWidthButton.text = getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
         xfersFullWidthButton.setOnClickListener {
             finish()
