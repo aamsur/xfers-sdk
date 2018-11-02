@@ -44,7 +44,7 @@ class ConnectPhoneTask(context: Context, phoneNumber: String) : AsyncTask<Unit, 
 
         innerContext.get()?.let {
             if (okMessage.msg == "success") {
-                it.startActivity(Intent(it, ConnectOTPActivity::class.java))
+
             } else {
                 // TODO: Something went wrong, display error message with a toast
             }

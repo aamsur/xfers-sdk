@@ -60,8 +60,16 @@ object XfersConfiguration {
         userApiKey = apiKey
     }
 
+    fun getApiBase(): String {
+        return apiBase
+    }
+
     fun buildApiURL(apiPath: String): String {
         return "$apiBase/$apiPath"
+    }
+
+    fun getMerchantApiBase(): String {
+        return merchantApiBase
     }
 
     fun buildMerchantApiURL(apiPath: String): String {
