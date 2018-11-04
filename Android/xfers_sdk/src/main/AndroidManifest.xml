@@ -12,6 +12,7 @@
 
         <activity android:name=".view.topup.TopupBankSelectionActivity" />
         <activity android:name=".view.pay.PaymentConfirmationActivity" />
+        <activity android:name=".view.manage_banks.add_banks.AddBankAccountNumberActivity" />
 
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
