@@ -1,8 +1,8 @@
 package com.xfers.xfers_sdk.view.shared
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
 import android.view.View
@@ -12,9 +12,7 @@ import android.view.LayoutInflater
 
 class XfersItemRowAdapter(
         private val context: Context,
-        private val icons: ArrayList<Int>,
-        private val iconTints: ArrayList<Int>,
-        private val copies: ArrayList<String>
+        private val itemRowItems: List<ItemRowItem>
 ) : RecyclerView.Adapter<XfersItemRowAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -23,16 +21,19 @@ class XfersItemRowAdapter(
     }
 
     override fun getItemCount(): Int {
-        return icons.size
+        return itemRowItems.size
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.xfersItemRowImageView?.setImageResource(icons[position])
-        viewHolder.xfersItemRowImageView?.setColorFilter(ContextCompat.getColor(context, iconTints[position]))
-        viewHolder.xfersItemRowTextView?.text = copies[position]
+        val itemRowItem = itemRowItems[position]
+        viewHolder.xfersItemRowImageView?.setImageResource(itemRowItem.icon)
+        viewHolder.xfersItemRowImageView?.setColorFilter(ContextCompat.getColor(context, itemRowItem.iconTint))
+        viewHolder.xfersItemRowTextView?.text = itemRowItem.copy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.xfers_item_row, parent, false))
     }
 }
+
+data class ItemRowItem(val icon: Int, val iconTint: Int, val copy: String)

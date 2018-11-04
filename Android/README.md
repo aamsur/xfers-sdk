@@ -96,7 +96,7 @@ This does not mean that you have integrated the SDK wrongly, in fact, this means
 This is the flow that you'll integrate with in order to get the user's `user_api_key` in order to initiate the other flows.
 
 ```Java
-new Xfers(this).flow.startConnectFlow();
+new Xfers(this).getFlow().startConnectFlow();
 ```
 
 ![screenshot 2018-10-29 at 3 22 48 pm](https://user-images.githubusercontent.com/32061326/47635031-864f8f00-db8e-11e8-9eed-a3e3eb9dc70b.png)
@@ -106,7 +106,7 @@ new Xfers(this).flow.startConnectFlow();
 This is the flow that you'll call in order to allow the user to topup to their Xfers wallet.
 
 ```Java
-new Xfers(this).flow.startTopupFlow();
+new Xfers(this).getFlow().startTopupFlow();
 ```
 
 ![screenshot 2018-10-29 at 3 29 26 pm](https://user-images.githubusercontent.com/32061326/47635295-72f0f380-db8f-11e8-8d4b-caba511a7235.png)
@@ -116,7 +116,7 @@ new Xfers(this).flow.startTopupFlow();
 This is the flow that you'll call in order to allow the user to KYC with Xfers, often having benefits such as higher wallet limits.
 
 ```Java
-new Xfers(this).flow.startKYCFlow();
+new Xfers(this).getFlow().startKYCFlow();
 ```
 
 ![screenshot 2018-10-29 at 3 32 34 pm](https://user-images.githubusercontent.com/32061326/47637106-8f902a00-db95-11e8-8aff-ea21c1fcd838.png)
@@ -126,7 +126,7 @@ new Xfers(this).flow.startKYCFlow();
 This is the flow that you'll call in order to allow the user to manage their bank accounts with Xfers, such as adding / deleting the bank accounts or modifying details.
 
 ```Java
-new Xfers(this).flow.startManageBanksFlow();
+new Xfers(this).getFlow().startManageBanksFlow();
 ```
 
 ![screenshot 2018-10-29 at 3 46 07 pm](https://user-images.githubusercontent.com/32061326/47636009-e3007900-db91-11e8-8a9f-de1a48943aaa.png)
@@ -136,7 +136,7 @@ new Xfers(this).flow.startManageBanksFlow();
 This is the flow that you'll call in order to allow the user to withdraw from their Xfers wallet to their bank account(s).
 
 ```Java
-new Xfers(this).flow.startWithdrawalFlow();
+new Xfers(this).getFlow().startWithdrawalFlow();
 ```
 ![screenshot 2018-10-29 at 3 50 59 pm](https://user-images.githubusercontent.com/32061326/47636202-7f2a8000-db92-11e8-9eda-0b6ae08588b1.png)
 
@@ -147,7 +147,7 @@ This is the flow that you'll call with an amount in `BigInteger` in order to all
 * Note that you can pass in an additional description as the 2nd parameter
 
 ```Java
-new Xfers(this).flow.startPaymentFlow(new BigInteger("20000")); // Note that the BigInteger represents the amount that you wish for the user to pay you
+new Xfers(this).getFlow().startPaymentFlow(new BigInteger("20000")); // Note that the BigInteger represents the amount that you wish for the user to pay you
 ```
 ![screenshot 2018-10-29 at 3 54 04 pm](https://user-images.githubusercontent.com/32061326/47636338-e6483480-db92-11e8-8b3c-bb83f28bf0be.png)
 
@@ -158,7 +158,7 @@ new Xfers(this).flow.startPaymentFlow(new BigInteger("20000")); // Note that the
 This is the UI that you'll call to present the Xfers menu which allows the user to have an overview and details of their connected Xfers account.
 
 ```Java
-new Xfers(this).ui.startMenuActivity();
+new Xfers(this).getUi().startMenuActivity();
 ```
 
 ![Xfers Menu UI](https://user-images.githubusercontent.com/21217702/47662318-42c84580-dbcd-11e8-9a8a-6a71987bb4fc.png)
@@ -168,7 +168,7 @@ new Xfers(this).ui.startMenuActivity();
 This is the UI that you'll call to present the Xfers settings page which allows the user to modify their Xfers account information such as name, email etc.
 
 ```Java
-new Xfers(this).ui.startSettingsActivity();
+new Xfers(this).getUi().startSettingsActivity();
 ```
 
 ![Xfers Settings UI](https://user-images.githubusercontent.com/21217702/47662319-4360dc00-dbcd-11e8-8641-f83439322651.png)
@@ -179,7 +179,7 @@ new Xfers(this).ui.startSettingsActivity();
 This is the UI that you'll call to present the Xfers transactions overview page which allows the user to see the transactions that they have conducted through Xfers recently with you (the Merchant).
 
 ```Java
-new Xfers(this).ui.startTransactionsOverviewActivity();
+new Xfers(this).getUi().startTransactionsOverviewActivity();
 ```
 
 ![Xfers Transactions Overview UI](https://user-images.githubusercontent.com/21217702/47662322-44920900-dbcd-11e8-8ffb-90a9e09966b7.png)
@@ -252,7 +252,7 @@ php>
 1. The only thing you need to do is to start the connect flow on the Android SDK on an Activity of your choice:
 
 ```java
-new Xfers(this).startConnectFlow();
+new Xfers(this).getFlow().startKYCFlow();
 ```
 
 * NOTE: You must have supplied a `merchantApiBase` in order for this to work

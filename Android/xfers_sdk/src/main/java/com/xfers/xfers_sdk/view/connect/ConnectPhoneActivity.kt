@@ -1,13 +1,16 @@
 package com.xfers.xfers_sdk.view.connect
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.xfers.xfers_sdk.R
-import android.widget.TextView
-import com.xfers.xfers_sdk.task.ConnectPhoneTask
+import com.xfers.xfers_sdk.view_model.ConnectPhoneViewModel
+import kotlinx.android.synthetic.main.xfers_button.*
+import kotlinx.android.synthetic.main.xfers_form_input.*
 
 class ConnectPhoneActivity : AppCompatActivity() {
 
@@ -17,27 +20,27 @@ class ConnectPhoneActivity : AppCompatActivity() {
 
         title = getString(R.string.connect_flow_title)
 
-        val formInputPageTitle = findViewById<TextView>(R.id.xfersFormInputPageTitle)
-        formInputPageTitle.visibility = View.GONE
+        xfersFormInputPageTitle.visibility = View.GONE
+        xfersFormInputFieldTitle.text = getString(R.string.mobile_phone_number_field_title)
+        xfersFormInputEditText.hint = getString(R.string.phone_number_lorem_ipsum)
+        xfersFormInputEditTextSubtitle.text = getString(R.string.connect_mobile_phone_number_subtitle)
+        xfersFormInputNotesTextView.visibility = View.GONE
 
-        val formInputFieldTitle = findViewById<TextView>(R.id.xfersFormInputFieldTitle)
-        formInputFieldTitle.text = getString(R.string.mobile_phone_number_field_title)
+        val connectPhoneViewModel = ViewModelProviders.of(this).get(ConnectPhoneViewModel::class.java)
 
-        val formInputEditText = findViewById<EditText>(R.id.xfersFormInputEditText)
-        formInputEditText.hint = getString(R.string.phone_number_lorem_ipsum)
-
-        val formInputEditTextSubtitle = findViewById<TextView>(R.id.xfersFormInputEditTextSubtitle)
-        formInputEditTextSubtitle.text = getString(R.string.connect_mobile_phone_number_subtitle)
-
-        val formInputNotesTextView = findViewById<TextView>(R.id.xfersFormInputNotesTextView)
-        formInputNotesTextView.visibility = View.GONE
-
-        val xfersFullWidthButton = findViewById<Button>(R.id.xfersFullWidthButton)
         xfersFullWidthButton.setOnClickListener {
             val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
             val userPhoneNumber = phoneNumberTextField.text.toString()
 
-            ConnectPhoneTask(this, userPhoneNumber).execute()
+            // Create the observer which updates the UI.
+            val connectSuccessObserver = Observer<Boolean> { connectStatus ->
+                if (connectStatus) {
+                    startActivity(Intent(this, ConnectOTPActivity::class.java))
+                }
+            }
+
+            // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+            connectPhoneViewModel.connectPhoneNumber(userPhoneNumber).observe(this, connectSuccessObserver)
         }
     }
 }

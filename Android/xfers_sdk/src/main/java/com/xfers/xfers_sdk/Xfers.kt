@@ -6,8 +6,15 @@ import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
+
 import com.xfers.xfers_sdk.view.shared.StatusCardBase
 import com.xfers.xfers_sdk.view.shared.StatusCardHourGlassActivity
+
+import com.xfers.xfers_sdk.view.kyc.KycMotherMaidenNameActivity
+import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
+import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
+import com.xfers.xfers_sdk.view.withdraw.WithdrawToBankActivity
+
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -33,9 +40,8 @@ class Xfers(val context: Context) {
             XfersConfiguration.setMerchantConfigurations(apiBase, name, logo, logoTint)
         }
 
-        // TODO: Implement Android Keystore handling of userApiKey
         fun setUserApiKey(apiKey: String) {
-            return
+            XfersConfiguration.setUserApiKey(apiKey)
         }
     }
 
@@ -53,12 +59,12 @@ class Xfers(val context: Context) {
 
         fun startTopupFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, TopupBankSelectionActivity::class.java))
         }
 
         fun startKYCFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, KycMotherMaidenNameActivity::class.java))
         }
 
         fun startManageBanksFlow() {
@@ -68,14 +74,14 @@ class Xfers(val context: Context) {
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, WithdrawToBankActivity::class.java))
         }
 
         // Optional description, will appear in receipt
         fun startPaymentFlow(amount: BigInteger, description: String? = null) {
             XfersConfiguration.setMerchantFlowStartingContext(context)
             // TODO: Pass amount and description into activity
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, PaymentConfirmationActivity::class.java))
         }
     }
 

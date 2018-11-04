@@ -2,15 +2,15 @@ package com.xfers.xfers_sdk.view.connect
 
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewCompat
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
+import kotlinx.android.synthetic.main.activity_connect_share_kyc.*
+import kotlinx.android.synthetic.main.xfers_double_buttons.*
+import kotlinx.android.synthetic.main.xfers_merchant_xfers_logos.*
 
 class ConnectShareKYCActivity : AppCompatActivity() {
 
@@ -20,16 +20,13 @@ class ConnectShareKYCActivity : AppCompatActivity() {
 
         title = getString(R.string.connect_flow_title)
 
-        val merchantAccessTextView = findViewById<TextView>(R.id.shareKYCMerchantAccessTextView)
-        merchantAccessTextView.text = getString(R.string.connect_share_kyc_page_title_copy, XfersConfiguration.getMerchantName())
+        shareKYCMerchantAccessTextView.text = getString(R.string.connect_share_kyc_page_title_copy, XfersConfiguration.getMerchantName())
 
-        val merchantLogoImageView = findViewById<ImageView>(R.id.merchantXfersLogoMerchantImageView)
         XfersConfiguration.getMerchantLogo()?.let {
-            merchantLogoImageView.setImageResource(it)
+            merchantXfersLogoMerchantImageView.setImageResource(it)
         }
-        merchantLogoImageView.setColorFilter(ContextCompat.getColor(this, XfersConfiguration.getMerchantLogoTint()))
+        merchantXfersLogoMerchantImageView.setColorFilter(ContextCompat.getColor(this, XfersConfiguration.getMerchantLogoTint()))
 
-        val xfersDoubleButtonsNegativeButton = findViewById<Button>(R.id.xfersDoubleButtonsNegativeButton)
         xfersDoubleButtonsNegativeButton.text = getString(R.string.not_accept_button_copy)
         ViewCompat.setBackgroundTintList(xfersDoubleButtonsNegativeButton, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.aquaMarine)))
         xfersDoubleButtonsNegativeButton.setOnClickListener {
@@ -39,7 +36,6 @@ class ConnectShareKYCActivity : AppCompatActivity() {
              startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
         }
 
-        val xfersDoubleButtonsPositiveButton = findViewById<Button>(R.id.xfersDoubleButtonsPositiveButton)
         xfersDoubleButtonsPositiveButton.text = getString(R.string.accept_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
             // TODO: Share KYC information with Merchant through piping data to their API
