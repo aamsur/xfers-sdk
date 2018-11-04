@@ -11,7 +11,7 @@ class EnterNameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_banks_add_bank_account_enter_name_activity)
+        setContentView(R.layout.activity_manage_banks_add_bank_account_enter_name)
 
         xfersFormInputPageTitle.visibility = View.GONE
         xfersFormInputFieldTitle.text = getString(R.string.add_bank_account_enter_name_field_title)
