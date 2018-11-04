@@ -28,6 +28,9 @@
             android:name=".view.kyc.KycDocumentsConfirmationActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".view.withdrawal.WithdrawalBankSelectionActivity" />
+        <activity android:name=".view.withdrawal.WithdrawalConfirmationActivity" />
+
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
             android:windowSoftInputMode="adjustResize" />

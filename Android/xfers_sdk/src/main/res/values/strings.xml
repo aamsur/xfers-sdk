@@ -51,6 +51,22 @@
     <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
     <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
 
+    <string name="withdrawal_bank_selection_page_title">Withdraw funds to</string>
+    <string name="withdrawal_bank_selection_edit_banks_copy">Edit bank accounts</string>
+
+    <string name="withdrawal_confirmation_title">MAKE WITHDRAWAL</string>
+    <string name="withdrawal_confirmation_page_title">Withdrawal details</string>
+    <string name="withdrawal_confirmation_withdraw_from_copy">Withdraw from</string>
+    <string name="withdrawal_confirmation_withdraw_from_ipsum">General Wallet</string>
+    <string name="withdrawal_confirmation_to_bank_account_copy">To bank account</string>
+    <string name="withdrawal_confirmation_to_bank_account_ipsum">BCA 1234567890</string>
+    <string name="withdrawal_confirmation_amount_copy">Amount</string>
+    <string name="withdrawal_confirmation_amount_ipsum">RP 20.0000</string>
+    <string name="withdrawal_confirmation_processing_type_copy">Processing type</string>
+    <string name="withdrawal_confirmation_processing_type_ipsum">Normal Processing (Free)</string>
+    <string name="withdrawal_cofnirmation_emphasis_title">Total Payment Amount</string>
+    <string name="withdrawal_confirmation_number_ipsum">Rp 20.000</string>
+
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
     <string name="coming_soon_copy">This feature is currently in the works and will launch soon!</string>
