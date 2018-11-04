@@ -12,6 +12,7 @@
     <string name="proceed_button_copy">Proceed</string>
     <string name="cancel_button_copy">Cancel</string>
     <string name="confirm_button_copy">Confirm</string>
+    <string name="submit_button_copy">Submit</string>
 
     <string name="form_input_page_title_copy">Step %1$s</string>
 
@@ -40,6 +41,13 @@
     <string name="reenter_bank_account_number_title">Re\-enter your bank account number</string>
     <string name="enter_bank_account_number_hint">e.g. 0123456789</string>
     <string name="enter_bank_account_number_subtitle">Please exclude dashed</string>
+    <string name="add_bank_account_confirmation_title">Confirm Details</string>
+    <string name="add_bank_account_confirmation_bank_name_to_copy">Bank Name</string>
+    <string name="add_bank_account_confirmation_bank_name_to_ipsum_copy">BCA Bank</string>
+    <string name="add_bank_account_confirmation_holder_name_id_copy">Name of Bank Account Holder</string>
+    <string name="add_bank_account_confirmation_holder_name_id_ipsum_copy">Chen Ming Yao Johnathan</string>
+    <string name="add_bank_account_confirmation_account_no_copy">Bank Account Number</string>
+    <string name="add_bank_account_confirmation_account_no_ipsum_copy">123456789</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>

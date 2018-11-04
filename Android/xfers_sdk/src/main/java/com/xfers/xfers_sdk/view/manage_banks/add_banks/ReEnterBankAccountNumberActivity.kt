@@ -1,9 +1,11 @@
 package com.xfers.xfers_sdk.view.manage_banks.add_banks
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xfers.xfers_sdk.R
+import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_form_input.*
 
 class ReEnterBankAccountNumberActivity : AppCompatActivity() {
@@ -24,8 +26,8 @@ class ReEnterBankAccountNumberActivity : AppCompatActivity() {
 
         xfersFormInputNotesTextView.visibility = View.GONE
 
-        // xfersFormInputXfersButtonView.setOnClickListener {
-        //     startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
-        // }
+        xfersFullWidthButton.setOnClickListener {
+            startActivity(Intent(this, AddBankAccountConfirmationActivity::class.java))
+        }
     }
 }
