@@ -27,7 +27,7 @@ class ConnectOTPActivity : AppCompatActivity() {
             // Create the observer which updates the UI.
             val connectSuccessObserver = Observer<Boolean> { connectStatus ->
                 if (connectStatus) {
-                    startActivity(Intent(this, ConnectOTPActivity::class.java))
+                    startActivity(Intent(this, ConnectShareKYCActivity::class.java))
                 }
             }
 

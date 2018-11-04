@@ -47,6 +47,19 @@ class ConnectOTPViewModel : ViewModel() {
         //   "apiKey": "<real_user_api_key>"
         // }
         if (userApiKey.apiKey.isNotBlank()) {
+            // TODO: Set dynamically based on user status queried from the server through the apiKey,
+            // for now hardcode to be able to develop
+
+            // TODO: Show different activity based on the verification status
+            // val isUserExistingVerified = true
+            // val isUserExistingUnverified = false
+            // val isUserNewUser = false
+
+            // when {
+            //    isUserExistingVerified -> it.startActivity(Intent(it, ConnectShareKYCActivity::class.java))
+            //    isUserExistingUnverified -> it.startActivity(Intent(it, ConnectIdentityVerificationActivity::class.java))
+            //    isUserNewUser -> it.startActivity(Intent(it, ConnectIdentityVerificationActivity::class.java))
+            // }
             connectSuccess.value = true
         }
     }
