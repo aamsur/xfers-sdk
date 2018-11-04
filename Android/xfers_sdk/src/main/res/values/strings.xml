@@ -36,9 +36,10 @@
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
 
     <string name="add_bank_account_title">ADD BANK ACCOUNT</string>
-    <string name="add_bank_account_number_title">Enter your bank account number</string>
-    <string name="add_bank_account_number_hint">e.g. 0123456789</string>
-    <string name="add_bank_account_number_subtitle">Please exclude dashed</string>
+    <string name="enter_bank_account_number_title">Enter your bank account number</string>
+    <string name="reenter_bank_account_number_title">Re\-enter your bank account number</string>
+    <string name="enter_bank_account_number_hint">e.g. 0123456789</string>
+    <string name="enter_bank_account_number_subtitle">Please exclude dashed</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
