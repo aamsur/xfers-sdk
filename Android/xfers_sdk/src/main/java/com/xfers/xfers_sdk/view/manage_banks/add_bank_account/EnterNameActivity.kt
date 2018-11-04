@@ -13,6 +13,8 @@ class EnterNameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_banks_add_bank_account_enter_name)
 
+        title = getString(R.string.add_bank_account_title)
+
         xfersFormInputPageTitle.visibility = View.GONE
         xfersFormInputFieldTitle.text = getString(R.string.add_bank_account_enter_name_field_title)
         xfersFormInputEditText.hint = getString(R.string.add_bank_account_enter_name_edit_text_hint)
