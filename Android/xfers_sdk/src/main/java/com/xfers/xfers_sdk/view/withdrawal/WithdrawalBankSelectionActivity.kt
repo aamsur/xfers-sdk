@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view.withdrawal
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -21,14 +22,17 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
 
         title = getString(R.string.withdrawal_confirmation_title)
 
-        withdrawalBankSelectionPageTitleTextView.text = "Withdraw To"
+        withdrawalBankSelectionPageTitleTextView.text = getString(R.string.withdrawal_bank_selection_page_title)
 
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
         model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
             val selectionRowItems = it.map {
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbreviation} ${it.bankAccountNumber}"
+                        "${it.bankAbbreviation} ${it.bankAccountNumber}",
+                        {
+                            startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
+                        }
                 )
             }
 

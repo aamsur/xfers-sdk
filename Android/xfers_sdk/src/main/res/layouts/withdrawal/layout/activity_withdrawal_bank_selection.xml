@@ -30,7 +30,7 @@ tools:context=".view.withdrawal.WithdrawalBankSelectionActivity">
         app:layout_constraintBottom_toTopOf="@+id/withdrawalBankSelectionPoweredByXfers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topupBankSelectionPageTitleTextView">
+        app:layout_constraintTop_toBottomOf="@+id/withdrawalBankSelectionPageTitleTextView">
 
         <include
             android:id="@+id/withdrawalBankSelectionSelectionListView"
