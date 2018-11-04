@@ -20,7 +20,7 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_withdrawal_bank_selection)
 
-        title = getString(R.string.withdrawal_confirmation_title)
+        title = getString(R.string.withdrawal_title)
 
         withdrawalBankSelectionPageTitleTextView.text = getString(R.string.withdrawal_bank_selection_page_title)
 

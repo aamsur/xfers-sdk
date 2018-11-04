@@ -17,7 +17,7 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_withdrawal_confirmation)
 
-        title = getString(R.string.withdrawal_confirmation_title)
+        title = getString(R.string.withdrawal_title)
 
         withdrawalConfirmationTitleTextView.text = getString(R.string.withdrawal_confirmation_page_title)
 
