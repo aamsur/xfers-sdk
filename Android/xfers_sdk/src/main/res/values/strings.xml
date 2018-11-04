@@ -39,11 +39,17 @@
     <string name="add_bank_account_enter_name_field_title">Enter your full name</string>
     <string name="add_bank_account_enter_name_edit_text_hint">e.g. Tan Yong Ming Alex</string>
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
-  
-    <string name="kyc_mother_maiden_name_title">IDENTITY VERIFICATION</string>
+
+    <string name="kyc_title">IDENTITY VERIFICATION</string>
+
     <string name="kyc_mother_maiden_name_step_copy">Step 3</string>
     <string name="kyc_mother_maiden_name_page_title">Enter your mother\'s maiden name</string>
     <string name="kyc_mother_maiden_name_placeholder">e.g. Alice </string>
+
+    <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
+    <string name="kyc_documents_confirmation_ktp_copy">KTP document</string>
+    <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
+    <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>

@@ -24,6 +24,9 @@
         <activity
             android:name=".view.kyc.KycMotherMaidenNameActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.kyc.KycDocumentsConfirmationActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
