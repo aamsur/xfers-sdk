@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.xfers.xfers_sdk.model.UserBankAccount
 
 class UserBankAccountsViewModel : ViewModel() {
-    private var userBankAccounts = MutableLiveData<List<UserBankAccount>>()
+    private val userBankAccounts = MutableLiveData<List<UserBankAccount>>()
 
     fun getUserBankAccounts(): LiveData<List<UserBankAccount>> {
         loadUserBankAccounts()

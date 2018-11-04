@@ -25,7 +25,7 @@ object XfersConfiguration {
     private var merchantFlowStartingContextClass: Class<out Context>? = null
 
     // TODO: Implement Android Keystore handling of userApiKey
-    var userApiKey = ""
+    private var userApiKey = ""
 
     fun setSDKConfigurations(country: Xfers.Country, environment: Xfers.Environment) {
         if (country == Xfers.Country.SG && environment == Xfers.Environment.PRODUCTION) {
@@ -55,8 +55,21 @@ object XfersConfiguration {
         merchantFlowStartingContextClass = context::class.java
     }
 
+    fun setUserApiKey(apiKey: String) {
+        // TODO: Implement more secure way of handling userApiKey
+        userApiKey = apiKey
+    }
+
+    fun getApiBase(): String {
+        return apiBase
+    }
+
     fun buildApiURL(apiPath: String): String {
         return "$apiBase/$apiPath"
+    }
+
+    fun getMerchantApiBase(): String {
+        return merchantApiBase
     }
 
     fun buildMerchantApiURL(apiPath: String): String {
@@ -81,5 +94,9 @@ object XfersConfiguration {
 
     fun getCurrentCountry(): Xfers.Country? {
         return currentCountry
+    }
+
+    fun getUserApiKey(): String {
+        return userApiKey
     }
 }
