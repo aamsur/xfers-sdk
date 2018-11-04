@@ -20,10 +20,20 @@ class WithdrawToBankActivity : AppCompatActivity() {
 
         xfersFormInputPageTitle.visibility = View.GONE
         xfersFormInputEditTextSubtitle.visibility = View.GONE
-        xfersFormInputEditText.hint = getString(withdrawal_confirmation_input_text)
+        val hint: SpannedString = buildSpannedString {
+            bold {
+                append(getString(withdrawal_confirmation_input_text))
+            }
+            append(" ")
+            append(getString(withdrawal_confirmation_input_default_value))
+        }
+
+        xfersFormInputEditText.hint = hint
+
+
         xfersFormInputFieldTitle.text = getString(withdrawal_confirmation_page_title)
 
-        val comingSoonText: SpannedString = buildSpannedString {
+        val footnote: SpannedString = buildSpannedString {
             bold {
                 append(getString(withdrawal_confirmation_balance))
             }
@@ -32,7 +42,7 @@ class WithdrawToBankActivity : AppCompatActivity() {
         }
 
 
-        xfersFormInputNotesTextView.text = comingSoonText
+        xfersFormInputNotesTextView.text = footnote
     }
 
 }
