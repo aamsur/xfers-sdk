@@ -3,26 +3,26 @@ package com.xfers.xfers_sdk.view_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xfers.xfers_sdk.model.OkMessage
+import com.xfers.xfers_sdk.model.UserApiKey
 import com.xfers.xfers_sdk.utils.MerchantRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ConnectPhoneViewModel : ViewModel() {
+class ConnectOTPViewModel : ViewModel() {
     private val merchantRepository = MerchantRepository()
     private val connectSuccess: MutableLiveData<Boolean> = MutableLiveData()
     private var subscription: Disposable? = null
 
-    fun connectPhoneNumber(phoneNumber: String): LiveData<Boolean> {
-        subscription = merchantRepository.signupLogin(phoneNumber)
+    fun connectOTP(OTP: String): LiveData<Boolean> {
+        subscription = merchantRepository.getToken(OTP)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { onConnectPhoneStart() }
-                .doOnTerminate { onConnectPhoneFinish() }
+                .doOnSubscribe { onConnectOTPStart() }
+                .doOnTerminate { onConnectOTPFinish() }
                 .subscribe(
-                        { onConnectPhoneSuccess(it) },
-                        { onConnectPhoneError() }
+                        { onConnectOTPSuccess(it) },
+                        { onConnectOTPError() }
                 )
 
         return connectSuccess
@@ -33,25 +33,26 @@ class ConnectPhoneViewModel : ViewModel() {
         subscription?.dispose()
     }
 
-    private fun onConnectPhoneStart() {
+    private fun onConnectOTPStart() {
         // TODO: Provide observable to show loading on view
     }
 
-    private fun onConnectPhoneFinish() {
+    private fun onConnectOTPFinish() {
         // TODO: Provide observable to show
     }
 
-    private fun onConnectPhoneSuccess(okMessage: OkMessage) {
+    private fun onConnectOTPSuccess(userApiKey: UserApiKey) {
         // Example response expected:
         // {
-        //   "msg": "success"
+        //   "apiKey": "<real_user_api_key>"
         // }
-        if (okMessage.msg == "success") {
+        if (userApiKey.apiKey.isNotBlank()) {
             connectSuccess.value = true
         }
     }
 
-    private fun onConnectPhoneError() {
+    private fun onConnectOTPError() {
         // TODO: Provide observable to show error on view
     }
 }
+
