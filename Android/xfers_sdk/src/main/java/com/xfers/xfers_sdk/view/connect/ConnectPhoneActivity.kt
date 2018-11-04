@@ -32,11 +32,15 @@ class ConnectPhoneActivity : AppCompatActivity() {
             val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
             val userPhoneNumber = phoneNumberTextField.text.toString()
 
-            connectPhoneViewModel.connectPhoneNumber(userPhoneNumber).observe(this, Observer<Boolean> {
-                if (it) {
+            // Create the observer which updates the UI.
+            val connectSuccessObserver = Observer<Boolean> { connectStatus ->
+                if (connectStatus) {
                     startActivity(Intent(this, ConnectOTPActivity::class.java))
                 }
-            })
+            }
+
+            // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+            connectPhoneViewModel.connectPhoneNumber(userPhoneNumber).observe(this, connectSuccessObserver)
         }
     }
 }
