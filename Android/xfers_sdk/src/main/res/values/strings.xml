@@ -53,5 +53,11 @@
     <string name="payment_confirmation_negative_button_copy">Cancel</string>
     <string name="payment_confirmation_positive_button_copy">Confirm</string>
 
+    <string name="withdrawal_confirmation_title">MAKE WITHDRAWAL</string>
+    <string name="withdrawal_confirmation_input_text">%1$s</string>
+    <string name="withdrawal_confirmation_page_title">Enter withdrawal amount</string>
+    <string name="withdrawal_confirmation_balance">Current Balance: %1$s</string>
+    <string name="withdrawal_confirmation_notes">Return to %1$s per week without fees. Any amount exceeding %1$s in the week of Monday to Sunday will be subjected to a withdrawal fees of 1% and processed as two separate transactions. Learn more at %1$s</string>
+
     <string name="return_to_merchant_copy">Return to %1$s</string>
 </resources>

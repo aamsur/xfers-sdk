@@ -8,6 +8,7 @@ import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
+import com.xfers.xfers_sdk.view.withdraw.WithdrawToBankActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -61,7 +62,7 @@ class Xfers(val context: Context) {
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, WithdrawToBankActivity::class.java))
         }
 
         // Optional description, will appear in receipt
