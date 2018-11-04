@@ -10,12 +10,20 @@
     <application>
         <activity android:name=".view.shared.ComingSoonActivity" />
 
-        <activity android:name=".view.manage_banks.add_bank_account.EnterNameActivity" />
+        <activity
+            android:name=".view.manage_banks.add_bank_account.EnterNameActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".view.topup.TopupBankSelectionActivity" />
         <activity android:name=".view.pay.PaymentConfirmationActivity" />
-        <activity android:name=".view.withdraw.WithdrawToBankActivity" />
-        <activity android:name=".view.kyc.KycMotherMaidenNameActivity" />
+
+        <activity
+            android:name=".view.withdraw.WithdrawToBankActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.kyc.KycMotherMaidenNameActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
@@ -23,6 +31,7 @@
         <activity
             android:name=".view.connect.ConnectOTPActivity"
             android:windowSoftInputMode="adjustResize" />
+
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
         <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
