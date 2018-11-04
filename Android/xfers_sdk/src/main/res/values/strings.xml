@@ -35,4 +35,10 @@
     <string name="coming_soon_copy">This feature is currently in the works and will launch soon!</string>
 
     <string name="return_to_merchant_copy">Return to %1$s</string>
+
+    <string name="status_card_base_title">Information</string>
+    <string name="status_card_bold_title">Status Card Bold Title</string>
+    <string name="status_card_normal_text">Status Card Normal Text</string>
+    <string name="status_card_button_text">Next</string>
+
 </resources>

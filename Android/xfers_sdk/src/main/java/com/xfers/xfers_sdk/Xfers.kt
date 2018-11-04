@@ -6,6 +6,8 @@ import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
+import com.xfers.xfers_sdk.view.shared.StatusCardBase
+import com.xfers.xfers_sdk.view.shared.StatusCardHourGlassActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -40,7 +42,13 @@ class Xfers(val context: Context) {
     inner class Flow {
         fun startConnectFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ConnectPhoneActivity::class.java))
+            val i = Intent(context, StatusCardHourGlassActivity::class.java)
+            i.putExtra("statusCardConfig",
+                    hashMapOf("normalText" to "We are coming soon. Pls hang on.",
+                            "boldText" to "Coming Soon!!!",
+                            "buttonText" to "Continue")
+            )
+            context.startActivity(i)
         }
 
         fun startTopupFlow() {
