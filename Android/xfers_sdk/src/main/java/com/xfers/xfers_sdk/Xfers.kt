@@ -6,6 +6,7 @@ import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
+import com.xfers.xfers_sdk.view.kyc.IndoKycDocumentPreviewActivity
 import com.xfers.xfers_sdk.view.kyc.KycMotherMaidenNameActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
@@ -53,7 +54,8 @@ class Xfers(val context: Context) {
 
         fun startKYCFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, KycMotherMaidenNameActivity::class.java))
+//            context.startActivity(Intent(context, KycMotherMaidenNameActivity::class.java))
+            context.startActivity(Intent(context, IndoKycDocumentPreviewActivity::class.java))
         }
 
         fun startManageBanksFlow() {

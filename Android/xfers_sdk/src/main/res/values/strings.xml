@@ -2,6 +2,7 @@
     <string name="app_name">Xfers SDK</string>
 
     <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="step">STEP 1</string>
     <string name="phone_number_lorem_ipsum">1234 567 890</string>
     <string name="number_ipsum">3000.00</string>
 
@@ -41,7 +42,18 @@
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
 
     <string name="kyc_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_indo_kyc_document_preview_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_indo_kyc_document_page_title_line_1">Please prepare the following</string>
+    <string name="kyc_indo_kyc_document_page_title_line_2">documents</string>
+    <string name="kyc_indo_kyc_document_step_1_title">STEP 1</string>
+    <string name="kyc_indo_kyc_document_step_1_prompt">Submit KTP Photo</string>
+    <string name="kyc_indo_kyc_document_step_2_title">STEP 2</string>
+    <string name="kyc_indo_kyc_document_step_2_prompt">Submit a selfie holding your KTP</string>
+    <string name="kyc_indo_kyc_document_step_3_title">STEP 3</string>
+    <string name="kyc_indo_kyc_document_step_3_prompt">Enter your mother\'s maiden name</string>
 
+
+    <string name="kyc_mother_maiden_name_title">IDENTITY VERIFICATION</string>
     <string name="kyc_mother_maiden_name_step_copy">Step 3</string>
     <string name="kyc_mother_maiden_name_page_title">Enter your mother\'s maiden name</string>
     <string name="kyc_mother_maiden_name_placeholder">e.g. Alice </string>

@@ -18,6 +18,7 @@ class XfersItemRowAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var xfersItemRowImageView: ImageView? = view.findViewById(R.id.xfersItemRowImageView)
         var xfersItemRowTextView: TextView? = view.findViewById(R.id.xfersItemRowTextView)
+        var xfersItemRowTitleTextView: TextView? = view.findViewById(R.id.xfersItemRowTitleTextView)
     }
 
     override fun getItemCount(): Int {
@@ -29,6 +30,13 @@ class XfersItemRowAdapter(
         viewHolder.xfersItemRowImageView?.setImageResource(itemRowItem.icon)
         viewHolder.xfersItemRowImageView?.setColorFilter(ContextCompat.getColor(context, itemRowItem.iconTint))
         viewHolder.xfersItemRowTextView?.text = itemRowItem.copy
+
+        if (itemRowItem.title != "") {
+            viewHolder.xfersItemRowTitleTextView?.text = itemRowItem.title
+        }
+        else {
+            viewHolder.xfersItemRowTitleTextView?.visibility = View.INVISIBLE
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,4 +44,4 @@ class XfersItemRowAdapter(
     }
 }
 
-data class ItemRowItem(val icon: Int, val iconTint: Int, val copy: String)
+data class ItemRowItem(val icon: Int, val iconTint: Int, val copy: String, val title:String = "")
