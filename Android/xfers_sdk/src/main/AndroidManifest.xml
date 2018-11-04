@@ -14,6 +14,7 @@
 
         <activity android:name=".view.topup.TopupBankSelectionActivity" />
         <activity android:name=".view.pay.PaymentConfirmationActivity" />
+        <activity android:name=".view.withdraw.WithdrawToBankActivity" />
         <activity android:name=".view.kyc.KycMotherMaidenNameActivity" />
 
         <activity
