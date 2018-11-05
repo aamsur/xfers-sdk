@@ -51,7 +51,7 @@
             android:name=".view.kyc.KycMerchantEmailActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name=".view.kyc.IndoKycDocumentPreviewActivity" />
+        <activity android:name=".view.kyc.KycDocumentPreparationActivity" />
 
         <!-- Connect flow -->
 

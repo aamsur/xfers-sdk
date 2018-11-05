@@ -11,11 +11,11 @@ import com.xfers.xfers_sdk.view.shared.XfersItemRowAdapter
 import kotlinx.android.synthetic.main.xfers_extended_topbar.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 
-class IndoKycDocumentPreviewActivity: AppCompatActivity() {
+class KycDocumentPreparationActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_indo_kyc_document_preview)
+        setContentView(R.layout.activity_kyc_document_preparation)
 
         title = getString(R.string.kyc_indo_kyc_document_preview_title)
 

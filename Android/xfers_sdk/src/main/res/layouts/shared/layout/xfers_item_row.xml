@@ -29,9 +29,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/step"
-        android:textStyle="bold"
         android:textColor="@color/clearBlue"
-        android:textSize="15sp"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/xfersItemRowImageView"
         app:layout_constraintTop_toTopOf="parent" />
