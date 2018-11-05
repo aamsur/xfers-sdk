@@ -3,6 +3,7 @@ package com.xfers.xfers_sdk.view.kyc
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
 import androidx.core.text.scale
@@ -66,9 +67,11 @@ class KycDocumentPreparationActivity: AppCompatActivity() {
         val context = this
 
         return buildSpannedString {
-            scale(0.6f) {
-                color(ContextCompat.getColor(context, R.color.clearBlue)) {
-                    append(title)
+            bold {
+                scale(0.6f) {
+                    color(ContextCompat.getColor(context, R.color.clearBlue)) {
+                        append(title)
+                    }
                 }
             }
             append("\n")
