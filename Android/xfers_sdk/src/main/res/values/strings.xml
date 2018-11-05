@@ -30,7 +30,7 @@
     <string name="connect_mobile_phone_number_subtitle">We will text a one-time secure link to your mobile to proceed with a mobile verification</string>
     <string name="connect_share_kyc_page_title_copy">%1$s would like to access your personal information from your Xfers account</string>
     <string name="connect_share_kyc_information_copy">Name\nBirthdate\nNationality\nLocation\nKTP\nProof of Address</string>
-  
+
     <string name="topup_bank_selection_title">XFERS WALLET</string>
     <string name="topup_bank_selection_page_title">Top up using</string>
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
@@ -50,6 +50,11 @@
     <string name="kyc_documents_confirmation_ktp_copy">KTP document</string>
     <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
     <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
+
+    <string name="kyc_indo_merchant_verification_title">MERCHANT VERIFICATION</string>
+    <string name="kyc_indo_merchant_3b_input_field_title">Enter your email address</string>
+    <string name="kyc_indo_merchant_3b_email_placeholder">alexa@example.com</string>
+    <string name="kyc_indo_merchant_3b_hint">We will be contacting you via this email for the submission of your business documents</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
