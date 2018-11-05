@@ -8,7 +8,6 @@ import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_add_bank_account_confirmation.*
 import kotlinx.android.synthetic.main.xfers_button.*
-import kotlinx.android.synthetic.main.xfers_form_input.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 
 class AddBankAccountConfirmationActivity : AppCompatActivity() {
@@ -21,6 +20,9 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
 
         addBankAccountConfirmationTitleTextView.text = getString(R.string.add_bank_account_confirmation_title)
 
+        // TODO: Add view model to this activity
+
+        // TODO: Build text row items based on information received from preceeding activities
         val textRowItems = listOf(
             TextRowItem(
                 getString(R.string.add_bank_account_confirmation_bank_name_to_copy),
@@ -41,8 +43,6 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
         listViewRecyclerView.adapter = adapter
 
         xfersFullWidthButton.text = getString(R.string.submit_button_copy)
-        // xfersFullWidthButton.setOnClickListener {
-        //     startActivity(Intent(this, ::class.java))
-        // }
+        // TODO: Set on click on button to add bank account API through view model
     }
 }

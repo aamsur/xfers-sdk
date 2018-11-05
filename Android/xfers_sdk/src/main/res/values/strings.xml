@@ -40,7 +40,7 @@
     <string name="enter_bank_account_number_title">Enter your bank account number</string>
     <string name="reenter_bank_account_number_title">Re\-enter your bank account number</string>
     <string name="enter_bank_account_number_hint">e.g. 0123456789</string>
-    <string name="enter_bank_account_number_subtitle">Please exclude dashed</string>
+    <string name="enter_bank_account_number_subtitle">Please exclude dashes</string>
     <string name="add_bank_account_confirmation_title">Confirm Details</string>
     <string name="add_bank_account_confirmation_bank_name_to_copy">Bank Name</string>
     <string name="add_bank_account_confirmation_bank_name_to_ipsum_copy">BCA Bank</string>

@@ -17,16 +17,14 @@ class ReEnterBankAccountNumberActivity : AppCompatActivity() {
         title = getString(R.string.add_bank_account_title)
 
         xfersFormInputPageTitle.visibility = View.GONE
-
         xfersFormInputFieldTitle.text = getString(R.string.reenter_bank_account_number_title)
-
         xfersFormInputEditText.hint = getString(R.string.enter_bank_account_number_hint)
-
         xfersFormInputEditTextSubtitle.text = getString(R.string.enter_bank_account_number_subtitle)
-
         xfersFormInputNotesTextView.visibility = View.GONE
 
         xfersFullWidthButton.setOnClickListener {
+            // TODO: Pass in the name and account number to the next activity
+
             startActivity(Intent(this, AddBankAccountConfirmationActivity::class.java))
         }
     }
