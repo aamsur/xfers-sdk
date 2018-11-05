@@ -8,8 +8,10 @@ import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
 import com.xfers.xfers_sdk.view.kyc.IndoKycDocumentPreviewActivity
 import com.xfers.xfers_sdk.view.kyc.KycMotherMaidenNameActivity
+import com.xfers.xfers_sdk.view.kyc.KycMerchantEmailActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
+import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.EnterNameActivity
 import com.xfers.xfers_sdk.view.withdraw.WithdrawToBankActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
@@ -54,13 +56,12 @@ class Xfers(val context: Context) {
 
         fun startKYCFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-//            context.startActivity(Intent(context, KycMotherMaidenNameActivity::class.java))
             context.startActivity(Intent(context, IndoKycDocumentPreviewActivity::class.java))
         }
 
         fun startManageBanksFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, EnterNameActivity::class.java))
         }
 
         fun startWithdrawalFlow() {
