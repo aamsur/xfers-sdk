@@ -51,10 +51,10 @@
     <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
     <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
 
-    <string name="kyc_indo_merchant_verification_title">MERCHANT VERIFICATION</string>
-    <string name="kyc_indo_merchant_3b_input_field_title">Enter your email address</string>
-    <string name="kyc_indo_merchant_3b_email_placeholder">alexa@example.com</string>
-    <string name="kyc_indo_merchant_3b_subtitle">We will be contacting you via this email for the submission of your business documents.</string>
+    <string name="kyc_merchant_verification_title">MERCHANT VERIFICATION</string>
+    <string name="kyc_merchant_email_input_field_title">Enter your email address</string>
+    <string name="kyc_merchant_email_email_placeholder">alexia@example.com</string>
+    <string name="kyc_merchant_email_subtitle">We will be contacting you via this email for the submission of your business documents.</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
