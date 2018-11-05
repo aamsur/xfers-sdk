@@ -17,6 +17,11 @@
         <activity
             android:name=".view.manage_banks.add_bank_account.EnterNameActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.manage_banks.add_bank_account.EnterBankAccountNumberActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.manage_banks.add_bank_account.ReEnterBankAccountNumberActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.manage_banks.add_bank_account.AddBankAccountConfirmationActivity" />
 
         <!-- Topup flow -->
 
