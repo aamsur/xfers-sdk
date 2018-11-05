@@ -1,11 +1,10 @@
-package com.xfers.xfers_sdk.view.manage_banks.add_banks
+package com.xfers.xfers_sdk.view.manage_banks.add_bank_account
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xfers.xfers_sdk.R
-import com.xfers.xfers_sdk.view.manage_banks.add_banks.ReEnterBankAccountNumberActivity
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_form_input.*
 

@@ -1,4 +1,4 @@
-package com.xfers.xfers_sdk.view.manage_banks.add_banks
+package com.xfers.xfers_sdk.view.manage_banks.add_bank_account
 
 import android.content.Intent
 import android.os.Bundle

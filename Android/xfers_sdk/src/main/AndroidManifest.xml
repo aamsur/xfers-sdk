@@ -8,13 +8,48 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application>
+        <!-- Misc UI / flow -->
+
         <activity android:name=".view.shared.ComingSoonActivity" />
 
+        <!-- Manage banks flow -->
+
+        <activity
+            android:name=".view.manage_banks.add_bank_account.EnterNameActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.manage_banks.add_bank_account.EnterBankAccountNumberActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.manage_banks.add_bank_account.ReEnterBankAccountNumberActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.manage_banks.add_bank_account.AddBankAccountConfirmationActivity" />
+
+        <!-- Topup flow -->
+
         <activity android:name=".view.topup.TopupBankSelectionActivity" />
+
+        <!-- Payment flow -->
+
         <activity android:name=".view.pay.PaymentConfirmationActivity" />
-        <activity android:name=".view.manage_banks.add_banks.EnterBankAccountNumberActivity" />
-        <activity android:name=".view.manage_banks.add_banks.ReEnterBankAccountNumberActivity" />
-        <activity android:name=".view.manage_banks.add_banks.AddBankAccountConfirmationActivity" />
+
+        <!-- Withdrawal flow -->
+
+        <activity
+            android:name=".view.withdraw.WithdrawToBankActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- KYC flow -->
+
+        <activity
+            android:name=".view.kyc.KycMotherMaidenNameActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.kyc.KycDocumentsConfirmationActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.kyc.KycMerchantEmailActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Connect flow -->
 
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
@@ -25,6 +60,9 @@
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
         <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
+
+        <!-- Menu UI / flow -->
+        <!-- Transactions Overview UI / flow -->
     </application>
 
 </manifest>

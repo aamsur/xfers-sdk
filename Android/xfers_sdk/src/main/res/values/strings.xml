@@ -48,6 +48,25 @@
     <string name="add_bank_account_confirmation_holder_name_id_ipsum_copy">Chen Ming Yao Johnathan</string>
     <string name="add_bank_account_confirmation_account_no_copy">Bank Account Number</string>
     <string name="add_bank_account_confirmation_account_no_ipsum_copy">123456789</string>
+    <string name="add_bank_account_enter_name_field_title">Enter your full name</string>
+    <string name="add_bank_account_enter_name_edit_text_hint">e.g. Tan Yong Ming Alex</string>
+    <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
+
+    <string name="kyc_title">IDENTITY VERIFICATION</string>
+
+    <string name="kyc_mother_maiden_name_step_copy">Step 3</string>
+    <string name="kyc_mother_maiden_name_page_title">Enter your mother\'s maiden name</string>
+    <string name="kyc_mother_maiden_name_placeholder">e.g. Alice </string>
+
+    <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
+    <string name="kyc_documents_confirmation_ktp_copy">KTP document</string>
+    <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
+    <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
+
+    <string name="kyc_merchant_verification_title">MERCHANT VERIFICATION</string>
+    <string name="kyc_merchant_email_input_field_title">Enter your email address</string>
+    <string name="kyc_merchant_email_email_placeholder">alexia@example.com</string>
+    <string name="kyc_merchant_email_subtitle">We will be contacting you via this email for the submission of your business documents.</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
@@ -66,6 +85,13 @@
     <string name="payment_confirmation_number_ipsum">Rp 20.000</string>
     <string name="payment_confirmation_negative_button_copy">Cancel</string>
     <string name="payment_confirmation_positive_button_copy">Confirm</string>
+
+    <string name="withdrawal_confirmation_title">MAKE WITHDRAWAL</string>
+    <string name="withdrawal_confirmation_input_text">RP</string>
+    <string name="withdrawal_confirmation_input_default_value">0.00</string>
+    <string name="withdrawal_confirmation_page_title">Enter withdrawal amount</string>
+    <string name="withdrawal_confirmation_balance">Current Balance: %1$s</string>
+    <string name="withdrawal_confirmation_notes">Return to %1$s per week without fees. Any amount exceeding %1$s in the week of Monday to Sunday will be subjected to a withdrawal fees of 1% and processed as two separate transactions. Learn more at %1$s</string>
 
     <string name="return_to_merchant_copy">Return to %1$s</string>
 </resources>
