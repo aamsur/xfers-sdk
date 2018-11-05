@@ -31,7 +31,6 @@
 
         <activity android:name=".view.pay.PaymentConfirmationActivity" />
 
-
         <!-- Withdrawal flow -->
 
         <activity
