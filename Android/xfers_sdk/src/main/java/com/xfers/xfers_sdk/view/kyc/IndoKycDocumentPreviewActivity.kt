@@ -20,7 +20,6 @@ class IndoKycDocumentPreviewActivity: AppCompatActivity() {
         title = getString(R.string.kyc_indo_kyc_document_preview_title)
 
         val pageTitle: SpannedString = buildSpannedString {
-
             append(getString(R.string.kyc_indo_kyc_document_page_title_line_1))
             append("\n")
             append(getString(R.string.kyc_indo_kyc_document_page_title_line_2))
@@ -30,18 +29,18 @@ class IndoKycDocumentPreviewActivity: AppCompatActivity() {
 
         val itemRowItems = listOf(
                 ItemRowItem(
-                        R.drawable.status_success_50, R.color.clearBlue,
+                        R.drawable.id_card_50, R.color.clearBlue,
                         getString(R.string.kyc_indo_kyc_document_step_1_prompt),
                         getString(R.string.kyc_indo_kyc_document_step_1_title)
 
                 ),
                 ItemRowItem(
-                        R.drawable.status_success_50, R.color.clearBlue,
+                        R.drawable.selfie_50, R.color.clearBlue,
                         getString(R.string.kyc_indo_kyc_document_step_2_prompt),
                         getString(R.string.kyc_indo_kyc_document_step_2_title)
                 ),
                 ItemRowItem(
-                        R.drawable.status_success_50, R.color.clearBlue,
+                        R.drawable.maiden_50, R.color.clearBlue,
                         getString(R.string.kyc_indo_kyc_document_step_3_prompt),
                         getString(R.string.kyc_indo_kyc_document_step_3_title)
                 )
@@ -51,8 +50,5 @@ class IndoKycDocumentPreviewActivity: AppCompatActivity() {
         listViewRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = XfersItemRowAdapter(this, itemRowItems)
         listViewRecyclerView.adapter = adapter
-
     }
-
-
 }
