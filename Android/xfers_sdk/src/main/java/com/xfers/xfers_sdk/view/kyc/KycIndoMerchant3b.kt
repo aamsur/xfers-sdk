@@ -15,12 +15,11 @@ class KycIndoMerchant3b : AppCompatActivity() {
 
         title = getString(R.string.kyc_indo_merchant_verification_title)
 
-        xfersFormInputFieldTitle.text = getString(R.string.kyc_indo_merchant_3b_input_field_title)
-        xfersFormInputEditText.hint = getString(R.string.kyc_indo_merchant_3b_email_placeholder)
-        xfersFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
         xfersFormInputPageTitle.visibility = View.GONE
-
-        xfersFormInputEditTextSubtitle.text = getString(R.string.kyc_indo_merchant_3b_hint)
+        xfersFormInputFieldTitle.text = getString(R.string.kyc_indo_merchant_3b_input_field_title)
+        xfersFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
+        xfersFormInputEditText.hint = getString(R.string.kyc_indo_merchant_3b_email_placeholder)
+        xfersFormInputEditTextSubtitle.text = getString(R.string.kyc_indo_merchant_3b_subtitle)
         xfersFormInputNotesTextView.visibility = View.GONE
     }
 }
