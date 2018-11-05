@@ -7,6 +7,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.shared.ItemRowItem
 import com.xfers.xfers_sdk.view.shared.XfersItemRowAdapter
 import kotlinx.android.synthetic.main.activity_kyc_documents_confirmation.*
+import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 
 class KycDocumentsConfirmationActivity : AppCompatActivity() {
@@ -21,15 +22,15 @@ class KycDocumentsConfirmationActivity : AppCompatActivity() {
 
         val itemRowItems = listOf(
                 ItemRowItem(
-                        R.drawable.status_success_50, R.color.clearBlue,
+                        R.drawable.status_success_50, R.color.aquaMarine,
                         getString(R.string.kyc_documents_confirmation_ktp_copy)
                 ),
                 ItemRowItem(
-                        R.drawable.status_success_50, R.color.clearBlue,
+                        R.drawable.status_success_50, R.color.aquaMarine,
                         getString(R.string.kyc_documents_confirmation_selfie_verification_copy)
                 ),
                 ItemRowItem(
-                        R.drawable.status_success_50, R.color.clearBlue,
+                        R.drawable.status_success_50, R.color.aquaMarine,
                         getString(R.string.kyc_documents_confirmation_mother_maiden_name_copy)
                 )
         )
@@ -38,5 +39,8 @@ class KycDocumentsConfirmationActivity : AppCompatActivity() {
         val adapter = XfersItemRowAdapter(this, itemRowItems)
         listViewRecyclerView.adapter = adapter
 
+        xfersFullWidthButton.text = getString(R.string.submit_button_copy)
+        // TODO: Add view model to the activity and on submit talk to Xfers API, push to final
+        // status card activity as well
     }
 }

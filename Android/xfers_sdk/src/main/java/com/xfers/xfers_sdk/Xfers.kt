@@ -57,6 +57,7 @@ class Xfers(val context: Context) {
         fun startKYCFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
             context.startActivity(Intent(context, IndoKycDocumentPreviewActivity::class.java))
+//            context.startActivity(Intent(context, KycMotherMaidenNameActivity::class.java))
         }
 
         fun startManageBanksFlow() {
