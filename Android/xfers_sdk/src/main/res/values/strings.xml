@@ -49,6 +49,8 @@
     <string name="add_bank_account_confirmation_holder_name_id_ipsum_copy">Chen Ming Yao Johnathan</string>
     <string name="add_bank_account_confirmation_account_no_copy">Bank Account Number</string>
     <string name="add_bank_account_confirmation_account_no_ipsum_copy">123456789</string>
+    <string name="add_bank_account_select_bank_summary_title">Select bank name</string>
+    <string name="add_bank_account_select_bank_search_hint">Search bank name</string>
     <string name="add_bank_account_enter_name_field_title">Enter your full name</string>
     <string name="add_bank_account_enter_name_edit_text_hint">e.g. Tan Yong Ming Alex</string>
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
