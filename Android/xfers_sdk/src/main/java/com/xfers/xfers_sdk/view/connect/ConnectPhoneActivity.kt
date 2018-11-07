@@ -21,7 +21,7 @@ class ConnectPhoneActivity : AppCompatActivity() {
         title = getString(R.string.connect_flow_title)
 
         xfersFormInputPageTitle.visibility = View.GONE
-        xfersFormInputFieldTitle.text = getString(R.string.mobile_phone_number_field_title)
+        xfersFormInputFieldTitle.text = getString(R.string.connect_mobile_phone_number_field_title)
         xfersFormInputEditText.hint = getString(R.string.phone_number_lorem_ipsum)
         xfersFormInputEditTextSubtitle.text = getString(R.string.connect_mobile_phone_number_subtitle)
         xfersFormInputNotesTextView.visibility = View.GONE
