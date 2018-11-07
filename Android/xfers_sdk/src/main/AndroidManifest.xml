@@ -10,7 +10,7 @@
     <application>
         <!-- Misc UI / flow -->
 
-        <activity android:name=".view.shared.ComingSoonActivity" />
+        <activity android:name=".view.shared.StatusCardBaseActivity" />
 
         <!-- Manage banks flow -->
 
@@ -37,8 +37,10 @@
         <!-- Withdrawal flow -->
 
         <activity
-            android:name=".view.withdraw.WithdrawToBankActivity"
+            android:name=".view.withdrawal.WithdrawalAmountActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.withdrawal.WithdrawalBankSelectionActivity" />
+        <activity android:name=".view.withdrawal.WithdrawalConfirmationActivity" />
 
         <!-- KYC flow -->
 
@@ -63,6 +65,7 @@
         <activity
             android:name=".view.connect.ConnectOTPActivity"
             android:windowSoftInputMode="adjustResize" />
+
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
         <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
