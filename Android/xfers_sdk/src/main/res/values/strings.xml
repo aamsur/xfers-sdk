@@ -22,6 +22,7 @@
     <string name="submit_button_copy">Submit</string>
     <string name="return_to_merchant_copy">Return to %1$s</string>
     <string name="got_it_button_copy">Got it</string>
+    <string name="okay_button_copy">Okay</string>
 
     <!-- Connect flow -->
 
@@ -67,6 +68,8 @@
     <string name="add_bank_account_enter_name_field_title">Enter your full name</string>
     <string name="add_bank_account_enter_name_edit_text_hint">e.g. Tan Yong Ming Alex</string>
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
+
+    <string name="add_bank_account_successful_card_text">Your bank account has been added.</string>
 
     <!-- KYC flow -->
 
