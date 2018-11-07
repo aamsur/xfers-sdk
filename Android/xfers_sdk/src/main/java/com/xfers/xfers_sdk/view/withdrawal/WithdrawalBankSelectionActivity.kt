@@ -29,14 +29,12 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
             val selectionRowItems = it.map {
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbreviation} ${it.bankAccountNumber}",
-                        {
-                            startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
-                        }
-                )
+                        "${it.bankAbbreviation} ${it.bankAccountNumber}"
+                ) {
+                    startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
+                }
             }
 
-            // TODO: To give each row a click -> navigate to next page on click listener
             listViewRecyclerView.layoutManager = LinearLayoutManager(this)
             val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
             listViewRecyclerView.adapter = adapter
@@ -44,6 +42,5 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
 
         // TODO: Make clicking the button go to edit bank accounts page
         withdrawalBankSelectionEditBankAccountsTextView.text = getString(R.string.withdrawal_bank_selection_edit_banks_copy)
-
     }
 }
