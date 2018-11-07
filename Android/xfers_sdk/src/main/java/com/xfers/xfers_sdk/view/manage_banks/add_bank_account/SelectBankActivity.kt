@@ -23,6 +23,7 @@ class SelectBankActivity : AppCompatActivity() {
         title = getString(R.string.add_bank_account_title)
 
         xfersSummaryTitleTextView.text = getString(R.string.add_bank_account_select_bank_summary_title)
+        // TODO: Make search bar actually search and be useful!
         xfersSearchBarEditText.hint = getString(R.string.add_bank_account_select_bank_search_hint)
 
         val model = ViewModelProviders.of(this).get(BanksViewModel::class.java)

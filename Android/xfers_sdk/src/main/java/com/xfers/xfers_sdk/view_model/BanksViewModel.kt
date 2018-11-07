@@ -15,7 +15,7 @@ class BanksViewModel : ViewModel() {
 
     private fun loadBanks() {
         // TODO: Modify to an asynchronous operation to fetch supported banks
-        val banksIpsum = Bank("Bank BCA")
+
         banks.postValue(listOf(
                 Bank("Bank BCA"),
                 Bank("Bank Mandiri"),
