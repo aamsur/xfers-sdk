@@ -31,6 +31,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <include
+                layout="@layout/xfers_merchant_xfers_logos" />
+
             <TextView
                 android:id="@+id/cardActivityTextView"
                 android:layout_width="wrap_content"

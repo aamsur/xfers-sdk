@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/nearWhite"
-    tools:context=".view.shared.ComingSoonActivity">
+    tools:context=".view.shared.StatusCardBaseActivity">
+
+    <include layout="@layout/xfers_extended_topbar"/>
 
     <include layout="@layout/xfers_card_activity"/>
 
