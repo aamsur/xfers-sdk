@@ -27,7 +27,14 @@ class XfersSelectionRowAdapter(
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val selectionRowItem = selectionRowItems[position]
         viewHolder.xfersSelectionRowImageView?.setImageResource(selectionRowItem.icon)
-        viewHolder.xfersSelectionRowImageView?.setColorFilter(ContextCompat.getColor(context, selectionRowItem.iconTint))
+        if (selectionRowItem.iconTint != null) {
+            viewHolder.xfersSelectionRowImageView?.setColorFilter(
+                    ContextCompat.getColor(context, selectionRowItem.iconTint)
+            )
+        } else {
+            viewHolder.xfersSelectionRowImageView?.clearColorFilter()
+        }
+
         viewHolder.xfersSelectionRowTextView?.text = selectionRowItem.copy
     }
 
@@ -36,4 +43,4 @@ class XfersSelectionRowAdapter(
     }
 }
 
-data class SelectionRowItem(val icon: Int, val iconTint: Int, val copy: String)
+data class SelectionRowItem(val icon: Int, val iconTint: Int? = null, val copy: String)
