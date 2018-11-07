@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.xfers_extended_topbar.*
  *   i.putExtra("statusCardConfig",
  *     hashMapOf(
  *         "cardPageTitle" to "",
+ *         "extendedTopbarBackgroundColor" to "",
  *         "statusIconImage" to "",
  *         "statusIconImageColorFilter" to "",
  *         "cardText" to "",
@@ -29,9 +30,11 @@ open class StatusCardBaseActivity: AppCompatActivity() {
 
     private var firebaseAnalytics: FirebaseAnalytics? = null
 
-    private var cardPageTitle: String = "Sample Page Title"
+    private var cardPageTitle = "Sample Page Title"
 
-    private var statusIconImage: Int = R.drawable.status_wip_60
+    private var extendedTopbarBackgroundColor = R.color.clearBlue
+
+    private var statusIconImage = R.drawable.status_wip_60
     private var statusIconImageColorFilter: Int? = null // Defaults to no tint
 
     private var cardText: CharSequence = "Sample Card Text"
@@ -43,15 +46,13 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status_card_base)
 
-        // We are using it purely for Background. No need text and relevant constraints.
-        extendedTopbarTextView.visibility = View.GONE
-
         initFireBase()
 
         initViewConfig()
 
         setCardPageTitle()
-        setCardImageIcon()
+        setExtendedTopbarColorAndVisibility()
+        setCardImageIconAndColor()
         setStatusText()
         setButtonText()
         applyButtonClickListener()
@@ -61,7 +62,7 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         val params = Bundle()
         params.putString("merchant_name", XfersConfiguration.getMerchantName())
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
-        firebaseAnalytics?.logEvent("open_coming_soon", params)
+        firebaseAnalytics?.logEvent("open_status_card", params)
     }
 
     private fun initViewConfig() {
@@ -69,6 +70,10 @@ open class StatusCardBaseActivity: AppCompatActivity() {
 
         (viewConfig["cardPageTitle"] as? String)?.let {
             cardPageTitle = it
+        }
+
+        (viewConfig["extendedTopbarBackgroundColor"] as? Int)?.let {
+            extendedTopbarBackgroundColor = it
         }
 
         (viewConfig["statusIconImage"] as? Int)?.let {
@@ -96,6 +101,13 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         title = cardPageTitle
     }
 
+    private fun setExtendedTopbarColorAndVisibility() {
+        extendedTopbarBackgroundView.setBackgroundColor(ContextCompat.getColor(this, extendedTopbarBackgroundColor))
+
+        // We are using it purely for Background. No need text and relevant constraints.
+        extendedTopbarTextView.visibility = View.GONE
+    }
+
     private fun applyButtonClickListener() {
         xfersFullWidthButton.setOnClickListener { buttonClick(it) }
     }
@@ -108,7 +120,7 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         cardActivityTextView.text = cardText
     }
 
-    private fun setCardImageIcon() {
+    private fun setCardImageIconAndColor() {
         cardActivityIconImageView.setImageResource(statusIconImage)
 
         statusIconImageColorFilter?.let {
