@@ -42,6 +42,10 @@ class ConnectPhoneViewModel : ViewModel() {
     }
 
     private fun onConnectPhoneSuccess(okMessage: OkMessage) {
+        // Example response expected:
+        // {
+        //   "msg": "success"
+        // }
         if (okMessage.msg == "success") {
             connectSuccess.value = true
         }

@@ -1,10 +1,12 @@
 package com.xfers.xfers_sdk.view.manage_banks.add_bank_account
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xfers.xfers_sdk.R
+import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_form_input.*
 
 class EnterNameActivity : AppCompatActivity() {
@@ -21,5 +23,11 @@ class EnterNameActivity : AppCompatActivity() {
         xfersFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
         xfersFormInputEditTextSubtitle.text = getString(R.string.add_bank_account_enter_name_edit_text_subtitle)
         xfersFormInputNotesTextView.visibility = View.GONE
+
+        xfersFullWidthButton.setOnClickListener {
+            // TODO: Pass in the name to the next activity
+
+            startActivity(Intent(this, EnterBankAccountNumberActivity::class.java))
+        }
     }
 }

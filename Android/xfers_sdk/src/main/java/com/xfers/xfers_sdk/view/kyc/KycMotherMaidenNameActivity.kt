@@ -25,6 +25,8 @@ class KycMotherMaidenNameActivity : AppCompatActivity() {
         xfersFormInputNotesTextView.visibility = View.GONE
 
         xfersFullWidthButton.setOnClickListener {
+            // TODO: Push mother's maiden name information to next activity
+
             startActivity(Intent(this, KycDocumentsConfirmationActivity::class.java))
         }
     }
