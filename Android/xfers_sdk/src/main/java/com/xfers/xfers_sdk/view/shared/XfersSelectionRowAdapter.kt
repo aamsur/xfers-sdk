@@ -1,7 +1,6 @@
 package com.xfers.xfers_sdk.view.shared
 
 import android.content.Context
-import android.content.Intent
 import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.xfers.xfers_sdk.R
-import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 
 class XfersSelectionRowAdapter(
         private val context: Context,
@@ -28,14 +26,22 @@ class XfersSelectionRowAdapter(
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val selectionRowItem = selectionRowItems[position]
+
         viewHolder.xfersSelectionRowImageView?.setImageResource(selectionRowItem.icon)
-        viewHolder.xfersSelectionRowImageView?.setColorFilter(ContextCompat.getColor(context, selectionRowItem.iconTint))
+
+        if (selectionRowItem.iconTint != null) {
+            viewHolder.xfersSelectionRowImageView?.setColorFilter(
+                    ContextCompat.getColor(context, selectionRowItem.iconTint)
+            )
+        } else {
+            viewHolder.xfersSelectionRowImageView?.clearColorFilter()
+        }
+
         viewHolder.xfersSelectionRowTextView?.text = selectionRowItem.copy
 
         selectionRowItem.onClick?.let {
             viewHolder.xfersSelectionRowTextView?.setOnClickListener(it)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,4 +49,4 @@ class XfersSelectionRowAdapter(
     }
 }
 
-data class SelectionRowItem(val icon: Int, val iconTint: Int, val copy: String, val onClick: ((View) -> Unit)? = null)
+data class SelectionRowItem(val icon: Int, val iconTint: Int? = null, val copy: String, val onClick: ((View) -> Unit)? = null)
