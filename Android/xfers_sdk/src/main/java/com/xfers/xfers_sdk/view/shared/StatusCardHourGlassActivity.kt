@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.TextView
 import com.xfers.xfers_sdk.R
 
-
 /**
  * Usage example:
  *   val i = Intent(context, StatusCardHourGlassActivity::class.java)

@@ -1,22 +1,18 @@
 package com.xfers.xfers_sdk.view.shared
 
-import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.gson.Gson
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
-
 
 /**
  * This class is meant to be subclassed.
