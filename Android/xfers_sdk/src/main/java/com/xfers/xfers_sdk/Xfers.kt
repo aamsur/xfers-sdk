@@ -2,15 +2,17 @@ package com.xfers.xfers_sdk
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
-import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
-import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
+import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
+import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
 import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.EnterNameActivity
-import com.xfers.xfers_sdk.view.withdraw.WithdrawToBankActivity
+import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -64,7 +66,7 @@ class Xfers(val context: Context) {
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, WithdrawToBankActivity::class.java))
+            context.startActivity(Intent(context, WithdrawalAmountActivity::class.java))
         }
 
         // Optional description, will appear in receipt
@@ -76,19 +78,44 @@ class Xfers(val context: Context) {
     }
 
     inner class UI {
+        private val comingSoonIntent: Intent = Intent(context, StatusCardBaseActivity::class.java)
+
+        init {
+            val cardText = buildSpannedString {
+                bold {
+                    append(context.getString(R.string.coming_soon_subtitle))
+                }
+                append("\n\n")
+                append(context.getString(R.string.coming_soon_copy))
+            }
+
+            comingSoonIntent.putExtra("statusCardConfig",
+                    hashMapOf(
+                            "cardPageTitle" to context.getString(R.string.coming_soon_title),
+                            "statusIconImage" to R.drawable.status_wip_60,
+                            "extendedTopbarBackgroundColor" to R.color.lightGray,
+                            "statusIconImage" to R.drawable.status_wip_60,
+                            "statusIconImageColorFilter" to R.color.lightGray,
+                            "showMerchantXfersLogos" to false,
+                            "cardText" to cardText,
+                            "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
+                    )
+            )
+        }
+
         fun startMenuActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(comingSoonIntent)
         }
 
         fun startSettingsActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(comingSoonIntent)
         }
 
         fun startTransactionsOverviewActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(comingSoonIntent)
         }
     }
 
