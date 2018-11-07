@@ -21,6 +21,7 @@
     <string name="confirm_button_copy">Confirm</string>
     <string name="submit_button_copy">Submit</string>
     <string name="return_to_merchant_copy">Return to %1$s</string>
+    <string name="got_it_button_copy">Got it</string>
 
     <!-- Connect flow -->
 
@@ -94,6 +95,8 @@
     <string name="kyc_merchant_email_input_field_title">Enter your email address</string>
     <string name="kyc_merchant_email_email_placeholder">alexia@example.com</string>
     <string name="kyc_merchant_email_subtitle">We will be contacting you via this email for the submission of your business documents.</string>
+
+    <string name="kyc_submit_successful_card_text">Your personal information has been submitted to our verification team. Please allow up to 7 working days for your account to be verified\n\nYou will receieve an email notification once the verification is completed.</string>
 
     <!-- Withdrawal flow -->
 

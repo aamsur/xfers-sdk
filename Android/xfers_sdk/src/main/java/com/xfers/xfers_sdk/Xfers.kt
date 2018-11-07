@@ -86,7 +86,7 @@ class Xfers(private val context: Context) {
 
         fun startSettingsActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            XfersStatusCardService(context).presentConnectLinkSuccessfulStatusCard()
+            XfersStatusCardService(context).presentKycSubmitSuccessfulStatusCard()
         }
 
         fun startTransactionsOverviewActivity() {

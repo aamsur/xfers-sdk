@@ -58,4 +58,27 @@ class XfersStatusCardService(private val context: Context) {
 
         context.startActivity(connectLinkSuccessfulIntent)
     }
+
+    fun presentKycSubmitSuccessfulStatusCard() {
+        val kycSubmitSuccessfulIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.kyc_submit_successful_card_text))
+        }
+
+        kycSubmitSuccessfulIntent.putExtra("statusCardConfig",
+                hashMapOf(
+                        "cardPageTitle" to context.getString(R.string.connect_identity_verification_title),
+                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
+                        "statusIconImage" to R.drawable.status_pending_50,
+                        "statusIconImageColorFilter" to R.color.pastelOrange,
+                        "showMerchantXfersLogos" to false,
+                        "cardText" to cardText,
+                        "buttonText" to context.getString(R.string.got_it_button_copy),
+                        "buttonClickReturnToMerchant" to true
+                )
+        )
+
+        context.startActivity(kycSubmitSuccessfulIntent)
+    }
 }
