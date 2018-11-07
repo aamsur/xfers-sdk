@@ -23,16 +23,39 @@ class XfersStatusCardService(private val context: Context) {
         comingSoonIntent.putExtra("statusCardConfig",
                 hashMapOf(
                         "cardPageTitle" to context.getString(R.string.coming_soon_title),
-                        "statusIconImage" to R.drawable.status_wip_60,
                         "extendedTopbarBackgroundColor" to R.color.lightGray,
                         "statusIconImage" to R.drawable.status_wip_60,
                         "statusIconImageColorFilter" to R.color.lightGray,
                         "showMerchantXfersLogos" to false,
                         "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
+                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        "buttonClickReturnToMerchant" to false
                 )
         )
 
         context.startActivity(comingSoonIntent)
+    }
+
+    fun presentConnectLinkSuccessfulStatusCard() {
+        val connectLinkSuccessfulIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.connect_link_successful_card_text, XfersConfiguration.getMerchantName()))
+        }
+
+        connectLinkSuccessfulIntent.putExtra("statusCardConfig",
+                hashMapOf(
+                        "cardPageTitle" to context.getString(R.string.connect_flow_title),
+                        "extendedTopbarBackgroundColor" to R.color.aquaMarine,
+                        "statusIconImage" to R.drawable.status_success_50,
+                        "statusIconImageColorFilter" to R.color.aquaMarine,
+                        "showMerchantXfersLogos" to true,
+                        "cardText" to cardText,
+                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        "buttonClickReturnToMerchant" to true
+                )
+        )
+
+        context.startActivity(connectLinkSuccessfulIntent)
     }
 }

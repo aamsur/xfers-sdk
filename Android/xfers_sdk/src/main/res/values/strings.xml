@@ -39,6 +39,8 @@
     <string name="connect_share_kyc_page_title_copy">%1$s would like to access your personal information from your Xfers account</string>
     <string name="connect_share_kyc_information_copy">Name\nBirthdate\nNationality\nLocation\nKTP\nProof of Address</string>
 
+    <string name="connect_link_successful_card_text">Your Xfers account has now been successfully linked to %1$s.</string>
+
     <!-- Topup flow -->
 
     <string name="topup_bank_selection_title">XFERS WALLET</string>

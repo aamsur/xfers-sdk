@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view.shared
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
@@ -44,7 +45,7 @@ open class StatusCardBaseActivity: AppCompatActivity() {
     private var cardText: CharSequence = "Sample Card Text"
 
     private var buttonText: CharSequence = "Sample Button Text"
-    private var buttonClick: (View) -> Unit = { finish() }
+    private var buttonClickReturnToMerchant = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,8 +102,8 @@ open class StatusCardBaseActivity: AppCompatActivity() {
             buttonText = it
         }
 
-        (viewConfig["buttonClick"] as? (View) -> Unit)?.let {
-            buttonClick = it
+        (viewConfig["buttonClickReturnToMerchant"] as? Boolean)?.let {
+            buttonClickReturnToMerchant = it
         }
     }
 
@@ -146,6 +147,10 @@ open class StatusCardBaseActivity: AppCompatActivity() {
     }
 
     private fun applyButtonClickListener() {
-        xfersFullWidthButton.setOnClickListener { buttonClick(it) }
+        if (buttonClickReturnToMerchant) {
+            xfersFullWidthButton.setOnClickListener { this.startActivity(Intent(this, XfersConfiguration.getMerchantFlowStartingContextClass())) }
+        } else {
+            xfersFullWidthButton.setOnClickListener { finish() }
+        }
     }
 }

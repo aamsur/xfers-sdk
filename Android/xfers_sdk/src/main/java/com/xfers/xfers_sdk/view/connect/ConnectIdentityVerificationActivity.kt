@@ -1,6 +1,5 @@
 package com.xfers.xfers_sdk.view.connect
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,7 +40,7 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.later_button_copy)
         xfersDoubleButtonsNegativeButton.setOnClickListener {
-            startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
+            XfersStatusCardService(this).presentConnectLinkSuccessfulStatusCard()
         }
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.proceed_button_copy)
