@@ -2,6 +2,7 @@
     <string name="app_name">Xfers SDK</string>
 
     <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="step">STEP 1</string>
     <string name="phone_number_lorem_ipsum">1234 567 890</string>
     <string name="number_ipsum">3000.00</string>
 
@@ -12,6 +13,7 @@
     <string name="proceed_button_copy">Proceed</string>
     <string name="cancel_button_copy">Cancel</string>
     <string name="confirm_button_copy">Confirm</string>
+    <string name="submit_button_copy">Submit</string>
 
     <string name="form_input_page_title_copy">Step %1$s</string>
 
@@ -30,20 +32,74 @@
     <string name="connect_mobile_phone_number_subtitle">We will text a one-time secure link to your mobile to proceed with a mobile verification</string>
     <string name="connect_share_kyc_page_title_copy">%1$s would like to access your personal information from your Xfers account</string>
     <string name="connect_share_kyc_information_copy">Name\nBirthdate\nNationality\nLocation\nKTP\nProof of Address</string>
-  
+
     <string name="topup_bank_selection_title">XFERS WALLET</string>
     <string name="topup_bank_selection_page_title">Top up using</string>
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
 
     <string name="add_bank_account_title">ADD BANK ACCOUNT</string>
+    <string name="enter_bank_account_number_title">Enter your bank account number</string>
+    <string name="reenter_bank_account_number_title">Re\-enter your bank account number</string>
+    <string name="enter_bank_account_number_hint">e.g. 0123456789</string>
+    <string name="enter_bank_account_number_subtitle">Please exclude dashes</string>
+    <string name="add_bank_account_confirmation_title">Confirm Details</string>
+    <string name="add_bank_account_confirmation_bank_name_to_copy">Bank Name</string>
+    <string name="add_bank_account_confirmation_bank_name_to_ipsum_copy">BCA Bank</string>
+    <string name="add_bank_account_confirmation_holder_name_id_copy">Name of Bank Account Holder</string>
+    <string name="add_bank_account_confirmation_holder_name_id_ipsum_copy">Chen Ming Yao Johnathan</string>
+    <string name="add_bank_account_confirmation_account_no_copy">Bank Account Number</string>
+    <string name="add_bank_account_confirmation_account_no_ipsum_copy">123456789</string>
     <string name="add_bank_account_enter_name_field_title">Enter your full name</string>
     <string name="add_bank_account_enter_name_edit_text_hint">e.g. Tan Yong Ming Alex</string>
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
-  
+
+    <string name="kyc_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_document_preparation_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_document_preparation_page_title_line_1">Please prepare the following</string>
+    <string name="kyc_document_preparation_page_title_line_2">documents</string>
+    <string name="kyc_document_preparation_step_1_title">STEP 1</string>
+    <string name="kyc_document_preparation_step_1_prompt">Submit KTP Photo</string>
+    <string name="kyc_document_preparation_step_2_title">STEP 2</string>
+    <string name="kyc_document_preparation_step_2_prompt">Submit a selfie holding your KTP</string>
+    <string name="kyc_document_preparation_step_3_title">STEP 3</string>
+    <string name="kyc_document_preparation_step_3_prompt">Enter your mother\'s maiden name</string>
+
     <string name="kyc_mother_maiden_name_title">IDENTITY VERIFICATION</string>
     <string name="kyc_mother_maiden_name_step_copy">Step 3</string>
     <string name="kyc_mother_maiden_name_page_title">Enter your mother\'s maiden name</string>
     <string name="kyc_mother_maiden_name_placeholder">e.g. Alice </string>
+
+    <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
+    <string name="kyc_documents_confirmation_ktp_copy">KTP document</string>
+    <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
+    <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
+
+    <string name="kyc_merchant_verification_title">MERCHANT VERIFICATION</string>
+    <string name="kyc_merchant_email_input_field_title">Enter your email address</string>
+    <string name="kyc_merchant_email_email_placeholder">alexia@example.com</string>
+    <string name="kyc_merchant_email_subtitle">We will be contacting you via this email for the submission of your business documents.</string>
+
+    <string name="withdrawal_title">MAKE WITHDRAWAL</string>
+    <string name="withdrawal_amount_input_text">RP</string>
+    <string name="withdrawal_amount_input_default_value">0.00</string>
+    <string name="withdrawal_amount_page_title">Enter withdrawal amount</string>
+    <string name="withdrawal_amount_balance">Current Balance: %1$s</string>
+    <string name="withdrawal_amount_notes">Return to %1$s per week without fees. Any amount exceeding %1$s in the week of Monday to Sunday will be subjected to a withdrawal fees of 1% and processed as two separate transactions. Learn more at %1$s</string>
+
+    <string name="withdrawal_bank_selection_page_title">Withdraw funds to</string>
+    <string name="withdrawal_bank_selection_edit_banks_copy">Edit bank accounts</string>
+
+    <string name="withdrawal_confirmation_page_title">Withdrawal details</string>
+    <string name="withdrawal_confirmation_withdraw_from_copy">Withdraw from</string>
+    <string name="withdrawal_confirmation_withdraw_from_ipsum">General Wallet</string>
+    <string name="withdrawal_confirmation_to_bank_account_copy">To bank account</string>
+    <string name="withdrawal_confirmation_to_bank_account_ipsum">BCA 1234567890</string>
+    <string name="withdrawal_confirmation_amount_copy">Amount</string>
+    <string name="withdrawal_confirmation_amount_ipsum">RP 20.0000</string>
+    <string name="withdrawal_confirmation_processing_type_copy">Processing type</string>
+    <string name="withdrawal_confirmation_processing_type_ipsum">Normal Processing (Free)</string>
+    <string name="withdrawal_cofnirmation_emphasis_title">Total Payment Amount</string>
+    <string name="withdrawal_confirmation_number_ipsum">Rp 20.000</string>
 
     <string name="coming_soon_title">HANG ON TIGHT</string>
     <string name="coming_soon_subtitle">Coming Soon!</string>
@@ -62,13 +118,6 @@
     <string name="payment_confirmation_number_ipsum">Rp 20.000</string>
     <string name="payment_confirmation_negative_button_copy">Cancel</string>
     <string name="payment_confirmation_positive_button_copy">Confirm</string>
-
-    <string name="withdrawal_confirmation_title">MAKE WITHDRAWAL</string>
-    <string name="withdrawal_confirmation_input_text">RP</string>
-    <string name="withdrawal_confirmation_input_default_value">0.00</string>
-    <string name="withdrawal_confirmation_page_title">Enter withdrawal amount</string>
-    <string name="withdrawal_confirmation_balance">Current Balance: %1$s</string>
-    <string name="withdrawal_confirmation_notes">Return to %1$s per week without fees. Any amount exceeding %1$s in the week of Monday to Sunday will be subjected to a withdrawal fees of 1% and processed as two separate transactions. Learn more at %1$s</string>
 
     <string name="return_to_merchant_copy">Return to %1$s</string>
 

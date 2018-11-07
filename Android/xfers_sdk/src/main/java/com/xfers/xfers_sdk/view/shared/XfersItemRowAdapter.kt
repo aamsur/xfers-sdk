@@ -36,4 +36,4 @@ class XfersItemRowAdapter(
     }
 }
 
-data class ItemRowItem(val icon: Int, val iconTint: Int, val copy: String)
+data class ItemRowItem(val icon: Int, val iconTint: Int, val copy: CharSequence)

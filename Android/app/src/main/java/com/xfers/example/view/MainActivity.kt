@@ -1,6 +1,5 @@
 package com.xfers.example.view
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
@@ -13,11 +12,11 @@ class MainActivity : AppCompatActivity() {
 
     // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
     // https://bright-sunshine-91728.herokuapp.com/
-    private val merchantApiBase = "<set_your_backend_api_base_here>"
+    private val merchantApiBase = "http://10.0.2.2:3000"
 
     // Put your name here, this is the name that we will use to refer to you in the SDK, for e.g.
     // Best Merchant
-    private val merchantName = "<set_your_name_here>"
+    private val merchantName = "Your Name"
 
     // Put your logo source here, this is the image that we will use to refer to you in the SDK, for e.g.
     // R.drawable.your_logo

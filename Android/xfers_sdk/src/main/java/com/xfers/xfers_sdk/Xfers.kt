@@ -5,16 +5,12 @@ import android.content.Intent
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.ComingSoonActivity
-import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
-
-import com.xfers.xfers_sdk.view.shared.StatusCardBase
 import com.xfers.xfers_sdk.view.shared.StatusCardHourGlassActivity
-
-import com.xfers.xfers_sdk.view.kyc.KycMotherMaidenNameActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
-import com.xfers.xfers_sdk.view.withdraw.WithdrawToBankActivity
-
+import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
+import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
+import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.EnterNameActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -64,17 +60,17 @@ class Xfers(val context: Context) {
 
         fun startKYCFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, KycMotherMaidenNameActivity::class.java))
+            context.startActivity(Intent(context, KycDocumentPreparationActivity::class.java))
         }
 
         fun startManageBanksFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ComingSoonActivity::class.java))
+            context.startActivity(Intent(context, EnterNameActivity::class.java))
         }
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, WithdrawToBankActivity::class.java))
+            context.startActivity(Intent(context, WithdrawalAmountActivity::class.java))
         }
 
         // Optional description, will appear in receipt
