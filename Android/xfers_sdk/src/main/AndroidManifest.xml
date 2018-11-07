@@ -10,7 +10,7 @@
     <application>
         <!-- Misc UI / flow -->
 
-        <activity android:name=".view.shared.ComingSoonActivity" />
+        <activity android:name=".view.shared.StatusCardBaseActivity" />
 
         <!-- Manage banks flow -->
 
@@ -62,9 +62,6 @@
         <activity
             android:name=".view.connect.ConnectOTPActivity"
             android:windowSoftInputMode="adjustResize" />
-
-        <activity android:name=".view.shared.StatusCardBase" />
-        <activity android:name=".view.shared.StatusCardHourGlassActivity"/>
 
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
         <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />

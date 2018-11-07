@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.shared.StatusCardBase"
-    >
-
+    android:background="@color/nearWhite"
+    tools:context=".view.shared.StatusCardBaseActivity">
 
     <include layout="@layout/xfers_extended_topbar"/>
+
     <include layout="@layout/xfers_card_activity"/>
 
-
-
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
