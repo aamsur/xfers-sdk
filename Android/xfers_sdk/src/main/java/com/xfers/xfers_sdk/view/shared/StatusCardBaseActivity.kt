@@ -10,6 +10,7 @@ import com.xfers.xfers_sdk.utils.XfersConfiguration
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_card_activity.*
 import kotlinx.android.synthetic.main.xfers_extended_topbar.*
+import kotlinx.android.synthetic.main.xfers_merchant_xfers_logos.*
 
 /**
  * Usage example:
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.xfers_extended_topbar.*
  *         "extendedTopbarBackgroundColor" to "",
  *         "statusIconImage" to "",
  *         "statusIconImageColorFilter" to "",
+ *         "showMerchantXfersLogos" to "",
  *         "cardText" to "",
  *         "buttonText" to "",
  *         "buttonClick" to ""
@@ -37,6 +39,8 @@ open class StatusCardBaseActivity: AppCompatActivity() {
     private var statusIconImage = R.drawable.status_wip_60
     private var statusIconImageColorFilter: Int? = null // Defaults to no tint
 
+    private var showMerchantXfersLogos = false
+
     private var cardText: CharSequence = "Sample Card Text"
 
     private var buttonText: CharSequence = "Sample Button Text"
@@ -53,6 +57,7 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         setCardPageTitle()
         setExtendedTopbarColorAndVisibility()
         setCardImageIconAndColor()
+        setMerchantXfersLogos()
         setStatusText()
         setButtonText()
         applyButtonClickListener()
@@ -84,6 +89,10 @@ open class StatusCardBaseActivity: AppCompatActivity() {
             statusIconImageColorFilter = it
         }
 
+        (viewConfig["showMerchantXfersLogos"] as? Boolean)?.let {
+            showMerchantXfersLogos = it
+        }
+
         (viewConfig["cardText"] as? CharSequence)?.let {
             cardText = it
         }
@@ -108,23 +117,35 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         extendedTopbarTextView.visibility = View.GONE
     }
 
-    private fun applyButtonClickListener() {
-        xfersFullWidthButton.setOnClickListener { buttonClick(it) }
-    }
-
-    private fun setButtonText() {
-        xfersFullWidthButton.text = buttonText
-    }
-
-    private fun setStatusText() {
-        cardActivityTextView.text = cardText
-    }
-
     private fun setCardImageIconAndColor() {
         cardActivityIconImageView.setImageResource(statusIconImage)
 
         statusIconImageColorFilter?.let {
             cardActivityIconImageView.setColorFilter(ContextCompat.getColor(this, it))
         }
+    }
+
+    private fun setMerchantXfersLogos() {
+        if (showMerchantXfersLogos) {
+            XfersConfiguration.getMerchantLogo()?.let {
+                merchantXfersLogoMerchantImageView.setImageResource(it)
+            }
+            merchantXfersLogoMerchantImageView.setColorFilter(ContextCompat.getColor(this, XfersConfiguration.getMerchantLogoTint()))
+        } else {
+            merchantXfersLogoMerchantImageView.visibility = View.GONE
+            merchantXfersLogoXfersImageView.visibility = View.GONE
+        }
+    }
+
+    private fun setStatusText() {
+        cardActivityTextView.text = cardText
+    }
+
+    private fun setButtonText() {
+        xfersFullWidthButton.text = buttonText
+    }
+
+    private fun applyButtonClickListener() {
+        xfersFullWidthButton.setOnClickListener { buttonClick(it) }
     }
 }

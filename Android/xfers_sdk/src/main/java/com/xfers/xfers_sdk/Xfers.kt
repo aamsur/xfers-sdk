@@ -93,7 +93,10 @@ class Xfers(val context: Context) {
                     hashMapOf(
                             "cardPageTitle" to context.getString(R.string.coming_soon_title),
                             "statusIconImage" to R.drawable.status_wip_60,
+                            "extendedTopbarBackgroundColor" to R.color.lightGray,
+                            "statusIconImage" to R.drawable.status_wip_60,
                             "statusIconImageColorFilter" to R.color.lightGray,
+                            "showMerchantXfersLogos" to false,
                             "cardText" to cardText,
                             "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName())
                     )
