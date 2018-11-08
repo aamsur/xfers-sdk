@@ -1,10 +1,10 @@
 package com.xfers.xfers_sdk.view.connect
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.utils.XfersStatusCardService
 import com.xfers.xfers_sdk.view.shared.ItemRowItem
 import com.xfers.xfers_sdk.view.shared.XfersItemRowAdapter
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
@@ -40,13 +40,13 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.later_button_copy)
         xfersDoubleButtonsNegativeButton.setOnClickListener {
-            startActivity(Intent(this, ConnectLinkSuccessfulActivity::class.java))
+            XfersStatusCardService(this).presentConnectLinkSuccessfulStatusCard()
         }
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.proceed_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            // TODO: Present KYC flow, said page not built yet, for now just finish()
-            finish()
+            // TODO: Present KYC flow, said page not built yet, for now just present coming soon
+            XfersStatusCardService(this).presentComingSoonStatusCard()
         }
     }
 }
