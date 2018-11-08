@@ -26,6 +26,8 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".view.manage_banks.add_bank_account.AddBankAccountConfirmationActivity" />
 
+        <activity android:name=".view.manage_banks.delete_bank_account.DeleteBankAccountConfirmationActivity" />
+
         <!-- Topup flow -->
 
         <activity android:name=".view.topup.TopupBankSelectionActivity" />

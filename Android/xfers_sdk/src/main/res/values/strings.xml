@@ -9,9 +9,12 @@
     <string name="lorem_ipsum">Lorem ipsum</string>
     <string name="phone_number_lorem_ipsum">1234 567 890</string>
     <string name="number_ipsum">3000.00</string>
+    <string name="bank_xxx_ipsum">DBS-XXXXXX-3</string>
 
     <!-- Button copies -->
 
+    <string name="delete_button_copy">Delete</string>
+    <string name="go_back_button_copy">Go Back</string>
     <string name="next_button_copy">Next</string>
     <string name="later_button_copy">Later</string>
     <string name="not_accept_button_copy">I Do Not Accept</string>
@@ -46,6 +49,10 @@
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
 
     <!-- Manage banks flow -->
+
+    <string name="delete_bank_account_title">Bank accounts</string>
+    <string name="delete_bank_account_delete_bank_copy">Delete bank account</string>
+    <string name="delete_bank_account_no_reversal_copy">This action cannot be reversed.</string>
 
     <string name="add_bank_account_title">ADD BANK ACCOUNT</string>
     <string name="enter_bank_account_number_title">Enter your bank account number</string>
