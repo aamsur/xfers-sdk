@@ -8,8 +8,8 @@ import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
+import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
-import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.SelectBankActivity
 import java.math.BigInteger
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
@@ -57,7 +57,7 @@ class Xfers(private val context: Context) {
 
         fun startManageBanksFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, SelectBankActivity::class.java))
+            context.startActivity(Intent(context, ManageBankAccountsActivity::class.java))
         }
 
         fun startWithdrawalFlow() {

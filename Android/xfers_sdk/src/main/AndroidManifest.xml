@@ -15,8 +15,11 @@
         <!-- Manage banks flow -->
 
         <activity
-            android:name=".view.manage_banks.add_bank_account.SelectBankActivity"
-            android:windowSoftInputMode="adjustPan"/>
+            android:name=".view.manage_banks.ManageBankAccountsActivity" />
+
+        <activity
+            android:name=".view.manage_banks.add_bank_account.SelectBankToAddActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.manage_banks.add_bank_account.EnterNameActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -25,6 +28,8 @@
         <activity android:name=".view.manage_banks.add_bank_account.ReEnterBankAccountNumberActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".view.manage_banks.add_bank_account.AddBankAccountConfirmationActivity" />
+
+        <activity android:name=".view.manage_banks.delete_bank_account.DeleteBankAccountConfirmationActivity" />
 
         <!-- Topup flow -->
 
