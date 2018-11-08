@@ -8,6 +8,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.text.color
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
+import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivityConstants
 
 class XfersStatusCardService(private val context: Context) {
 
@@ -22,16 +23,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.coming_soon_copy))
         }
 
-        comingSoonIntent.putExtra("statusCardConfig",
+        comingSoonIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.coming_soon_title),
-                        "extendedTopbarBackgroundColor" to R.color.lightGray,
-                        "statusIconImage" to R.drawable.status_wip_60,
-                        "statusIconImageColorFilter" to R.color.lightGray,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        "buttonClickReturnToMerchant" to false
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.coming_soon_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.lightGray,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_wip_60,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.lightGray,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to false
                 )
         )
 
@@ -45,16 +46,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.connect_link_successful_card_text, XfersConfiguration.getMerchantName()))
         }
 
-        connectLinkSuccessfulIntent.putExtra("statusCardConfig",
+        connectLinkSuccessfulIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.connect_flow_title),
-                        "extendedTopbarBackgroundColor" to R.color.aquaMarine,
-                        "statusIconImage" to R.drawable.status_success_50,
-                        "statusIconImageColorFilter" to R.color.aquaMarine,
-                        "showMerchantXfersLogos" to true,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.connect_flow_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_success_50,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to true,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -68,16 +69,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.kyc_submit_successful_card_text))
         }
 
-        kycSubmitSuccessfulIntent.putExtra("statusCardConfig",
+        kycSubmitSuccessfulIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.connect_identity_verification_title),
-                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
-                        "statusIconImage" to R.drawable.status_pending_50,
-                        "statusIconImageColorFilter" to R.color.pastelOrange,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.got_it_button_copy),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.connect_identity_verification_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_pending_50,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.got_it_button_copy),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -91,16 +92,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.add_bank_account_successful_card_text))
         }
 
-        addBankAccountSuccessfulIntent.putExtra("statusCardConfig",
+        addBankAccountSuccessfulIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.add_bank_account_title),
-                        "extendedTopbarBackgroundColor" to R.color.aquaMarine,
-                        "statusIconImage" to R.drawable.status_success_50,
-                        "statusIconImageColorFilter" to R.color.aquaMarine,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.okay_button_copy),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.add_bank_account_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_success_50,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.okay_button_copy),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -114,16 +115,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.add_bank_account_failure_card_text))
         }
 
-        addBankAccountFailureIntent.putExtra("statusCardConfig",
+        addBankAccountFailureIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.add_bank_account_title),
-                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
-                        "statusIconImage" to R.drawable.status_alert_60,
-                        "statusIconImageColorFilter" to R.color.pastelOrange,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.try_again_button_copy),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.add_bank_account_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_alert_60,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.try_again_button_copy),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -149,16 +150,16 @@ class XfersStatusCardService(private val context: Context) {
             }
         }
 
-        paymentCompletedIntent.putExtra("statusCardConfig",
+        paymentCompletedIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.payment_confirmation_title),
-                        "extendedTopbarBackgroundColor" to R.color.aquaMarine,
-                        "statusIconImage" to R.drawable.status_success_50,
-                        "statusIconImageColorFilter" to R.color.aquaMarine,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.payment_confirmation_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_success_50,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -172,16 +173,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.topup_transfer_funds_processing_card_text))
         }
 
-        topupProcessingIntent.putExtra("statusCardConfig",
+        topupProcessingIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.topup_transfer_funds_title),
-                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
-                        "statusIconImage" to R.drawable.status_pending_50,
-                        "statusIconImageColorFilter" to R.color.pastelOrange,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.topup_transfer_funds_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_pending_50,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -201,16 +202,16 @@ class XfersStatusCardService(private val context: Context) {
             append(context.getString(R.string.add_bank_account_rejection_card_text_part_2, "[reason]"))
         }
 
-        addBankAccountRejectionIntent.putExtra("statusCardConfig",
+        addBankAccountRejectionIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.topup_transfer_funds_title),
-                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
-                        "statusIconImage" to R.drawable.status_alert_60,
-                        "statusIconImageColorFilter" to R.color.pastelOrange,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.topup_transfer_funds_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_alert_60,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 
@@ -236,16 +237,16 @@ class XfersStatusCardService(private val context: Context) {
             }
         }
 
-        withdrawalProcessingIntent.putExtra("statusCardConfig",
+        withdrawalProcessingIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
                 hashMapOf(
-                        "cardPageTitle" to context.getString(R.string.withdrawal_title),
-                        "extendedTopbarBackgroundColor" to R.color.aquaMarine,
-                        "statusIconImage" to R.drawable.status_success_50,
-                        "statusIconImageColorFilter" to R.color.aquaMarine,
-                        "showMerchantXfersLogos" to false,
-                        "cardText" to cardText,
-                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        "buttonClickReturnToMerchant" to true
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.withdrawal_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_success_50,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.aquaMarine,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
                 )
         )
 

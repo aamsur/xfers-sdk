@@ -72,37 +72,37 @@ open class StatusCardBaseActivity: AppCompatActivity() {
     }
 
     private fun initViewConfig() {
-        val viewConfig = intent.getSerializableExtra("statusCardConfig") as HashMap<*, *>
+        val viewConfig = intent.getSerializableExtra(StatusCardBaseActivityConstants.statusCardConfig) as HashMap<*, *>
 
-        (viewConfig["cardPageTitle"] as? String)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.cardPageTitle] as? String)?.let {
             cardPageTitle = it
         }
 
-        (viewConfig["extendedTopbarBackgroundColor"] as? Int)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.extendedTopbarBackgroundColor] as? Int)?.let {
             extendedTopbarBackgroundColor = it
         }
 
-        (viewConfig["statusIconImage"] as? Int)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.statusIconImage] as? Int)?.let {
             statusIconImage = it
         }
 
-        (viewConfig["statusIconImageColorFilter"] as? Int)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.statusIconImageColorFilter] as? Int)?.let {
             statusIconImageColorFilter = it
         }
 
-        (viewConfig["showMerchantXfersLogos"] as? Boolean)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.showMerchantXfersLogos] as? Boolean)?.let {
             showMerchantXfersLogos = it
         }
 
-        (viewConfig["cardText"] as? CharSequence)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.cardText] as? CharSequence)?.let {
             cardText = it
         }
 
-        (viewConfig["buttonText"] as? CharSequence)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.buttonText] as? CharSequence)?.let {
             buttonText = it
         }
 
-        (viewConfig["buttonClickReturnToMerchant"] as? Boolean)?.let {
+        (viewConfig[StatusCardBaseActivityConstants.buttonClickReturnToMerchant] as? Boolean)?.let {
             buttonClickReturnToMerchant = it
         }
     }
@@ -153,4 +153,16 @@ open class StatusCardBaseActivity: AppCompatActivity() {
             xfersFullWidthButton.setOnClickListener { finish() }
         }
     }
+}
+
+object StatusCardBaseActivityConstants {
+    const val statusCardConfig = "statusCardConfig"
+    const val cardPageTitle = "cardPageTitle"
+    const val extendedTopbarBackgroundColor = "extendedTopbarBackgroundColor"
+    const val statusIconImage = "statusIconImage"
+    const val statusIconImageColorFilter = "statusIconImageColorFilter"
+    const val showMerchantXfersLogos = "showMerchantXfersLogos"
+    const val cardText = "cardText"
+    const val buttonText = "buttonText"
+    const val buttonClickReturnToMerchant = "buttonClickReturnToMerchant"
 }
