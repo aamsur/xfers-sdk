@@ -20,6 +20,8 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
 
         title = getString(R.string.withdrawal_title)
 
+        // TODO: Integrate with extras information coming from chain of parent activities
+
         withdrawalConfirmationTitleTextView.text = getString(R.string.withdrawal_confirmation_page_title)
 
         val textRowItems = listOf(
@@ -53,6 +55,7 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
             finish()
         }
 
+        // TODO: Integrate with viewModel and API to fire to our withdrawal API
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
             XfersStatusCardService(this).presentWithdrawalProcessingStatusCard()

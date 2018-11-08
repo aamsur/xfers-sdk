@@ -43,12 +43,11 @@ class WithdrawalAmountActivity : AppCompatActivity() {
             append(getString(withdrawal_amount_notes))
         }
 
-
         xfersFormInputNotesTextView.text = footnote
 
         xfersFullWidthButton.setOnClickListener {
+            // TODO: Pass withdrawal amount into bank selection activity through intent extras
             startActivity(Intent(this, WithdrawalBankSelectionActivity::class.java))
         }
     }
-
 }
