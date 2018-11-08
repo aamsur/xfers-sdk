@@ -17,6 +17,8 @@ Complete backend setup for Xfers Registration Flow, Your backend needs to be abl
 - Retrieve user's phone number and pass it to Xfers to start registration
 - Retrieve OTP inputted by user and send to Xfers to validate
 
+If you haven't setup the backend requirement to use Xfers frontend SDK, please click [here to check out the guide.](https://github.com/Xfers/xfers-sdk/wiki/Backend-requirements-for-SDK) 
+
 #### SDK - Android
 Please refer to our Android SDK Getting Started Guide here by going to [Android folder](./Android).
 
