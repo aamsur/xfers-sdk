@@ -149,6 +149,11 @@
     <string name="payment_confirmation_negative_button_copy">Cancel</string>
     <string name="payment_confirmation_positive_button_copy">Confirm</string>
 
+    <string name="payment_completed_card_text">Your payment has been completed.</string>
+    <string name="payment_completed_card_subtitle">XFERS WALLET BALANCE</string>
+    <string name="payment_completed_card_amount">Payment Amount: %1$s</string>
+    <string name="payment_completed_card_balance">New Balance: %1$s</string>
+
     <!-- Status cards -->
 
     <string name="status_card_base_title">Information</string>

@@ -2,8 +2,6 @@ package com.xfers.xfers_sdk
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.text.bold
-import androidx.core.text.buildSpannedString
 import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.utils.XfersStatusCardService
@@ -13,7 +11,6 @@ import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
 import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.SelectBankActivity
-import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
 import java.io.BufferedInputStream
 import java.math.BigInteger
 
@@ -86,7 +83,7 @@ class Xfers(private val context: Context) {
 
         fun startSettingsActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            XfersStatusCardService(context).presentAddBankAccountFailureStatusCard()
+            XfersStatusCardService(context).presentPaymentCompletedStatusCard()
         }
 
         fun startTransactionsOverviewActivity() {

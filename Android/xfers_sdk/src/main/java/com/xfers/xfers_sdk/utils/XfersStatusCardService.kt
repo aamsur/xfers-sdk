@@ -2,8 +2,10 @@ package com.xfers.xfers_sdk.utils
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
+import androidx.core.text.color
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
 
@@ -126,5 +128,40 @@ class XfersStatusCardService(private val context: Context) {
         )
 
         context.startActivity(addBankAccountFailureIntent)
+    }
+
+    fun presentPaymentCompletedStatusCard() {
+        val paymentCompletedIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.payment_completed_card_text))
+            append("\n\n\n\n")
+            color(ContextCompat.getColor(context, R.color.clearBlue)) {
+                append(context.getString(R.string.payment_completed_card_subtitle))
+            }
+            append("\n\n")
+            bold {
+                append(context.getString(R.string.payment_completed_card_amount, "Rp 20.000"))
+            }
+            append("\n\n")
+            bold {
+                append(context.getString(R.string.payment_completed_card_balance, "Rp 90.000"))
+            }
+        }
+
+        paymentCompletedIntent.putExtra("statusCardConfig",
+                hashMapOf(
+                        "cardPageTitle" to context.getString(R.string.payment_confirmation_title),
+                        "extendedTopbarBackgroundColor" to R.color.aquaMarine,
+                        "statusIconImage" to R.drawable.status_success_50,
+                        "statusIconImageColorFilter" to R.color.aquaMarine,
+                        "showMerchantXfersLogos" to false,
+                        "cardText" to cardText,
+                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        "buttonClickReturnToMerchant" to true
+                )
+        )
+
+        context.startActivity(paymentCompletedIntent)
     }
 }
