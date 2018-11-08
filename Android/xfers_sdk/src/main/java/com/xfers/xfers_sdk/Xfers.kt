@@ -83,7 +83,7 @@ class Xfers(private val context: Context) {
 
         fun startSettingsActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            XfersStatusCardService(context).presentTopupProcessingStatusCard()
+            XfersStatusCardService(context).presentAddBankAccountRejectionStatusCard()
         }
 
         fun startTransactionsOverviewActivity() {

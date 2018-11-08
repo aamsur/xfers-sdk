@@ -187,4 +187,33 @@ class XfersStatusCardService(private val context: Context) {
 
         context.startActivity(topupProcessingIntent)
     }
+
+    fun presentAddBankAccountRejectionStatusCard() {
+        val addBankAccountRejectionIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.add_bank_account_rejection_card_text_part_1))
+            append("\n")
+            bold {
+                append(context.getString(R.string.bank_ipsum))
+            }
+            append("\n")
+            append(context.getString(R.string.add_bank_account_rejection_card_text_part_2, "[reason]"))
+        }
+
+        addBankAccountRejectionIntent.putExtra("statusCardConfig",
+                hashMapOf(
+                        "cardPageTitle" to context.getString(R.string.topup_transfer_funds_title),
+                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
+                        "statusIconImage" to R.drawable.status_alert_60,
+                        "statusIconImageColorFilter" to R.color.pastelOrange,
+                        "showMerchantXfersLogos" to false,
+                        "cardText" to cardText,
+                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        "buttonClickReturnToMerchant" to true
+                )
+        )
+
+        context.startActivity(addBankAccountRejectionIntent)
+    }
 }

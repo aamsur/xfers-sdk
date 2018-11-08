@@ -9,6 +9,7 @@
     <string name="lorem_ipsum">Lorem ipsum</string>
     <string name="phone_number_lorem_ipsum">1234 567 890</string>
     <string name="number_ipsum">3000.00</string>
+    <string name="bank_ipsum">DBS 123-456789-0</string>
 
     <!-- Button copies -->
 
@@ -76,6 +77,8 @@
 
     <string name="add_bank_account_successful_card_text">Your bank account has been added.</string>
     <string name="add_bank_account_failure_card_text">We failed to verify your bank account because there has been a name mismatch.\n\nPlease ensure you have provided the correct bank details.</string>
+    <string name="add_bank_account_rejection_card_text_part_1">We failed to verify the following bank account</string>
+    <string name="add_bank_account_rejection_card_text_part_2">because %1$s.\n\n If you would like to use this account, please return to add the bank account again with the correct details and documents.</string>
 
     <!-- KYC flow -->
 
