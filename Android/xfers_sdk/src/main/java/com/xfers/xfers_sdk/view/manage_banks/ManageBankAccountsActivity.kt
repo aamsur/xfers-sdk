@@ -3,6 +3,7 @@ package com.xfers.xfers_sdk.view.manage_banks
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.model.UserBankAccount
 import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.SelectBankToAddActivity
+import com.xfers.xfers_sdk.view.manage_banks.delete_bank_account.DeleteBankAccountConfirmationActivity
 import com.xfers.xfers_sdk.view.shared.SelectionRowItem
 import com.xfers.xfers_sdk.view.shared.XfersSelectionRowAdapter
 import com.xfers.xfers_sdk.view_model.UserBankAccountsViewModel
@@ -34,10 +36,19 @@ class ManageBankAccountsActivity: AppCompatActivity() {
             val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
             model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
                 val selectionRowItems = it.map {
-                    // TODO: When click on individual bank account, go into specific bank account page
                     SelectionRowItem(
                             R.drawable.bank_acc_28, R.color.black,
-                            "${it.bankAbbreviation} ${it.bankAccountNumber}"
+                            "${it.bankAbbreviation} ${it.bankAccountNumber}",
+                            onClick = {
+                                // TODO: When click on individual bank account, go into specific bank account page
+                                Toast.makeText(this, "Coming soon yo", Toast.LENGTH_SHORT).show()
+                            },
+                            rightIcon = R.drawable.trash_23,
+                            rightIconTint = R.color.negativeRed,
+                            rightIconOnClick = {
+                                // TODO: Pass in the account to be deleted through intent extras
+                                startActivity(Intent(this, DeleteBankAccountConfirmationActivity::class.java))
+                            }
                     )
                 }
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.xfers.xfers_sdk.R
 
@@ -16,8 +17,10 @@ class XfersSelectionRowAdapter(
 ) : RecyclerView.Adapter<XfersSelectionRowAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var xfersSelectionRowContainerCardView: CardView? = view.findViewById(R.id.xfersSelectionRowContainerCardView)
         var xfersSelectionRowImageView: ImageView? = view.findViewById(R.id.xfersSelectionRowImageView)
         var xfersSelectionRowTextView: TextView? = view.findViewById(R.id.xfersSelectionRowTextView)
+        var xfersSelectionRowRightImageView: ImageView? = view.findViewById(R.id.xfersSelectionRowRightImageView)
     }
 
     override fun getItemCount(): Int {
@@ -40,7 +43,25 @@ class XfersSelectionRowAdapter(
         viewHolder.xfersSelectionRowTextView?.text = selectionRowItem.copy
 
         selectionRowItem.onClick?.let {
-            viewHolder.xfersSelectionRowTextView?.setOnClickListener(it)
+            viewHolder.xfersSelectionRowContainerCardView?.setOnClickListener(it)
+        }
+
+        if (selectionRowItem.rightIcon != null) {
+            viewHolder.xfersSelectionRowRightImageView?.setImageResource(selectionRowItem.rightIcon)
+        } else {
+            viewHolder.xfersSelectionRowRightImageView?.visibility = View.GONE
+        }
+
+        if (selectionRowItem.rightIconTint != null) {
+            viewHolder.xfersSelectionRowRightImageView?.setColorFilter(
+                    ContextCompat.getColor(context, selectionRowItem.rightIconTint)
+            )
+        } else {
+            viewHolder.xfersSelectionRowRightImageView?.clearColorFilter()
+        }
+
+        selectionRowItem.rightIconOnClick?.let {
+            viewHolder.xfersSelectionRowRightImageView?.setOnClickListener(it)
         }
     }
 
@@ -49,4 +70,9 @@ class XfersSelectionRowAdapter(
     }
 }
 
-data class SelectionRowItem(val icon: Int, val iconTint: Int? = null, val copy: String, val onClick: ((View) -> Unit)? = null)
+data class SelectionRowItem(
+        val icon: Int, val iconTint: Int? = null, val copy: String,
+        val onClick: ((View) -> Unit)? = null,
+        val rightIcon: Int? = null, val rightIconTint: Int? = null,
+        val rightIconOnClick: ((View) -> Unit)? = null
+)
