@@ -29,16 +29,17 @@ function SelectionButton({ title, subtitle, image, disabled, onClick }) {
   }
 
   const selectionButtonClass = cx({
+    [cls.disabled]: disabled,
     [cls.clickable]: onClick ? true : false,
   }, cls.selectionButton)
-  
+
   return (
     <View customClass={selectionButtonClass} onClick={handleClick}>
       <TwoColsRowBar
         customClass={cls.custom}
         noBottomMargin
         leftColProps={{
-          size: { sm: 4, md: 3 },
+          size: { sm: 2 },
           content: <img className={cls.image} src={image} />
         }}
         rightColProps={{

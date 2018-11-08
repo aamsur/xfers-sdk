@@ -13,13 +13,20 @@ import {
   submitNewBankAccountDetails,
   deleteBankAccount
 } from 'ManageBankFlow/actions'
-import { getFilteredBankOptions, getSelectedBankDetails } from 'ManageBankFlow/selectors'
+import { getFilteredBankOptions, getSelectedBankDetails, sortUserBanksOnVerification } from 'ManageBankFlow/selectors'
 
 function mapStateToProps({manageBankFlow}, props) {
   const filteredBankOptions = getFilteredBankOptions(manageBankFlow);
   const selectedBankDetails = getSelectedBankDetails(manageBankFlow);
+  const { verifiedBanks, nonVerifiedBanks } = sortUserBanksOnVerification(manageBankFlow);
 
-  return { ...manageBankFlow, filteredBankOptions, selectedBankDetails };
+  return {
+    ...manageBankFlow,
+    filteredBankOptions,
+    selectedBankDetails,
+    verifiedBanks,
+    nonVerifiedBanks
+  };
 }
 
 function mapDispatchToProps(dispatch) {

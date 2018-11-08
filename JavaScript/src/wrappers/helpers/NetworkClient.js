@@ -55,7 +55,7 @@ export default class Xfers {
   }
 
   deleteBankAccount(bankId) {
-    return this.apid.send('DELETE', 'user/bank_account/' + bankId);
+    return this.api.send('DELETE', 'user/bank_account/' + bankId);
   }
 
   // const baseUrl = '/api/v3/user/';

@@ -16,6 +16,11 @@
       background-color: $xfers_grey;
     }
   }
+
+  &.disabled {
+    background-color: $xfers_default_color;
+    color: #fff;
+  }
 }
 
 .selectionButton + .selectionButton {

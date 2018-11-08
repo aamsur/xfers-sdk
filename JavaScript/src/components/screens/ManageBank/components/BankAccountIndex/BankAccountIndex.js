@@ -17,7 +17,7 @@ import documentIcon from 'icons/Document_50.png'
 
 export default class BankAccountIndex extends Component {
   render() {
-    const { userBanks, navigate, closeModal, isIndo, params, selectBankForAction } = this.props;
+    const { userBanks, verifiedBanks, nonVerifiedBanks, navigate, closeModal, isIndo, params, selectBankForAction } = this.props;
     const userBankExist = userBanks.length ? true : false;
 
     const navigateToDeleteConfirmation = (bankId) => {
@@ -35,7 +35,7 @@ export default class BankAccountIndex extends Component {
 
         { userBankExist &&
           <View spBody paddingTop="40px">
-            { userBanks.map((bank, index) =>
+            { verifiedBanks.map((bank, index) =>
               <SelectionButton
                 key={index}
                 image={bankIcon}
@@ -53,6 +53,33 @@ export default class BankAccountIndex extends Component {
                         onClick={() => navigateToDeleteConfirmation(bank.id)}
                       />
                     </View>
+                  </View>
+                )}
+                />
+            )}
+            { nonVerifiedBanks.map((bank, index) =>
+              <SelectionButton
+                disabled
+                key={index}
+                image={bankIcon}
+                title={(
+                  <View>
+                    <View float="left">
+                      {`${bank.bank_abbrev} - ${bank.account_no} (${bank.verification_status.charAt(0).toUpperCase()}${bank.verification_status.substr(1)})`}
+                    </View>
+                    { bank.verification_status === "rejected" &&
+                      <View float="right">
+                        <img
+                          src={trashIcon}
+                          style={{
+                            maxHeight: "100%",
+                            maxWidth: "25px",
+                            cursor: 'pointer',
+                          }}
+                          onClick={() => navigateToDeleteConfirmation(bank.id)}
+                        />
+                      </View>
+                    }
                   </View>
                 )}
                 />

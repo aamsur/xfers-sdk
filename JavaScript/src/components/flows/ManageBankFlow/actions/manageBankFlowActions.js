@@ -63,7 +63,7 @@ export const deleteBankAccount = (bankId, successCallback) => (dispatch, getStat
   const { networkClient: xfersApi } = getState().manageBankFlow;
 
   xfersApi.deleteBankAccount(bankId).then(res => {
-    dispatch({ type: DELETE_BANK_ACCOUNT_RESPONSE, res: res })
+    dispatch({ type: DELETE_BANK_ACCOUNT_RESPONSE, res: res.data })
     if (successCallback) successCallback();
   })
 }

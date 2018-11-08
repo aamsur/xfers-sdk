@@ -1,4 +1,5 @@
 export {
   getFilteredBankOptions,
-  getSelectedBankDetails
+  getSelectedBankDetails,
+  sortUserBanksOnVerification
 } from './manageBankSelectors'
