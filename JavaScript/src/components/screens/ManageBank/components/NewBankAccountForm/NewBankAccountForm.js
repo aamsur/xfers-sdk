@@ -17,16 +17,31 @@ export default class NewBankAccountForm extends Component {
   }
 
   render() {
-    const { navigate } = this.props;
-    return (
-      <Stepper>
-        <BankTypeList goBack={() => navigate("index")} {...this.props} />
-        <BankAccountName {...this.props} />
-        <BankAccountNumber {...this.props} />
-        <BankAccountNumberRepeat {...this.props} />
-        <AddBankAccountConfirmation {...this.props} />
-        <AddBankAccountStatus {...this.props} />
-      </Stepper>
-    )
+    const { navigate, isIndo } = this.props;
+
+    if (isIndo) {
+      return (
+        <Stepper>
+          <BankTypeList goBack={() => navigate("index")} {...this.props} />
+          <BankAccountName {...this.props} />
+          <BankAccountNumber {...this.props} />
+          <BankAccountNumberRepeat {...this.props} />
+          <AddBankAccountConfirmation {...this.props} />
+          <AddBankAccountStatus {...this.props} />
+        </Stepper>
+      )
+    } else {
+      return (
+        <Stepper>
+          <BankTypeList goBack={() => navigate("index")} {...this.props} />
+          <BankAccountName {...this.props} />
+          <BankAccountNumber {...this.props} />
+          <BankAccountNumberRepeat {...this.props} />
+          <BankStatement {...this.props} />
+          <AddBankAccountConfirmation {...this.props} />
+          <AddBankAccountStatus {...this.props} />
+        </Stepper>
+      )
+    }
   }
 }

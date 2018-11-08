@@ -6,16 +6,20 @@ import ManageBank from 'ManageBank'
 import {
   navigate,
   initializeComponent,
+  selectBankForAction,
   updateBankAccountDetails,
   updateSearchFilter,
   initNewBankAccount,
-  submitNewBankAccountDetails
+  submitNewBankAccountDetails,
+  deleteBankAccount
 } from 'ManageBankFlow/actions'
-import { getFilteredBankOptions } from 'ManageBankFlow/selectors'
+import { getFilteredBankOptions, getSelectedBankDetails } from 'ManageBankFlow/selectors'
 
 function mapStateToProps({manageBankFlow}, props) {
   const filteredBankOptions = getFilteredBankOptions(manageBankFlow);
-  return { ...manageBankFlow, filteredBankOptions };
+  const selectedBankDetails = getSelectedBankDetails(manageBankFlow);
+
+  return { ...manageBankFlow, filteredBankOptions, selectedBankDetails };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -26,11 +30,15 @@ function mapDispatchToProps(dispatch) {
 
     initNewBankAccount: () => dispatch(initNewBankAccount()),
 
+    selectBankForAction: (bankId) => dispatch(selectBankForAction(bankId)),
+
     updateForm: (k, v) => dispatch(updateBankAccountDetails(k, v)),
 
     updateSearchFilter: (v) => dispatch(updateSearchFilter(v)),
 
-    submit: (successCallback) => dispatch(submitNewBankAccountDetails(successCallback))
+    submit: (successCallback) => dispatch(submitNewBankAccountDetails(successCallback)),
+
+    deleteBank: (bankId, successCallback) => dispatch(deleteBankAccount(bankId, successCallback)),
   }
 }
 

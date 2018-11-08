@@ -5,6 +5,7 @@ import {
   UPDATE_TOP_UP_DETAILS,
   SUBMIT_TOP_UP_REQUEST_RESPONSE,
   ADD_USER_BANK,
+  SELECT_BANK_FOR_ACTION
 } from 'TopUpFlow/actions/constants'
 
 
@@ -31,6 +32,9 @@ const ACTION_HANDLERS = {
     let newList = state.userBanks.slice();
     newList.push(bank);
     return { ...state, userBanks: newList }
+  },
+  [SELECT_BANK_FOR_ACTION]: (state, {bankId}) => {
+    return { ...state, selectedBankId: bankId }
   }
 }
 

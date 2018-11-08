@@ -8,10 +8,13 @@
   font-size: 14px;
   margin: auto;
   line-height: 20px;
-  cursor: pointer;
 
-  &:hover {
-    background-color: $xfers_grey;
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $xfers_grey;
+    }
   }
 }
 

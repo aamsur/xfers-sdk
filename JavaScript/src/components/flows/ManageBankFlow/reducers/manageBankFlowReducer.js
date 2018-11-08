@@ -5,7 +5,9 @@ import {
   INIT_NEW_BANK_ACCOUNT,
   UPDATE_BANK_ACCOUNT_DETAILS,
   UPDATE_SEARCH_FILTER,
-  SUBMIT_NEW_BANK_ACCOUNT_RESPONSE
+  SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
+  DELETE_BANK_ACCOUNT_RESPONSE,
+  SELECT_BANK_FOR_ACTION
 } from 'ManageBankFlow/actions/constants'
 
 // ------------------------------------
@@ -43,7 +45,12 @@ const ACTION_HANDLERS = {
       return { ...state, dataLoading: false, userBanks: newList }
     }
   },
-
+  [DELETE_BANK_ACCOUNT_RESPONSE]: (state, {res}) => {
+    return { ...state, dataLoading: false, userBanks: res}
+  },
+  [SELECT_BANK_FOR_ACTION]: (state, {bankId}) => {
+    return { ...state, selectedBankId: bankId }
+  }
 }
 
 // ------------------------------------

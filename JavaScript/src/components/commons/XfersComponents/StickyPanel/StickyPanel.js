@@ -12,16 +12,16 @@ import { Panel, View, FlexContainer, FlexItem } from 'XfersComponents'
 // OR pass in boolean value true to the props "spHeader", "spBody", & "spFooter" respectively
 // to indicate respective elements in the children[array].
 
-function StickyPanel({ showBrand, ...elements }) {
+function StickyPanel({ showBrand, blueBg, ...elements }) {
   const { header, children, footer } = processElements(elements);
   return (
-    <Panel customClass={cls.stickyPanel}>
+    <Panel blueBg={blueBg} customClass={cls.stickyPanel}>
       <FlexContainer orientation="vertical">
         { header &&
           <FlexItem noSidePadding customClass={cls.noSidePadding}>{header}</FlexItem>
         }
 
-        <FlexItem noSidePadding>
+        <FlexItem noSidePadding customClass={cls.overflow}>
           <View customClass={cls.sidePadding}>{children}</View>
         </FlexItem>
 

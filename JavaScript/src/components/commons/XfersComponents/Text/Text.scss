@@ -50,7 +50,7 @@
   font-size: 14px;
   letter-spacing: 0.2px;
   line-height: 24px;
-  font-weight: $font_weight_light;
+  font-weight: $font_weight_bold;
   display: block;
 }
 
@@ -60,5 +60,12 @@
   letter-spacing: 0.2px;
   line-height: 24px;
   font-weight: $font_weight_bold;
+  display: block;
+}
+
+.blur {
+  color: $xfers_text_grey;
+  font-size: 12px;
+  letter-spacing: 0.2px;
   display: block;
 }

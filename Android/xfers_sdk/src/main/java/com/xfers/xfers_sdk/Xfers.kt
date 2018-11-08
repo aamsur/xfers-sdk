@@ -2,7 +2,6 @@ package com.xfers.xfers_sdk
 
 import android.content.Context
 import android.content.Intent
-import com.xfers.xfers_sdk.utils.NetworkClient
 import com.xfers.xfers_sdk.utils.XfersConfiguration
 import com.xfers.xfers_sdk.utils.XfersStatusCardService
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
@@ -11,7 +10,6 @@ import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
 import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.SelectBankActivity
-import java.io.BufferedInputStream
 import java.math.BigInteger
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
@@ -93,15 +91,7 @@ class Xfers(private val context: Context) {
     }
 
     inner class API {
-        fun getUserDetails(): String {
-            return NetworkClient.readStream(
-                    BufferedInputStream(
-                            NetworkClient.get(
-                                    XfersConfiguration.buildApiURL("user")
-                            )
-                    )
-            )
-        }
+        // TODO: Empty for now, things will be added when we want to and start exposing APIs via the SDK
     }
 
     // Nested class constants for namespacing

@@ -8,9 +8,6 @@ The Xfers user acccess token is a token that is required to initialize our SDK. 
 
 **Xfers connect** is backend process in which you can obtain an Xfers user access token. If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk/wiki/Backend-requirements-for-SDK) 
 
->>  insert diagram of the above
-
-
 ## Download and installation of the Xfers Web SDK
 
 Once the setup for **Xfers User Access Token** is complete, proceed to download Xfers Web SDK either through our **Content Delivery Network (CDN)** or **via a npm install**
@@ -59,23 +56,6 @@ Next step, trigger the SDK flows by executing the following command:
 const paymentFlowParam = { amount: 3000, currency: 'SGD', orderId: 'AZ03283' }
 xfers.startPaymentFlow(paymentFlowParam);
 ```
-
-### 2. Through npm, import/export (Coming Soon)
-
-Install the package through npm or yarn:
-
-```bash
-npm install @xfers/xfers-js-sdk
-```
-
-Then import the Xfers UI Elements into your code:
-```javascript
-import { Xfers } from '@xfers/xfers-js-sdk'
-```
-
-## Updating the Xfers SDK 
->> insert instructions here on how to update the SDK 
-
 
 ## Flows Available & Documentations
 
