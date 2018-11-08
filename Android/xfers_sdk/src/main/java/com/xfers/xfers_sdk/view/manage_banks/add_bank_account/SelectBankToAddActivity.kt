@@ -14,11 +14,11 @@ import kotlinx.android.synthetic.main.xfers_list_view.*
 import kotlinx.android.synthetic.main.xfers_search_bar.*
 import kotlinx.android.synthetic.main.xfers_summary_title.*
 
-class SelectBankActivity : AppCompatActivity() {
+class SelectBankToAddActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_banks_add_bank_account_select_bank)
+        setContentView(R.layout.activity_manage_banks_add_bank_account_select_bank_to_add)
 
         title = getString(R.string.add_bank_account_title)
 

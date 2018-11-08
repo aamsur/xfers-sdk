@@ -15,7 +15,7 @@
         <!-- Manage banks flow -->
 
         <activity
-            android:name=".view.manage_banks.add_bank_account.SelectBankActivity"
+            android:name=".view.manage_banks.add_bank_account.SelectBankToAddActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".view.manage_banks.add_bank_account.EnterNameActivity"
