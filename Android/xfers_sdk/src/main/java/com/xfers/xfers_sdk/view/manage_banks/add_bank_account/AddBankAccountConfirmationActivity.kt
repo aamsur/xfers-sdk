@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.utils.XfersStatusCardService
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_add_bank_account_confirmation.*
@@ -42,7 +43,19 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
         val adapter = XfersTextRowAdapter(textRowItems)
         listViewRecyclerView.adapter = adapter
 
-        xfersFullWidthButton.text = getString(R.string.submit_button_copy)
+        // FIXME: This should be observed on the viewModel level
+        val addBankSuccessful = true
+
         // TODO: Set on click on button to add bank account API through view model
+        xfersFullWidthButton.text = getString(R.string.submit_button_copy)
+        if (addBankSuccessful) {
+            xfersFullWidthButton.setOnClickListener {
+                XfersStatusCardService(this).presentAddBankAccountSuccessfulStatusCard()
+            }
+        } else {
+            xfersFullWidthButton.setOnClickListener {
+                XfersStatusCardService(this).presentAddBankAccountFailureStatusCard()
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.manage_banks.add_bank_account.SelectBankActivity">
+    tools:context=".view.manage_banks.add_bank_account.SelectBankToAddActivity">
 
     <include
         android:id="@+id/addBankAccountBankSelectionPageTitleTextView"
