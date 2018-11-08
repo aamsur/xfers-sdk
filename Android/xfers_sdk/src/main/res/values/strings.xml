@@ -23,6 +23,7 @@
     <string name="return_to_merchant_copy">Return to %1$s</string>
     <string name="got_it_button_copy">Got it</string>
     <string name="okay_button_copy">Okay</string>
+    <string name="try_again_button_copy">Try again</string>
 
     <!-- Connect flow -->
 
@@ -70,6 +71,7 @@
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
 
     <string name="add_bank_account_successful_card_text">Your bank account has been added.</string>
+    <string name="add_bank_account_failure_card_text">We failed to verify your bank account because there has been a name mismatch.\n\nPlease ensure you have provided the correct bank details.</string>
 
     <!-- KYC flow -->
 

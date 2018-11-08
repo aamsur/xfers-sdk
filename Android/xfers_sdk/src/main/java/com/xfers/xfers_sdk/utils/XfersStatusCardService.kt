@@ -104,4 +104,27 @@ class XfersStatusCardService(private val context: Context) {
 
         context.startActivity(addBankAccountSuccessfulIntent)
     }
+
+    fun presentAddBankAccountFailureStatusCard() {
+        val addBankAccountFailureIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.add_bank_account_failure_card_text))
+        }
+
+        addBankAccountFailureIntent.putExtra("statusCardConfig",
+                hashMapOf(
+                        "cardPageTitle" to context.getString(R.string.add_bank_account_title),
+                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
+                        "statusIconImage" to R.drawable.status_alert_60,
+                        "statusIconImageColorFilter" to R.color.pastelOrange,
+                        "showMerchantXfersLogos" to false,
+                        "cardText" to cardText,
+                        "buttonText" to context.getString(R.string.try_again_button_copy),
+                        "buttonClickReturnToMerchant" to true
+                )
+        )
+
+        context.startActivity(addBankAccountFailureIntent)
+    }
 }
