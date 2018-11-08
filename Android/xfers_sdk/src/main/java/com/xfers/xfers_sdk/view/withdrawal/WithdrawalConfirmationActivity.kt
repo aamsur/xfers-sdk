@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.utils.XfersStatusCardService
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_withdrawal_confirmation.*
@@ -54,8 +55,7 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            // TODO: Make it navigate to the correct screen, said screen not built yet
-            finish()
+            XfersStatusCardService(this).presentWithdrawalProcessingStatusCard()
         }
     }
 }
