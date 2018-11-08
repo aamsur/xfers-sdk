@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import cls from './Instructions.scss'
 import getBankSpecifics from './bank_specific_instructions'
 
 import {
@@ -16,25 +15,13 @@ export default class Instructions extends Component {
   render() {
 
     const {
-      screenType,
       xfersBankAccount,
-      newTopUpRequest: { bank, topUpAmount },
-      selectScreenType,
+      selectedBankDetails,
       closeModal,
       goNext
     } = this.props;
 
-    // let senderBankAccount;
-    // for ( let i = 0; i < userBanks.length; i++ ) {
-    //   if (userBanks[i].bank_abbrev == bank) {
-    //     senderBankAccount = userBanks[i];
-    //     break;
-    //   }
-    // }
-    // const selectedBank = senderBankAccount.bank_abbrev.toUpperCase();
-
-    const selectedBank = 'DBS'
-
+    const selectedBank = selectedBankDetails ? selectedBankDetails.bank_abbrev : '';
     const {externalBankUrl, bankCommentLabel, bankAcronyms} = getBankSpecifics(selectedBank);
 
     return (
@@ -44,25 +31,24 @@ export default class Instructions extends Component {
           <Text spBody textAlign="center">To complete your payment, please proceed to make a transfer with the details below</Text>
         </ModalHeader>
         <View spBody>
-          <View textAlign="center">
+          <View>
             <Text type="panelSubtitle">Please refer to these instructions while making a bank transfer.</Text>
             { /* screenType === "mobile" ?
               <AnchorLink onClick={() => selectScreenType("desktop")}>Transferring using desktop?</AnchorLink> :
               <AnchorLink onClick={() => selectScreenType("mobile")}>Transferring using mobile?</AnchorLink>
             */}
           </View>
-          <View background="#fff" overflow="auto" height="240px" padding="20px" boxShadow="inset 0px 1px 4px #ccc" width="540px">
-            {selectedBank === "POSB" && <DBSInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-            {selectedBank === "DBS" && <DBSInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-          </View>
-        </View>
-        <View spFooter>
-          <View marginBottom="10px">
-            <Text fontWeight="bold">Note: </Text>
-            <Text>
-              An admin fee of 1% will be charged on your total amount transferred should you fail to comply with our
-              <AnchorLink href="https://xfers.groovehq.com/knowledge_base/topics/when-will-you-incur-admin-fees" target> additional terms and conditions</AnchorLink>.
-            </Text>
+          <View>
+            {selectedBank === "POSB" && <DBSInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "DBS" && <DBSInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "UOB" && <UOBInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "OCBC" && <OCBCInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "SCB" && <SCBInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "HSBC" && <HSBCInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "CITI" && <CITIInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "CIMB" && <CIMBInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "BOC" && <BOCInstructions xfersBankAccount={xfersBankAccount} />}
+            {selectedBank === "MBB" && <MBBInstructions xfersBankAccount={xfersBankAccount} />}
           </View>
           <FooterButtonGroup>
             <Button type="primary" onClick={goNext}>I have transferred</Button>
@@ -72,12 +58,3 @@ export default class Instructions extends Component {
     )
   }
 }
-
-// {selectedBank === "UOB" && <UOBInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "OCBC" && <OCBCInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "SCB" && <SCBInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "HSBC" && <HSBCInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "CITI" && <CITIInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "CIMB" && <CIMBInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "BOC" && <BOCInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}
-// {selectedBank === "MBB" && <MBBInstructions screenType={screenType} topUpAmount={topUpAmount} xfersBankAccount={xfersBankAccount} />}

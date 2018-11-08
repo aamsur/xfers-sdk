@@ -8,7 +8,10 @@ import { View, TwoColsRowBar } from 'XfersComponents'
 const componentPropTypes = {
   customClass: PropTypes.string,
   onClick: PropTypes.func,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
   subtitle: PropTypes.string,
   image: PropTypes.string,
   disabled: PropTypes.bool,
@@ -25,8 +28,12 @@ function SelectionButton({ title, subtitle, image, disabled, onClick }) {
     if (onClick) onClick();
   }
 
+  const selectionButtonClass = cx({
+    [cls.clickable]: onClick ? true : false,
+  }, cls.selectionButton)
+  
   return (
-    <View customClass={cls.selectionButton} onClick={handleClick}>
+    <View customClass={selectionButtonClass} onClick={handleClick}>
       <TwoColsRowBar
         customClass={cls.custom}
         noBottomMargin

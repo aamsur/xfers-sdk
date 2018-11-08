@@ -32,7 +32,7 @@ export default (props = {}) => {
       dataLoading: false,
       availableBalance: '',
       userBanks: [],
-      screenType: 'mobile',
+      selectedBankId: '',
       newTopUpRequest: {
         bank: '',
         topUpAmount: (props.params && props.params.amount) || ''

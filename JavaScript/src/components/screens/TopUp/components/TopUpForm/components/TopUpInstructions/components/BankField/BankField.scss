@@ -1,0 +1,45 @@
+@import 'styles/_variables';
+
+.stepContainer {
+  padding: 20px 0;
+}
+
+.stepContainer + .stepContainer {
+  border-top: 1px solid #D6D6D6;
+}
+
+.stepOrderLabel {
+  color: $xfers_clear_green;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.fieldContainer {
+
+  padding: 20px 0 0;
+
+  .fieldLabel {
+    color: $xfers_clear_blue;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+  }
+
+  .fieldValue {
+    color: $xfers_black;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    display: block;
+  }
+}
+
+
+
+@media (min-width: 64em) {
+
+}

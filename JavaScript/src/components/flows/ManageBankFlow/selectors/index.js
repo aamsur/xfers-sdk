@@ -1,3 +1,4 @@
 export {
-  getFilteredBankOptions
+  getFilteredBankOptions,
+  getSelectedBankDetails
 } from './manageBankSelectors'

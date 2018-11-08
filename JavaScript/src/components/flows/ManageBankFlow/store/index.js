@@ -33,6 +33,7 @@ export default (props = {}) => {
       userBanks: [],
       bankOptions: [],
       filter: '',
+      selectedBankId: '',
       newBankAccountDetails: {
         bank: '',
         accountNo: '',

@@ -7,12 +7,13 @@ import {
   Button,
   FooterButtonGroup
 } from 'XfersComponents'
+import pdfPreviewIcon from 'icons/Preview_PDF_Logo.png'
 
 export default class AddBankAccountConfirmation extends Component {
   render() {
     const {
       error,
-      newBankAccountDetails: { bank, accountNo, accountHolderName },
+      newBankAccountDetails: { bank, accountNo, accountHolderName, bankStatementFile},
       bankOptions,
       submit,
       goNext,
@@ -46,6 +47,8 @@ export default class AddBankAccountConfirmation extends Component {
       });
     }
 
+    const isPdf = /(\.pdf)$/i.test(bankStatementFile.fileName);
+
     return (
       <StickyPanel showBrand>
         <ModalHeader onBack={goBack} spHeader title="ADD BANK ACCOUNT" />
@@ -62,6 +65,11 @@ export default class AddBankAccountConfirmation extends Component {
           <View marginBottom="40px">
             <Text type="label">Bank Account Number</Text>
             <Text type="boldValue">{accountNo}</Text>
+          </View>
+          <View marginBottom="40px">
+            <Text type="label">Bank Statement</Text>
+            <img style={{maxHeight: "100px", maxWidth: "50px"}} src={isPdf ? pdfPreviewIcon : bankStatementFile.fileData} />
+            {isPdf && <Text type="boldValue">{bankStatementFile.fileName}</Text>}
           </View>
         </View>
         <View spFooter>

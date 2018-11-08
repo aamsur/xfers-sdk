@@ -18,6 +18,7 @@ function Text({
     [cls.panelSubtitle]: type === 'panelSubtitle',
     [cls.label]: type === 'label',
     [cls.boldValue]: type === 'boldValue',
+    [cls.blur]: type === 'blur',
   }, customClass)
 
   return (
@@ -31,7 +32,14 @@ const componentPropTypes = {
   customClass: PropTypes.string,
   children: PropTypes.node.isRequired,
   type: PropTypes.oneOf([
-    'error', 'note', 'modalHeader', 'panelTitle', 'panelSubtitle', 'label', 'boldValue'
+    'error',
+    'note',
+    'modalHeader',
+    'panelTitle',
+    'panelSubtitle',
+    'label',
+    'boldValue',
+    'blur',
   ])
 }
 

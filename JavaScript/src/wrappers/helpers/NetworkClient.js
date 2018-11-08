@@ -54,6 +54,15 @@ export default class Xfers {
     return this.api.send('POST', 'user/bank_account', params);
   }
 
+  deleteBankAccount(bankId) {
+    return this.apid.send('DELETE', 'user/bank_account/' + bankId);
+  }
+
+  // const baseUrl = '/api/v3/user/';
+  // const ACCOUNT_DATA_ENDPOINT = baseUrl + 'bank_account';
+  // const RESEND_CONFIRMATION_ENDPOINT = (id) => baseUrl + 'bank_account/resend_confirmation/' + id;
+  //
+
   /**
     * Create a charge to user from xfers wallet.
     * @see {@link https://docs.xfers.io/#creating-a-charge | API Call}

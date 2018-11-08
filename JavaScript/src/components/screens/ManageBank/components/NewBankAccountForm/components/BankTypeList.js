@@ -29,14 +29,14 @@ export default class BankTypeList extends Component {
     return (
       <StickyPanel showBrand>
         <ModalHeader onBack={goBack} spHeader title="Add Bank Account" />
-        <View spBody>
+        <View spBody minHeight="0">
           <Text type="panelTitle">Select bank name</Text>
           <SearchBar
             placeholder="Search bank name"
             value={filter}
             onChange={(e) => updateSearchFilter(e.target.value)}
           />
-          <View background="#fff" overflow="auto" height="340px" padding="20px" boxShadow="inset 0px 1px 4px #ccc">
+          <View>
             { filteredBankOptions.length > 0 ?
               filteredBankOptions.map((bank, index) =>
                 <SelectionButton

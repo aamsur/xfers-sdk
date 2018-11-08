@@ -7,6 +7,16 @@
   }
 }
 
+.overflow {
+  display: flex;
+  flex: 1 !important;
+
+  > div {
+    overflow: auto;
+    flex: 1;
+  }
+}
+
 .stickyPanelFooter {
   margin-top: auto;
 }

@@ -23,9 +23,7 @@ export default class TopUpForm extends Component {
     } else {
       return (
         <Stepper>
-          <TopUpAmount {...this.props} />
           <TopUpFundSource {...this.props} />
-          <TopUpConfirmation {...this.props} />
           <TopUpInstructions {...this.props} />
           <TopUpStatus {...this.props} />
         </Stepper>

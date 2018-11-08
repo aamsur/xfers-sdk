@@ -8,12 +8,14 @@ import {
   initializeComponent,
   updateTopUpDetails,
   submitNewTopUpRequest,
-  selectScreenType,
-  addUserBank
+  addUserBank,
+  selectBankForAction,
 } from 'TopUpFlow/actions'
+import { getSelectedBankDetails } from 'TopUpFlow/selectors'
 
 function mapStateToProps({topUpFlow}, props) {
-  return topUpFlow;
+  const selectedBankDetails = getSelectedBankDetails(topUpFlow);
+  return { ...topUpFlow, selectedBankDetails }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -26,7 +28,7 @@ function mapDispatchToProps(dispatch) {
 
     submit: (successCallback) => dispatch(submitNewTopUpRequest(successCallback)),
 
-    selectScreenType: (screenType) => dispatch(selectScreenType(screenType)),
+    selectBankForAction: (bankId) => dispatch(selectBankForAction(bankId)),
 
     addUserBank: (bank) => dispatch(addUserBank(bank))
   }

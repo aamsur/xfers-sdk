@@ -2,12 +2,14 @@ import { caseConvert } from 'UtilityFunctions'
 
 import {
   NAVIGATE,
+  SELECT_BANK_FOR_ACTION,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   INIT_NEW_BANK_ACCOUNT,
   UPDATE_BANK_ACCOUNT_DETAILS,
   UPDATE_SEARCH_FILTER,
   SUBMIT_NEW_BANK_ACCOUNT_RESPONSE,
+  DELETE_BANK_ACCOUNT_RESPONSE
 } from './constants'
 
 export const navigate = (route) => ({
@@ -55,6 +57,17 @@ export const submitNewBankAccountDetails = (successCallback) => (dispatch, getSt
   });
 }
 
+export const deleteBankAccount = (bankId, successCallback) => (dispatch, getState) => {
+  dispatch({ type: SEND_HTTP_REQUEST });
+
+  const { networkClient: xfersApi } = getState().manageBankFlow;
+
+  xfersApi.deleteBankAccount(bankId).then(res => {
+    dispatch({ type: DELETE_BANK_ACCOUNT_RESPONSE, res: res })
+    if (successCallback) successCallback();
+  })
+}
+
 export const updateBankAccountDetails = (type, data) => ({
   type: UPDATE_BANK_ACCOUNT_DETAILS,
   formType: type,
@@ -68,4 +81,9 @@ export const updateSearchFilter = (filter) => ({
 
 export const initNewBankAccount = () => ({
   type: INIT_NEW_BANK_ACCOUNT,
+})
+
+export const selectBankForAction = (bankId) => ({
+  type: SELECT_BANK_FOR_ACTION,
+  bankId
 })

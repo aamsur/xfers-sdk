@@ -5,7 +5,8 @@ import {
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
   SUBMIT_TOP_UP_REQUEST_RESPONSE,
-  ADD_USER_BANK
+  ADD_USER_BANK,
+  SELECT_BANK_FOR_ACTION
 } from './constants'
 
 export const navigate = (route) => ({
@@ -18,6 +19,12 @@ export const updateTopUpDetails = (type, data) => ({
   formType: type,
   formData: data,
 })
+
+export const selectBankForAction = (bankId) => ({
+  type: SELECT_BANK_FOR_ACTION,
+  bankId
+})
+
 
 export const initializeComponent = (navigationCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });

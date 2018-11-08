@@ -4,5 +4,7 @@ export {
   initializeComponent,
   updateBankAccountDetails,
   updateSearchFilter,
-  submitNewBankAccountDetails
+  submitNewBankAccountDetails,
+  deleteBankAccount,
+  selectBankForAction
 } from './manageBankFlowActions'

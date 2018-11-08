@@ -7,9 +7,14 @@ const componentPropTypes = {
   customClass: PropTypes.string,
 }
 
-function Panel({children, customClass}) {
+function Panel({children, blueBg, customClass}) {
+
+  const panelClass = cx({
+    [cls.blueBg]: blueBg,
+  }, customClass, cls.panel)
+
   return (
-    <div className={cx(customClass, cls.panel)}>
+    <div className={panelClass}>
       {children}
     </div>
   );

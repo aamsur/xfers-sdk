@@ -10,18 +10,17 @@
 .showCaseBox {
   display: table-cell;
   height: 45px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   background-color: #FFFFFF;
-  text-align: center;
   vertical-align: top;
   line-height: 33px;
   padding: 6px 12px;
   width: 75%;
   border: 1px solid #418BCA;
   border-right: none;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 .copyBtnBox {
@@ -31,7 +30,7 @@
   border: 1px solid #418BCA;
   background-color: #FFFFFF;
   width: 25%;
-  border-radius: 3px;
+  border-radius: 7px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding: 0 15px;
