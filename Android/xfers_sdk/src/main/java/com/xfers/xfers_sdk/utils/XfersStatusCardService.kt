@@ -85,6 +85,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(kycSubmitSuccessfulIntent)
     }
 
+    // TODO: This should pop back to manage bank accounts page
     fun presentAddBankAccountSuccessfulStatusCard() {
         val addBankAccountSuccessfulIntent = Intent(context, StatusCardBaseActivity::class.java)
 
@@ -108,6 +109,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(addBankAccountSuccessfulIntent)
     }
 
+    // TODO: This should pop back to manage bank accounts page
     fun presentAddBankAccountFailureStatusCard() {
         val addBankAccountFailureIntent = Intent(context, StatusCardBaseActivity::class.java)
 

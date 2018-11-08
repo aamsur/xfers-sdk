@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view.manage_banks.add_bank_account
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -30,13 +31,16 @@ class SelectBankToAddActivity : AppCompatActivity() {
         model.getBanks().observe(this, Observer<List<Bank>> {
             val selectionRowItems = it.map {
                 SelectionRowItem(
-                        // FIXME: Use the correct image here
+                        // FIXME: Use the correct image here by integrating with API (get bank info)
                         R.drawable.bank_acc_28,
-                        copy = it.name
+                        copy = it.name,
+                        onClick = {
+                            // TODO: Pass information into intent on which bank was chosen
+                            startActivity(Intent(this, EnterNameActivity::class.java))
+                        }
                 )
             }
 
-            // TODO: To give each row a click -> navigate to next page on click listener
             listViewRecyclerView.layoutManager = LinearLayoutManager(this)
             val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
             listViewRecyclerView.adapter = adapter
