@@ -24,6 +24,7 @@
     <string name="confirm_button_copy">Confirm</string>
     <string name="submit_button_copy">Submit</string>
     <string name="return_to_merchant_copy">Return to %1$s</string>
+    <string name="add_bank_account_button_copy">Add bank account</string>
 
     <!-- Connect flow -->
 
@@ -49,6 +50,8 @@
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
 
     <!-- Manage banks flow -->
+
+    <string name="manage_bank_accounts_title">Bank accounts</string>
 
     <string name="delete_bank_account_title">Bank accounts</string>
     <string name="delete_bank_account_delete_bank_copy">Delete bank account</string>
