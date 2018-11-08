@@ -164,4 +164,27 @@ class XfersStatusCardService(private val context: Context) {
 
         context.startActivity(paymentCompletedIntent)
     }
+
+    fun presentTopupProcessingStatusCard() {
+        val topupProcessingIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.topup_transfer_funds_processing_card_text))
+        }
+
+        topupProcessingIntent.putExtra("statusCardConfig",
+                hashMapOf(
+                        "cardPageTitle" to context.getString(R.string.topup_transfer_funds_title),
+                        "extendedTopbarBackgroundColor" to R.color.pastelOrange,
+                        "statusIconImage" to R.drawable.status_pending_50,
+                        "statusIconImageColorFilter" to R.color.pastelOrange,
+                        "showMerchantXfersLogos" to false,
+                        "cardText" to cardText,
+                        "buttonText" to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
+                        "buttonClickReturnToMerchant" to true
+                )
+        )
+
+        context.startActivity(topupProcessingIntent)
+    }
 }

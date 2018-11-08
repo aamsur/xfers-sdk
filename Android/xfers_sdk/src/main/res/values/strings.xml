@@ -46,9 +46,13 @@
 
     <!-- Topup flow -->
 
+    <string name="topup_transfer_funds_title">Transfer funds</string>
+
     <string name="topup_bank_selection_title">XFERS WALLET</string>
     <string name="topup_bank_selection_page_title">Top up using</string>
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
+
+    <string name="topup_transfer_funds_processing_card_text">Thank you for making a transfer via Xfers.\n\nYou will receive an email notification once the transfer has been processed.</string>
 
     <!-- Manage banks flow -->
 
