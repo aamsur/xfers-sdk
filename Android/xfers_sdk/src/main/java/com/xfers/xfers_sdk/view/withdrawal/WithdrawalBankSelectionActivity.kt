@@ -31,11 +31,12 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
             val selectionRowItems = it.map {
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbreviation} ${it.bankAccountNumber}"
-                ) {
-                    // TODO: Pass into child activity amount and bank chosen through intent extras
-                    startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
-                }
+                        "${it.bankAbbreviation} ${it.bankAccountNumber}",
+                        {
+                            // TODO: Pass into child activity amount and bank chosen through intent extras
+                            startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
+                        }
+                )
             }
 
             listViewRecyclerView.layoutManager = LinearLayoutManager(this)
