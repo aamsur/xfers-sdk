@@ -4,10 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.model.UserBankAccount
 import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.SelectBankToAddActivity
+import com.xfers.xfers_sdk.view.shared.SelectionRowItem
+import com.xfers.xfers_sdk.view.shared.XfersSelectionRowAdapter
+import com.xfers.xfers_sdk.view_model.UserBankAccountsViewModel
 import kotlinx.android.synthetic.main.activity_manage_bank_accounts.*
 import kotlinx.android.synthetic.main.xfers_button.*
+import kotlinx.android.synthetic.main.xfers_list_view.*
 
 class ManageBankAccountsActivity: AppCompatActivity() {
 
@@ -17,14 +25,33 @@ class ManageBankAccountsActivity: AppCompatActivity() {
 
         title = getString(R.string.manage_bank_accounts_title)
 
-        // TODO: To integrate with viewModel and API to get a real time representation of bank accounts
-        val hasBankAccounts = false
+        // TODO: To integrate with API through viewModel to get a real time representation of bank accounts
+        val hasBankAccounts = true
 
         if (hasBankAccounts) {
-            // TODO: Show bank accounts list with dustbin
+            manageBankAccountsXfersButton.visibility = View.GONE
+
+            val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
+            model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
+                val selectionRowItems = it.map {
+                    // TODO: When click on individual bank account, go into specific bank account page
+                    SelectionRowItem(
+                            R.drawable.bank_acc_28, R.color.black,
+                            "${it.bankAbbreviation} ${it.bankAccountNumber}"
+                    )
+                }
+
+                listViewRecyclerView.layoutManager = LinearLayoutManager(this)
+                val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
+                listViewRecyclerView.adapter = adapter
+            })
+
+            manageBankAccountsAddBankAccountTextView.text = getString(R.string.manage_bank_accounts_add_bank_account_copy)
+            manageBankAccountsAddBankAccountTextView.setOnClickListener {
+                startActivity(Intent(this, SelectBankToAddActivity::class.java))
+            }
         } else {
-            manageBankAccountsListView.visibility = View.GONE
-            manageBankAccountsPoweredByXfers.visibility = View.GONE
+            manageBankAccountsListViewConstraintLayout.visibility = View.GONE
 
             xfersFullWidthButton.text = getString(R.string.add_bank_account_button_copy)
             xfersFullWidthButton.setOnClickListener {

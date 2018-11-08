@@ -62,6 +62,7 @@
     <!-- Manage banks flow -->
 
     <string name="manage_bank_accounts_title">Bank accounts</string>
+    <string name="manage_bank_accounts_add_bank_account_copy">Add bank account</string>
 
     <string name="delete_bank_account_title">Bank accounts</string>
     <string name="delete_bank_account_delete_bank_copy">Delete bank account</string>
