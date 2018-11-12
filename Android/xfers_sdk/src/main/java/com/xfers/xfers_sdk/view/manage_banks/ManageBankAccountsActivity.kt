@@ -41,7 +41,7 @@ class ManageBankAccountsActivity: AppCompatActivity() {
                             "${it.bankAbbreviation} ${it.bankAccountNumber}",
                             onClick = {
                                 // TODO: When click on individual bank account, go into specific bank account page
-                                Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Bank Account Summary coming soon", Toast.LENGTH_SHORT).show()
                             },
                             rightIcon = R.drawable.trash_23,
                             rightIconTint = R.color.negativeRed,

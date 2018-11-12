@@ -33,6 +33,10 @@
     <string name="copy_button_copy">Copy</string>
     <string name="make_topup_button_copy">Make a top-up now</string>
     <string name="verify_account_button_copy">Verify Account</string>
+    <string name="withdraw_button_copy">Withdraw</string>
+    <string name="topup_button_copy">Topup</string>
+    <string name="transaction_history_button_copy">Transaction History</string>
+    <string name="account_settings_button_copy">Account Settings</string>
 
     <!-- Connect flow -->
 

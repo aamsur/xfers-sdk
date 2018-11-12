@@ -3,6 +3,7 @@ package com.xfers.xfers_sdk.view.menu
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
@@ -10,6 +11,8 @@ import androidx.core.text.scale
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.kyc.KycVerificationStatusActivity
+import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
+import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
 import kotlinx.android.synthetic.main.activity_xfers_menu.*
 import kotlinx.android.synthetic.main.xfers_button.*
 
@@ -52,7 +55,21 @@ class XfersMenuActivity: AppCompatActivity() {
 
             menuVerificationTextView.text = getString(R.string.menu_verification_copy)
         }
+    }
 
-        // TODO: Do up the 4 buttons with some coming soon toasts and relevant activities
+    fun topupOnClick(view: View) {
+        startActivity(Intent(this, TopupBankSelectionActivity::class.java))
+    }
+
+    fun accountSettingsOnClick(view: View) {
+        Toast.makeText(this, "Account Settings coming soon", Toast.LENGTH_SHORT).show()
+    }
+
+    fun withdrawOnClick(view: View) {
+        startActivity(Intent(this, WithdrawalBankSelectionActivity::class.java))
+    }
+
+    fun transactionHistoryOnClick(view: View) {
+        Toast.makeText(this, "Transactions History coming soon", Toast.LENGTH_SHORT).show()
     }
 }
