@@ -31,6 +31,7 @@
     <string name="try_again_button_copy">Try again</string>
     <string name="i_have_transferred_button_copy">I have transferred</string>
     <string name="copy_button_copy">Copy</string>
+    <string name="make_topup_button_copy">Make a top-up now</string>
 
     <!-- Connect flow -->
 
@@ -197,6 +198,10 @@
     <string name="payment_completed_card_subtitle">XFERS WALLET BALANCE</string>
     <string name="payment_completed_card_amount">Payment Amount: %1$s</string>
     <string name="payment_completed_card_balance">New Balance: %1$s</string>
+
+    <string name="payment_insufficient_funds_card_text">There are insufficient funds in your wallet. Please make a top-up before making a purchase.</string>
+    <string name="payment_insufficient_funds_card_subtitle">XFERS WALLET</string>
+    <string name="payment_insufficient_funds_card_balance">Current Balance: %1$s</string>
 
     <!-- Status cards -->
 

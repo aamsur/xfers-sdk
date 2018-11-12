@@ -68,8 +68,17 @@ class Xfers(private val context: Context) {
         // Optional description, will appear in receipt
         fun startPaymentFlow(amount: BigInteger, description: String? = null) {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            // TODO: Pass amount and description into activity
-            context.startActivity(Intent(context, PaymentConfirmationActivity::class.java))
+
+            // TODO: Network call to check if sufficient funds
+            val sufficientFunds = true
+
+            if (sufficientFunds) {
+                // TODO: Pass amount and description into activity
+                context.startActivity(Intent(context, PaymentConfirmationActivity::class.java))
+            } else {
+                XfersStatusCardService(context).presentInsufficientFundsStatusCard()
+            }
+
         }
     }
 
