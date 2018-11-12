@@ -29,6 +29,7 @@
     <string name="got_it_button_copy">Got it</string>
     <string name="okay_button_copy">Okay</string>
     <string name="try_again_button_copy">Try again</string>
+    <string name="i_have_transferred_button_copy">I have transferred</string>
 
     <!-- Connect flow -->
 
@@ -56,6 +57,10 @@
     <string name="topup_bank_selection_title">XFERS WALLET</string>
     <string name="topup_bank_selection_page_title">Top up using</string>
     <string name="topup_bank_selection_edit_banks_copy">Edit bank accounts</string>
+
+    <string name="topup_virtual_account_transfer_topbar_title_part_1">Virtual Account Transfer</string>
+    <string name="topup_virtual_account_transfer_topbar_title_part_2">Your transfer request has been submitted</string>
+    <string name="topup_virtual_account_transfer_warning_copy">Please refer to these instructions while making the bank transfer.</string>
 
     <string name="topup_transfer_funds_processing_card_text">Thank you for making a transfer via Xfers.\n\nYou will receive an email notification once the transfer has been processed.</string>
 
