@@ -53,6 +53,7 @@
     <!-- Topup flow -->
 
     <string name="topup_transfer_funds_title">Transfer funds</string>
+    <string name="topup_virtual_account_transfer_title">Transfer Instructions</string>
 
     <string name="topup_bank_selection_title">XFERS WALLET</string>
     <string name="topup_bank_selection_page_title">Top up using</string>

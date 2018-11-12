@@ -23,9 +23,11 @@ class KycDocumentPreparationActivity: AppCompatActivity() {
         title = getString(R.string.kyc_document_preparation_title)
 
         val pageTitle = buildSpannedString {
-            append(getString(R.string.kyc_document_preparation_page_title_line_1))
-            append("\n")
-            append(getString(R.string.kyc_document_preparation_page_title_line_2))
+            bold {
+                append(getString(R.string.kyc_document_preparation_page_title_line_1))
+                append("\n")
+                append(getString(R.string.kyc_document_preparation_page_title_line_2))
+            }
         }
 
         extendedTopbarTextView.text = pageTitle

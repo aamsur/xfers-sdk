@@ -16,6 +16,8 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topup_virtual_account_transfer)
 
+        title = getString(R.string.topup_virtual_account_transfer_title)
+
         extendedTopbarTextView.text = buildSpannedString {
             bold {
                 append(getString(R.string.topup_virtual_account_transfer_topbar_title_part_1))
