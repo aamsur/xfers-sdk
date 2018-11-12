@@ -73,7 +73,6 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".view.connect.ConnectShareKYCActivity" />
-        <activity android:name=".view.connect.ConnectLinkSuccessfulActivity" />
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
 
         <!-- Menu UI / flow -->
