@@ -32,6 +32,7 @@
     <string name="i_have_transferred_button_copy">I have transferred</string>
     <string name="copy_button_copy">Copy</string>
     <string name="make_topup_button_copy">Make a top-up now</string>
+    <string name="verify_account_button_copy">Verify Account</string>
 
     <!-- Connect flow -->
 
@@ -209,6 +210,14 @@
     <string name="status_card_bold_title">Status Card Bold Title</string>
     <string name="status_card_normal_text">Status Card Normal Text</string>
     <string name="status_card_button_text">Next</string>
+
+    <!-- Menu -->
+
+    <string name="menu_title">XFERS WALLET</string>
+
+    <string name="menu_balance_title">Wallet Balance</string>
+    <string name="menu_balance_ipsum">RP 900.000</string>
+    <string name="menu_verification_copy">Verify your account to increase your transaction / holding limit</string>
 
     <!-- Misc -->
 

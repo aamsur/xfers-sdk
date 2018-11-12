@@ -76,6 +76,9 @@
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
 
         <!-- Menu UI / flow -->
+
+        <activity android:name=".view.menu.XfersMenuActivity" />
+
         <!-- Transactions Overview UI / flow -->
     </application>
 
