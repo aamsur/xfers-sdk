@@ -9,6 +9,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.text.scale
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
+import com.xfers.xfers_sdk.view.kyc.KycVerificationStatusActivity
 import kotlinx.android.synthetic.main.activity_xfers_menu.*
 import kotlinx.android.synthetic.main.xfers_button.*
 
@@ -38,12 +39,12 @@ class XfersMenuActivity: AppCompatActivity() {
             menuVerificationTextView.visibility = View.GONE
         } else {
             // TODO: Check if pending verification or not through a proper viewModel
-            val isPendingVerification = false
+            val isPendingVerification = true
 
             xfersFullWidthButton.text = getString(R.string.verify_account_button_copy)
             xfersFullWidthButton.setOnClickListener {
                 if (isPendingVerification) {
-                    // TODO: Start verification status activity through an intent
+                    startActivity(Intent(this, KycVerificationStatusActivity::class.java))
                 } else {
                     startActivity(Intent(this, KycDocumentPreparationActivity::class.java))
                 }

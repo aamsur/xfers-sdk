@@ -63,6 +63,8 @@
 
         <activity android:name=".view.kyc.KycDocumentPreparationActivity" />
 
+        <activity android:name=".view.kyc.KycVerificationStatusActivity" />
+
         <!-- Connect flow -->
 
         <activity
