@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersConfiguration
+import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_card_activity.*
 import kotlinx.android.synthetic.main.xfers_extended_topbar.*
@@ -46,6 +47,7 @@ open class StatusCardBaseActivity: AppCompatActivity() {
 
     private var buttonText: CharSequence = "Sample Button Text"
     private var buttonClickReturnToMerchant = false
+    private var buttonClickGoToTopup = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,6 +107,10 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         (viewConfig[StatusCardBaseActivityConstants.buttonClickReturnToMerchant] as? Boolean)?.let {
             buttonClickReturnToMerchant = it
         }
+
+        (viewConfig[StatusCardBaseActivityConstants.buttonClickGoToTopup] as? Boolean)?.let {
+            buttonClickGoToTopup = it
+        }
     }
 
     private fun setCardPageTitle() {
@@ -147,6 +153,12 @@ open class StatusCardBaseActivity: AppCompatActivity() {
     }
 
     private fun applyButtonClickListener() {
+        // FIXME: Design a better way for status card buttons to know where to navgiate to when clicked
+        if (buttonClickGoToTopup) {
+            xfersFullWidthButton.setOnClickListener { this.startActivity(Intent(this, TopupBankSelectionActivity::class.java)) }
+            return
+        }
+
         if (buttonClickReturnToMerchant) {
             xfersFullWidthButton.setOnClickListener { this.startActivity(Intent(this, XfersConfiguration.getMerchantFlowStartingContextClass())) }
         } else {
@@ -165,4 +177,5 @@ object StatusCardBaseActivityConstants {
     const val cardText = "cardText"
     const val buttonText = "buttonText"
     const val buttonClickReturnToMerchant = "buttonClickReturnToMerchant"
+    const val buttonClickGoToTopup = "buttonClickGoToTopup"
 }

@@ -254,4 +254,35 @@ class XfersStatusCardService(private val context: Context) {
 
         context.startActivity(withdrawalProcessingIntent)
     }
+
+    fun presentInsufficientFundsStatusCard() {
+        val insufficientFundsIntent = Intent(context, StatusCardBaseActivity::class.java)
+
+        val cardText = buildSpannedString {
+            append(context.getString(R.string.payment_insufficient_funds_card_text))
+            append("\n\n\n\n")
+            color(ContextCompat.getColor(context, R.color.clearBlue)) {
+                append(context.getString(R.string.payment_insufficient_funds_card_subtitle))
+            }
+            append("\n\n")
+            bold {
+                append(context.getString(R.string.withdrawal_processing_card_balance, "Rp 90.000"))
+            }
+        }
+
+        insufficientFundsIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
+                hashMapOf(
+                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.payment_confirmation_title),
+                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_alert_60,
+                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
+                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
+                        StatusCardBaseActivityConstants.cardText to cardText,
+                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.make_topup_button_copy),
+                        StatusCardBaseActivityConstants.buttonClickGoToTopup to true
+                )
+        )
+
+        context.startActivity(insufficientFundsIntent)
+    }
 }
