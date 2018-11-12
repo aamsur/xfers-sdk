@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view.topup
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -28,7 +29,11 @@ class TopupBankSelectionActivity : AppCompatActivity() {
             val selectionRowItems = it.map {
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbreviation} ${it.bankAccountNumber}"
+                        "${it.bankAbbreviation} ${it.bankAccountNumber}",
+                        onClick = {
+                            // TODO: Pass what bank was selected into the child activity
+                            startActivity(Intent(this, TopupVirtualAccountTransferActivity::class.java))
+                        }
                 )
             }
 

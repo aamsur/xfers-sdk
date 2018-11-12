@@ -11,4 +11,5 @@
     <color name="black">#000000</color>
     <color name="pastelOrange">#ff9258</color>
     <color name="negativeRed">#d0021b</color>
+    <color name="white">#ffffff</color>
 </resources>

@@ -2,6 +2,8 @@ package com.xfers.xfers_sdk.view.connect
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.XfersStatusCardService
@@ -20,7 +22,11 @@ class ConnectIdentityVerificationActivity : AppCompatActivity() {
 
         title = getString(R.string.connect_identity_verification_title)
 
-        extendedTopbarTextView.text = getString(R.string.connect_identity_verification_topbar_copy)
+        extendedTopbarTextView.text = buildSpannedString {
+            bold {
+                getString(R.string.connect_identity_verification_topbar_copy)
+            }
+        }
         xfersSummaryTitleTextView.text = getString(R.string.connect_identity_verification_summary_title)
 
         val itemRowItems = listOf(
