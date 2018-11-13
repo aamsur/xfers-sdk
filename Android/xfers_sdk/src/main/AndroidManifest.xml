@@ -63,6 +63,8 @@
 
         <activity android:name=".view.kyc.KycDocumentPreparationActivity" />
 
+        <activity android:name=".view.kyc.KycVerificationStatusActivity" />
+
         <!-- Connect flow -->
 
         <activity
@@ -76,6 +78,9 @@
         <activity android:name=".view.connect.ConnectIdentityVerificationActivity" />
 
         <!-- Menu UI / flow -->
+
+        <activity android:name=".view.menu.XfersMenuActivity" />
+
         <!-- Transactions Overview UI / flow -->
     </application>
 

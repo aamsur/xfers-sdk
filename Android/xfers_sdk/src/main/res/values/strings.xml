@@ -32,6 +32,11 @@
     <string name="i_have_transferred_button_copy">I have transferred</string>
     <string name="copy_button_copy">Copy</string>
     <string name="make_topup_button_copy">Make a top-up now</string>
+    <string name="verify_account_button_copy">Verify Account</string>
+    <string name="withdraw_button_copy">Withdraw</string>
+    <string name="topup_button_copy">Topup</string>
+    <string name="transaction_history_button_copy">Transaction History</string>
+    <string name="account_settings_button_copy">Account Settings</string>
 
     <!-- Connect flow -->
 
@@ -141,6 +146,14 @@
     <string name="kyc_merchant_email_email_placeholder">alexia@example.com</string>
     <string name="kyc_merchant_email_subtitle">We will be contacting you via this email for the submission of your business documents.</string>
 
+    <string name="kyc_verification_status_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_verification_status_verified_copy">Your account has been verified</string>
+    <string name="kyc_verification_status_pending_copy">Your account is pending verification</string>
+    <string name="kyc_verification_status_document_1_copy">KTP document</string>
+    <string name="kyc_verification_status_document_2_copy">Selfie verification</string>
+    <string name="kyc_verification_status_document_3_copy">Mother\'s maiden name</string>
+    <string name="kyc_verification_status_footnote_copy">Please allow 7 working days for your account to be verified. You will receive an email notification once the verification is completed.</string>
+
     <string name="kyc_submit_successful_card_text">Your personal information has been submitted to our verification team. Please allow up to 7 working days for your account to be verified\n\nYou will receieve an email notification once the verification is completed.</string>
 
     <!-- Withdrawal flow -->
@@ -209,6 +222,14 @@
     <string name="status_card_bold_title">Status Card Bold Title</string>
     <string name="status_card_normal_text">Status Card Normal Text</string>
     <string name="status_card_button_text">Next</string>
+
+    <!-- Menu -->
+
+    <string name="menu_title">XFERS WALLET</string>
+
+    <string name="menu_balance_title">Wallet Balance</string>
+    <string name="menu_balance_ipsum">RP 900.000</string>
+    <string name="menu_verification_copy">Verify your account to increase your transaction / holding limit</string>
 
     <!-- Misc -->
 

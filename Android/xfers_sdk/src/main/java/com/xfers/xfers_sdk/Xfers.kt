@@ -9,6 +9,7 @@ import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
+import com.xfers.xfers_sdk.view.menu.XfersMenuActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
 import java.math.BigInteger
 
@@ -78,14 +79,13 @@ class Xfers(private val context: Context) {
             } else {
                 XfersStatusCardService(context).presentInsufficientFundsStatusCard()
             }
-
         }
     }
 
     inner class UI {
         fun startMenuActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            XfersStatusCardService(context).presentComingSoonStatusCard()
+            context.startActivity(Intent(context, XfersMenuActivity::class.java))
         }
 
         fun startSettingsActivity() {
