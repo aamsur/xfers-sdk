@@ -66,6 +66,7 @@
         <activity
             android:name=".view.kyc.KycEmailActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.kyc.KycPersonalDetailsVerificationActivity" />
 
         <activity android:name=".view.kyc.KycDocumentsConfirmationActivity" />
 

@@ -31,4 +31,4 @@ class XfersTextRowAdapter(
     }
 }
 
-data class TextRowItem(val title: String, val copy: String)
+data class TextRowItem(val title: CharSequence, val copy: CharSequence)

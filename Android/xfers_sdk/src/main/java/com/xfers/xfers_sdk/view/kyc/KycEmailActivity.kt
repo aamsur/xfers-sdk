@@ -25,8 +25,7 @@ class KycEmailActivity : AppCompatActivity() {
         xfersFullWidthButton.setOnClickListener {
             // TODO: Push email to following activities
 
-//            startActivity(Intent(this, KycMotherMaidenNameActivity::class.java))
+            startActivity(Intent(this, KycPersonalDetailsVerificationActivity::class.java))
         }
     }
 }
-
