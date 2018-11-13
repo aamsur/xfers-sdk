@@ -36,7 +36,7 @@ class KycDocumentPreparationActivity: AppCompatActivity() {
 
         val itemRowItems = listOf(
                 ItemRowItem(
-                        R.drawable.maiden_50, R.color.clearBlue,
+                        R.drawable.personal_50, R.color.clearBlue,
                         spannedStringForRow(
                                 getString(R.string.kyc_document_preparation_step_1_title),
                                 getString(R.string.kyc_document_preparation_step_1_prompt)
