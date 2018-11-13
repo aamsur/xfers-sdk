@@ -1,30 +1,13 @@
 import React, { Component } from 'react'
-import { Provider, connect } from 'react-redux'
-import createStore from './store'
-import { IndoPersonalVerification } from './components'
+import { View, LoadingPanel } from 'XfersComponents'
 
-function mapStateToProps(state, props) {
-  return {}
-}
-
-function mapDispatchToProps(dispatch) {
-  return {}
-}
-
-class Verification extends Component {
+export default class Verification extends Component {
   render() {
+    const { route, networkClient, closeModal } = this.props;
     return (
-      <IndoPersonalVerification />
+      <View>
+        { route === '' && <LoadingPanel title="Identity Verification" onClose={closeModal} /> }
+      </View>
     )
   }
 }
-
-const ConnectedVerification = connect(mapStateToProps, mapDispatchToProps)(Verification);
-
-const VerificationModal = (props) => (
-  <Provider store={createStore(props)}>
-    <ConnectedVerification />
-  </Provider>
-)
-
-export default VerificationModal

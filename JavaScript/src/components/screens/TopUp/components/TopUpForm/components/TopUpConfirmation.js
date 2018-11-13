@@ -12,66 +12,55 @@ import { toCurrency } from 'UtilityFunctions'
 export default class TopUpConfirmation extends Component {
   render() {
     const {
-      params,
+      params: {amount, orderId, flowType},
+      availableBalance,
       error,
-      newTopUpRequest: { bank, topUpAmount },
-      userBanks,
-      submit,
       goNext,
       goBack,
+      closeModal,
     } = this.props;
-
-    // Get the details of the selected Bank
-    let bankDetails = {};
-    for ( let i = 0; i < userBanks.length; i++ ) {
-      if (userBanks[i].bank_abbrev === bank) {
-        bankDetails = userBanks[i];
-        break;
-      }
-    }
-
-    /* Example bankDetails data
-    bankDetails = {
-      abbreviation: "DBS",
-      bank_code: "7171",
-      img_src: "/assets/bank-logo-dbs-d50c1eeac92967980cf421b7dd9b39fafb2620d9318e29cde5567dcdc1e77ff9.png",
-      name: "Development Bank of Singapore",
-      swift_code: "DBSS",
-    }
-    */
-
-    const submitWithCallback = () => {
-      submit(goNext);
-    }
 
     return (
       <StickyPanel showBrand>
 
-        {params.flowType === 'payment' ?
+        {flowType === 'payment' ?
           <ModalHeader onBack={goBack} spHeader title="Make Payment" />
           :
           <ModalHeader onBack={goBack} spHeader title="Transfer Funds" />
         }
 
         <View spBody>
-          <Text type="panelTitle">Confirm details</Text>
-          <View marginBottom="10px">
-            <Text type="label">Pay Using</Text>
-            <Text type="boldValue">{`${bankDetails.bank_abbrev} - ${bankDetails.account_no}`}</Text>
+          <Text type="panelTitle">Transaction Overview</Text>
+          <Text type="panelSubtitle">There is insufficient amount in your wallet. Please make a transfer of the remaining amount to complete the payment.</Text>
+          <View marginBottom="15px">
+            <Text type="label">Order Id</Text>
+            <Text type="boldValue">{orderId}</Text>
           </View>
-          <View marginBottom="10px">
-            <Text type="label">Payment To</Text>
-            <Text type="boldValue">Merchant</Text>
+          <View marginBottom="15px">
+            <Text type="label">Total Amount</Text>
+            <Text type="boldValue">{toCurrency(amount)}</Text>
           </View>
-          <View marginBottom="10px">
-            <Text type="label">Payment Amount</Text>
-            <Text type="boldValue">{toCurrency(topUpAmount)}</Text>
+          <View marginBottom="15px">
+            <Text type="label">Current Xfers Balance</Text>
+            <Text type="boldValue">{toCurrency(availableBalance)}</Text>
           </View>
         </View>
         <View spFooter>
+
+          <View
+            textAlign="center"
+            padding="20px 0"
+            margin="20px 0 30px"
+            borderTop="1px solid #ccc"
+            borderBottom="1px solid #ccc" >
+            <View><Text type="label">Balance Amount To Pay</Text></View>
+            <View><Text fontSize="24px" fontWeight="bold">{toCurrency((amount - availableBalance).toFixed(2))}</Text></View>
+          </View>
+
           <View marginBottom="20px"><Text type="error">{error}</Text></View>
           <FooterButtonGroup>
-            <Button type="primary" onClick={submitWithCallback}>Submit</Button>
+            <Button onClick={closeModal}>Cancel</Button>
+            <Button type="primary" onClick={goNext}>Proceed</Button>
           </FooterButtonGroup>
         </View>
       </StickyPanel>

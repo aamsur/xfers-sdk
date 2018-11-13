@@ -30,6 +30,7 @@ export { default as SelectionButton } from './SelectionButton'
 export { default as SearchBar } from './SearchBar'
 export { default as StickyPanel } from './StickyPanel'
 export { default as LoadingPanel } from './LoadingPanel'
+export { default as Checklist } from './Checklist'
 
 // Form Components
 export {

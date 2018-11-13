@@ -23,7 +23,8 @@
     font-size: 24px;
     text-align: center;
     line-height: 26px;
-    font-weight: $font_weight_bold;
+    font-weight: $font_weight_regular;
+    letter-spacing: 0.2px;
   }
 
   .desc {
@@ -34,5 +35,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    letter-spacing: 0.2px;
   }
 }

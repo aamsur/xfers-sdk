@@ -29,15 +29,15 @@ export default class PaymentOverview extends Component {
         <View spBody>
           <Text type="panelTitle">Transaction Overview</Text>
           <Text type="panelSubtitle">Your are about to make a payment via your Xfers Wallet to the following details. Please confirm.</Text>
-          <View marginBottom="10px">
+          <View marginBottom="40px">
             <Text type="label">Payment To</Text>
             <Text type="boldValue">Merchant</Text>
           </View>
-          <View marginBottom="10px">
+          <View marginBottom="40px">
             <Text type="label">Order ID</Text>
             <Text type="boldValue">{orderId}</Text>
           </View>
-          <View marginBottom="10px">
+          <View marginBottom="40px">
             <Text type="label">Description</Text>
             <Text type="boldValue">This is a place for description</Text>
           </View>

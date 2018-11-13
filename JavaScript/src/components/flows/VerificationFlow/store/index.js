@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
-export default () => {
+export default (props = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -16,9 +16,20 @@ export default () => {
     }
   }
 
+  /* Acceptable params:
+   * { amount, flowType, userBanks, availableBalance }
+   */
   const initialState = {
-    personalVerification: {
+    verificationFlow: {
 
+      // External Props
+      params: {},
+      ...props,
+
+      // Available routes: index, topUpForm
+      route: '',
+      error: '',
+      dataLoading: false,
     }
   }
 

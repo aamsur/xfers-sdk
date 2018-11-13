@@ -22,7 +22,7 @@ const componentDefaultProps = {
   disabled: false,
 };
 
-function SelectionButton({ title, subtitle, image, disabled, onClick }) {
+function SelectionButton({ children, title, subtitle, image, disabled, onClick }) {
 
   const handleClick = () => {
     if (onClick) onClick();
@@ -43,7 +43,7 @@ function SelectionButton({ title, subtitle, image, disabled, onClick }) {
           content: <img className={cls.image} src={image} />
         }}
         rightColProps={{
-          content: <div>{title}</div>
+          content: <div>{children || title}</div>
         }}
       />
     </View>
