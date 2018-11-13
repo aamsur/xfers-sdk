@@ -9,6 +9,6 @@
     tools:context=".view.kyc.KycMotherMaidenNameActivity">
 
     <include
-        layout="@layout/xfers_form_input" />
+        layout="@layout/xfers_kyc_form_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

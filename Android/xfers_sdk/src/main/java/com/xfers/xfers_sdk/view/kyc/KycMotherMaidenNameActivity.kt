@@ -3,11 +3,10 @@ package com.xfers.xfers_sdk.view.kyc
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xfers.xfers_sdk.R
 import kotlinx.android.synthetic.main.xfers_button.*
-import kotlinx.android.synthetic.main.xfers_form_input.*
+import kotlinx.android.synthetic.main.xfers_kyc_form_input.*
 
 class KycMotherMaidenNameActivity : AppCompatActivity() {
 
@@ -15,14 +14,13 @@ class KycMotherMaidenNameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mother_maiden_name)
 
-        title = getString(R.string.kyc_title)
+        title = getString(R.string.kyc_input_form_title)
 
-        xfersFormInputPageTitle.text = getString(R.string.kyc_mother_maiden_name_step_copy)
-        xfersFormInputFieldTitle.text = getString(R.string.kyc_mother_maiden_name_page_title)
-        xfersFormInputEditText.hint = getString(R.string.kyc_mother_maiden_name_placeholder)
-        xfersFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
-        xfersFormInputEditTextSubtitle.visibility = View.GONE
-        xfersFormInputNotesTextView.visibility = View.GONE
+        xfersKycFormInputStepTitle.text = getString(R.string.kyc_mother_maiden_name_step_title)
+        xfersKycFormInputStepNumber.text = getString(R.string.kyc_mother_maiden_name_step_number)
+        xfersKycFormInputFieldTitle.text = getString(R.string.kyc_mother_maiden_name_page_title)
+        xfersKycFormInputEditText.hint = getString(R.string.kyc_mother_maiden_name_placeholder)
+        xfersKycFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
 
         xfersFullWidthButton.setOnClickListener {
             // TODO: Push mother's maiden name information to next activity
