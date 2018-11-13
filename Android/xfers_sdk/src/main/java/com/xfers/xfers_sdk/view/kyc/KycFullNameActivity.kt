@@ -25,7 +25,8 @@ class KycFullNameActivity : AppCompatActivity() {
         xfersFullWidthButton.setOnClickListener {
             // TODO: Push full name information to following activities
 
-//            startActivity(Intent(this, KycDocumentsConfirmationActivity::class.java))
+            // TODO: Change to proper country of birth (slot in between this and next)
+            startActivity(Intent(this, KycDateOfBirthActivity::class.java))
         }
     }
 }
