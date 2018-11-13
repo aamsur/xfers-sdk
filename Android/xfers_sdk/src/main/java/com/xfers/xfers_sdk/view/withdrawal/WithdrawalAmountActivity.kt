@@ -46,8 +46,8 @@ class WithdrawalAmountActivity : AppCompatActivity() {
         xfersFormInputNotesTextView.text = footnote
 
         xfersFullWidthButton.setOnClickListener {
-            // TODO: Pass withdrawal amount into bank selection activity through intent extras
-            startActivity(Intent(this, WithdrawalBankSelectionActivity::class.java))
+            // TODO: Pass withdrawal amount into confirmation activity through intent extras
+            startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
         }
     }
 }

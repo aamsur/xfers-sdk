@@ -34,7 +34,7 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
                         "${it.bankAbbreviation} ${it.bankAccountNumber}",
                         {
                             // TODO: Pass into child activity amount and bank chosen through intent extras
-                            startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
+                            startActivity(Intent(this, WithdrawalAmountActivity::class.java))
                         }
                 )
             }

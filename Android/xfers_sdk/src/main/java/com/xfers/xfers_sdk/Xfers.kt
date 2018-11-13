@@ -10,7 +10,7 @@ import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.menu.XfersMenuActivity
-import com.xfers.xfers_sdk.view.withdrawal.WithdrawalAmountActivity
+import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
 import java.math.BigInteger
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
@@ -63,7 +63,15 @@ class Xfers(private val context: Context) {
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, WithdrawalAmountActivity::class.java))
+
+            // TODO: Network call to check if the user has banks
+            val userHasBank = true
+
+            if (userHasBank) {
+                context.startActivity(Intent(context, WithdrawalBankSelectionActivity::class.java))
+            } else {
+                context.startActivity(Intent(context, ManageBankAccountsActivity::class.java))
+            }
         }
 
         // Optional description, will appear in receipt
