@@ -50,18 +50,19 @@
 
         <!-- KYC flow -->
 
+        <activity android:name=".view.kyc.KycDocumentPreparationActivity" />
+        <activity
+            android:name=".view.kyc.KycKtpActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".view.kyc.KycMotherMaidenNameActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".view.kyc.KycDocumentsConfirmationActivity"
-            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".view.kyc.KycDocumentsConfirmationActivity" />
 
         <activity
             android:name=".view.kyc.KycMerchantEmailActivity"
             android:windowSoftInputMode="adjustResize" />
-
-        <activity android:name=".view.kyc.KycDocumentPreparationActivity" />
 
         <activity android:name=".view.kyc.KycVerificationStatusActivity" />
 
