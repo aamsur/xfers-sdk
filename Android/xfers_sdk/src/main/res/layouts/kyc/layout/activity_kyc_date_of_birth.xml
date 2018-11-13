@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.kyc.KycMotherMaidenNameActivity">
+    tools:context=".view.kyc.KycDateOfBirthActivity">
 
     <include
         layout="@layout/xfers_kyc_form_input" />

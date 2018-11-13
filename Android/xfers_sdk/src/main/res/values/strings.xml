@@ -125,21 +125,55 @@
     <string name="kyc_document_preparation_page_title_line_1">Please prepare the following</string>
     <string name="kyc_document_preparation_page_title_line_2">documents</string>
     <string name="kyc_document_preparation_step_1_title">STEP 1</string>
-    <string name="kyc_document_preparation_step_1_prompt">Submit KTP Photo</string>
+    <string name="kyc_document_preparation_step_1_prompt">Personal Details</string>
     <string name="kyc_document_preparation_step_2_title">STEP 2</string>
-    <string name="kyc_document_preparation_step_2_prompt">Submit a selfie holding your KTP</string>
+    <string name="kyc_document_preparation_step_2_prompt">Submit KTP Photo</string>
     <string name="kyc_document_preparation_step_3_title">STEP 3</string>
-    <string name="kyc_document_preparation_step_3_prompt">Enter your mother\'s maiden name</string>
+    <string name="kyc_document_preparation_step_3_prompt">Submit a selfie holding your KTP</string>
 
-    <string name="kyc_mother_maiden_name_title">IDENTITY VERIFICATION</string>
-    <string name="kyc_mother_maiden_name_step_copy">Step 3</string>
+    <string name="kyc_input_form_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_input_form_step_title">STEP 1: PERSONAL DETAILS</string>
+
+    <string name="kyc_ktp_step_number">1/6</string>
+    <string name="kyc_ktp_page_title">KTP ID Number</string>
+    <string name="kyc_ktp_placeholder">1234567890</string>
+
+    <string name="kyc_full_name_step_number">2/6</string>
+    <string name="kyc_full_name_page_title">Full Name</string>
+    <string name="kyc_full_name_placeholder">Cynthia Rosafina</string>
+
+    <string name="kyc_date_of_birth_step_number">4/6</string>
+    <string name="kyc_date_of_birth_page_title">Date of Birth</string>
+    <string name="kyc_date_of_birth_placeholder">24/11/1990</string>
+
+    <string name="kyc_mother_maiden_name_step_number">5/6</string>
     <string name="kyc_mother_maiden_name_page_title">Enter your mother\'s maiden name</string>
-    <string name="kyc_mother_maiden_name_placeholder">e.g. Alice </string>
+    <string name="kyc_mother_maiden_name_placeholder">e.g. Alice</string>
+
+    <string name="kyc_email_step_number">6/6</string>
+    <string name="kyc_email_page_title">Email Address</string>
+    <string name="kyc_email_placeholder">alex@email.com</string>
+
+    <string name="kyc_personal_details_verification_title">IDENTITY VERIFICATION</string>
+    <string name="kyc_personal_details_verification_page_title">Are these details correct?</string>
+
+    <string name="kyc_personal_details_verification_step_1_title">KTP/PASSPORT NO.</string>
+    <string name="kyc_personal_details_verification_step_1_ipsum">12345678909023456</string>
+    <string name="kyc_personal_details_verification_step_2_title">FULL NAME</string>
+    <string name="kyc_personal_details_verification_step_2_ipsum">Cynthia Rosafina</string>
+    <string name="kyc_personal_details_verification_step_3_title">COUNTRY OF BIRTH</string>
+    <string name="kyc_personal_details_verification_step_3_ipsum">Indonesia</string>
+    <string name="kyc_personal_details_verification_step_4_title">DATE OF BIRTH</string>
+    <string name="kyc_personal_details_verification_step_4_ipsum">24/11/1990</string>
+    <string name="kyc_personal_details_verification_step_5_title">MOTHER\'S MAIDEN NAME</string>
+    <string name="kyc_personal_details_verification_step_5_ipsum">Alice</string>
+    <string name="kyc_personal_details_verification_step_6_title">EMAIL ADDRESS</string>
+    <string name="kyc_personal_details_verification_step_6_ipsum">alex@email.com</string>
 
     <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
-    <string name="kyc_documents_confirmation_ktp_copy">KTP document</string>
+    <string name="kyc_documents_confirmation_personal_details_copy">Personal Details</string>
+    <string name="kyc_documents_confirmation_ktp_copy">KTP Photo</string>
     <string name="kyc_documents_confirmation_selfie_verification_copy">Selfie Verification</string>
-    <string name="kyc_documents_confirmation_mother_maiden_name_copy">Mother\'s maiden name</string>
 
     <string name="kyc_merchant_verification_title">MERCHANT VERIFICATION</string>
     <string name="kyc_merchant_email_input_field_title">Enter your email address</string>
