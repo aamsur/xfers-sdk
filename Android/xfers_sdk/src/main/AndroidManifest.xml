@@ -55,6 +55,9 @@
             android:name=".view.kyc.KycKtpActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".view.kyc.KycFullNameActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".view.kyc.KycMotherMaidenNameActivity"
             android:windowSoftInputMode="adjustResize" />
 
