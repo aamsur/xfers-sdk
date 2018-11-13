@@ -23,9 +23,9 @@ class KycMotherMaidenNameActivity : AppCompatActivity() {
         xfersKycFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
 
         xfersFullWidthButton.setOnClickListener {
-            // TODO: Push mother's maiden name information to next activity
+            // TODO: Push mother's maiden name information to following activities
 
-            startActivity(Intent(this, KycDocumentsConfirmationActivity::class.java))
+            startActivity(Intent(this, KycEmailActivity::class.java))
         }
     }
 }
