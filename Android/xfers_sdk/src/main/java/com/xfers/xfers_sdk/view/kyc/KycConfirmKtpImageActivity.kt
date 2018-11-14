@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view.kyc
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.xfers.xfers_sdk.R
@@ -27,7 +28,7 @@ class KycConfirmKtpImageActivity : AppCompatActivity() {
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
             // TODO: Keep passing on the image to child activities
-            // TODO: Present selfie preparation activity
+            startActivity(Intent(this, KycPrepareKtpSelfieActivity::class.java))
         }
     }
 }

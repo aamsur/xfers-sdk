@@ -69,6 +69,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".view.kyc.KycPersonalDetailsVerificationActivity" />
         <activity android:name=".view.kyc.KycConfirmKtpImageActivity" />
+        <activity android:name=".view.kyc.KycPrepareKtpSelfieActivity" />
 
         <activity android:name=".view.kyc.KycDocumentsConfirmationActivity" />
 

@@ -10,7 +10,6 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_kyc_personal_details_verification.*
-import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 
@@ -22,7 +21,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
 
         title = getString(R.string.kyc_personal_details_verification_title)
 
-        kycPersonalDetailsVerificationTitleTextView.text = getString(R.string.kyc_personal_details_verification_page_title)
+        kycPrepareKtpSelfieExtendedTopbarView.text = getString(R.string.kyc_personal_details_verification_page_title)
 
         val textRowItems = listOf(
                 TextRowItem(

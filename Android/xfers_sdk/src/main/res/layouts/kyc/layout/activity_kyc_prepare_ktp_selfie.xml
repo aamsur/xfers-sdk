@@ -7,21 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <include
         android:id="@+id/kycPrepareKtpSelfieExtendedTopbarView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/lorem_ipsum"
-        android:textColor="@color/textColor"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/xfers_extended_topbar" />
 
     <include
         android:id="@+id/kycPrepareKtpSelfieListView"
@@ -34,14 +22,28 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/kycPersonalDetailsVerificationDoubleButtons"
+        app:layout_constraintBottom_toTopOf="@+id/kycPrepareKtpSelfiePoweredByXfersView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kycPrepareKtpSelfieExtendedTopbarView" />
 
     <include
-        android:id="@+id/kycPersonalDetailsVerificationDoubleButtons"
-        layout="@layout/xfers_double_buttons"
+        android:id="@+id/kycPrepareKtpSelfiePoweredByXfersView"
+        layout="@layout/xfers_powered_by_xfers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/kycPrepareKtpSelfieButtonView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/kycPrepareKtpSelfieButtonView"
+        layout="@layout/xfers_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

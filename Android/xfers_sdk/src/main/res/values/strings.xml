@@ -177,6 +177,8 @@
 
     <string name="kyc_confirm_ktp_image_confirm_copy">Confirm KTP Image?</string>
 
+    <string name="kyc_prepare_ktp_selfie_extended_topbar_title">Please prepare the following documents</string>
+
     <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
     <string name="kyc_documents_confirmation_personal_details_copy">Personal Details</string>
     <string name="kyc_documents_confirmation_ktp_copy">KTP Photo</string>
