@@ -9,7 +9,7 @@ import {
   CenterContent,
 } from 'XfersComponents'
 
-export default class VerifiedBankAccountCheck extends Component {
+export default class BankAccountCheck extends Component {
   render() {
     const {
       closeModal,

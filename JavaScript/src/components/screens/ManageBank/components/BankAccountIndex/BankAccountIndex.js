@@ -27,7 +27,7 @@ export default class BankAccountIndex extends Component {
           <ModalHeader spHeader onClose={closeModal} title="Bank Accounts" />
         }
         <View spBody paddingTop="40px">
-          { verifiedBanks.map((bank, index) => <VerifiedBankSelection bank={bank} key={index} />) }
+          { verifiedBanks.map((bank, index) => <VerifiedBankSelection bank={bank} key={index} navigateToDeleteConfirmation={navigateToDeleteConfirmation} />) }
           { nonVerifiedBanks.map((bank, index) => {
             if (bank.verification_status === "pending") return (<PendingBankSelection bank={bank} key={index} />);
             return (<RejectedBankSelection bank={bank} key={index} navigateToDeleteConfirmation={navigateToDeleteConfirmation} />);

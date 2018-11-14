@@ -26,13 +26,5 @@ export const initializeComponent = (callback) => (dispatch, getState) => {
   //     const res = { userBanks };
   //     dispatch({ type: INITIALIZATION_SUCCESS, res });
   //
-  //     if (navigationCallback) {
-  //       if (!userBanks.length) {
-  //         navigationCallback('bank')
-  //       }
-  //       else {
-  //         navigationCallback('topUpForm')
-  //       }
-  //     }
   //   });
 }

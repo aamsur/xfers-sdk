@@ -20,7 +20,7 @@ export default (props = {}) => {
    * { amount, flowType, userBanks, availableBalance }
    */
   const initialState = {
-    verificationFlow: {
+    walletFlow: {
 
       // External Props
       params: {},
@@ -30,6 +30,28 @@ export default (props = {}) => {
       route: '',
       error: '',
       dataLoading: false,
+      availableBalance: '',
+      gauthEnabled: false,
+      bitcoinUser: false,
+      vipBetaUser: false,
+      acceptedTnc: false,
+      kycVerified: false,
+      accountLocked: false,
+      multiBankAccountLocked: false,
+      userBanks: [],
+
+      selectedBankId: '',
+      newTopUpRequest: {
+        bank: '',
+        topUpAmount: (props.params && props.params.amount) || ''
+      },
+      xfersBankAccount: {
+        accountNo: '123456789',
+        abbreviation: 'DBS',
+        bankName: 'CIMB Bank',
+        uniqueId: '94463205',
+        payeeName: 'XV PTED LTD'
+      },
     }
   }
 

@@ -100,7 +100,7 @@ module.exports = class Xfers {
 
   startTopUpFlow = () => this.element.openModal(TOP_UP_FLOW);
 
-  startPaymentFlow = (params) => this.element.openModal(PAYMENT_FLOW, {...params});
+  startPaymentFlow = (params) => this.element.openModal(TOP_UP_FLOW, {...params, flowType: 'payment'});
 
   startAuthenticationFlow = () => this.element.openModal(AUTHENTICATION_FLOW);
 }

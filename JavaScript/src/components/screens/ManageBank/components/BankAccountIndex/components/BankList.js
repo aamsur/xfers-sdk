@@ -9,7 +9,7 @@ import trashIcon from 'icons/Trash_25.png'
 
 export class VerifiedBankSelection extends Component {
   render() {
-    const { bank } = this.props;
+    const { bank, navigateToDeleteConfirmation } = this.props;
     return (
       <SelectionButton image={bankIcon}>
         <View>

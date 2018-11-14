@@ -1,3 +1,0 @@
-export {
-  getSelectedBankDetails
-} from './topUpSelectors'
