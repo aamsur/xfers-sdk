@@ -57,6 +57,7 @@
         <activity
             android:name=".view.kyc.KycFullNameActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.kyc.KycCountryOfBirthActivity" />
         <activity
             android:name=".view.kyc.KycDateOfBirthActivity"
             android:windowSoftInputMode="adjustResize" />

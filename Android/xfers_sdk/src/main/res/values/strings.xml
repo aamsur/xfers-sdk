@@ -142,6 +142,10 @@
     <string name="kyc_full_name_page_title">Full Name</string>
     <string name="kyc_full_name_placeholder">Cynthia Rosafina</string>
 
+    <string name="kyc_country_of_birth_step_number">3/6</string>
+    <string name="kyc_country_of_birth_page_title">Country of Birth</string>
+    <string name="kyc_country_of_birth_placeholder">Search country here</string>
+
     <string name="kyc_date_of_birth_step_number">4/6</string>
     <string name="kyc_date_of_birth_page_title">Date of Birth</string>
     <string name="kyc_date_of_birth_placeholder">24/11/1990</string>
