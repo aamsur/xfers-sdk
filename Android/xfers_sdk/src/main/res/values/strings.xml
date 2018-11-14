@@ -37,6 +37,7 @@
     <string name="topup_button_copy">Topup</string>
     <string name="transaction_history_button_copy">Transaction History</string>
     <string name="account_settings_button_copy">Account Settings</string>
+    <string name="retake_button_copy">Retake</string>
 
     <!-- Connect flow -->
 
@@ -173,6 +174,8 @@
     <string name="kyc_personal_details_verification_step_5_ipsum">Alice</string>
     <string name="kyc_personal_details_verification_step_6_title">EMAIL ADDRESS</string>
     <string name="kyc_personal_details_verification_step_6_ipsum">alex@email.com</string>
+
+    <string name="kyc_confirm_ktp_image_confirm_copy">Confirm KTP Image?</string>
 
     <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
     <string name="kyc_documents_confirmation_personal_details_copy">Personal Details</string>

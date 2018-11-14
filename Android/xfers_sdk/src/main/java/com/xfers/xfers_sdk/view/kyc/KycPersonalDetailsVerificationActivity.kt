@@ -11,6 +11,7 @@ import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_kyc_personal_details_verification.*
 import kotlinx.android.synthetic.main.xfers_button.*
+import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 
 class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
@@ -78,10 +79,16 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
         val adapter = XfersTextRowAdapter(textRowItems)
         listViewRecyclerView.adapter = adapter
 
-        xfersFullWidthButton.setOnClickListener {
-            // TODO: Slot in the camera activites in between this and confirmation
+        xfersDoubleButtonsNegativeButton.text = getString(R.string.go_back_button_copy)
+        xfersDoubleButtonsNegativeButton.setOnClickListener {
+            finish()
+        }
 
-            startActivity(Intent(this, KycDocumentsConfirmationActivity::class.java))
+        xfersDoubleButtonsPositiveButton.text = getString(R.string.proceed_button_copy)
+        xfersDoubleButtonsPositiveButton.setOnClickListener {
+            // TODO: Slot in the ktp camera in between this and confirmation
+
+            startActivity(Intent(this, KycConfirmKtpImageActivity::class.java))
         }
     }
 }

@@ -5,10 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightGray"
+    tools:context=".view.kyc.KycConfirmKtpImageActivity">
 
     <TextView
-        android:id="@+id/kycPersonalDetailsVerificationTitleTextView"
+        android:id="@+id/kycConfirmKtpImageConfirmImageTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -16,39 +18,35 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="center"
         android:text="@string/lorem_ipsum"
-        android:textColor="@color/textColor"
-        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/kycPersonalDetailsVerificationListView"
-        layout="@layout/xfers_list_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/kycPersonalDetailsVerificationDoubleButtons"
+    <ImageView
+        android:id="@+id/kycConfirmKtpImageKtpImageView"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toTopOf="@+id/kycConfirmKtpImageDoubleButtonsView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kycPersonalDetailsVerificationTitleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/kycConfirmKtpImageConfirmImageTextView"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <include
-        android:id="@+id/kycPersonalDetailsVerificationDoubleButtons"
+        android:id="@+id/kycConfirmKtpImageDoubleButtonsView"
         layout="@layout/xfers_double_buttons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
