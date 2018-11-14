@@ -26,7 +26,6 @@ export default class ManageBank extends Component {
         { route === 'new' && <NewBankAccountForm {...this.props}  /> }
         { route === 'delete' && <BankAccountDelete {...this.props} /> }
       </View>
-
     )
   }
 }

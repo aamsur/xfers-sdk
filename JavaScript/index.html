@@ -10,6 +10,7 @@
   <body>
     <div id="xfers_elements"></div>
 
+    <button id="verification" onclick="triggerVerification()">Run Verification Flow</button>
     <button id="auth" onclick="triggerAuth()">Run Authentication Flow</button>
     <Button id="bank" onclick="triggerBank()">Run Manage Bank Flow</button>
     <button id="topup" onclick="triggerTopup()">Run Top Up Flow</button>
@@ -24,6 +25,10 @@
     <script type="text/javascript">
 
       const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+
+      function triggerVerification() {
+        xfers.startVerificationFlow();
+      }
 
       function triggerAuth() {
         xfers.startAuthenticationFlow();

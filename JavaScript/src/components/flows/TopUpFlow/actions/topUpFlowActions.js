@@ -26,28 +26,20 @@ export const selectBankForAction = (bankId) => ({
 })
 
 
-export const initializeComponent = (navigationCallback) => (dispatch, getState) => {
+export const initializeComponent = (callback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
   const xfersApi = getState().topUpFlow.networkClient;
 
-  const userBanksAPI = new Promise((resolve, reject) => {
-    xfersApi.getUserBanks().then(res => resolve(res.data));
+  const userDetailsAPI = new Promise((resolve, reject) => {
+    xfersApi.getUserDetails().then(res => resolve(res.data));
   });
 
   Promise
-    .all([ userBanksAPI ])
-    .then(([ userBanks ]) => {
-      const res = { userBanks };
+    .all([ userDetailsAPI ])
+    .then(([ userDetails ]) => {
+      const res = { userDetails };
       dispatch({ type: INITIALIZATION_SUCCESS, res });
-
-      if (navigationCallback) {
-        if (!userBanks.length) {
-          navigationCallback('bank')
-        }
-        else {
-          navigationCallback('topUpForm')
-        }
-      }
+      if (callback) callback();
     });
 }
 

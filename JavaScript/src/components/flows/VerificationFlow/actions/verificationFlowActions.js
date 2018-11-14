@@ -11,10 +11,11 @@ export const navigate = (route) => ({
 })
 
 
-export const initializeComponent = (navigationCallback) => (dispatch, getState) => {
+export const initializeComponent = (callback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
-  const xfersApi = getState().topUpFlow.networkClient;
+  const xfersApi = getState().verificationFlow.networkClient;
 
+  if (callback) callback();
   // const userBanksAPI = new Promise((resolve, reject) => {
   //   xfersApi.getUserBanks().then(res => resolve(res.data));
   // });

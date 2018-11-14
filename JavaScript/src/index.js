@@ -6,6 +6,7 @@ import AuthenticationFlow from 'AuthenticationFlow'
 import ManageBankFlow from 'ManageBankFlow'
 import PaymentFlow from 'PaymentFlow'
 import TopUpFlow from 'TopUpFlow'
+import VerificationFlow from 'VerificationFlow'
 
 import { Modal } from 'XfersComponents'
 
@@ -13,6 +14,7 @@ const TOP_UP_FLOW = 'TOP_UP_FLOW';
 const PAYMENT_FLOW = 'PAYMENT_FLOW';
 const MANAGE_BANK_FLOW = 'MANAGE_BANK_FLOW';
 const AUTHENTICATION_FLOW = 'AUTHENTICATION_FLOW';
+const VERIFICATION_FLOW = 'VERIFICATION_FLOW';
 
 function selectFlow(flow) {
   switch(flow) {
@@ -27,6 +29,9 @@ function selectFlow(flow) {
       break;
     case MANAGE_BANK_FLOW:
       return ManageBankFlow
+      break;
+    case VERIFICATION_FLOW:
+      return VerificationFlow
       break;
     default:
       return null;
@@ -88,6 +93,8 @@ module.exports = class Xfers {
       document.getElementById(mountingElementId)
     );
   }
+
+  startVerificationFlow = () => this.element.openModal(VERIFICATION_FLOW);
 
   startManageBankFlow = () => this.element.openModal(MANAGE_BANK_FLOW);
 

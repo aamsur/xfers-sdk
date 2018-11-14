@@ -22,7 +22,7 @@ function mapDispatchToProps(dispatch) {
 
 class VerificationFlow extends Component {
 
-  componentDidMount() { this.props.init((page) => this.props.navigate(page)) }
+  componentDidMount() { this.props.init(() => this.props.navigate('index')) }
 
   render() {
     return (

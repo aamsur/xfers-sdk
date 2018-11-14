@@ -36,7 +36,7 @@ function mapDispatchToProps(dispatch) {
 
 class TopUpFlow extends Component {
 
-  componentDidMount() { this.props.init((page) => this.props.navigate(page)) }
+  componentDidMount() { this.props.init(() => this.props.navigate('topUpForm')) }
 
   render() {
     return (

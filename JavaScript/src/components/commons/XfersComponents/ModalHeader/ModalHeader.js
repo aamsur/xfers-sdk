@@ -16,15 +16,23 @@ function ModalHeader({title, children, onBack, onClose }) {
         <Text type="modalHeader">{title}</Text>
       </View>
 
-      { subHeading && <View customClass={cls.subHeading}>{subHeading}</View> }
-      { desc && <View customClass={cls.desc}>{desc}</View> }
+      { (subHeading || desc) &&
+        <View customClass={cls.modalHeaderBody}>
+          { subHeading && <View customClass={cls.subHeading}>{subHeading}</View> }
+          { desc && <View customClass={cls.desc}>{desc}</View> }
+        </View>
+      }
     </View>
   )
 }
 
 function processElements(children) {
 
-  if ( !children || !children.length ) return {};
+  if ( !children ) return {};
+  if ( !children.length ) {
+    if (children.props.spHeader) return { subHeading: children };
+    if (children.props.spBody) return { desc: children };
+  }
 
   // If subHeading & desc are passed as children in an array, process the elements;
   let subHeading, desc;

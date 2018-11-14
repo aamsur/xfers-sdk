@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import topUpFlowReducer from './topUpFlowReducer'
+import verificationFlowReducer from './verificationFlowReducer'
 
 const rootReducer = combineReducers({
-  topUpFlow: topUpFlowReducer
+  verificationFlow: verificationFlowReducer
 });
 
 export default rootReducer

@@ -31,7 +31,15 @@ export default (props = {}) => {
       error: '',
       dataLoading: false,
       availableBalance: '',
+      gauthEnabled: false,
+      bitcoinUser: false,
+      vipBetaUser: false,
+      acceptedTnc: false,
+      kycVerified: false,
+      accountLocked: false,
+      multiBankAccountLocked: false,
       userBanks: [],
+
       selectedBankId: '',
       newTopUpRequest: {
         bank: '',

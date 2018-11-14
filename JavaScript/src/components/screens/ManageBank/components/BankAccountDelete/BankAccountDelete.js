@@ -21,7 +21,7 @@ export default class BankAccountDelete extends Component {
     }
 
     return (
-      <StickyPanel>
+      <StickyPanel showBrand>
         <ModalHeader spHeader onBack={() => navigate('index')} title="Bank Accounts" />
         <View spBody>
           <CenterContent>

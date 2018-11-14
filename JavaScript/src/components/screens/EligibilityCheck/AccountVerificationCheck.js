@@ -9,14 +9,15 @@ import {
   FooterButtonGroup
 } from 'XfersComponents'
 
-export default class AccountVerification extends Component {
+export default class AccountVerificationCheck extends Component {
   render() {
     const {
       closeModal,
       goNext,
     } = this.props;
+
     return (
-      <StickyPanel>
+      <StickyPanel showBrand>
         <ModalHeader onClose={closeModal} spHeader title="Identity Verification">
           <Text spHeader>Account Verification</Text>
           <Text spBody textAlign="center">You are required to verify your identity</Text>
@@ -33,7 +34,7 @@ export default class AccountVerification extends Component {
             }
           </View>
         </View>
-        <FooterButtonGroup>
+        <FooterButtonGroup spFooter>
           <Button type="primary" onClick={goNext}>Proceed</Button>
         </FooterButtonGroup>
       </StickyPanel>

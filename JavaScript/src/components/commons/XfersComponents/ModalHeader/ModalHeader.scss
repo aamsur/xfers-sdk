@@ -19,6 +19,9 @@
     }
   }
 
+  .modalHeaderBody {
+    padding: 0 $medium_space $medium_space;
+  }
   .subHeading {
     font-size: 24px;
     text-align: center;
@@ -31,7 +34,7 @@
     font-size: 20px;
     line-height: 26px;
     font-weight: $font_weight_light;
-    padding: $medium_space;
+    padding-top: $medium_space;
     display: flex;
     justify-content: center;
     align-items: center;
