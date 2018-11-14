@@ -26,7 +26,7 @@ class KycFullNameActivity : AppCompatActivity() {
             // TODO: Push full name information to following activities
 
             // TODO: Change to proper country of birth (slot in between this and next)
-            startActivity(Intent(this, KycDateOfBirthActivity::class.java))
+            startActivity(Intent(this, KycCountryOfBirthActivity::class.java))
         }
     }
 }

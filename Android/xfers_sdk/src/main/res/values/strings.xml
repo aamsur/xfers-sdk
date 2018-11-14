@@ -37,6 +37,7 @@
     <string name="topup_button_copy">Topup</string>
     <string name="transaction_history_button_copy">Transaction History</string>
     <string name="account_settings_button_copy">Account Settings</string>
+    <string name="retake_button_copy">Retake</string>
 
     <!-- Connect flow -->
 
@@ -142,6 +143,10 @@
     <string name="kyc_full_name_page_title">Full Name</string>
     <string name="kyc_full_name_placeholder">Cynthia Rosafina</string>
 
+    <string name="kyc_country_of_birth_step_number">3/6</string>
+    <string name="kyc_country_of_birth_page_title">Country of Birth</string>
+    <string name="kyc_country_of_birth_placeholder">Search country here</string>
+
     <string name="kyc_date_of_birth_step_number">4/6</string>
     <string name="kyc_date_of_birth_page_title">Date of Birth</string>
     <string name="kyc_date_of_birth_placeholder">24/11/1990</string>
@@ -169,6 +174,12 @@
     <string name="kyc_personal_details_verification_step_5_ipsum">Alice</string>
     <string name="kyc_personal_details_verification_step_6_title">EMAIL ADDRESS</string>
     <string name="kyc_personal_details_verification_step_6_ipsum">alex@email.com</string>
+
+    <string name="kyc_confirm_ktp_image_confirm_copy">Confirm KTP Image?</string>
+
+    <string name="kyc_prepare_ktp_selfie_extended_topbar_title">Please prepare the following documents</string>
+
+    <string name="kyc_confirm_ktp_selfie_confirm_copy">Confirm Selfie Image?</string>
 
     <string name="kyc_documents_confirmation_page_title">Great! Your documents are ready to be submitted</string>
     <string name="kyc_documents_confirmation_personal_details_copy">Personal Details</string>
