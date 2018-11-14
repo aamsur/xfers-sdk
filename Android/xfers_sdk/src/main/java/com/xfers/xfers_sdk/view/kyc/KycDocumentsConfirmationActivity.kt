@@ -41,8 +41,9 @@ class KycDocumentsConfirmationActivity : AppCompatActivity() {
         listViewRecyclerView.adapter = adapter
 
         xfersFullWidthButton.text = getString(R.string.submit_button_copy)
-
-        // TODO: Add view model to the activity and on submit talk to Xfers API
-        XfersStatusCardService(this).presentKycSubmitSuccessfulStatusCard()
+        xfersFullWidthButton.setOnClickListener {
+            // TODO: Add view model to the activity and on submit talk to Xfers API
+            XfersStatusCardService(this).presentKycSubmitSuccessfulStatusCard()
+        }
     }
 }

@@ -7,10 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context=".view.kyc.KycConfirmKtpImageActivity">
+    tools:context=".view.kyc.KycConfirmKtpSelfieActivity">
 
     <TextView
-        android:id="@+id/kycConfirmKtpImageConfirmImageTextView"
+        android:id="@+id/kycConfirmKtpSelfieConfirmSelfieTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -28,17 +28,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/kycConfirmKtpImageKtpImageView"
+        android:id="@+id/kycConfirmKtpSelfieKtpSelfieImageView"
         android:layout_width="280dp"
         android:layout_height="180dp"
         app:layout_constraintBottom_toTopOf="@+id/kycConfirmKtpSelfieDoubleButtonsView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kycConfirmKtpImageConfirmImageTextView"
+        app:layout_constraintTop_toBottomOf="@+id/kycConfirmKtpSelfieConfirmSelfieTextView"
         tools:srcCompat="@tools:sample/avatars" />
 
     <include
-        android:id="@+id/kycConfirmKtpImageDoubleButtonsView"
+        android:id="@+id/kycConfirmKtpSelfieDoubleButtonsView"
         layout="@layout/xfers_double_buttons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

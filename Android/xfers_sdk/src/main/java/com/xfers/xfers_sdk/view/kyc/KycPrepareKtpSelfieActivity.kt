@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view.kyc
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -84,7 +85,8 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
         xfersFullWidthButton.setOnClickListener {
             // TODO: Present camera and gallery intent action and slot it in between this and the following presented activity
 
-            // TODO: Present confirm selfie image activity and pass in image from camera / gallery intent
+            // TODO: Pass in image from camera / gallery intent action
+            startActivity(Intent(this, KycConfirmKtpSelfieActivity::class.java))
         }
     }
 }
