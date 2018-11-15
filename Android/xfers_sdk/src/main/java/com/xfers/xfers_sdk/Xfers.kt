@@ -10,6 +10,7 @@ import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.menu.XfersMenuActivity
+import com.xfers.xfers_sdk.view.transactions_history.TransactionHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
 import java.math.BigInteger
 
@@ -103,7 +104,7 @@ class Xfers(private val context: Context) {
 
         fun startTransactionsOverviewActivity() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            XfersStatusCardService(context).presentComingSoonStatusCard()
+            context.startActivity(Intent(context, TransactionHistoryActivity::class.java))
         }
     }
 

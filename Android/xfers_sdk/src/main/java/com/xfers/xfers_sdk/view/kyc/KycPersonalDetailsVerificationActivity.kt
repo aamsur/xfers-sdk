@@ -21,7 +21,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
 
         title = getString(R.string.kyc_personal_details_verification_title)
 
-        kycPrepareKtpSelfieExtendedTopbarView.text = getString(R.string.kyc_personal_details_verification_page_title)
+        kycPersonalDetailsTextView.text = getString(R.string.kyc_personal_details_verification_page_title)
 
         val textRowItems = listOf(
                 TextRowItem(

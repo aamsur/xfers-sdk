@@ -261,6 +261,22 @@
     <string name="payment_insufficient_funds_card_subtitle">XFERS WALLET</string>
     <string name="payment_insufficient_funds_card_balance">Current Balance: %1$s</string>
 
+    <!-- Transaction history flow -->
+
+    <string name="transaction_history_title">TRANSACTION HISTORY</string>
+    <string name="transaction_history_title_copy">Transaction Details</string>
+
+    <string name="transaction_history_row_1_title">TRANSACTION TYPE</string>
+    <string name="transaction_history_row_1_ipsum">Withdrawal</string>
+    <string name="transaction_history_row_2_title">DEPOSIT TO</string>
+    <string name="transaction_history_row_2_ipsum">Xfers Wallet</string>
+    <string name="transaction_history_row_3_title">FROM</string>
+    <string name="transaction_history_row_3_ipsum">DBS 123-XXXX-6</string>
+    <string name="transaction_history_row_4_title">AMOUNT</string>
+    <string name="transaction_history_row_4_ipsum">RP 100.000</string>
+    <string name="transaction_history_row_5_title">STATUS</string>
+    <string name="transaction_history_row_5_ipsum">Requested</string>
+
     <!-- Status cards -->
 
     <string name="status_card_base_title">Information</string>

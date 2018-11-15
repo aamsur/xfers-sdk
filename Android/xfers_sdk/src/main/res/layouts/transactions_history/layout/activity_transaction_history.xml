@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/kycPersonalDetailsTextView"
+        android:id="@+id/transactionHistoryTitleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        android:id="@+id/kycPersonalDetailsListView"
+        android:id="@+id/transactionHistoryListView"
         layout="@layout/xfers_list_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -33,24 +33,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/kycPersonalDetailsVerificationDoubleButtons"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/transactionHistoryTitleTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kycPersonalDetailsTextView" />
-
-    <include
-        android:id="@+id/kycPersonalDetailsVerificationDoubleButtons"
-        layout="@layout/xfers_double_buttons"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
