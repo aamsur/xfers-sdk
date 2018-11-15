@@ -1,6 +1,8 @@
 package com.xfers.xfers_sdk.view.kyc
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.xfers.xfers_sdk.R
@@ -17,8 +19,17 @@ class KycConfirmKtpImageActivity : AppCompatActivity() {
 
         kycConfirmKtpImageConfirmImageTextView.text = getString(R.string.kyc_confirm_ktp_image_confirm_copy)
 
-        // TODO: Populate image view with KTP data from previous activity
-        // kycConfirmKtpImageKtpImageView
+        val bitmap = intent.extras["ktpBitmap"] as? Bitmap
+
+        bitmap?.let {
+            kycConfirmKtpImageKtpImageView.setImageBitmap(it)
+        }
+
+        val bitmapUri = intent.extras["ktpBitmapUri"] as? Uri
+
+        bitmapUri.let {
+            kycConfirmKtpImageKtpImageView.setImageURI(it)
+        }
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.retake_button_copy)
         xfersDoubleButtonsNegativeButton.setOnClickListener {
