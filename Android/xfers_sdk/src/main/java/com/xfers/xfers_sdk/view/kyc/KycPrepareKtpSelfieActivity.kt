@@ -1,7 +1,11 @@
 package com.xfers.xfers_sdk.view.kyc
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.text.bold
@@ -17,6 +21,8 @@ import kotlinx.android.synthetic.main.xfers_extended_topbar.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 
 class KycPrepareKtpSelfieActivity : AppCompatActivity() {
+
+    private val SELFIE_REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,10 +89,52 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
 
         xfersFullWidthButton.text = getString(R.string.proceed_button_copy)
         xfersFullWidthButton.setOnClickListener {
-            // TODO: Present camera and gallery intent action and slot it in between this and the following presented activity
-
-            // TODO: Pass in image from camera / gallery intent action
-            startActivity(Intent(this, KycConfirmKtpSelfieActivity::class.java))
+            launchSelfieImageIntent()
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == SELFIE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            val isCamera = data?.action != null
+
+            var bitmap: Bitmap? = null
+            var bitmapUri: Uri? = null
+
+            if (isCamera) {
+                bitmap = data?.extras?.get("data") as Bitmap
+            } else {
+                bitmapUri = data?.data
+            }
+
+            bitmap?.let {
+                startActivity(
+                        Intent(this, KycConfirmKtpSelfieActivity::class.java).apply {
+                            this.putExtra("selfieBitmap", bitmap)
+                        }
+                )
+            }
+
+            bitmapUri?.let {
+                startActivity(
+                        Intent(this, KycConfirmKtpSelfieActivity::class.java).apply {
+                            this.putExtra("selfieBitmapUri", bitmapUri)
+                        }
+                )
+            }
+        }
+    }
+
+    private fun launchSelfieImageIntent() {
+        // TODO: For now only native camera and file system, in a future version polish to allow other camera intents
+        val intent = Intent.createChooser(Intent(MediaStore.ACTION_IMAGE_CAPTURE), null)
+        intent.putExtra(Intent.EXTRA_INITIAL_INTENTS, listOf(
+                Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
+                    this.type = "image/*"
+                }
+        ).toTypedArray())
+
+        startActivityForResult(intent, SELFIE_REQUEST_CODE)
     }
 }

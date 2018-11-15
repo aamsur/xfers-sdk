@@ -19,7 +19,7 @@ import android.net.Uri
 
 class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
 
-    private val PHOTO_REQUEST_CODE = 1
+    private val KTP_REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,7 +98,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == PHOTO_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == KTP_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val isCamera = data?.action != null
 
             var bitmap: Bitmap? = null
@@ -137,6 +137,6 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                 }
         ).toTypedArray())
 
-        startActivityForResult(intent, PHOTO_REQUEST_CODE)
+        startActivityForResult(intent, KTP_REQUEST_CODE)
     }
 }
