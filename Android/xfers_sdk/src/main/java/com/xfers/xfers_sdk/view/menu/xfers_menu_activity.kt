@@ -12,6 +12,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.kyc.KycVerificationStatusActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
+import com.xfers.xfers_sdk.view.transactions_history.TransactionsHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
 import kotlinx.android.synthetic.main.activity_xfers_menu.*
 import kotlinx.android.synthetic.main.xfers_button.*
@@ -70,6 +71,6 @@ class XfersMenuActivity: AppCompatActivity() {
     }
 
     fun transactionHistoryOnClick(view: View) {
-        Toast.makeText(this, "Transactions History coming soon", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, TransactionsHistoryActivity::class.java))
     }
 }

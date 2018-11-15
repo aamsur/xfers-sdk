@@ -101,7 +101,11 @@
 
         <activity android:name=".view.menu.XfersMenuActivity" />
 
-        <!-- Transactions Overview UI / flow -->
+        <!-- Transactions History UI / flow -->
+
+        <activity android:name=".view.transactions_history.TransactionsHistoryActivity" />
+        <activity android:name=".view.transactions_history.TransactionHistoryActivity" />
+
     </application>
 
 </manifest>
