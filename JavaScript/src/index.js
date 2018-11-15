@@ -4,28 +4,23 @@ import NetworkClient from 'NetworkClient'
 
 import AuthenticationFlow from 'AuthenticationFlow'
 import ManageBankFlow from 'ManageBankFlow'
-import PaymentFlow from 'PaymentFlow'
-import TopUpFlow from 'TopUpFlow'
+import WalletFlow from 'WalletFlow'
 import VerificationFlow from 'VerificationFlow'
 
 import { Modal } from 'XfersComponents'
 
-const TOP_UP_FLOW = 'TOP_UP_FLOW';
-const PAYMENT_FLOW = 'PAYMENT_FLOW';
+const WALLET_FLOW = 'WalletFlow';
 const MANAGE_BANK_FLOW = 'MANAGE_BANK_FLOW';
 const AUTHENTICATION_FLOW = 'AUTHENTICATION_FLOW';
 const VERIFICATION_FLOW = 'VERIFICATION_FLOW';
 
 function selectFlow(flow) {
   switch(flow) {
-    case PAYMENT_FLOW:
-      return PaymentFlow
-      break;
     case AUTHENTICATION_FLOW:
       return AuthenticationFlow
       break;
-    case TOP_UP_FLOW:
-      return TopUpFlow
+    case WALLET_FLOW:
+      return WalletFlow
       break;
     case MANAGE_BANK_FLOW:
       return ManageBankFlow
@@ -79,10 +74,17 @@ module.exports = class Xfers {
 
     if (!mountingElementId)
       throw new Error('Please provide a valid mounting element ID');
+
     if (!accessToken)
       throw new Error('Please provide a valid access token.');
 
-    const networkClient = new NetworkClient(accessToken);
+    if ((!options.hasOwnProperty('country')) ||
+        (options.country !== "sg" && options.country !== "id"))
+      throw new Error('Please specify country in the options: { country: "sg" } or {country: "id" }');
+
+    if (!options.hasOwnProperty('test')) options['test'] = false;
+
+    const networkClient = new NetworkClient(accessToken, options);
     this.mountComponent(mountingElementId, networkClient);
 
   }
@@ -98,9 +100,9 @@ module.exports = class Xfers {
 
   startManageBankFlow = () => this.element.openModal(MANAGE_BANK_FLOW);
 
-  startTopUpFlow = () => this.element.openModal(TOP_UP_FLOW);
+  startTopUpFlow = () => this.element.openModal(WALLET_FLOW);
 
-  startPaymentFlow = (params) => this.element.openModal(TOP_UP_FLOW, {...params, flowType: 'payment'});
+  startPaymentFlow = (params) => this.element.openModal(WALLET_FLOW, {...params, flowType: 'payment'});
 
   startAuthenticationFlow = () => this.element.openModal(AUTHENTICATION_FLOW);
 }

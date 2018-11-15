@@ -14,11 +14,11 @@ import {
 } from 'WalletFlow/actions'
 import { getSelectedBankDetails, sortUserBanksOnVerification } from 'WalletFlow/selectors'
 
-function mapStateToProps({topUpFlow}, props) {
-  const selectedBankDetails = getSelectedBankDetails(topUpFlow);
-  const { verifiedBanks, nonVerifiedBanks } = sortUserBanksOnVerification(topUpFlow);
+function mapStateToProps({walletFlow}, props) {
+  const selectedBankDetails = getSelectedBankDetails(walletFlow);
+  const { verifiedBanks, nonVerifiedBanks } = sortUserBanksOnVerification(walletFlow);
   return {
-    ...topUpFlow,
+    ...walletFlow,
     selectedBankDetails,
     verifiedBanks,
     nonVerifiedBanks

@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 
-const getUserBanks = (topUp) => topUp.userBanks
-const getSelectedBankId = (topUp) => topUp.selectedBankId
+const getUserBanks = (wallet) => wallet.userBanks
+const getSelectedBankId = (wallet) => wallet.selectedBankId
 
 export const getSelectedBankDetails = createSelector(
   [getUserBanks, getSelectedBankId],

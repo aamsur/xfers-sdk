@@ -2,24 +2,43 @@ import ApiHelper from './ApiHelper'
 import joinUrl from 'proper-url-join'
 
 const LOCAL_DOMAIN = 'http://localhost:3000';
-const SANDBOX_DOMAIN = 'https://sandbox.xfers.io';
-const PROD_DOMAIN = 'https://www.xfers.io';
+const SG_SANDBOX_DOMAIN = 'https://sandbox.xfers.io';
+const ID_SANDBOX_DOMAIN = 'https://sandbox-id.xfers.com/';
+
+const SG_PROD_DOMAIN = 'https://www.xfers.io';
+const ID_PROD_DOMAIN = 'https://id.xfers.com/';
+
 const V3_API_NAMESPACE = '/api/v3';
 
-function getBaseURL( isSandbox ) {
+function getBaseURL({ country, test: isSandbox }) {
+
+  let baseDomain;
   const isNotProduction = process.env.NODE_ENV !== 'production'
-  const baseDomain = isNotProduction ? LOCAL_DOMAIN :
-                     isSandbox ? SANDBOX_DOMAIN : PROD_DOMAIN;
+
+  if (country == "id") {
+    baseDomain = isNotProduction ? LOCAL_DOMAIN :
+                 isSandbox ? ID_SANDBOX_DOMAIN : ID_PROD_DOMAIN;
+  } else {
+    // Default back to Singapore environment
+    baseDomain = isNotProduction ? LOCAL_DOMAIN :
+                 isSandbox ? SG_SANDBOX_DOMAIN : SG_PROD_DOMAIN;
+  }
+
   return joinUrl(baseDomain, V3_API_NAMESPACE, { trailingSlash: true });
 }
 
 export default class Xfers {
   constructor(accessToken, options = {}) {
-    if (!accessToken) throw new Error('Please provide a valid access token.');
+    if (!accessToken)
+      throw new Error('Please provide a valid access token.');
+
+    if ((!options.hasOwnProperty('country')) ||
+        (options.country !== "sg" && options.country !== "id"))
+      throw new Error('Please specify country in the options: { country: "sg" } or {country: "id" }');
 
     this.api = new ApiHelper({
       accessToken,
-      baseURL: getBaseURL(options.test),
+      baseURL: getBaseURL(options),
     });
   }
 
