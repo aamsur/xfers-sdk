@@ -263,6 +263,22 @@
 
     <!-- Transaction history flow -->
 
+    <string name="transactions_history_title">TRANSACTION HISTORY</string>
+    <string name="transactions_history_title_copy">Transaction History</string>
+
+    <string name="transaction_history_withdraw_title">Withdrawal</string>
+    <string name="transaction_history_topup_request_title">Top-up Request</string>
+    <string name="transaction_history_topup_title">Top-up</string>
+    <string name="transaction_history_digital_purchase_title">Digital Purchase</string>
+    <string name="transaction_history_to_bank_ipsum">to DBS 1xx–xxx23–6</string>
+    <string name="transaction_history_from_bank_ipsum">from DBS 1xx–xxx23–6</string>
+    <string name="transaction_history_to_merchant_ipsum">to %1$s</string>
+    <string name="transaction_history_from_merchant_ipsum">from %1$s</string>
+    <string name="transaction_history_positive_money_ipsum">$1,000.00</string>
+    <string name="transaction_history_negative_money_ipsum_1">- $209.43</string>
+    <string name="transaction_history_negative_money_ipsum_2">- $430.14</string>
+    <string name="transaction_history_date_ipsum">22/07/2018</string>
+
     <string name="transaction_history_title">TRANSACTION HISTORY</string>
     <string name="transaction_history_title_copy">Transaction Details</string>
 
