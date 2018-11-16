@@ -29,7 +29,7 @@ class TopupBankSelectionActivity : AppCompatActivity() {
             val selectionRowItems = it.map {
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbreviation} ${it.bankAccountNumber}",
+                        "${it.bankAbbrev} ${it.accountNo}",
                         onClick = {
                             // TODO: Pass what bank was selected into the child activity
                             startActivity(Intent(this, TopupVirtualAccountTransferActivity::class.java))
@@ -37,7 +37,6 @@ class TopupBankSelectionActivity : AppCompatActivity() {
                 )
             }
 
-            // TODO: To give each row a click -> navigate to next page on click listener
             listViewRecyclerView.layoutManager = LinearLayoutManager(this)
             val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
             listViewRecyclerView.adapter = adapter
