@@ -27,9 +27,11 @@ class KycVerificationStatusActivity: AppCompatActivity() {
         if (isVerified) {
             kycVerificationStatusTextView.text = getString(R.string.kyc_verification_status_verified_copy)
             kycVerificationStatusTextView.setTextColor(ContextCompat.getColor(this, R.color.aquaMarine))
+            kycVerificationPendingFootnoteTextView.visibility = View.GONE
         } else {
             kycVerificationStatusTextView.text = getString(R.string.kyc_verification_status_pending_copy)
             kycVerificationStatusTextView.setTextColor(ContextCompat.getColor(this, R.color.pastelOrange))
+            kycVerificationPendingFootnoteTextView.text = getString(R.string.kyc_verification_status_footnote_copy)
         }
 
         val itemRowItems = listOf(
@@ -64,11 +66,5 @@ class KycVerificationStatusActivity: AppCompatActivity() {
         listViewRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = XfersItemRowAdapter(this, itemRowItems)
         listViewRecyclerView.adapter = adapter
-
-        if (isVerified) {
-            kycVerificationPendingFootnoteTextView.visibility = View.GONE
-        } else {
-            kycVerificationPendingFootnoteTextView.text = getString(R.string.kyc_verification_status_footnote_copy)
-        }
     }
 }
