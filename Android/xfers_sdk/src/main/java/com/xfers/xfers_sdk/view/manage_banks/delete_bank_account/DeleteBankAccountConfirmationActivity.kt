@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
 import androidx.core.text.scale
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.view_model.DeleteUserBankAccountViewModel
 import kotlinx.android.synthetic.main.activity_delete_bank_account_confirmation.*
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 
@@ -17,13 +20,18 @@ class DeleteBankAccountConfirmationActivity : AppCompatActivity() {
 
         title = getString(R.string.delete_bank_account_title)
 
+        val extras = this.intent.extras
+
+        val bankAbbreviation = extras[DeleteBankAccountConfirmationConstants.bankAbbreviationKey]
+        val bankAccountNumber = extras[DeleteBankAccountConfirmationConstants.bankAccountNumberKey]
+        val bankId = extras[DeleteBankAccountConfirmationConstants.bankIdKey] as Int?
+
         val deleteBankAccountConfirmationText = buildSpannedString {
             bold {
                 scale(1.3f) {
                     append(getString(R.string.delete_bank_account_delete_bank_copy))
                     append("\n")
-                    // TODO: To integrate this with previous screen's information on what is being deleted
-                    append(getString(R.string.bank_xxx_ipsum))
+                    append("$bankAbbreviation $bankAccountNumber")
                     append("?")
                 }
             }
@@ -39,10 +47,27 @@ class DeleteBankAccountConfirmationActivity : AppCompatActivity() {
         }
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.delete_button_copy)
-        xfersDoubleButtonsPositiveButton.setOnClickListener {
-            // TODO: Integrate API to delete bank account properly before finishing back to manage bank accounts page
 
-            finish()
+        val deleteBankAccountViewModel = ViewModelProviders.of(this).get(DeleteUserBankAccountViewModel::class.java)
+
+        val deleteSuccessObserver = Observer<Boolean> { deleteBankAccountSuccess ->
+            if (deleteBankAccountSuccess) {
+                finish()
+            }
+        }
+
+        deleteBankAccountViewModel.deleteBankAccountSuccess.observe(this, deleteSuccessObserver)
+
+        xfersDoubleButtonsPositiveButton.setOnClickListener {
+            bankId?.let {
+                deleteBankAccountViewModel.deleteUserBankAccount(it)
+            }
         }
     }
+}
+
+object DeleteBankAccountConfirmationConstants {
+    const val bankAbbreviationKey = "bankAbbreviationKey"
+    const val bankAccountNumberKey = "bankAccountNumberKey"
+    const val bankIdKey = "bankIdKey"
 }

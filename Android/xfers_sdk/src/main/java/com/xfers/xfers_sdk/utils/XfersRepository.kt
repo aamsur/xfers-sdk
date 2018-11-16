@@ -9,4 +9,8 @@ class XfersRepository {
     fun getUserBanks(): Observable<List<UserBankAccount>> {
         return xfersApiService.getUserBanks()
     }
+
+    fun deleteUserBank(bankId: Int): Observable<List<UserBankAccount>> {
+        return xfersApiService.deleteUserBank(bankId.toString())
+    }
 }

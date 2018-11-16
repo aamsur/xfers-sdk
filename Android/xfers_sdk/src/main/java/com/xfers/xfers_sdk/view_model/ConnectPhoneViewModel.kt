@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ConnectPhoneViewModel : ViewModel() {
     private val merchantRepository = MerchantRepository()
-    private val connectSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val connectPhoneSuccess: MutableLiveData<Boolean> = MutableLiveData()
     private var subscription: Disposable? = null
 
     fun connectPhoneNumber(phoneNumber: String): LiveData<Boolean> {
@@ -25,7 +25,7 @@ class ConnectPhoneViewModel : ViewModel() {
                         { onConnectPhoneError() }
                 )
 
-        return connectSuccess
+        return connectPhoneSuccess
     }
 
     override fun onCleared() {
@@ -47,7 +47,7 @@ class ConnectPhoneViewModel : ViewModel() {
         //   "msg": "success"
         // }
         if (okMessage.msg == "success") {
-            connectSuccess.value = true
+            connectPhoneSuccess.value = true
         }
     }
 

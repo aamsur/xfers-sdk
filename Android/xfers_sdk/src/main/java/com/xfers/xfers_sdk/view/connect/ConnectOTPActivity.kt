@@ -22,19 +22,21 @@ class ConnectOTPActivity : AppCompatActivity() {
 
         val connectOTPViewModel = ViewModelProviders.of(this).get(ConnectOTPViewModel::class.java)
 
+        // Create the observer which updates the UI.
+        val connectSuccessObserver = Observer<Boolean> { connectStatus ->
+            if (connectStatus) {
+                startActivity(Intent(this, ConnectShareKYCActivity::class.java))
+            }
+        }
+
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        connectOTPViewModel.connectOTPSuccess.observe(this, connectSuccessObserver)
+
         xfersFullWidthButton.setOnClickListener {
             val OTPTextField = findViewById<EditText>(R.id.enterOTPTextField)
             val OTP = OTPTextField.text.toString()
 
-            // Create the observer which updates the UI.
-            val connectSuccessObserver = Observer<Boolean> { connectStatus ->
-                if (connectStatus) {
-                    startActivity(Intent(this, ConnectShareKYCActivity::class.java))
-                }
-            }
-
-            // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-            connectOTPViewModel.connectOTP(OTP).observe(this, connectSuccessObserver)
+            connectOTPViewModel.connectOTP(OTP)
         }
 
         connectOTPResentOTPTextView.setOnClickListener {

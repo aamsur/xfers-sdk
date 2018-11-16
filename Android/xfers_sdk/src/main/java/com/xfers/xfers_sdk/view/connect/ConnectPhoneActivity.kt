@@ -28,19 +28,21 @@ class ConnectPhoneActivity : AppCompatActivity() {
 
         val connectPhoneViewModel = ViewModelProviders.of(this).get(ConnectPhoneViewModel::class.java)
 
+        // Create the observer which updates the UI.
+        val connectSuccessObserver = Observer<Boolean> { connectStatus ->
+            if (connectStatus) {
+                startActivity(Intent(this, ConnectOTPActivity::class.java))
+            }
+        }
+
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        connectPhoneViewModel.connectPhoneSuccess.observe(this, connectSuccessObserver)
+
         xfersFullWidthButton.setOnClickListener {
             val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
             val userPhoneNumber = phoneNumberTextField.text.toString()
 
-            // Create the observer which updates the UI.
-            val connectSuccessObserver = Observer<Boolean> { connectStatus ->
-                if (connectStatus) {
-                    startActivity(Intent(this, ConnectOTPActivity::class.java))
-                }
-            }
-
-            // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-            connectPhoneViewModel.connectPhoneNumber(userPhoneNumber).observe(this, connectSuccessObserver)
+            connectPhoneViewModel.connectPhoneNumber(userPhoneNumber)
         }
     }
 }

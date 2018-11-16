@@ -12,6 +12,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.model.UserBankAccount
 import com.xfers.xfers_sdk.view.manage_banks.add_bank_account.SelectBankToAddActivity
 import com.xfers.xfers_sdk.view.manage_banks.delete_bank_account.DeleteBankAccountConfirmationActivity
+import com.xfers.xfers_sdk.view.manage_banks.delete_bank_account.DeleteBankAccountConfirmationConstants
 import com.xfers.xfers_sdk.view.shared.SelectionRowItem
 import com.xfers.xfers_sdk.view.shared.XfersSelectionRowAdapter
 import com.xfers.xfers_sdk.view_model.UserBankAccountsViewModel
@@ -62,18 +63,23 @@ class ManageBankAccountsActivity: AppCompatActivity() {
                 manageBankAccountsXfersButton.visibility = View.VISIBLE
             }
 
-            val selectionRowItems = it.map {
+            val selectionRowItems = it.map { userBankAccount ->
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbrev} ${it.accountNo}",
+                        "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
                         onClick = {
                             Toast.makeText(this, "Bank account summary page feature coming soon", Toast.LENGTH_SHORT).show()
                         },
                         rightIcon = R.drawable.trash_23,
                         rightIconTint = R.color.negativeRed,
                         rightIconOnClick = {
-                            // TODO: Pass in the account to be deleted through intent extras
-                            startActivity(Intent(this, DeleteBankAccountConfirmationActivity::class.java))
+                            startActivity(
+                                    Intent(this, DeleteBankAccountConfirmationActivity::class.java).apply {
+                                        this.putExtra(DeleteBankAccountConfirmationConstants.bankAbbreviationKey, userBankAccount.bankAbbrev)
+                                        this.putExtra(DeleteBankAccountConfirmationConstants.bankAccountNumberKey, userBankAccount.accountNo)
+                                        this.putExtra(DeleteBankAccountConfirmationConstants.bankIdKey, userBankAccount.id)
+                                    }
+                            )
                         }
                 )
             }
