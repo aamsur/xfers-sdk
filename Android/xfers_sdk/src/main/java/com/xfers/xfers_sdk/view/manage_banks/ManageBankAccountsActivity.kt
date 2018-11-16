@@ -24,7 +24,19 @@ class ManageBankAccountsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_bank_accounts)
+
         title = getString(R.string.manage_bank_accounts_title)
+
+        manageBankAccountsAddBankAccountTextView.text = getString(R.string.manage_bank_accounts_add_bank_account_copy)
+        manageBankAccountsAddBankAccountTextView.setOnClickListener {
+            startActivity(Intent(this, SelectBankToAddActivity::class.java))
+        }
+
+        xfersFullWidthButton.text = getString(R.string.add_bank_account_button_copy)
+        xfersFullWidthButton.setOnClickListener {
+            startActivity(Intent(this, SelectBankToAddActivity::class.java))
+        }
+
         observeViewModel()
     }
 
@@ -34,31 +46,20 @@ class ManageBankAccountsActivity: AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        manageBankAccountsXfersProgressBar.visibility = View.VISIBLE
         manageBankAccountsListViewConstraintLayout.visibility = View.GONE
         manageBankAccountsXfersButton.visibility = View.GONE
 
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
         model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
-            manageBankAccountsListViewConstraintLayout.visibility = View.VISIBLE
-            manageBankAccountsXfersButton.visibility = View.VISIBLE
             manageBankAccountsXfersProgressBar.visibility = View.GONE
 
             val hasBankAccounts = it.isNotEmpty()
 
             if (hasBankAccounts) {
-                manageBankAccountsXfersButton.visibility = View.GONE
-
-                manageBankAccountsAddBankAccountTextView.text = getString(R.string.manage_bank_accounts_add_bank_account_copy)
-                manageBankAccountsAddBankAccountTextView.setOnClickListener {
-                    startActivity(Intent(this, SelectBankToAddActivity::class.java))
-                }
+                manageBankAccountsListViewConstraintLayout.visibility = View.VISIBLE
             } else {
-                manageBankAccountsListViewConstraintLayout.visibility = View.GONE
-
-                xfersFullWidthButton.text = getString(R.string.add_bank_account_button_copy)
-                xfersFullWidthButton.setOnClickListener {
-                    startActivity(Intent(this, SelectBankToAddActivity::class.java))
-                }
+                manageBankAccountsXfersButton.visibility = View.VISIBLE
             }
 
             val selectionRowItems = it.map {
