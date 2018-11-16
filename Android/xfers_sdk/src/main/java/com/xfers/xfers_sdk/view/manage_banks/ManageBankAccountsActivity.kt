@@ -48,6 +48,7 @@ class ManageBankAccountsActivity: AppCompatActivity() {
 
     private fun observeViewModel() {
         manageBankAccountsXfersProgressBar.visibility = View.VISIBLE
+        manageBankAccountsAddBankAccountTextView.visibility = View.GONE
         manageBankAccountsListViewConstraintLayout.visibility = View.GONE
         manageBankAccountsXfersButton.visibility = View.GONE
 
@@ -59,6 +60,7 @@ class ManageBankAccountsActivity: AppCompatActivity() {
 
             if (hasBankAccounts) {
                 manageBankAccountsListViewConstraintLayout.visibility = View.VISIBLE
+                manageBankAccountsAddBankAccountTextView.visibility = View.VISIBLE
             } else {
                 manageBankAccountsXfersButton.visibility = View.VISIBLE
             }
