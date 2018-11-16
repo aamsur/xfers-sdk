@@ -23,13 +23,10 @@ class SelectBankToAddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_banks_add_bank_account_select_bank_to_add)
         title = getString(R.string.add_bank_account_title)
-        observeViewModel()
-
         xfersSummaryTitleTextView.text = getString(R.string.add_bank_account_select_bank_summary_title)
         // TODO: Make search bar actually search and be useful!
         xfersSearchBarEditText.hint = getString(R.string.add_bank_account_select_bank_search_hint)
-
-
+        observeViewModel()
     }
 
     override fun onResume() {
