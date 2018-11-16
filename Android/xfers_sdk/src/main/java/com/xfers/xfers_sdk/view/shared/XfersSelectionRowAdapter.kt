@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+
 import com.xfers.xfers_sdk.R
 
 class XfersSelectionRowAdapter(
@@ -30,18 +32,26 @@ class XfersSelectionRowAdapter(
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val selectionRowItem = selectionRowItems[position]
 
-        if (selectionRowItem.icon != null) {
-            viewHolder.xfersSelectionRowImageView?.setImageResource(selectionRowItem.icon)
+        if (selectionRowItem.isIconUrl) {
+            if (selectionRowItem.iconUrl != null) {
+                Picasso.get().load(selectionRowItem.iconUrl).placeholder(R.drawable.bank_acc_28).error(R.drawable.bank_acc_28).into(viewHolder.xfersSelectionRowImageView)
+            } else {
+                Picasso.get().load(R.drawable.bank_acc_28).into(viewHolder.xfersSelectionRowImageView)
+            }
         } else {
-            viewHolder.xfersSelectionRowImageView?.visibility = View.GONE
-        }
+            if (selectionRowItem.icon != null) {
+                viewHolder.xfersSelectionRowImageView?.setImageResource(selectionRowItem.icon)
+            } else {
+                viewHolder.xfersSelectionRowImageView?.visibility = View.GONE
+            }
 
-        if (selectionRowItem.iconTint != null) {
-            viewHolder.xfersSelectionRowImageView?.setColorFilter(
-                    ContextCompat.getColor(context, selectionRowItem.iconTint)
-            )
-        } else {
-            viewHolder.xfersSelectionRowImageView?.clearColorFilter()
+            if (selectionRowItem.iconTint != null) {
+                viewHolder.xfersSelectionRowImageView?.setColorFilter(
+                        ContextCompat.getColor(context, selectionRowItem.iconTint)
+                )
+            } else {
+                viewHolder.xfersSelectionRowImageView?.clearColorFilter()
+            }
         }
 
         viewHolder.xfersSelectionRowTextView?.text = selectionRowItem.copy
@@ -75,8 +85,13 @@ class XfersSelectionRowAdapter(
 }
 
 data class SelectionRowItem(
-        val icon: Int? = null, val iconTint: Int? = null, val copy: String,
+        val icon: Int? = null,
+        val iconTint: Int? = null,
+        val copy: String,
         val onClick: ((View) -> Unit)? = null,
-        val rightIcon: Int? = null, val rightIconTint: Int? = null,
-        val rightIconOnClick: ((View) -> Unit)? = null
+        val rightIcon: Int? = null,
+        val rightIconTint: Int? = null,
+        val rightIconOnClick: ((View) -> Unit)? = null,
+        val iconUrl: String? = null,
+        val isIconUrl: Boolean = false
 )

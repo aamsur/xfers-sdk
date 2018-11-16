@@ -49,7 +49,8 @@ class SelectBankToAddActivity : AppCompatActivity() {
 
             val selectionRowItems = it.map {
                 SelectionRowItem(
-                        R.drawable.bank_acc_28,
+                        iconUrl = it.img_src,
+                        isIconUrl = true,
                         copy = "${it.name}",
                         onClick = {
                             // TODO: Pass information into intent on which bank was chosen
