@@ -55,4 +55,16 @@ interface XfersApiService {
             @Path(value = "bankId", encoded = true) bankId: String,
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<List<UserBankAccount>>
+
+    // Topup related APIs
+
+    @GET("user/transfer_info")
+    fun getTopupInstructions(
+            @Body getTopupInstructionsRequest: GetTopupInstructionsRequest,
+            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+    ): Observable<TransferInfo>
+
+    // KYC related APIs
+
+    // TODO: To be added
 }

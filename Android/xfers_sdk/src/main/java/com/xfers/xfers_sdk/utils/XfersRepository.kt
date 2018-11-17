@@ -52,4 +52,16 @@ class XfersRepository {
     fun deleteUserBank(bankId: Int): Observable<List<UserBankAccount>> {
         return xfersApiService.deleteUserBank(bankId.toString())
     }
+
+    // Topup related APIs
+
+    fun getTopupInstructions(bank: String, disableVa: Boolean): Observable<TransferInfo> {
+        return xfersApiService.getTopupInstructions(
+                GetTopupInstructionsRequest(bank, disableVa)
+        )
+    }
+
+    // KYC related APIs
+
+    // TODO: To be added
 }
