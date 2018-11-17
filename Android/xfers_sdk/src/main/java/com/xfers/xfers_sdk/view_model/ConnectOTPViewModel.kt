@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ConnectOTPViewModel : ViewModel() {
     private val merchantRepository = MerchantRepository()
-    private val connectSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val connectOTPSuccess: MutableLiveData<Boolean> = MutableLiveData()
     private var subscription: Disposable? = null
 
     fun connectOTP(OTP: String): LiveData<Boolean> {
@@ -25,7 +25,7 @@ class ConnectOTPViewModel : ViewModel() {
                         { onConnectOTPError() }
                 )
 
-        return connectSuccess
+        return connectOTPSuccess
     }
 
     override fun onCleared() {
@@ -60,7 +60,7 @@ class ConnectOTPViewModel : ViewModel() {
             //    isUserExistingUnverified -> it.startActivity(Intent(it, ConnectIdentityVerificationActivity::class.java))
             //    isUserNewUser -> it.startActivity(Intent(it, ConnectIdentityVerificationActivity::class.java))
             // }
-            connectSuccess.value = true
+            connectOTPSuccess.value = true
         }
     }
 

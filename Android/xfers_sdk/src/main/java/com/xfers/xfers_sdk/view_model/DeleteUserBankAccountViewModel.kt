@@ -3,29 +3,28 @@ package com.xfers.xfers_sdk.view_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xfers.xfers_sdk.model.Bank
 import com.xfers.xfers_sdk.utils.XfersRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class BanksViewModel : ViewModel() {
+class DeleteUserBankAccountViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
-    private val banks = MutableLiveData<List<Bank>>()
+    val deleteBankAccountSuccess = MutableLiveData<Boolean>()
     private var subscription: Disposable? = null
 
-    fun getAvailableBanks(): LiveData<List<Bank>> {
-        subscription = xfersRepository.getAvailableBanks()
+    fun deleteUserBankAccount(bankId: Int): LiveData<Boolean> {
+        subscription = xfersRepository.deleteUserBank(bankId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { onGetAvailableBanksStart() }
-                .doOnTerminate { onGetAvailableBanksFinish() }
+                .doOnSubscribe { onDeleteUserBankStart() }
+                .doOnTerminate { onDeleteUserBankFinish() }
                 .subscribe(
-                        { onGetAvailableBanksSuccess(it) },
-                        { onGetAvailableBanksError() }
+                        { onDeleteUserBankSuccess() },
+                        { onDeleteUserBankError() }
                 )
 
-        return banks
+        return deleteBankAccountSuccess
     }
 
     override fun onCleared() {
@@ -33,19 +32,19 @@ class BanksViewModel : ViewModel() {
         subscription?.dispose()
     }
 
-    private fun onGetAvailableBanksStart() {
+    private fun onDeleteUserBankStart() {
         // TODO: Provide observable to show loading on view
     }
 
-    private fun onGetAvailableBanksFinish() {
+    private fun onDeleteUserBankFinish() {
         // TODO: Provide observable to show
     }
 
-    private fun onGetAvailableBanksSuccess(banksList: List<Bank>) {
-        banks.postValue(banksList)
+    private fun onDeleteUserBankSuccess() {
+        deleteBankAccountSuccess.postValue(true)
     }
 
-    private fun onGetAvailableBanksError() {
+    private fun onDeleteUserBankError() {
         // TODO: Provide observable to show error on view
     }
 }

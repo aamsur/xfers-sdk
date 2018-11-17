@@ -6,12 +6,12 @@ import com.xfers.xfers_sdk.Xfers
 
 object XfersConfiguration {
     // SG
-    private val sgSandboxApiBase = "https://sandbox.xfers.io/api/v3"
-    private val sgProductionApiBase = "https://www.xfers.io/api/v3"
+    private val sgSandboxApiBase = "https://sandbox.xfers.io/api/v3/"
+    private val sgProductionApiBase = "https://www.xfers.io/api/v3/"
 
     // ID
-    private val idSandboxApiBase = "https://sandbox-id.xfers.com/api/v3"
-    private val idProductionApiBase = "https://id.xfers.com/api/v3"
+    private val idSandboxApiBase = "https://sandbox-id.xfers.com/api/v3/"
+    private val idProductionApiBase = "https://id.xfers.com/api/v3/"
 
     // Settings
     private var apiBase = ""
@@ -64,16 +64,8 @@ object XfersConfiguration {
         return apiBase
     }
 
-    fun buildApiURL(apiPath: String): String {
-        return "$apiBase/$apiPath"
-    }
-
     fun getMerchantApiBase(): String {
         return merchantApiBase
-    }
-
-    fun buildMerchantApiURL(apiPath: String): String {
-        return "$merchantApiBase/$apiPath"
     }
 
     fun getMerchantName(): String {
@@ -98,5 +90,9 @@ object XfersConfiguration {
 
     fun getUserApiKey(): String {
         return userApiKey
+    }
+
+    fun getXfersUserApiKeyHeader(): String{
+        return xfersUserApiKeyHeader
     }
 }

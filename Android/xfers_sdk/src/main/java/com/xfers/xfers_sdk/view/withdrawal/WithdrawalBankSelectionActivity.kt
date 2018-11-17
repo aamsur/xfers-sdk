@@ -25,13 +25,12 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
 
         withdrawalBankSelectionPageTitleTextView.text = getString(R.string.withdrawal_bank_selection_page_title)
 
-        // TODO: Integrate with API to give a proper list of bank accounts
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
         model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
             val selectionRowItems = it.map {
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbreviation} ${it.bankAccountNumber}",
+                        "${it.bankAbbrev} ${it.accountNo}",
                         {
                             // TODO: Pass into child activity amount and bank chosen through intent extras
                             startActivity(Intent(this, WithdrawalAmountActivity::class.java))
