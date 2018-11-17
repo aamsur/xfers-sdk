@@ -3,7 +3,7 @@ package com.xfers.xfers_sdk.view_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xfers.xfers_sdk.model.OkMessage
+import com.xfers.xfers_sdk.model.response.OkResponse
 import com.xfers.xfers_sdk.utils.MerchantRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -41,12 +41,12 @@ class ConnectPhoneViewModel : ViewModel() {
         // TODO: Provide observable to show
     }
 
-    private fun onConnectPhoneSuccess(okMessage: OkMessage) {
+    private fun onConnectPhoneSuccess(okResponse: OkResponse) {
         // Example response expected:
         // {
         //   "msg": "success"
         // }
-        if (okMessage.msg == "success") {
+        if (okResponse.msg == "success") {
             connectPhoneSuccess.value = true
         }
     }

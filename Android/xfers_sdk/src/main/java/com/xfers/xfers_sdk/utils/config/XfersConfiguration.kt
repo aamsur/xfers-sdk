@@ -1,8 +1,9 @@
-package com.xfers.xfers_sdk.utils
+package com.xfers.xfers_sdk.utils.config
 
 import android.content.Context
 import android.graphics.Color
 import com.xfers.xfers_sdk.Xfers
+import com.xfers.xfers_sdk.utils.services.apis.xfersUserApiKeyHeader
 
 object XfersConfiguration {
     // SG

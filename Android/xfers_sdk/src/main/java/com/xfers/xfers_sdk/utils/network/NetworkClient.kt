@@ -1,7 +1,10 @@
-package com.xfers.xfers_sdk.utils
+package com.xfers.xfers_sdk.utils.network
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
+import com.xfers.xfers_sdk.utils.services.apis.MerchantApiService
+import com.xfers.xfers_sdk.utils.services.apis.XfersApiService
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

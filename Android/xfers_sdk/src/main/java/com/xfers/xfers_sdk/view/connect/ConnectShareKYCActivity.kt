@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import com.xfers.xfers_sdk.R
-import com.xfers.xfers_sdk.utils.XfersConfiguration
-import com.xfers.xfers_sdk.utils.XfersStatusCardService
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
+import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import kotlinx.android.synthetic.main.activity_connect_share_kyc.*
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_merchant_xfers_logos.*

@@ -1,15 +1,16 @@
 package com.xfers.xfers_sdk.utils
 
-import com.xfers.xfers_sdk.model.OTPRequest
-import com.xfers.xfers_sdk.model.OkMessage
-import com.xfers.xfers_sdk.model.SignupLoginRequest
+import com.xfers.xfers_sdk.model.request.OTPRequest
+import com.xfers.xfers_sdk.model.response.OkResponse
+import com.xfers.xfers_sdk.model.request.SignupLoginRequest
 import com.xfers.xfers_sdk.model.UserApiKey
+import com.xfers.xfers_sdk.utils.network.NetworkClient
 import io.reactivex.Observable
 
 class MerchantRepository {
     private val merchantApiService = NetworkClient.provideMerchantApiService()
 
-    fun signupLogin(phoneNumber: String): Observable<OkMessage> {
+    fun signupLogin(phoneNumber: String): Observable<OkResponse> {
         return merchantApiService.signupLogin(SignupLoginRequest(phoneNumber))
     }
 

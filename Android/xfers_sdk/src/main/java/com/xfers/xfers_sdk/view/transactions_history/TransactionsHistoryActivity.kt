@@ -9,7 +9,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.text.color
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
-import com.xfers.xfers_sdk.utils.XfersConfiguration
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.TransactionRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTransactionRowAdapter
 import kotlinx.android.synthetic.main.activity_transactions_history.*

@@ -2,8 +2,8 @@ package com.xfers.xfers_sdk
 
 import android.content.Context
 import android.content.Intent
-import com.xfers.xfers_sdk.utils.XfersConfiguration
-import com.xfers.xfers_sdk.utils.XfersStatusCardService
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
+import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity

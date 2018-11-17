@@ -9,7 +9,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.text.color
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
-import com.xfers.xfers_sdk.utils.XfersStatusCardService
+import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view.shared.BankInstructionRowItem
 import com.xfers.xfers_sdk.view.shared.XfersBankInstructionRowAdapter
 import kotlinx.android.synthetic.main.activity_topup_virtual_account_transfer.*

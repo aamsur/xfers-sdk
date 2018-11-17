@@ -1,6 +1,10 @@
-package com.xfers.xfers_sdk.utils
+package com.xfers.xfers_sdk.utils.services.apis
 
 import com.xfers.xfers_sdk.model.*
+import com.xfers.xfers_sdk.model.request.*
+import com.xfers.xfers_sdk.model.response.UserActivityResponse
+import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import io.reactivex.Observable
 import retrofit2.http.*
 

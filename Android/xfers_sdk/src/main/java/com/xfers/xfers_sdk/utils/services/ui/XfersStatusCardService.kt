@@ -1,4 +1,4 @@
-package com.xfers.xfers_sdk.utils
+package com.xfers.xfers_sdk.utils.services.ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivityConstants
 
