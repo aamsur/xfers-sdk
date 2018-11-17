@@ -24,6 +24,14 @@ interface XfersApiService {
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<WithdrawalRequestResponse>
 
+    // Charge related APIs
+
+    @POST("charges")
+    fun createCharge(
+            @Body createChargeRequest: CreateChargeRequest,
+            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+    ): Observable<Charge>
+
     // Bank related APIs
 
     @GET("banks")

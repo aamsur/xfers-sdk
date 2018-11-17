@@ -22,6 +22,19 @@ class XfersRepository {
         )
     }
 
+    // Charge related APIs
+
+    fun createCharage(amount: BigInteger, currency: String, orderId: String, description: String? = null): Observable<Charge> {
+        return xfersApiService.createCharge(
+                CreateChargeRequest(
+                        amount.toString(),
+                        currency,
+                        orderId,
+                        description
+                )
+        )
+    }
+
     // Bank related APIs
 
     fun getAvailableBanks(): Observable<List<Bank>> {
