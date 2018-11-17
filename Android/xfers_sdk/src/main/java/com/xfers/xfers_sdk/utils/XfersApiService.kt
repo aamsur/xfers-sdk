@@ -64,6 +64,8 @@ interface XfersApiService {
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<TransferInfo>
 
+    // Transaction History related APIs
+
     // KYC related APIs
 
     // TODO: To be added
