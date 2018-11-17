@@ -1,17 +1,28 @@
 package com.xfers.xfers_sdk.utils
 
-import com.xfers.xfers_sdk.model.AddBankRequest
-import com.xfers.xfers_sdk.model.Bank
-import com.xfers.xfers_sdk.model.User
-import com.xfers.xfers_sdk.model.UserBankAccount
+import com.xfers.xfers_sdk.model.*
 import io.reactivex.Observable
+import java.math.BigInteger
 
 class XfersRepository {
     private val xfersApiService = NetworkClient.provideXfersApiService()
 
+    // User related APIs
+
     fun getUserDetails(): Observable<User> {
         return xfersApiService.getUserDetails()
     }
+
+    // Withdrawal related APIs
+
+    fun createWithdrawalRequest(bankId: Int, amount: BigInteger): Observable<WithdrawalRequestResponse> {
+        return xfersApiService.createWithdrawalRequest(
+                bankId.toString(),
+                CreateWithdrawalRequest(amount.toString())
+        )
+    }
+
+    // Bank related APIs
 
     fun getAvailableBanks(): Observable<List<Bank>> {
         return xfersApiService.getAvailableBanks()

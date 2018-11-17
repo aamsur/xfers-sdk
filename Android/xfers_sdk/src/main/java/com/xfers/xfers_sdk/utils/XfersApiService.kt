@@ -1,20 +1,30 @@
 package com.xfers.xfers_sdk.utils
 
-import com.xfers.xfers_sdk.model.AddBankRequest
-import com.xfers.xfers_sdk.model.Bank
-import com.xfers.xfers_sdk.model.User
+import com.xfers.xfers_sdk.model.*
 import io.reactivex.Observable
-import com.xfers.xfers_sdk.model.UserBankAccount
 import retrofit2.http.*
 
 const val xfersUserApiKeyHeader = "X-XFERS-USER-API-KEY"
 
 interface XfersApiService {
 
+    // User related APIs
+
     @GET("user")
     fun getUserDetails(
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<User>
+
+    // Withdrawal related APIs
+
+    @POST("user/bank_account/{bankId}/withdraw")
+    fun createWithdrawalRequest(
+            @Path(value = "bankId", encoded = true) bankId: String,
+            @Body createWithdrawalRequest: CreateWithdrawalRequest,
+            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+    ): Observable<WithdrawalRequestResponse>
+
+    // Bank related APIs
 
     @GET("banks")
     fun getAvailableBanks(
