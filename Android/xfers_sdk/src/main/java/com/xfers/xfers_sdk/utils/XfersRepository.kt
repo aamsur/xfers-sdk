@@ -2,11 +2,16 @@ package com.xfers.xfers_sdk.utils
 
 import com.xfers.xfers_sdk.model.AddBankRequest
 import com.xfers.xfers_sdk.model.Bank
+import com.xfers.xfers_sdk.model.User
 import com.xfers.xfers_sdk.model.UserBankAccount
 import io.reactivex.Observable
 
 class XfersRepository {
     private val xfersApiService = NetworkClient.provideXfersApiService()
+
+    fun getUserDetails(): Observable<User> {
+        return xfersApiService.getUserDetails()
+    }
 
     fun getAvailableBanks(): Observable<List<Bank>> {
         return xfersApiService.getAvailableBanks()
