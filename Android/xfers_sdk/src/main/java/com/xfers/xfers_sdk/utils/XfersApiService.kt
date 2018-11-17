@@ -15,6 +15,12 @@ interface XfersApiService {
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<User>
 
+    @POST("user")
+    fun updateUserDetails(
+            @Body updateUserDetailsRequest: UpdateUserDetailsRequest,
+            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+    ): Observable<User>
+
     // Withdrawal related APIs
 
     @POST("user/bank_account/{bankId}/withdraw")
@@ -71,8 +77,4 @@ interface XfersApiService {
             @Body getActivitiesRequest: GetActivitiesRequest,
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<UserActivityResponse>
-
-    // KYC related APIs
-
-    // TODO: To be added
 }

@@ -13,6 +13,14 @@ class XfersRepository {
         return xfersApiService.getUserDetails()
     }
 
+    fun updateUserDetails(): Observable<User> {
+        return xfersApiService.updateUserDetails(
+                UpdateUserDetailsRequest(
+                        // TODO: Empty for now, to be added
+                )
+        )
+    }
+
     // Withdrawal related APIs
 
     fun createWithdrawalRequest(bankId: Int, amount: BigInteger): Observable<WithdrawalRequestResponse> {
@@ -66,8 +74,4 @@ class XfersRepository {
     fun getActivities(limit: Int?): Observable<UserActivityResponse> {
         return xfersApiService.getActivities(GetActivitiesRequest(limit))
     }
-
-    // KYC related APIs
-
-    // TODO: To be added
 }
