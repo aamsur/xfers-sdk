@@ -61,6 +61,12 @@ class XfersRepository {
         )
     }
 
+    // Transaction Histrory related APIs
+
+    fun getActivities(limit: Int?): Observable<UserActivityResponse> {
+        return xfersApiService.getActivities(GetActivitiesRequest(limit))
+    }
+
     // KYC related APIs
 
     // TODO: To be added

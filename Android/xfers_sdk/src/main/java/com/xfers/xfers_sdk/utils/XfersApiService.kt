@@ -66,6 +66,12 @@ interface XfersApiService {
 
     // Transaction History related APIs
 
+    @GET("user/activities")
+    fun getActivities(
+            @Body getActivitiesRequest: GetActivitiesRequest,
+            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+    ): Observable<UserActivityResponse>
+
     // KYC related APIs
 
     // TODO: To be added
