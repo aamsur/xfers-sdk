@@ -1,6 +1,7 @@
 package com.xfers.xfers_sdk.view.manage_banks.add_bank_account
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -65,7 +66,14 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
         })
 
         xfersFullWidthButton.text = getString(R.string.submit_button_copy)
+
+        addBankAccountConfirmationXfersProgressBar.visibility = View.GONE
         xfersFullWidthButton.setOnClickListener {
+            addBankAccountConfirmationXfersProgressBar.visibility = View.VISIBLE
+            addBankAccountConfirmationTitleTextView.visibility = View.GONE
+            addBankAccountConfirmationListView.visibility = View.GONE
+            addBankAccountConfirmationButtonView.visibility = View.GONE
+
             addBankAccountViewModel.addUserBankAccount(bankName, bankUserName, bankAccountNumber)
         }
     }

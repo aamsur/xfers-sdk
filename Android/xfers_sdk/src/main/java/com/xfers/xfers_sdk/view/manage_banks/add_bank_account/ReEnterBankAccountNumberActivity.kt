@@ -38,7 +38,7 @@ class ReEnterBankAccountNumberActivity : AppCompatActivity() {
                 )
             } else {
                 // TODO: Check with designer if UI should show something rather than a toast
-                Toast.makeText(context, "Your re-entered bank account number is not the same - please make sure it is the same", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Your re-entered bank account number is not the same - please make sure it is the same", Toast.LENGTH_LONG).show()
             }
         }
     }
