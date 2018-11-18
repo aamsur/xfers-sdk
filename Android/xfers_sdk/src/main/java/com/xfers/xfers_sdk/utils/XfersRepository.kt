@@ -2,6 +2,7 @@ package com.xfers.xfers_sdk.utils
 
 import com.xfers.xfers_sdk.model.*
 import com.xfers.xfers_sdk.model.request.*
+import com.xfers.xfers_sdk.model.response.TransferInfoResponse
 import com.xfers.xfers_sdk.model.response.UserActivityResponse
 import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
 import com.xfers.xfers_sdk.utils.network.NetworkClient
@@ -67,7 +68,7 @@ class XfersRepository {
 
     // Topup related APIs
 
-    fun getTopupInstructions(bank: String, disableVa: Boolean): Observable<TransferInfo> {
+    fun getTopupInstructions(bank: String, disableVa: Boolean): Observable<TransferInfoResponse> {
         return xfersApiService.getTopupInstructions(bank, disableVa)
     }
 

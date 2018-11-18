@@ -1,6 +1,7 @@
 package com.xfers.xfers_sdk.view.topup
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -11,7 +12,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
-import com.xfers.xfers_sdk.model.TransferInfo
+import com.xfers.xfers_sdk.Xfers
+import com.xfers.xfers_sdk.model.response.TransferInfoResponse
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view.shared.BankInstructionRowItem
 import com.xfers.xfers_sdk.view.shared.XfersBankInstructionRowAdapter
@@ -29,14 +32,23 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
 
         val extras = this.intent.extras
         val bankAbbrev = extras["bankAbbrev"] as String
-        val disableVa = true
+        val disableVa = false
 
         title = getString(R.string.topup_virtual_account_transfer_title)
 
         val transferInfoModel = ViewModelProviders.of(this).get(TopupInstructionViewModel::class.java)
-        transferInfoModel.getTransferInfo(bankAbbrev, disableVa).observe(this, Observer<TransferInfo> {
+        transferInfoModel.getTransferInfo(bankAbbrev, disableVa).observe(this, Observer<TransferInfoResponse> { transferInfo ->
             val context = this
-
+            val country = XfersConfiguration.getCurrentCountry()
+            val bankNameFull: String?
+            val bankAccountNo: String?
+            if (country == Xfers.Country.SG) {
+                bankNameFull = transferInfo.transferInfoArray!![0].bankNameFull
+                bankAccountNo = transferInfo.transferInfoArray[0].bankAccountNo
+            } else {
+                bankNameFull = transferInfo.bankNameFull
+                bankAccountNo = transferInfo.bankAccountNo
+            }
             val bankInstructionRowItems = listOf(
                     BankInstructionRowItem(
                             buildSpannedString {
@@ -59,7 +71,7 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
                                 }
                                 append("\n")
                                 bold {
-                                    append(it.bankNameFull)
+                                    append(bankNameFull)
                                 }
                                 append("\n\n")
                                 bold {
@@ -69,7 +81,7 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
                                 }
                             },
                             buildSpannedString {
-                                append(it.bankAccountNo)
+                                append(bankAccountNo)
                             }
                     ) {
                         // TODO: Make clicking this really copy account number
