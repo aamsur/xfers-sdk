@@ -31,7 +31,7 @@ class EnterNameActivity : AppCompatActivity() {
             startActivity(
                     Intent(this, EnterBankAccountNumberActivity::class.java).apply {
                         this.putExtra(ManageBanksConstants.bankAbbreviation, extras[ManageBanksConstants.bankAbbreviation] as String)
-                        this.putExtra(ManageBanksConstants.bankUserName, xfersFormInputEditText.text)
+                        this.putExtra(ManageBanksConstants.bankUserName, xfersFormInputEditText.text.toString())
                     }
             )
         }
