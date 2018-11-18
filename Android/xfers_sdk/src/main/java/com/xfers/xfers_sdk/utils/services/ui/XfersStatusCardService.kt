@@ -103,7 +103,7 @@ class XfersStatusCardService(private val context: Context) {
                         StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
                         StatusCardBaseActivityConstants.cardText to cardText,
                         StatusCardBaseActivityConstants.buttonText to context.getString(R.string.okay_button_copy),
-                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
+                        StatusCardBaseActivityConstants.buttonClickGoToManageBanks to true
                 )
         )
 
@@ -127,7 +127,7 @@ class XfersStatusCardService(private val context: Context) {
                         StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
                         StatusCardBaseActivityConstants.cardText to cardText,
                         StatusCardBaseActivityConstants.buttonText to context.getString(R.string.try_again_button_copy),
-                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
+                        StatusCardBaseActivityConstants.buttonClickGoToManageBanks to true
                 )
         )
 

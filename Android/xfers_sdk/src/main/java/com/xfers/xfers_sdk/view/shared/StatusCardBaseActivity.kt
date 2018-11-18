@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.config.XfersConfiguration
+import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_card_activity.*
@@ -48,6 +49,7 @@ open class StatusCardBaseActivity: AppCompatActivity() {
     private var buttonText: CharSequence = "Sample Button Text"
     private var buttonClickReturnToMerchant = false
     private var buttonClickGoToTopup = false
+    private var buttonClickGoToManageBanks = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,6 +113,10 @@ open class StatusCardBaseActivity: AppCompatActivity() {
         (viewConfig[StatusCardBaseActivityConstants.buttonClickGoToTopup] as? Boolean)?.let {
             buttonClickGoToTopup = it
         }
+
+        (viewConfig[StatusCardBaseActivityConstants.buttonClickGoToManageBanks] as? Boolean)?.let {
+            buttonClickGoToManageBanks = it
+        }
     }
 
     private fun setCardPageTitle() {
@@ -159,6 +165,11 @@ open class StatusCardBaseActivity: AppCompatActivity() {
             return
         }
 
+        if (buttonClickGoToManageBanks) {
+            xfersFullWidthButton.setOnClickListener { this.startActivity(Intent(this, ManageBankAccountsActivity::class.java)) }
+            return
+        }
+
         if (buttonClickReturnToMerchant) {
             xfersFullWidthButton.setOnClickListener { this.startActivity(Intent(this, XfersConfiguration.getMerchantFlowStartingContextClass())) }
         } else {
@@ -178,4 +189,5 @@ object StatusCardBaseActivityConstants {
     const val buttonText = "buttonText"
     const val buttonClickReturnToMerchant = "buttonClickReturnToMerchant"
     const val buttonClickGoToTopup = "buttonClickGoToTopup"
+    const val buttonClickGoToManageBanks = "buttonClickGoToManageBanks"
 }
