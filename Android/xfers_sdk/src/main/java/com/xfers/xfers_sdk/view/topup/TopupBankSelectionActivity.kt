@@ -20,19 +20,23 @@ class TopupBankSelectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topup_bank_selection)
 
+        val disableVa = false
+
         title = getString(R.string.topup_bank_selection_title)
 
         topupBankSelectionPageTitleTextView.text = getString(R.string.topup_bank_selection_page_title)
 
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
         model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
-            val selectionRowItems = it.map {
+            val selectionRowItems = it.map { userBankAccount ->
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbrev} ${it.accountNo}",
+                        "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
                         onClick = {
                             // TODO: Pass what bank was selected into the child activity
-                            startActivity(Intent(this, TopupVirtualAccountTransferActivity::class.java))
+                            startActivity(Intent(this, TopupVirtualAccountTransferActivity::class.java).apply {
+                                this.putExtra("bankAbbrev", userBankAccount.bankAbbrev)
+                            })
                         }
                 )
             }

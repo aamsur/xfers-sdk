@@ -70,7 +70,8 @@ interface XfersApiService {
 
     @GET("user/transfer_info")
     fun getTopupInstructions(
-            @Body getTopupInstructionsRequest: GetTopupInstructionsRequest,
+            @Query("bank") bank_abbrev: String,
+            @Query("disable_va") disable_va: Boolean,
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<TransferInfo>
 

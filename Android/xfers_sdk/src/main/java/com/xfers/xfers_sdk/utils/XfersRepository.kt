@@ -68,9 +68,7 @@ class XfersRepository {
     // Topup related APIs
 
     fun getTopupInstructions(bank: String, disableVa: Boolean): Observable<TransferInfo> {
-        return xfersApiService.getTopupInstructions(
-                GetTopupInstructionsRequest(bank, disableVa)
-        )
+        return xfersApiService.getTopupInstructions(bank, disableVa)
     }
 
     // Transaction Histrory related APIs
