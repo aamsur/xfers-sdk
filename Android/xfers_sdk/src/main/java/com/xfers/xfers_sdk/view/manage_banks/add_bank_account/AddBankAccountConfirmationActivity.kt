@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
+import com.xfers.xfers_sdk.view.manage_banks.ManageBanksConstants
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_add_bank_account_confirmation.*
@@ -23,19 +24,23 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
 
         // TODO: Add view model to this activity
 
-        // TODO: Build text row items based on information received from preceeding activities
+        val extras = this.intent.extras
+        val bankName = extras[ManageBanksConstants.bankAbbreviation] as String
+        val bankUserName = extras[ManageBanksConstants.bankUserName] as String
+        val bankAccountNumber = extras[ManageBanksConstants.bankAccountNumber] as String
+
         val textRowItems = listOf(
             TextRowItem(
-                getString(R.string.add_bank_account_confirmation_bank_name_to_copy),
-                getString(R.string.add_bank_account_confirmation_bank_name_to_ipsum_copy)
+                    getString(R.string.add_bank_account_confirmation_bank_name_to_copy),
+                    bankName
             ),
             TextRowItem(
-                getString(R.string.add_bank_account_confirmation_holder_name_id_copy),
-                getString(R.string.add_bank_account_confirmation_holder_name_id_ipsum_copy)
+                    getString(R.string.add_bank_account_confirmation_holder_name_id_copy),
+                    bankUserName
             ),
             TextRowItem(
-                getString(R.string.add_bank_account_confirmation_account_no_copy),
-                getString(R.string.add_bank_account_confirmation_account_no_ipsum_copy)
+                    getString(R.string.add_bank_account_confirmation_account_no_copy),
+                    bankAccountNumber
             )
         )
 

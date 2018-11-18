@@ -103,11 +103,8 @@
     <string name="enter_bank_account_number_subtitle">Please exclude dashes</string>
     <string name="add_bank_account_confirmation_title">Confirm Details</string>
     <string name="add_bank_account_confirmation_bank_name_to_copy">Bank Name</string>
-    <string name="add_bank_account_confirmation_bank_name_to_ipsum_copy">BCA Bank</string>
     <string name="add_bank_account_confirmation_holder_name_id_copy">Name of Bank Account Holder</string>
-    <string name="add_bank_account_confirmation_holder_name_id_ipsum_copy">Chen Ming Yao Johnathan</string>
     <string name="add_bank_account_confirmation_account_no_copy">Bank Account Number</string>
-    <string name="add_bank_account_confirmation_account_no_ipsum_copy">123456789</string>
     <string name="add_bank_account_select_bank_summary_title">Select bank name</string>
     <string name="add_bank_account_select_bank_search_hint">Search bank name</string>
     <string name="add_bank_account_enter_name_field_title">Enter your full name</string>

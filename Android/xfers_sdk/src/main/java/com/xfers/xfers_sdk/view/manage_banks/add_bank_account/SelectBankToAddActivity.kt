@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.model.Bank
+import com.xfers.xfers_sdk.view.manage_banks.ManageBanksConstants
 import com.xfers.xfers_sdk.view.shared.SelectionRowItem
 import com.xfers.xfers_sdk.view.shared.XfersSelectionRowAdapter
 import com.xfers.xfers_sdk.view_model.BanksViewModel
@@ -47,14 +48,17 @@ class SelectBankToAddActivity : AppCompatActivity() {
             addBankAccountBankSelectionPageSearchBar.visibility = View.VISIBLE
             addBankAccountBankSelectionPageSelectionListView.visibility = View.VISIBLE
 
-            val selectionRowItems = it.map {
+            val selectionRowItems = it.map { bank ->
                 SelectionRowItem(
-                        iconUrl = it.img_src,
+                        iconUrl = bank.img_src,
                         isIconUrl = true,
-                        copy = "${it.name}",
+                        copy = "${bank.name}",
                         onClick = {
-                            // TODO: Pass information into intent on which bank was chosen
-                            startActivity(Intent(this, EnterNameActivity::class.java))
+                            startActivity(
+                                    Intent(this, EnterNameActivity::class.java).apply {
+                                        this.putExtra(ManageBanksConstants.bankAbbreviation, bank.abbreviation)
+                                    }
+                            )
                         }
                 )
             }
