@@ -2,12 +2,16 @@ package com.xfers.xfers_sdk.view.manage_banks.add_bank_account
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.model.UserBankAccount
 import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view.manage_banks.ManageBanksConstants
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
+import com.xfers.xfers_sdk.view_model.AddBankAccountViewModel
 import kotlinx.android.synthetic.main.activity_add_bank_account_confirmation.*
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
@@ -21,8 +25,6 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
         title = getString(R.string.add_bank_account_title)
 
         addBankAccountConfirmationTitleTextView.text = getString(R.string.add_bank_account_confirmation_title)
-
-        // TODO: Add view model to this activity
 
         val extras = this.intent.extras
         val bankName = extras[ManageBanksConstants.bankAbbreviation] as String
@@ -48,19 +50,23 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
         val adapter = XfersTextRowAdapter(textRowItems)
         listViewRecyclerView.adapter = adapter
 
-        // FIXME: This should be observed on the viewModel level
-        val addBankSuccessful = true
+        val addBankAccountViewModel = ViewModelProviders.of(this).get(AddBankAccountViewModel::class.java)
 
-        // TODO: Set on click on button to add bank account API through view model
-        xfersFullWidthButton.text = getString(R.string.submit_button_copy)
-        if (addBankSuccessful) {
-            xfersFullWidthButton.setOnClickListener {
+        addBankAccountViewModel.userBankAccountSuccess.observe(this, Observer<UserBankAccount> {
+            if (it != null) {
                 XfersStatusCardService(this).presentAddBankAccountSuccessfulStatusCard()
             }
-        } else {
-            xfersFullWidthButton.setOnClickListener {
+        })
+
+        addBankAccountViewModel.userBankAccountFailure.observe(this, Observer<Boolean> {
+            if (it) {
                 XfersStatusCardService(this).presentAddBankAccountFailureStatusCard()
             }
+        })
+
+        xfersFullWidthButton.text = getString(R.string.submit_button_copy)
+        xfersFullWidthButton.setOnClickListener {
+            addBankAccountViewModel.addUserBankAccount(bankName, bankUserName, bankAccountNumber)
         }
     }
 }

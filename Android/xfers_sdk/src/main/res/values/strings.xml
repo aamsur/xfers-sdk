@@ -112,7 +112,7 @@
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
 
     <string name="add_bank_account_successful_card_text">Your bank account has been added.</string>
-    <string name="add_bank_account_failure_card_text">We failed to verify your bank account because there has been a name mismatch.\n\nPlease ensure you have provided the correct bank details.</string>
+    <string name="add_bank_account_failure_card_text">You have failed to add your bank account with Xfers.\n\nPlease ensure you have provided the correct bank details.</string>
     <string name="add_bank_account_rejection_card_text_part_1">We failed to verify the following bank account</string>
     <string name="add_bank_account_rejection_card_text_part_2">because %1$s.\n\n If you would like to use this account, please return to add the bank account again with the correct details and documents.</string>
 
