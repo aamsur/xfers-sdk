@@ -76,6 +76,6 @@ class XfersRepository {
     // Transaction Histrory related APIs
 
     fun getActivities(limit: Int?): Observable<UserActivityResponse> {
-        return xfersApiService.getActivities(GetActivitiesRequest(limit))
+        return xfersApiService.getActivities(limit)
     }
 }

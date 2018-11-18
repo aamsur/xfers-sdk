@@ -51,25 +51,35 @@ class TransactionsHistoryActivity : AppCompatActivity() {
             transactionsHistoryListView.visibility = View.VISIBLE
 
             val transactionRowItems = it.map { transactionHistory ->
+                val icon: Int?
+                val color: Int?
+                if (transactionHistory.amount?.substring(0, 1) == "-") {
+                    icon = R.drawable.withdraw_arrow_18
+                    color = R.color.pastelOrange
+                } else {
+                    icon = R.drawable.deposit_arrow_18
+                    color = R.color.aquaMarine
+                }
+
                 TransactionRowItem(
-                    R.drawable.withdraw_arrow_18,
-                    R.color.pastelOrange,
-                    buildSpannedString {
-                        bold {
-                            append(transactionHistory.type)
+                        icon,
+                        color,
+                        buildSpannedString {
+                            bold {
+                                append(transactionHistory.type)
+                            }
+                        },
+                        buildSpannedString {
+                            color(ContextCompat.getColor(this@TransactionsHistoryActivity, color)) {
+                                append(transactionHistory.amount)
+                            }
+                            append("\n")
+                            append(transactionHistory.createdAt)
+                        },
+                        onClick = {
+                            // TODO: Pass activity information through extras into child activity
+                            startActivity(Intent(this, TransactionHistoryActivity::class.java))
                         }
-                    },
-                    buildSpannedString {
-                        color(ContextCompat.getColor(this@TransactionsHistoryActivity, R.color.pastelOrange)) {
-                            append(transactionHistory.amount)
-                        }
-                        append("\n")
-                        append(transactionHistory.createdAt)
-                    },
-                    onClick = {
-                        // TODO: Pass activity information through extras into child activity
-                        startActivity(Intent(this, TransactionHistoryActivity::class.java))
-                    }
                 )
             }
 
