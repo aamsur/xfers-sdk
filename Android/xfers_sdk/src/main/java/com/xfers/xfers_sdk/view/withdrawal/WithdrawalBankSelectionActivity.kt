@@ -27,13 +27,17 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
 
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
         model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
-            val selectionRowItems = it.map {
+            val selectionRowItems = it.map { userBankAccount ->
                 SelectionRowItem(
                         R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbrev} ${it.accountNo}",
+                        "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
                         {
                             // TODO: Pass into child activity amount and bank chosen through intent extras
-                            startActivity(Intent(this, WithdrawalAmountActivity::class.java))
+                            startActivity(Intent(this, WithdrawalAmountActivity::class.java).apply {
+                                this.putExtra(WithdrawalBankSelectionConstants.bankAbbreviationKey, userBankAccount.bankAbbrev)
+                                this.putExtra(WithdrawalBankSelectionConstants.bankAccountNumberKey, userBankAccount.accountNo)
+                                this.putExtra(WithdrawalBankSelectionConstants.bankIdKey, userBankAccount.id)
+                            })
                         }
                 )
             }
@@ -49,3 +53,4 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
         }
     }
 }
+

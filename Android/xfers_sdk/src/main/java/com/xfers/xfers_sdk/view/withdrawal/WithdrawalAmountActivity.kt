@@ -12,6 +12,7 @@ import com.xfers.xfers_sdk.R.string.*
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_form_input.*
 
+
 class WithdrawalAmountActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,9 +46,18 @@ class WithdrawalAmountActivity : AppCompatActivity() {
 
         xfersFormInputNotesTextView.text = footnote
 
+        val extras = this.intent.extras
+
         xfersFullWidthButton.setOnClickListener {
             // TODO: Pass withdrawal amount into confirmation activity through intent extras
-            startActivity(Intent(this, WithdrawalConfirmationActivity::class.java))
+            startActivity(
+                    Intent(this, WithdrawalConfirmationActivity::class.java).apply {
+                        this.putExtra(WithdrawalBankSelectionConstants.amountKey, xfersFormInputEditText.text.toString())
+                        this.putExtra(WithdrawalBankSelectionConstants.bankAbbreviationKey, extras[WithdrawalBankSelectionConstants.bankAbbreviationKey] as String)
+                        this.putExtra(WithdrawalBankSelectionConstants.bankAccountNumberKey, extras[WithdrawalBankSelectionConstants.bankAccountNumberKey] as String)
+                        this.putExtra(WithdrawalBankSelectionConstants.bankIdKey, extras[WithdrawalBankSelectionConstants.bankIdKey] as Int?)
+                    }
+            )
         }
     }
 }
