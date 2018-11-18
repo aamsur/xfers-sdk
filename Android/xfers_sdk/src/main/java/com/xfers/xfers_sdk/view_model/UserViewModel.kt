@@ -3,29 +3,29 @@ package com.xfers.xfers_sdk.view_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xfers.xfers_sdk.model.UserBankAccount
+import com.xfers.xfers_sdk.model.User
 import com.xfers.xfers_sdk.utils.XfersRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class UserBankAccountsViewModel : ViewModel() {
+class UserViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
-    private val userBankAccounts = MutableLiveData<List<UserBankAccount>>()
+    private val userDetails = MutableLiveData<User>()
     private var subscription: Disposable? = null
 
-    fun getUserBankAccounts(): LiveData<List<UserBankAccount>> {
-        subscription = xfersRepository.getUserBanks()
+    fun getUserDetails(): LiveData<User> {
+        subscription = xfersRepository.getUserDetails()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { onGetUserBanksStart() }
-                .doOnTerminate { onGetUserBanksFinish() }
+                .doOnSubscribe { onGetUserDetailsStart() }
+                .doOnTerminate { onGetUserDetailsFinish() }
                 .subscribe(
-                        { onGetUserBanksSuccess(it) },
-                        { onGetUserBanksError(it) }
+                        { onGetUserDetailsSuccess(it) },
+                        { onGetUserDetailsError(it) }
                 )
 
-        return userBankAccounts
+        return userDetails
     }
 
     override fun onCleared() {
@@ -33,21 +33,22 @@ class UserBankAccountsViewModel : ViewModel() {
         subscription?.dispose()
     }
 
-    private fun onGetUserBanksStart() {
+    private fun onGetUserDetailsStart() {
         // TODO: Provide observable to show loading on view
     }
 
-    private fun onGetUserBanksFinish() {
+    private fun onGetUserDetailsFinish() {
         // TODO: Provide observable to show
     }
 
-    private fun onGetUserBanksSuccess(userBankAccountsList: List<UserBankAccount>) {
-        userBankAccounts.postValue(userBankAccountsList)
+    private fun onGetUserDetailsSuccess(userInfo: User) {
+        userDetails.postValue(userInfo)
     }
 
-    private fun onGetUserBanksError(error: Throwable) {
+    private fun onGetUserDetailsError(error: Throwable) {
         println(error)
         // TODO: Provide observable to show error on view
 
     }
+
 }
