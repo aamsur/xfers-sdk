@@ -21,7 +21,7 @@ class TransactionsHistoryViewModel : ViewModel() {
                 .doOnSubscribe { onGetTransactionHistoriesStart() }
                 .doOnTerminate { onGetTransactionHistoriesFinish() }
                 .subscribe(
-                        { onGetTransactionHistoriesSuccess(it.activites!!) },
+                        { onGetTransactionHistoriesSuccess(it.activities) },
                         { onGetTransactionHistoriesError() }
                 )
 
