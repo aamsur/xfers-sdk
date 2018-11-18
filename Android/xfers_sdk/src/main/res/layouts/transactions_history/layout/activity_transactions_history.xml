@@ -39,4 +39,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <include
+        android:id="@+id/transactionsHistoryProgressBar"
+        layout="@layout/xfers_progress_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
