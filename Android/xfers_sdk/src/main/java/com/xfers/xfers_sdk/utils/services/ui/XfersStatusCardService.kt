@@ -134,7 +134,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(addBankAccountFailureIntent)
     }
 
-    fun presentPaymentCompletedStatusCard() {
+    fun presentPaymentCompletedStatusCard(amount: String, newBalance: String) {
         val paymentCompletedIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -145,11 +145,11 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.payment_completed_card_amount, "Rp 20.000"))
+                append(context.getString(R.string.payment_completed_card_amount, amount))
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.payment_completed_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.payment_completed_card_balance, newBalance))
             }
         }
 

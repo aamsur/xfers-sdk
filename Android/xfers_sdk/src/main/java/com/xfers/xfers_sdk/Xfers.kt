@@ -10,6 +10,7 @@ import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.menu.XfersMenuActivity
+import com.xfers.xfers_sdk.view.pay.PaymentConstants
 import com.xfers.xfers_sdk.view.transactions_history.TransactionsHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
 import java.math.BigInteger
@@ -84,7 +85,18 @@ class Xfers(private val context: Context) {
 
             if (sufficientFunds) {
                 // TODO: Pass amount and description into activity
-                context.startActivity(Intent(context, PaymentConfirmationActivity::class.java))
+                // FIXME: Think of what to do with order_id
+                val _orderId = "TEST1234567890"
+                // FIXME: Added amount and description here for testing, please remove that
+                val _amount = "9999"
+                val _description = "HELLOWORLDILOVEXFERS"
+                context.startActivity(
+                        Intent(context, PaymentConfirmationActivity::class.java).apply {
+                            this.putExtra(PaymentConstants.amount, _amount)
+                            this.putExtra(PaymentConstants.orderId, _orderId)
+                            this.putExtra(PaymentConstants.description, _description)
+                        }
+                )
             } else {
                 XfersStatusCardService(context).presentInsufficientFundsStatusCard()
             }
