@@ -30,6 +30,9 @@ class XfersMenuActivity: AppCompatActivity() {
 
         title = getString(R.string.menu_title)
 
+        xfersFullWidthButton.text = getString(R.string.verify_account_button_copy)
+        menuVerificationTextView.text = getString(R.string.menu_verification_copy)
+
         observeViewModel()
     }
 
@@ -69,7 +72,7 @@ class XfersMenuActivity: AppCompatActivity() {
         menuCard4TextView.visibility = View.GONE
 
         val userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel::class.java)
-        userDetailsViewModel.getUserDetails().observe(this, Observer<User> {
+        userDetailsViewModel.getUserDetails().observe(this, Observer<User> { user ->
             xfersMenuXfersProgressBar.visibility = View.GONE
             menuBalanceTextView.visibility = View.VISIBLE
             menuVerifyButtonView.visibility = View.VISIBLE
@@ -88,31 +91,26 @@ class XfersMenuActivity: AppCompatActivity() {
                 append("\n")
                 bold {
                     scale(1.4f) {
-                        append("${XfersConfiguration.getCurrencyString()} ${it.availableBalance}")
+                        append("${XfersConfiguration.getCurrencyString()} ${user.availableBalance}")
                     }
                 }
             }
 
-            it.kycVerified?.let {
+            user.kycVerified?.let {
                 if (it) {
                     // TODO: Check with designer how to spruce up this part, the empty gap looks weird
                     xfersFullWidthButton.visibility = View.GONE
                     menuVerificationTextView.visibility = View.GONE
                 } else {
-                    // TODO: Check if pending verification or not through a proper viewModel
-                    // unable to find out now, hardcode to false, need api support
-                    val isPendingVerification = false
-
-                    xfersFullWidthButton.text = getString(R.string.verify_account_button_copy)
-                    xfersFullWidthButton.setOnClickListener {
-                        if (isPendingVerification) {
-                            startActivity(Intent(this, KycVerificationStatusActivity::class.java))
-                        } else {
-                            startActivity(Intent(this, KycDocumentPreparationActivity::class.java))
+                    user.kycNeeded?.let { kycNeeded ->
+                        xfersFullWidthButton.setOnClickListener {
+                            if (kycNeeded) { // pending verification
+                                startActivity(Intent(this, KycVerificationStatusActivity::class.java))
+                            } else {
+                                startActivity(Intent(this, KycDocumentPreparationActivity::class.java))
+                            }
                         }
                     }
-
-                    menuVerificationTextView.text = getString(R.string.menu_verification_copy)
                 }
             }
         })
