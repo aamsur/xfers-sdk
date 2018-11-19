@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickPay(view: View) {
-        // Pass in example 100
         Xfers(this).flow.startPaymentFlow(BigDecimal("100"))
     }
 

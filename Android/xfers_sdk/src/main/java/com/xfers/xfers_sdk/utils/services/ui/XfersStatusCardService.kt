@@ -133,7 +133,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(addBankAccountFailureIntent)
     }
 
-    fun presentPaymentCompletedStatusCard() {
+    fun presentPaymentCompletedStatusCard(amount: BigDecimal, newBalance: BigDecimal) {
         val paymentCompletedIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -144,11 +144,11 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.payment_completed_card_amount, "Rp 20.000"))
+                append(context.getString(R.string.payment_completed_card_amount, "${XfersConfiguration.getCurrencyString()} $amount"))
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.payment_completed_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.payment_completed_card_balance, "${XfersConfiguration.getCurrencyString()} $newBalance"))
             }
         }
 
@@ -226,7 +226,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(withdrawalProcessingIntent)
     }
 
-    fun presentInsufficientFundsStatusCard() {
+    fun presentInsufficientFundsStatusCard(currentBalance: String) {
         val insufficientFundsIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -237,7 +237,7 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.payment_insufficient_funds_card_balance, "${XfersConfiguration.getCurrencyString()} $currentBalance"))
             }
         }
 

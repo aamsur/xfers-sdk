@@ -46,27 +46,32 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
 
         val userBankAccountsViewModel = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
         userBankAccountsViewModel.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
-            withdrawalBankSelectionXfersProgressBar.visibility = View.GONE
-            withdrawalBankSelectionPageTitleTextView.visibility = View.VISIBLE
-            withdrawalBankSelectionConstraintLayout.visibility = View.VISIBLE
+            if (it.isNotEmpty()) {
+                withdrawalBankSelectionXfersProgressBar.visibility = View.GONE
+                withdrawalBankSelectionPageTitleTextView.visibility = View.VISIBLE
+                withdrawalBankSelectionConstraintLayout.visibility = View.VISIBLE
 
-            val selectionRowItems = it.map { userBankAccount ->
-                SelectionRowItem(
-                        R.drawable.bank_acc_28, R.color.black,
-                        "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
-                        {
-                            startActivity(Intent(this, WithdrawalAmountActivity::class.java).apply {
-                                this.putExtra(WithdrawalConstants.bankAbbreviation, userBankAccount.bankAbbrev)
-                                this.putExtra(WithdrawalConstants.bankAccountNumber, userBankAccount.accountNo)
-                                this.putExtra(WithdrawalConstants.bankId, userBankAccount.id)
-                            })
-                        }
-                )
+                val selectionRowItems = it.map { userBankAccount ->
+                    SelectionRowItem(
+                            R.drawable.bank_acc_28, R.color.black,
+                            "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
+                            {
+                                startActivity(Intent(this, WithdrawalAmountActivity::class.java).apply {
+                                    this.putExtra(WithdrawalConstants.bankAbbreviation, userBankAccount.bankAbbrev)
+                                    this.putExtra(WithdrawalConstants.bankAccountNumber, userBankAccount.accountNo)
+                                    this.putExtra(WithdrawalConstants.bankId, userBankAccount.id)
+                                })
+                            }
+                    )
+                }
+
+                listViewRecyclerView.layoutManager = LinearLayoutManager(this)
+                val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
+                listViewRecyclerView.adapter = adapter
+            } else {
+                startActivity(Intent(this, ManageBankAccountsActivity::class.java))
+                finish()
             }
-
-            listViewRecyclerView.layoutManager = LinearLayoutManager(this)
-            val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
-            listViewRecyclerView.adapter = adapter
         })
     }
 }
