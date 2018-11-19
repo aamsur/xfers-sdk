@@ -40,7 +40,7 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         val description = extras[PaymentConstants.description] as String
         val amount = extras[PaymentConstants.amount] as BigDecimal
 
-        val textRowItems = listOf(
+        val textRowItems = mutableListOf(
                 TextRowItem(
                         getString(R.string.payment_confirmation_payment_to_copy),
                         XfersConfiguration.getMerchantName()
@@ -48,12 +48,17 @@ class PaymentConfirmationActivity : AppCompatActivity() {
                 TextRowItem(
                         getString(R.string.payment_confirmation_order_id_copy),
                         orderId
-                ),
-                TextRowItem(
-                        getString(R.string.payment_confirmation_description_copy),
-                        description
                 )
         )
+
+        if (description.isNotEmpty()) {
+            textRowItems.add(
+                    TextRowItem(
+                            getString(R.string.payment_confirmation_description_copy),
+                            description
+                    )
+            )
+        }
 
         listViewRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = XfersTextRowAdapter(textRowItems)
@@ -100,13 +105,6 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         userDetailsViewModel.getUserDetails().observe(this, Observer<User> {
             it.availableBalance?.let {
                 newBalance = BigDecimal(it) - amount
-
-                paymentConfirmationXfersProgressBar.visibility = View.GONE
-                paymentConfirmationTitleTextView.visibility = View.VISIBLE
-                paymentconfirmationCopyTextView.visibility = View.VISIBLE
-                paymentConfirmationListView.visibility = View.VISIBLE
-                paymentConfirmationSummaryEmphasis.visibility = View.VISIBLE
-                paymentConfirmationDoubleButtons.visibility = View.VISIBLE
 
                 if (BigDecimal(it) > amount) {
                     paymentConfirmationXfersProgressBar.visibility = View.GONE
