@@ -21,37 +21,45 @@ class TransactionHistoryActivity : AppCompatActivity() {
 
         transactionHistoryTitleTextView.text = getString(R.string.transaction_history_title_copy)
 
-        // TODO: Take information from extras from the activity before instead
-        val textRowItems = listOf(
+        val extras = this.intent.extras
+
+        val type = extras[TransactionHistoryConstants.type] as String?
+        val description = extras[TransactionHistoryConstants.description] as String?
+        val amount = extras[TransactionHistoryConstants.amount] as String?
+        val status = extras[TransactionHistoryConstants.status] as String?
+
+        val textRowItems = mutableListOf(
                 TextRowItem(
                         getString(R.string.transaction_history_row_1_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.transaction_history_row_1_ipsum))
+                                append(type)
                             }
                         }
-                ),
-                TextRowItem(
-                        getString(R.string.transaction_history_row_2_title),
-                        buildSpannedString {
-                            bold {
-                                append(getString(R.string.transaction_history_row_2_ipsum))
-                            }
-                        }
-                ),
-                TextRowItem(
-                        getString(R.string.transaction_history_row_3_title),
-                        buildSpannedString {
-                            bold {
-                                append(getString(R.string.transaction_history_row_3_ipsum))
-                            }
-                        }
-                ),
+                )
+        )
+
+        description?.let {
+            if (description.isNotBlank()) {
+                textRowItems.add(
+                        TextRowItem(
+                                getString(R.string.transaction_history_row_3_title),
+                                buildSpannedString {
+                                    bold {
+                                        append(description)
+                                    }
+                                }
+                        )
+                )
+            }
+        }
+
+        textRowItems.addAll(listOf(
                 TextRowItem(
                         getString(R.string.transaction_history_row_4_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.transaction_history_row_4_ipsum))
+                                append(amount)
                             }
                         }
                 ),
@@ -59,11 +67,22 @@ class TransactionHistoryActivity : AppCompatActivity() {
                         getString(R.string.transaction_history_row_5_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.transaction_history_row_5_ipsum))
+                                append(status)
                             }
                         }
                 )
-        )
+        ))
+
+        // TODO: Add this back when appropriate, currently Indonesia only no such thing as wallet type
+
+        // TextRowItem(
+        //        getString(R.string.transaction_history_row_2_title),
+        //        buildSpannedString {
+        //            bold {
+        //                append(getString(R.string.transaction_history_row_2_ipsum))
+        //            }
+        //        }
+        // ),
 
         listViewRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = XfersTextRowAdapter(textRowItems)

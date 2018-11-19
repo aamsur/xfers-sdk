@@ -13,11 +13,10 @@ class TransactionsHistoryViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
     private val transactionHistories = MutableLiveData<List<UserActivity>>()
     private var subscription: Disposable? = null
-    private var TRANSACTION_HISTORY_LIMIT: Int? = 10
 
-    fun getTransactionHistories(): LiveData<List<UserActivity>> {
+    fun getTransactionHistories(transactionHistoryLimit: Int = 50): LiveData<List<UserActivity>> {
         // TODO: Hardcoded limit
-        subscription = xfersRepository.getActivities(TRANSACTION_HISTORY_LIMIT)
+        subscription = xfersRepository.getActivities(transactionHistoryLimit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onGetTransactionHistoriesStart() }
