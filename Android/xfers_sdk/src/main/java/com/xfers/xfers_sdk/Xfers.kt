@@ -65,15 +65,7 @@ class Xfers(private val context: Context) {
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-
-            // TODO: Network call to check if the user has banks
-            val userHasBank = true
-
-            if (userHasBank) {
-                context.startActivity(Intent(context, WithdrawalBankSelectionActivity::class.java))
-            } else {
-                context.startActivity(Intent(context, ManageBankAccountsActivity::class.java))
-            }
+            context.startActivity(Intent(context, WithdrawalBankSelectionActivity::class.java))
         }
 
         // Optional description, will appear in receipt
