@@ -244,7 +244,7 @@
     <string name="payment_confirmation_description_copy">Description</string>
     <string name="payment_confirmation_description_ipsum_copy">Item/Service</string>
     <string name="payment_confirmation_emphasis_title">Total Payment Amount</string>
-    <string name="payment_confirmation_number_ipsum">Rp 20.000</string>
+    <string name="payment_confirmation_number">%1$s</string>
     <string name="payment_confirmation_negative_button_copy">Cancel</string>
     <string name="payment_confirmation_positive_button_copy">Confirm</string>
 

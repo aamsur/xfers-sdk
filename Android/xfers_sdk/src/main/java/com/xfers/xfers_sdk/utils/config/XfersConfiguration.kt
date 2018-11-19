@@ -98,4 +98,11 @@ object XfersConfiguration {
             Xfers.Country.SG -> "$"
         }
     }
+
+    fun getCurrencyCodeString(): String {
+        return when (currentCountry) {
+            Xfers.Country.ID -> "IDR"
+            Xfers.Country.SG -> "SGD"
+        }
+    }
 }

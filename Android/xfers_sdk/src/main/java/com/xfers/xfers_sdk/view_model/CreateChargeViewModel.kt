@@ -12,11 +12,11 @@ import java.math.BigDecimal
 
 class CreateChargeViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
-    private val chargeSuccess = MutableLiveData<Charge>()
+    val createChargeSuccess = MutableLiveData<Charge>()
     private var subscription: Disposable? = null
 
-    fun getCharge(amount: BigDecimal, order_id: String, debit_only: String): LiveData<Charge> {
-        subscription = xfersRepository.createCharge(amount, order_id, debit_only)
+    fun createCharge(amount: BigDecimal, orderId: String, description: String, debitOnly: String): LiveData<Charge> {
+        subscription = xfersRepository.createCharge(amount, orderId, description, debitOnly)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onCreateChargeStart() }
@@ -26,7 +26,7 @@ class CreateChargeViewModel : ViewModel() {
                         { onCreateChargeError() }
                 )
 
-        return chargeSuccess
+        return createChargeSuccess
     }
 
     override fun onCleared() {
@@ -43,7 +43,7 @@ class CreateChargeViewModel : ViewModel() {
     }
 
     private fun onCreateChargeSuccess(charge: Charge) {
-        chargeSuccess.postValue(charge)
+        createChargeSuccess.postValue(charge)
         // TODO: Provide observable to show success on view
     }
 

@@ -226,7 +226,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(withdrawalProcessingIntent)
     }
 
-    fun presentInsufficientFundsStatusCard() {
+    fun presentInsufficientFundsStatusCard(currentBalance: String) {
         val insufficientFundsIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -237,7 +237,7 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.payment_insufficient_funds_card_balance, "${XfersConfiguration.getCurrencyString()} $currentBalance"))
             }
         }
 

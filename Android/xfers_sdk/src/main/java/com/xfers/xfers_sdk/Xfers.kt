@@ -77,29 +77,17 @@ class Xfers(private val context: Context) {
         }
 
         // Optional description, will appear in receipt
-        fun startPaymentFlow(amount: BigDecimal, description: String? = null) {
+        // Optional orderId, if merchant does not give us, we will generate a random UUID
+        fun startPaymentFlow(amount: BigDecimal, orderId: String? = null, description: String = "") {
             XfersConfiguration.setMerchantFlowStartingContext(context)
 
-            // TODO: Network call to check if sufficient funds
-            val sufficientFunds = true
-
-            if (sufficientFunds) {
-                // TODO: Pass amount and description into activity
-                // FIXME: Think of what to do with order_id
-                val _orderId = "TEST1234567890"
-                // FIXME: Added amount and description here for testing, please remove that
-                val _amount = "9999"
-                val _description = "HELLOWORLDILOVEXFERS"
-                context.startActivity(
-                        Intent(context, PaymentConfirmationActivity::class.java).apply {
-                            this.putExtra(PaymentConstants.amount, _amount)
-                            this.putExtra(PaymentConstants.orderId, _orderId)
-                            this.putExtra(PaymentConstants.description, _description)
-                        }
-                )
-            } else {
-                XfersStatusCardService(context).presentInsufficientFundsStatusCard()
-            }
+            context.startActivity(
+                    Intent(context, PaymentConfirmationActivity::class.java).apply {
+                        this.putExtra(PaymentConstants.amount, amount)
+                        this.putExtra(PaymentConstants.orderId, orderId ?: "generate_a_uuid_for_them")
+                        this.putExtra(PaymentConstants.description, description)
+                    }
+            )
         }
     }
 
