@@ -10,7 +10,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.math.BigInteger
 
-class WithdrawalViewModal : ViewModel() {
+class WithdrawalViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
     private val withdrawal = MutableLiveData<WithdrawalRequestResponse>()
     private var subscription: Disposable? = null

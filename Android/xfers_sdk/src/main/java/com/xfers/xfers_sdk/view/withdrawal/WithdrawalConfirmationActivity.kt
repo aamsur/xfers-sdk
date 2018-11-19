@@ -12,7 +12,7 @@ import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
 import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
-import com.xfers.xfers_sdk.view_model.WithdrawalViewModal
+import com.xfers.xfers_sdk.view_model.WithdrawalViewModel
 import kotlinx.android.synthetic.main.activity_withdrawal_confirmation.*
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
@@ -27,13 +27,11 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
 
         title = getString(R.string.withdrawal_title)
 
-        // TODO: Integrate with extras information coming from chain of parent activities
-
         val extras = this.intent.extras
-        val bankAbbreviation = extras[WithdrawalBankSelectionConstants.bankAbbreviationKey] as String
-        val bankAccountNumber = extras[WithdrawalBankSelectionConstants.bankAccountNumberKey] as String
-        val bankId = extras[WithdrawalBankSelectionConstants.bankIdKey] as Int
-        val amount = extras[WithdrawalBankSelectionConstants.amountKey] as String
+        val bankAbbreviation = extras[WithdrawalConstants.bankAbbreviation] as String
+        val bankAccountNumber = extras[WithdrawalConstants.bankAccountNumber] as String
+        val bankId = extras[WithdrawalConstants.bankId] as Int
+        val amount = extras[WithdrawalConstants.amount] as String
 
         withdrawalConfirmationXfersProgressBar.visibility = View.GONE
         withdrawalConfirmationTitleTextView.text = getString(withdrawal_confirmation_page_title)
@@ -69,7 +67,6 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
             finish()
         }
 
-        // TODO: Integrate with viewModel and API to fire to our withdrawal API
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
             observeViewModel(bankId, BigInteger(amount))
@@ -83,17 +80,10 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
         withdrawalConfirmationSummaryEmphasis.visibility = View.GONE
         withdrawalConfirmationDoubleButtons.visibility = View.GONE
 
-        val model = ViewModelProviders.of(this).get(WithdrawalViewModal::class.java)
+        val model = ViewModelProviders.of(this).get(WithdrawalViewModel::class.java)
         model.submitWithdrawalRequest(bankId, amount).observe(this, Observer<WithdrawalRequestResponse> {
             withdrawalConfirmationXfersProgressBar.visibility = View.GONE
             XfersStatusCardService(this).presentWithdrawalProcessingStatusCard(amount, it.availableBalance)
         })
     }
-}
-
-object WithdrawalBankSelectionConstants {
-    const val bankAbbreviationKey = "bankAbbreviationKey"
-    const val bankAccountNumberKey = "bankAccountNumberKey"
-    const val bankIdKey = "bankIdKey"
-    const val amountKey = "amountKey"
 }

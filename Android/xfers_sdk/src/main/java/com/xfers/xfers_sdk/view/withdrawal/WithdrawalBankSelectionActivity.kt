@@ -44,8 +44,8 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
         withdrawalBankSelectionPageTitleTextView.visibility = View.GONE
         withdrawalBankSelectionConstraintLayout.visibility = View.GONE
 
-        val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
-        model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
+        val userBankAccountsViewModel = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
+        userBankAccountsViewModel.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
             withdrawalBankSelectionXfersProgressBar.visibility = View.GONE
             withdrawalBankSelectionPageTitleTextView.visibility = View.VISIBLE
             withdrawalBankSelectionConstraintLayout.visibility = View.VISIBLE
@@ -56,9 +56,9 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
                         "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
                         {
                             startActivity(Intent(this, WithdrawalAmountActivity::class.java).apply {
-                                this.putExtra(WithdrawalBankSelectionConstants.bankAbbreviationKey, userBankAccount.bankAbbrev)
-                                this.putExtra(WithdrawalBankSelectionConstants.bankAccountNumberKey, userBankAccount.accountNo)
-                                this.putExtra(WithdrawalBankSelectionConstants.bankIdKey, userBankAccount.id)
+                                this.putExtra(WithdrawalConstants.bankAbbreviation, userBankAccount.bankAbbrev)
+                                this.putExtra(WithdrawalConstants.bankAccountNumber, userBankAccount.accountNo)
+                                this.putExtra(WithdrawalConstants.bankId, userBankAccount.id)
                             })
                         }
                 )
