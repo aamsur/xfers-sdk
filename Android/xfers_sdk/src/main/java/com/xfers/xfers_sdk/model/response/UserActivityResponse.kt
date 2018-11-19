@@ -8,5 +8,5 @@ data class UserActivityResponse(
         val offset: Int?,
         val startDate: String?,
         val endDate: String?,
-        val activites: List<UserActivity>?
+        val activities: List<UserActivity>?
 )

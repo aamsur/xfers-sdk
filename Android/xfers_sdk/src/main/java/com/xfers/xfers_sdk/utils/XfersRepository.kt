@@ -76,9 +76,9 @@ class XfersRepository {
         return xfersApiService.getTopupInstructions(bank, disableVa)
     }
 
-    // Transaction Histrory related APIs
+    // Transaction History related APIs
 
-    fun getActivities(limit: Int?): Observable<UserActivityResponse> {
-        return xfersApiService.getActivities(GetActivitiesRequest(limit))
+    fun getActivities(limit: Int): Observable<UserActivityResponse> {
+        return xfersApiService.getActivities(limit)
     }
 }

@@ -80,7 +80,7 @@ interface XfersApiService {
 
     @GET("user/activities")
     fun getActivities(
-            @Body getActivitiesRequest: GetActivitiesRequest,
+            @Query("limit") limit: Int,
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<UserActivityResponse>
 }
