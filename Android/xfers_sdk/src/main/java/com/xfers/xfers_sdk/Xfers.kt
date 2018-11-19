@@ -14,6 +14,7 @@ import com.xfers.xfers_sdk.view.pay.PaymentConstants
 import com.xfers.xfers_sdk.view.transactions_history.TransactionsHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
 import java.math.BigDecimal
+import java.util.*
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
 class Xfers(private val context: Context) {
@@ -76,7 +77,7 @@ class Xfers(private val context: Context) {
             context.startActivity(
                     Intent(context, PaymentConfirmationActivity::class.java).apply {
                         this.putExtra(PaymentConstants.amount, amount)
-                        this.putExtra(PaymentConstants.orderId, orderId ?: "generate_a_uuid_for_them")
+                        this.putExtra(PaymentConstants.orderId, orderId ?: UUID.randomUUID().toString())
                         this.putExtra(PaymentConstants.description, description)
                     }
             )
