@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_withdrawal_confirmation.*
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 import kotlinx.android.synthetic.main.xfers_summary_emphasis.*
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class WithdrawalConfirmationActivity : AppCompatActivity() {
 
@@ -84,7 +84,7 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            createWithdrawal(bankId, BigInteger(amount))
+            createWithdrawal(bankId, BigDecimal(amount))
         }
     }
 
@@ -97,7 +97,7 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
         withdrawalConfirmationDoubleButtons.visibility = View.VISIBLE
     }
 
-    private fun createWithdrawal(bankId: Int, amount: BigInteger) {
+    private fun createWithdrawal(bankId: Int, amount: BigDecimal) {
         withdrawalConfirmationXfersProgressBar.visibility = View.VISIBLE
         withdrawalConfirmationTitleTextView.visibility = View.GONE
         withdrawalConfirmationListView.visibility = View.GONE

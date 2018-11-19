@@ -8,14 +8,14 @@ import com.xfers.xfers_sdk.utils.XfersRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class CreateWithdrawalViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
     private val withdrawal = MutableLiveData<WithdrawalRequestResponse>()
     private var subscription: Disposable? = null
 
-    fun submitWithdrawalRequest(bankId: Int, amount: BigInteger): LiveData<WithdrawalRequestResponse> {
+    fun submitWithdrawalRequest(bankId: Int, amount: BigDecimal): LiveData<WithdrawalRequestResponse> {
         subscription = xfersRepository.createWithdrawalRequest(bankId, amount)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

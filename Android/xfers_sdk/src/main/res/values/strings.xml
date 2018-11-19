@@ -223,7 +223,7 @@
 
     <string name="withdrawal_processing_card_text">Your withdrawal request is now being processed.\n\nPlease allow approximately X business days for your funds to be reflected on your bank statement.</string>
     <string name="withdrawal_processing_card_subtitle">XFERS WALLET BALANCE</string>
-    <string name="withdrawal_processing_card_amount">Payment Amount: %1$s</string>
+    <string name="withdrawal_processing_card_amount">Withdrawal Amount: %1$s</string>
     <string name="withdrawal_processing_card_balance">New Balance: %1$s</string>
 
     <!-- Coming soon misc -->

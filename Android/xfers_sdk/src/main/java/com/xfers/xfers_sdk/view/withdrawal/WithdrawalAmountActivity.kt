@@ -87,20 +87,23 @@ class WithdrawalAmountActivity : AppCompatActivity() {
             val extras = this.intent.extras
 
             xfersFullWidthButton.setOnClickListener {
-                val enteredAmount = xfersFormInputEditText.text.toString()
-                val availableBalance = user.availableBalance
+                if (xfersFormInputEditText.text.isNotBlank()) {
+                    val enteredAmount = xfersFormInputEditText.text.toString()
+                    val availableBalance = user.availableBalance
 
-                if (BigDecimal(enteredAmount) > BigDecimal(availableBalance)) {
-                    Toast.makeText(this, "Please enter an amount lower than or equal to your current balance.", Toast.LENGTH_SHORT).show()
-                } else {
-                    startActivity(
-                            Intent(this, WithdrawalConfirmationActivity::class.java).apply {
-                                this.putExtra(WithdrawalConstants.amount, enteredAmount)
-                                this.putExtra(WithdrawalConstants.bankAbbreviation, extras[WithdrawalConstants.bankAbbreviation] as String)
-                                this.putExtra(WithdrawalConstants.bankAccountNumber, extras[WithdrawalConstants.bankAccountNumber] as String)
-                                this.putExtra(WithdrawalConstants.bankId, extras[WithdrawalConstants.bankId] as Int)
-                            }
-                    )
+                    // TODO: Make the checks for the edit text much better, such as alphanumeric only etc.
+                    if (BigDecimal(enteredAmount) > BigDecimal(availableBalance)) {
+                        Toast.makeText(this, "Please enter an amount lower than or equal to your current balance.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        startActivity(
+                                Intent(this, WithdrawalConfirmationActivity::class.java).apply {
+                                    this.putExtra(WithdrawalConstants.amount, enteredAmount)
+                                    this.putExtra(WithdrawalConstants.bankAbbreviation, extras[WithdrawalConstants.bankAbbreviation] as String)
+                                    this.putExtra(WithdrawalConstants.bankAccountNumber, extras[WithdrawalConstants.bankAccountNumber] as String)
+                                    this.putExtra(WithdrawalConstants.bankId, extras[WithdrawalConstants.bankId] as Int)
+                                }
+                        )
+                    }
                 }
             }
         })
