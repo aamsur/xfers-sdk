@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.xfers.example.R
 import com.xfers.xfers_sdk.Xfers
-import java.math.BigInteger
+import java.math.BigDecimal
 
-// TODO: Example Activity (to be turned into example app)
 class MainActivity : AppCompatActivity() {
 
     // Put your Base URL here, this is the Base URL that we will call for Connect flow, for e.g.
@@ -61,8 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickPay(view: View) {
-        // Pass in example 100
-        Xfers(this).flow.startPaymentFlow(BigInteger("100"))
+        Xfers(this).flow.startPaymentFlow(BigDecimal("100"))
     }
 
     fun onClickMenu(view: View) {

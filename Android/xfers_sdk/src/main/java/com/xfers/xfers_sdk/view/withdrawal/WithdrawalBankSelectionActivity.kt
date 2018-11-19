@@ -2,6 +2,7 @@ package com.xfers.xfers_sdk.view.withdrawal
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -25,27 +26,52 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
 
         withdrawalBankSelectionPageTitleTextView.text = getString(R.string.withdrawal_bank_selection_page_title)
 
-        val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
-        model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
-            val selectionRowItems = it.map {
-                SelectionRowItem(
-                        R.drawable.bank_acc_28, R.color.black,
-                        "${it.bankAbbrev} ${it.accountNo}",
-                        {
-                            // TODO: Pass into child activity amount and bank chosen through intent extras
-                            startActivity(Intent(this, WithdrawalAmountActivity::class.java))
-                        }
-                )
-            }
-
-            listViewRecyclerView.layoutManager = LinearLayoutManager(this)
-            val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
-            listViewRecyclerView.adapter = adapter
-        })
-
         withdrawalBankSelectionEditBankAccountsTextView.text = getString(R.string.withdrawal_bank_selection_edit_banks_copy)
         withdrawalBankSelectionEditBankAccountsTextView.setOnClickListener {
             startActivity(Intent(this, ManageBankAccountsActivity::class.java))
         }
+
+        observeViewModel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        withdrawalBankSelectionXfersProgressBar.visibility = View.VISIBLE
+        withdrawalBankSelectionPageTitleTextView.visibility = View.GONE
+        withdrawalBankSelectionConstraintLayout.visibility = View.GONE
+
+        val userBankAccountsViewModel = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
+        userBankAccountsViewModel.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
+            if (it.isNotEmpty()) {
+                withdrawalBankSelectionXfersProgressBar.visibility = View.GONE
+                withdrawalBankSelectionPageTitleTextView.visibility = View.VISIBLE
+                withdrawalBankSelectionConstraintLayout.visibility = View.VISIBLE
+
+                val selectionRowItems = it.map { userBankAccount ->
+                    SelectionRowItem(
+                            R.drawable.bank_acc_28, R.color.black,
+                            "${userBankAccount.bankAbbrev} ${userBankAccount.accountNo}",
+                            {
+                                startActivity(Intent(this, WithdrawalAmountActivity::class.java).apply {
+                                    this.putExtra(WithdrawalConstants.bankAbbreviation, userBankAccount.bankAbbrev)
+                                    this.putExtra(WithdrawalConstants.bankAccountNumber, userBankAccount.accountNo)
+                                    this.putExtra(WithdrawalConstants.bankId, userBankAccount.id)
+                                })
+                            }
+                    )
+                }
+
+                listViewRecyclerView.layoutManager = LinearLayoutManager(this)
+                val adapter = XfersSelectionRowAdapter(this, selectionRowItems)
+                listViewRecyclerView.adapter = adapter
+            } else {
+                startActivity(Intent(this, ManageBankAccountsActivity::class.java))
+                finish()
+            }
+        })
     }
 }

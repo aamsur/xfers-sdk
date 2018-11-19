@@ -39,8 +39,7 @@ class ConnectPhoneActivity : AppCompatActivity() {
         connectPhoneViewModel.connectPhoneSuccess.observe(this, connectSuccessObserver)
 
         xfersFullWidthButton.setOnClickListener {
-            val phoneNumberTextField = findViewById<EditText>(R.id.xfersFormInputEditText)
-            val userPhoneNumber = phoneNumberTextField.text.toString()
+            val userPhoneNumber = xfersFormInputEditText.text.toString()
 
             connectPhoneViewModel.connectPhoneNumber(userPhoneNumber)
         }

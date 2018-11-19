@@ -10,6 +10,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivityConstants
+import java.math.BigDecimal
 
 class XfersStatusCardService(private val context: Context) {
 
@@ -86,7 +87,6 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(kycSubmitSuccessfulIntent)
     }
 
-    // TODO: This should pop back to manage bank accounts page
     fun presentAddBankAccountSuccessfulStatusCard() {
         val addBankAccountSuccessfulIntent = Intent(context, StatusCardBaseActivity::class.java)
 
@@ -103,14 +103,13 @@ class XfersStatusCardService(private val context: Context) {
                         StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
                         StatusCardBaseActivityConstants.cardText to cardText,
                         StatusCardBaseActivityConstants.buttonText to context.getString(R.string.okay_button_copy),
-                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
+                        StatusCardBaseActivityConstants.buttonClickGoToManageBanks to true
                 )
         )
 
         context.startActivity(addBankAccountSuccessfulIntent)
     }
 
-    // TODO: This should pop back to manage bank accounts page
     fun presentAddBankAccountFailureStatusCard() {
         val addBankAccountFailureIntent = Intent(context, StatusCardBaseActivity::class.java)
 
@@ -127,14 +126,14 @@ class XfersStatusCardService(private val context: Context) {
                         StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
                         StatusCardBaseActivityConstants.cardText to cardText,
                         StatusCardBaseActivityConstants.buttonText to context.getString(R.string.try_again_button_copy),
-                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
+                        StatusCardBaseActivityConstants.buttonClickGoToManageBanks to true
                 )
         )
 
         context.startActivity(addBankAccountFailureIntent)
     }
 
-    fun presentPaymentCompletedStatusCard() {
+    fun presentPaymentCompletedStatusCard(amount: BigDecimal, newBalance: BigDecimal) {
         val paymentCompletedIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -145,11 +144,11 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.payment_completed_card_amount, "Rp 20.000"))
+                append(context.getString(R.string.payment_completed_card_amount, "${XfersConfiguration.getCurrencyString()} $amount"))
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.payment_completed_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.payment_completed_card_balance, "${XfersConfiguration.getCurrencyString()} $newBalance"))
             }
         }
 
@@ -192,36 +191,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(topupProcessingIntent)
     }
 
-    fun presentAddBankAccountRejectionStatusCard() {
-        val addBankAccountRejectionIntent = Intent(context, StatusCardBaseActivity::class.java)
-
-        val cardText = buildSpannedString {
-            append(context.getString(R.string.add_bank_account_rejection_card_text_part_1))
-            append("\n")
-            bold {
-                append(context.getString(R.string.bank_ipsum))
-            }
-            append("\n")
-            append(context.getString(R.string.add_bank_account_rejection_card_text_part_2, "[reason]"))
-        }
-
-        addBankAccountRejectionIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
-                hashMapOf(
-                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.topup_transfer_funds_title),
-                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
-                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_alert_60,
-                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
-                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
-                        StatusCardBaseActivityConstants.cardText to cardText,
-                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
-                )
-        )
-
-        context.startActivity(addBankAccountRejectionIntent)
-    }
-
-    fun presentWithdrawalProcessingStatusCard() {
+    fun presentWithdrawalProcessingStatusCard(amount: BigDecimal, newAvailableBalance: String?) {
         val withdrawalProcessingIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -232,11 +202,11 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_amount, "Rp 20.000"))
+                append(context.getString(R.string.withdrawal_processing_card_amount, "${XfersConfiguration.getCurrencyString()} $amount"))
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.withdrawal_processing_card_balance, "${XfersConfiguration.getCurrencyString()} $newAvailableBalance"))
             }
         }
 
@@ -256,7 +226,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(withdrawalProcessingIntent)
     }
 
-    fun presentInsufficientFundsStatusCard() {
+    fun presentInsufficientFundsStatusCard(currentBalance: String) {
         val insufficientFundsIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -267,7 +237,7 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.payment_insufficient_funds_card_balance, "${XfersConfiguration.getCurrencyString()} $currentBalance"))
             }
         }
 

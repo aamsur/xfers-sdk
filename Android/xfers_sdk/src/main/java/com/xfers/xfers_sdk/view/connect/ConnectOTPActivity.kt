@@ -33,8 +33,7 @@ class ConnectOTPActivity : AppCompatActivity() {
         connectOTPViewModel.connectOTPSuccess.observe(this, connectSuccessObserver)
 
         xfersFullWidthButton.setOnClickListener {
-            val OTPTextField = findViewById<EditText>(R.id.enterOTPTextField)
-            val OTP = OTPTextField.text.toString()
+            val OTP = enterOTPTextField.text.toString()
 
             connectOTPViewModel.connectOTP(OTP)
         }

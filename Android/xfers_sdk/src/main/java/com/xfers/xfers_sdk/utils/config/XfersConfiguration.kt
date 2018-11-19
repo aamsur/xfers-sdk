@@ -3,7 +3,6 @@ package com.xfers.xfers_sdk.utils.config
 import android.content.Context
 import android.graphics.Color
 import com.xfers.xfers_sdk.Xfers
-import com.xfers.xfers_sdk.utils.services.apis.xfersUserApiKeyHeader
 
 object XfersConfiguration {
     // SG
@@ -16,7 +15,7 @@ object XfersConfiguration {
 
     // Settings
     private var apiBase = ""
-    private var currentCountry: Xfers.Country? = null
+    private var currentCountry = Xfers.Country.SG
 
     // Merchant Settings
     private var merchantApiBase = ""
@@ -85,7 +84,7 @@ object XfersConfiguration {
         return merchantFlowStartingContextClass
     }
 
-    fun getCurrentCountry(): Xfers.Country? {
+    fun getCurrentCountry(): Xfers.Country {
         return currentCountry
     }
 
@@ -93,7 +92,17 @@ object XfersConfiguration {
         return userApiKey
     }
 
-    fun getXfersUserApiKeyHeader(): String{
-        return xfersUserApiKeyHeader
+    fun getCurrencyString(): String {
+        return when (currentCountry) {
+            Xfers.Country.ID -> "RP"
+            Xfers.Country.SG -> "$"
+        }
+    }
+
+    fun getCurrencyCodeString(): String {
+        return when (currentCountry) {
+            Xfers.Country.ID -> "IDR"
+            Xfers.Country.SG -> "SGD"
+        }
     }
 }

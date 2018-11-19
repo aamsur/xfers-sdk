@@ -10,9 +10,11 @@ import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.menu.XfersMenuActivity
+import com.xfers.xfers_sdk.view.pay.PaymentConstants
 import com.xfers.xfers_sdk.view.transactions_history.TransactionsHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
-import java.math.BigInteger
+import java.math.BigDecimal
+import java.util.*
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
 class Xfers(private val context: Context) {
@@ -64,30 +66,21 @@ class Xfers(private val context: Context) {
 
         fun startWithdrawalFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-
-            // TODO: Network call to check if the user has banks
-            val userHasBank = true
-
-            if (userHasBank) {
-                context.startActivity(Intent(context, WithdrawalBankSelectionActivity::class.java))
-            } else {
-                context.startActivity(Intent(context, ManageBankAccountsActivity::class.java))
-            }
+            context.startActivity(Intent(context, WithdrawalBankSelectionActivity::class.java))
         }
 
         // Optional description, will appear in receipt
-        fun startPaymentFlow(amount: BigInteger, description: String? = null) {
+        // Optional orderId, if merchant does not give us, we will generate a random UUID
+        fun startPaymentFlow(amount: BigDecimal, orderId: String? = null, description: String = "") {
             XfersConfiguration.setMerchantFlowStartingContext(context)
 
-            // TODO: Network call to check if sufficient funds
-            val sufficientFunds = true
-
-            if (sufficientFunds) {
-                // TODO: Pass amount and description into activity
-                context.startActivity(Intent(context, PaymentConfirmationActivity::class.java))
-            } else {
-                XfersStatusCardService(context).presentInsufficientFundsStatusCard()
-            }
+            context.startActivity(
+                    Intent(context, PaymentConfirmationActivity::class.java).apply {
+                        this.putExtra(PaymentConstants.amount, amount)
+                        this.putExtra(PaymentConstants.orderId, orderId ?: UUID.randomUUID().toString())
+                        this.putExtra(PaymentConstants.description, description)
+                    }
+            )
         }
     }
 

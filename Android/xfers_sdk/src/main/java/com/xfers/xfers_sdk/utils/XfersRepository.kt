@@ -2,11 +2,13 @@ package com.xfers.xfers_sdk.utils
 
 import com.xfers.xfers_sdk.model.*
 import com.xfers.xfers_sdk.model.request.*
+import com.xfers.xfers_sdk.model.response.TransferInfoResponse
 import com.xfers.xfers_sdk.model.response.UserActivityResponse
 import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.utils.network.NetworkClient
 import io.reactivex.Observable
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class XfersRepository {
     private val xfersApiService = NetworkClient.provideXfersApiService()
@@ -27,7 +29,7 @@ class XfersRepository {
 
     // Withdrawal related APIs
 
-    fun createWithdrawalRequest(bankId: Int, amount: BigInteger): Observable<WithdrawalRequestResponse> {
+    fun createWithdrawalRequest(bankId: Int, amount: BigDecimal): Observable<WithdrawalRequestResponse> {
         return xfersApiService.createWithdrawalRequest(
                 bankId.toString(),
                 CreateWithdrawalRequest(amount.toString())
@@ -36,13 +38,16 @@ class XfersRepository {
 
     // Charge related APIs
 
-    fun createCharage(amount: BigInteger, currency: String, orderId: String, description: String? = null): Observable<Charge> {
+    // FIXME: Hard-coded debit_only == true now cos we currently only create charge if user has sufficient balance
+    // FIXME: This is currently hardcoded to be using Contractual Model, not Transactional Model since we only support Indonesia
+    fun createCharge(amount: BigDecimal, orderId: String, description: String = "", debitOnly: String = "true", currency: String = XfersConfiguration.getCurrencyCodeString()): Observable<Charge> {
         return xfersApiService.createCharge(
                 CreateChargeRequest(
                         amount.toString(),
-                        currency,
                         orderId,
-                        description
+                        debitOnly,
+                        description,
+                        currency
                 )
         )
     }
@@ -67,10 +72,8 @@ class XfersRepository {
 
     // Topup related APIs
 
-    fun getTopupInstructions(bank: String, disableVa: Boolean): Observable<TransferInfo> {
-        return xfersApiService.getTopupInstructions(
-                GetTopupInstructionsRequest(bank, disableVa)
-        )
+    fun getTopupInstructions(bank: String, disableVa: Boolean): Observable<TransferInfoResponse> {
+        return xfersApiService.getTopupInstructions(bank, disableVa)
     }
 
     // Transaction Histrory related APIs

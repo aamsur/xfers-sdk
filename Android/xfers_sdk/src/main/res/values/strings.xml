@@ -103,11 +103,8 @@
     <string name="enter_bank_account_number_subtitle">Please exclude dashes</string>
     <string name="add_bank_account_confirmation_title">Confirm Details</string>
     <string name="add_bank_account_confirmation_bank_name_to_copy">Bank Name</string>
-    <string name="add_bank_account_confirmation_bank_name_to_ipsum_copy">BCA Bank</string>
     <string name="add_bank_account_confirmation_holder_name_id_copy">Name of Bank Account Holder</string>
-    <string name="add_bank_account_confirmation_holder_name_id_ipsum_copy">Chen Ming Yao Johnathan</string>
     <string name="add_bank_account_confirmation_account_no_copy">Bank Account Number</string>
-    <string name="add_bank_account_confirmation_account_no_ipsum_copy">123456789</string>
     <string name="add_bank_account_select_bank_summary_title">Select bank name</string>
     <string name="add_bank_account_select_bank_search_hint">Search bank name</string>
     <string name="add_bank_account_enter_name_field_title">Enter your full name</string>
@@ -115,7 +112,7 @@
     <string name="add_bank_account_enter_name_edit_text_subtitle">As reflected in your bank account statement</string>
 
     <string name="add_bank_account_successful_card_text">Your bank account has been added.</string>
-    <string name="add_bank_account_failure_card_text">We failed to verify your bank account because there has been a name mismatch.\n\nPlease ensure you have provided the correct bank details.</string>
+    <string name="add_bank_account_failure_card_text">You have failed to add your bank account with Xfers.\n\nPlease ensure you have provided the correct bank details.</string>
     <string name="add_bank_account_rejection_card_text_part_1">We failed to verify the following bank account</string>
     <string name="add_bank_account_rejection_card_text_part_2">because %1$s.\n\n If you would like to use this account, please return to add the bank account again with the correct details and documents.</string>
 
@@ -207,7 +204,7 @@
     <string name="withdrawal_amount_input_text">RP</string>
     <string name="withdrawal_amount_input_default_value">0.00</string>
     <string name="withdrawal_amount_page_title">Enter withdrawal amount</string>
-    <string name="withdrawal_amount_balance">Current Balance: %1$s</string>
+    <string name="withdrawal_amount_balance">Current Balance:</string>
     <string name="withdrawal_amount_notes">Return to %1$s per week without fees. Any amount exceeding %1$s in the week of Monday to Sunday will be subjected to a withdrawal fees of 1% and processed as two separate transactions. Learn more at %1$s</string>
 
     <string name="withdrawal_bank_selection_page_title">Withdraw funds to</string>
@@ -219,15 +216,14 @@
     <string name="withdrawal_confirmation_to_bank_account_copy">To bank account</string>
     <string name="withdrawal_confirmation_to_bank_account_ipsum">BCA 1234567890</string>
     <string name="withdrawal_confirmation_amount_copy">Amount</string>
-    <string name="withdrawal_confirmation_amount_ipsum">RP 20.0000</string>
     <string name="withdrawal_confirmation_processing_type_copy">Processing type</string>
     <string name="withdrawal_confirmation_processing_type_ipsum">Normal Processing (Free)</string>
     <string name="withdrawal_cofnirmation_emphasis_title">Total Payment Amount</string>
-    <string name="withdrawal_confirmation_number_ipsum">Rp 20.000</string>
+    <string name="withdrawal_confirmation_emphasis_amount_copy">%1$s</string>
 
     <string name="withdrawal_processing_card_text">Your withdrawal request is now being processed.\n\nPlease allow approximately X business days for your funds to be reflected on your bank statement.</string>
     <string name="withdrawal_processing_card_subtitle">XFERS WALLET BALANCE</string>
-    <string name="withdrawal_processing_card_amount">Payment Amount: %1$s</string>
+    <string name="withdrawal_processing_card_amount">Withdrawal Amount: %1$s</string>
     <string name="withdrawal_processing_card_balance">New Balance: %1$s</string>
 
     <!-- Coming soon misc -->
@@ -248,7 +244,7 @@
     <string name="payment_confirmation_description_copy">Description</string>
     <string name="payment_confirmation_description_ipsum_copy">Item/Service</string>
     <string name="payment_confirmation_emphasis_title">Total Payment Amount</string>
-    <string name="payment_confirmation_number_ipsum">Rp 20.000</string>
+    <string name="payment_confirmation_number">%1$s</string>
     <string name="payment_confirmation_negative_button_copy">Cancel</string>
     <string name="payment_confirmation_positive_button_copy">Confirm</string>
 
@@ -292,7 +288,6 @@
     <string name="menu_title">XFERS WALLET</string>
 
     <string name="menu_balance_title">Wallet Balance</string>
-    <string name="menu_balance_ipsum">RP 900.000</string>
     <string name="menu_verification_copy">Verify your account to increase your transaction / holding limit</string>
 
     <!-- Misc -->
