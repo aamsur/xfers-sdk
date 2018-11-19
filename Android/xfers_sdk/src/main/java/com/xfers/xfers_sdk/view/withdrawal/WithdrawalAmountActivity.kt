@@ -12,36 +12,35 @@ import com.xfers.xfers_sdk.R.string.*
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_form_input.*
 
-
 class WithdrawalAmountActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_withdrawal_amount)
 
-        title = getString(withdrawal_title)
+        title = getString(R.string.withdrawal_title)
 
         xfersFormInputPageTitle.visibility = View.GONE
         xfersFormInputEditTextSubtitle.visibility = View.GONE
-        val hint: SpannedString = buildSpannedString {
+        val hint = buildSpannedString {
             bold {
-                append(getString(withdrawal_amount_input_text))
+                append(getString(R.string.withdrawal_amount_input_text))
             }
             append(" ")
-            append(getString(withdrawal_amount_input_default_value))
+            append(getString(R.string.withdrawal_amount_input_default_value))
         }
 
         xfersFormInputEditText.hint = hint
 
 
-        xfersFormInputFieldTitle.text = getString(withdrawal_confirmation_page_title)
+        xfersFormInputFieldTitle.text = getString(R.string.withdrawal_confirmation_page_title)
 
-        val footnote: SpannedString = buildSpannedString {
+        val footnote = buildSpannedString {
             bold {
-                append(getString(withdrawal_amount_balance))
+                append(getString(R.string.withdrawal_amount_balance))
             }
             append("\n\n")
-            append(getString(withdrawal_amount_notes))
+            append(getString(R.string.withdrawal_amount_notes))
         }
 
         xfersFormInputNotesTextView.text = footnote
@@ -49,7 +48,6 @@ class WithdrawalAmountActivity : AppCompatActivity() {
         val extras = this.intent.extras
 
         xfersFullWidthButton.setOnClickListener {
-            // TODO: Pass withdrawal amount into confirmation activity through intent extras
             startActivity(
                     Intent(this, WithdrawalConfirmationActivity::class.java).apply {
                         this.putExtra(WithdrawalBankSelectionConstants.amountKey, xfersFormInputEditText.text.toString())
