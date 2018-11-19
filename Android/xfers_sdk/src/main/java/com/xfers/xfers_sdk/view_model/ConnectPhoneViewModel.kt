@@ -47,7 +47,7 @@ class ConnectPhoneViewModel : ViewModel() {
         //   "msg": "success"
         // }
         if (okResponse.msg == "success") {
-            connectPhoneSuccess.value = true
+            connectPhoneSuccess.postValue(true)
         }
     }
 

@@ -1,13 +1,12 @@
 package com.xfers.xfers_sdk.view.connect
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view_model.ConnectOTPViewModel
 import kotlinx.android.synthetic.main.activity_connect_otp.*
 import kotlinx.android.synthetic.main.xfers_button.*
@@ -25,7 +24,7 @@ class ConnectOTPActivity : AppCompatActivity() {
         // Create the observer which updates the UI.
         val connectSuccessObserver = Observer<Boolean> { connectStatus ->
             if (connectStatus) {
-                startActivity(Intent(this, ConnectShareKYCActivity::class.java))
+                XfersStatusCardService(this).presentConnectLinkSuccessfulStatusCard()
             }
         }
 
