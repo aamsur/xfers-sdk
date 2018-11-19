@@ -1,6 +1,5 @@
 package com.xfers.xfers_sdk.view.pay
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -14,11 +13,10 @@ import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import com.xfers.xfers_sdk.view_model.CreateChargeViewModel
 import kotlinx.android.synthetic.main.activity_payment_confirmation.*
-import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 import kotlinx.android.synthetic.main.xfers_summary_emphasis.*
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class PaymentConfirmationActivity : AppCompatActivity() {
 
@@ -31,12 +29,14 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         paymentConfirmationTitleTextView.text = getString(R.string.payment_confirmation_page_title)
         paymentconfirmationCopyTextView.text = getString(R.string.payment_confirmation_copy)
 
+        // TODO: Make sure that when we go into topup card, no history back into this page
+        // intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+
         val extras = this.intent.extras
         // FIXME: Add null checks if those are empty or not
         val orderId = extras[PaymentConstants.orderId] as String
         val description = extras[PaymentConstants.description] as String
         val amount = extras[PaymentConstants.amount] as String
-        var amount_bigint = BigInteger(amount)
 
         val textRowItems = listOf(
                 TextRowItem(
@@ -58,7 +58,7 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         listViewRecyclerView.adapter = adapter
 
         summaryEmphasisTopTextView.text = getString(R.string.payment_confirmation_emphasis_title)
-        summaryEmphasisBottomTextView.text = amount as String
+        summaryEmphasisBottomTextView.text = amount
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.cancel_button_copy)
         xfersDoubleButtonsNegativeButton.setOnClickListener {
@@ -68,15 +68,13 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         // FIXME: THIS IS HARDCODED
         val newBalance = "12345678"
 
-
         val CreateChargeViewModel = ViewModelProviders.of(this).get(CreateChargeViewModel::class.java)
-        CreateChargeViewModel.getCharge(amount_bigint, orderId, "true").observe(this, Observer<Charge> {})
-
+        CreateChargeViewModel.getCharge(BigDecimal(amount), orderId, "true").observe(this, Observer<Charge> {})
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            XfersStatusCardService(this).presentPaymentCompletedStatusCard(amount, newBalance)
-            CreateChargeViewModel.getCharge(amount_bigint, orderId, "true")
+            XfersStatusCardService(this).presentPaymentCompletedStatusCard(BigDecimal(amount), BigDecimal(newBalance))
+            CreateChargeViewModel.getCharge(BigDecimal(amount), orderId, "true")
         }
     }
 }

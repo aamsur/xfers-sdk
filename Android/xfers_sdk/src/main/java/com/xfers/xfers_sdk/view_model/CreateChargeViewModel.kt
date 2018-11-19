@@ -8,14 +8,14 @@ import com.xfers.xfers_sdk.utils.XfersRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class CreateChargeViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
     private val chargeSuccess = MutableLiveData<Charge>()
     private var subscription: Disposable? = null
 
-    fun getCharge(amount: BigInteger, order_id: String, debit_only: String): LiveData<Charge> {
+    fun getCharge(amount: BigDecimal, order_id: String, debit_only: String): LiveData<Charge> {
         subscription = xfersRepository.createCharge(amount, order_id, debit_only)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

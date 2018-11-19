@@ -38,12 +38,13 @@ class XfersRepository {
 
     // FIXME: Hard-coded debit_only == true now cos we currently only create charge if user has sufficient balance
     // FIXME: This is currently hardcoded to be using Contractual Model, not Transactional Model since we only support Indonesia
-    fun createCharge(amount: BigDecimal, orderId: String, currency: String, description: String? = null, debitOnly: String? = "true"): Observable<Charge> {
+    fun createCharge(amount: BigDecimal, orderId: String, currency: String, description: String = "", debitOnly: String = "true"): Observable<Charge> {
         return xfersApiService.createCharge(
                 CreateChargeRequest(
                         amount.toString(),
                         orderId,
-                        debitOnly
+                        debitOnly,
+                        description
                 )
         )
     }
