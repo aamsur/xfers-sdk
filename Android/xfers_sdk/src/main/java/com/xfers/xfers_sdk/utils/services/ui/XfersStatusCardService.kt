@@ -10,6 +10,7 @@ import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivity
 import com.xfers.xfers_sdk.view.shared.StatusCardBaseActivityConstants
+import java.math.BigDecimal
 
 class XfersStatusCardService(private val context: Context) {
 
@@ -221,7 +222,7 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(addBankAccountRejectionIntent)
     }
 
-    fun presentWithdrawalProcessingStatusCard() {
+    fun presentWithdrawalProcessingStatusCard(amount: BigDecimal, newAvailableBalance: String?) {
         val withdrawalProcessingIntent = Intent(context, StatusCardBaseActivity::class.java)
 
         val cardText = buildSpannedString {
@@ -232,11 +233,11 @@ class XfersStatusCardService(private val context: Context) {
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_amount, "Rp 20.000"))
+                append(context.getString(R.string.withdrawal_processing_card_amount, "${XfersConfiguration.getCurrencyString()} $amount"))
             }
             append("\n\n")
             bold {
-                append(context.getString(R.string.withdrawal_processing_card_balance, "Rp 90.000"))
+                append(context.getString(R.string.withdrawal_processing_card_balance, "${XfersConfiguration.getCurrencyString()} $newAvailableBalance"))
             }
         }
 
