@@ -1,7 +1,7 @@
 package com.xfers.xfers_sdk.view.topup
 
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -30,25 +30,64 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topup_virtual_account_transfer)
 
-        val extras = this.intent.extras
-        val bankAbbrev = extras["bankAbbrev"] as String
-        val disableVa = false
-
         title = getString(R.string.topup_virtual_account_transfer_title)
+
+        extendedTopbarTextView.text = buildSpannedString {
+            bold {
+                append(getString(R.string.topup_virtual_account_transfer_topbar_title_part_1))
+            }
+            append("\n\n")
+            append(getString(R.string.topup_virtual_account_transfer_topbar_title_part_2))
+        }
+
+        topupVirtualAccountTransferWarningTextView.text = getString(R.string.topup_virtual_account_transfer_warning_copy)
+
+        xfersFullWidthButton.text = getString(R.string.i_have_transferred_button_copy)
+        xfersFullWidthButton.setOnClickListener {
+            XfersStatusCardService(this).presentTopupProcessingStatusCard()
+        }
+
+        observeViewModel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        topupVirtualAccountTransferXfersProgressBar.visibility = View.VISIBLE
+        topupVirtualAccountTransferExtendedTopbar.visibility = View.GONE
+        topupVirtualAccountTransferWarningTextView.visibility = View.GONE
+        topupVirtualAccountTransferListView.visibility = View.GONE
+        topupVirtualAccountTransferXfersButton.visibility = View.GONE
+
+        val extras = this.intent.extras
+        val bankAbbrev = extras[TopupConstants.bankAbbreviation] as String
+        val disableVa = false // FIXME: Currently hardcoded because we only support Indonesia + C model
 
         val transferInfoModel = ViewModelProviders.of(this).get(TopupInstructionViewModel::class.java)
         transferInfoModel.getTransferInfo(bankAbbrev, disableVa).observe(this, Observer<TransferInfoResponse> { transferInfo ->
+            topupVirtualAccountTransferXfersProgressBar.visibility = View.GONE
+            topupVirtualAccountTransferExtendedTopbar.visibility = View.VISIBLE
+            topupVirtualAccountTransferWarningTextView.visibility = View.VISIBLE
+            topupVirtualAccountTransferListView.visibility = View.VISIBLE
+            topupVirtualAccountTransferXfersButton.visibility = View.VISIBLE
+
             val context = this
-            val country = XfersConfiguration.getCurrentCountry()
-            val bankNameFull: String?
-            val bankAccountNo: String?
-            if (country == Xfers.Country.SG) {
-                bankNameFull = transferInfo.transferInfoArray!![0].bankNameFull
-                bankAccountNo = transferInfo.transferInfoArray[0].bankAccountNo
-            } else {
-                bankNameFull = transferInfo.bankNameFull
-                bankAccountNo = transferInfo.bankAccountNo
+            var bankNameFull = ""
+            var bankAccountNo = ""
+
+            if (XfersConfiguration.getCurrentCountry() == Xfers.Country.SG) {
+                bankNameFull = transferInfo.bankNameFull ?: ""
+                bankAccountNo = transferInfo.bankAccountNo ?: ""
+            } else { // ID
+                transferInfo.transferInfoArray?.let {
+                    bankNameFull = it[0].bankNameFull ?: ""
+                    bankAccountNo = it[0].bankAccountNo ?: ""
+                }
             }
+
             val bankInstructionRowItems = listOf(
                     BankInstructionRowItem(
                             buildSpannedString {
@@ -105,27 +144,11 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
                                 append("\n")
                             }
                     )
-
             )
 
             listViewRecyclerView.layoutManager = LinearLayoutManager(this)
             val adapter = XfersBankInstructionRowAdapter(this, bankInstructionRowItems)
             listViewRecyclerView.adapter = adapter
         })
-
-        extendedTopbarTextView.text = buildSpannedString {
-            bold {
-                append(getString(R.string.topup_virtual_account_transfer_topbar_title_part_1))
-            }
-            append("\n\n")
-            append(getString(R.string.topup_virtual_account_transfer_topbar_title_part_2))
-        }
-
-        topupVirtualAccountTransferWarningTextView.text = getString(R.string.topup_virtual_account_transfer_warning_copy)
-
-        xfersFullWidthButton.text = getString(R.string.i_have_transferred_button_copy)
-        xfersFullWidthButton.setOnClickListener {
-            XfersStatusCardService(this).presentTopupProcessingStatusCard()
-        }
     }
 }

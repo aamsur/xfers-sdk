@@ -12,7 +12,6 @@ import io.reactivex.schedulers.Schedulers
 class TopupInstructionViewModel : ViewModel() {
     private val xfersRepository = XfersRepository()
     private val transferInfoSuccess = MutableLiveData<TransferInfoResponse>()
-    private val transferInfoFailure = MutableLiveData<Boolean>()
     private var subscription: Disposable? = null
 
     fun getTransferInfo(bank: String, disableVa: Boolean): LiveData<TransferInfoResponse> {
@@ -23,7 +22,7 @@ class TopupInstructionViewModel : ViewModel() {
                 .doOnTerminate { onGetTransferInfoFinish() }
                 .subscribe(
                         { onGetTransferInfoSuccess(it) },
-                        { onGetTransferInfoError(it) }
+                        { onGetTransferInfoError() }
                 )
 
         return transferInfoSuccess
@@ -46,8 +45,7 @@ class TopupInstructionViewModel : ViewModel() {
         transferInfoSuccess.postValue(transferInfoResponse)
     }
 
-    private fun onGetTransferInfoError(error: Throwable) {
-        println(error)
-        transferInfoFailure.postValue(false )
+    private fun onGetTransferInfoError() {
+        // TODO: Provide observable to show error on view
     }
 }
