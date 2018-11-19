@@ -87,6 +87,7 @@
 
         <!-- Connect flow -->
 
+        <activity android:name=".view.connect.ConnectTermsOfServiceActivity" />
         <activity
             android:name=".view.connect.ConnectPhoneActivity"
             android:windowSoftInputMode="adjustResize" />

@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
-import com.xfers.xfers_sdk.view.connect.ConnectPhoneActivity
+import com.xfers.xfers_sdk.view.connect.ConnectTermsOfServiceActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.pay.PaymentConfirmationActivity
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
@@ -46,7 +46,7 @@ class Xfers(private val context: Context) {
     inner class Flow {
         fun startConnectFlow() {
             XfersConfiguration.setMerchantFlowStartingContext(context)
-            context.startActivity(Intent(context, ConnectPhoneActivity::class.java))
+            context.startActivity(Intent(context, ConnectTermsOfServiceActivity::class.java))
         }
 
         fun startTopupFlow() {

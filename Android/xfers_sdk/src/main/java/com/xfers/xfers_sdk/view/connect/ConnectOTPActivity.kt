@@ -2,6 +2,7 @@ package com.xfers.xfers_sdk.view.connect
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -31,7 +32,21 @@ class ConnectOTPActivity : AppCompatActivity() {
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         connectOTPViewModel.connectOTPSuccess.observe(this, connectSuccessObserver)
 
+        connectOTPXfersProgressBar.visibility = View.GONE
+        enterOTPTextView.visibility = View.VISIBLE
+        enterOTPTextField.visibility = View.VISIBLE
+        connectOTPButtonView.visibility = View.VISIBLE
+        connectOTPResentOTPTextView.visibility = View.VISIBLE
+        connectOTPPoweredByXfersView.visibility = View.VISIBLE
+
         xfersFullWidthButton.setOnClickListener {
+            connectOTPXfersProgressBar.visibility = View.VISIBLE
+            enterOTPTextView.visibility = View.GONE
+            enterOTPTextField.visibility = View.GONE
+            connectOTPButtonView.visibility = View.GONE
+            connectOTPResentOTPTextView.visibility = View.GONE
+            connectOTPPoweredByXfersView.visibility = View.GONE
+
             val OTP = enterOTPTextField.text.toString()
 
             connectOTPViewModel.connectOTP(OTP)
