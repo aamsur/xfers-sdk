@@ -2,6 +2,7 @@ package com.xfers.xfers_sdk.utils.services.apis
 
 import com.xfers.xfers_sdk.model.*
 import com.xfers.xfers_sdk.model.request.*
+import com.xfers.xfers_sdk.model.response.TransferInfoResponse
 import com.xfers.xfers_sdk.model.response.UserActivityResponse
 import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
 import com.xfers.xfers_sdk.utils.config.XfersConfiguration
@@ -70,9 +71,10 @@ interface XfersApiService {
 
     @GET("user/transfer_info")
     fun getTopupInstructions(
-            @Body getTopupInstructionsRequest: GetTopupInstructionsRequest,
+            @Query("bank") bank_abbrev: String,
+            @Query("disable_va") disable_va: Boolean,
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
-    ): Observable<TransferInfo>
+    ): Observable<TransferInfoResponse>
 
     // Transaction History related APIs
 
