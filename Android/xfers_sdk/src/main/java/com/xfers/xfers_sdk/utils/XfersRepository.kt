@@ -6,7 +6,7 @@ import com.xfers.xfers_sdk.model.response.UserActivityResponse
 import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
 import com.xfers.xfers_sdk.utils.network.NetworkClient
 import io.reactivex.Observable
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class XfersRepository {
     private val xfersApiService = NetworkClient.provideXfersApiService()
@@ -27,7 +27,7 @@ class XfersRepository {
 
     // Withdrawal related APIs
 
-    fun createWithdrawalRequest(bankId: Int, amount: BigInteger): Observable<WithdrawalRequestResponse> {
+    fun createWithdrawalRequest(bankId: Int, amount: BigDecimal): Observable<WithdrawalRequestResponse> {
         return xfersApiService.createWithdrawalRequest(
                 bankId.toString(),
                 CreateWithdrawalRequest(amount.toString())
@@ -35,9 +35,10 @@ class XfersRepository {
     }
 
     // Charge related APIs
+
     // FIXME: Hard-coded debit_only == true now cos we currently only create charge if user has sufficient balance
-    fun createCharge(amount: BigInteger, orderId: String, debitOnly: String? = "true"): Observable<Charge> {
-        // FIXME: This is using Contractual Model, not Transactional Model
+    // FIXME: This is currently hardcoded to be using Contractual Model, not Transactional Model since we only support Indonesia
+    fun createCharge(amount: BigDecimal, orderId: String, currency: String, description: String? = null, debitOnly: String? = "true"): Observable<Charge> {
         return xfersApiService.createCharge(
                 CreateChargeRequest(
                         amount.toString(),
