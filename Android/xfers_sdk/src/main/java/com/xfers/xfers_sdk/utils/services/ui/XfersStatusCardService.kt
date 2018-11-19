@@ -87,7 +87,6 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(kycSubmitSuccessfulIntent)
     }
 
-    // TODO: This should pop back to manage bank accounts page
     fun presentAddBankAccountSuccessfulStatusCard() {
         val addBankAccountSuccessfulIntent = Intent(context, StatusCardBaseActivity::class.java)
 
@@ -111,7 +110,6 @@ class XfersStatusCardService(private val context: Context) {
         context.startActivity(addBankAccountSuccessfulIntent)
     }
 
-    // TODO: This should pop back to manage bank accounts page
     fun presentAddBankAccountFailureStatusCard() {
         val addBankAccountFailureIntent = Intent(context, StatusCardBaseActivity::class.java)
 
@@ -191,35 +189,6 @@ class XfersStatusCardService(private val context: Context) {
         )
 
         context.startActivity(topupProcessingIntent)
-    }
-
-    fun presentAddBankAccountRejectionStatusCard() {
-        val addBankAccountRejectionIntent = Intent(context, StatusCardBaseActivity::class.java)
-
-        val cardText = buildSpannedString {
-            append(context.getString(R.string.add_bank_account_rejection_card_text_part_1))
-            append("\n")
-            bold {
-                append(context.getString(R.string.bank_ipsum))
-            }
-            append("\n")
-            append(context.getString(R.string.add_bank_account_rejection_card_text_part_2, "[reason]"))
-        }
-
-        addBankAccountRejectionIntent.putExtra(StatusCardBaseActivityConstants.statusCardConfig,
-                hashMapOf(
-                        StatusCardBaseActivityConstants.cardPageTitle to context.getString(R.string.topup_transfer_funds_title),
-                        StatusCardBaseActivityConstants.extendedTopbarBackgroundColor to R.color.pastelOrange,
-                        StatusCardBaseActivityConstants.statusIconImage to R.drawable.status_alert_60,
-                        StatusCardBaseActivityConstants.statusIconImageColorFilter to R.color.pastelOrange,
-                        StatusCardBaseActivityConstants.showMerchantXfersLogos to false,
-                        StatusCardBaseActivityConstants.cardText to cardText,
-                        StatusCardBaseActivityConstants.buttonText to context.getString(R.string.return_to_merchant_copy, XfersConfiguration.getMerchantName()),
-                        StatusCardBaseActivityConstants.buttonClickReturnToMerchant to true
-                )
-        )
-
-        context.startActivity(addBankAccountRejectionIntent)
     }
 
     fun presentWithdrawalProcessingStatusCard(amount: BigDecimal, newAvailableBalance: String?) {
