@@ -6,6 +6,7 @@ import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view.shared.TextRowItem
 import com.xfers.xfers_sdk.view.shared.XfersTextRowAdapter
 import kotlinx.android.synthetic.main.activity_transaction_history.*
@@ -59,7 +60,7 @@ class TransactionHistoryActivity : AppCompatActivity() {
                         getString(R.string.transaction_history_row_4_title),
                         buildSpannedString {
                             bold {
-                                append(amount)
+                                append("${XfersConfiguration.getCurrencyString()} $amount")
                             }
                         }
                 ),
