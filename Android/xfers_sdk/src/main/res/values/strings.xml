@@ -216,11 +216,10 @@
     <string name="withdrawal_confirmation_to_bank_account_copy">To bank account</string>
     <string name="withdrawal_confirmation_to_bank_account_ipsum">BCA 1234567890</string>
     <string name="withdrawal_confirmation_amount_copy">Amount</string>
-    <string name="withdrawal_confirmation_amount_ipsum">RP 20.0000</string>
     <string name="withdrawal_confirmation_processing_type_copy">Processing type</string>
     <string name="withdrawal_confirmation_processing_type_ipsum">Normal Processing (Free)</string>
     <string name="withdrawal_cofnirmation_emphasis_title">Total Payment Amount</string>
-    <string name="withdrawal_confirmation_number_ipsum">Rp 20.000</string>
+    <string name="withdrawal_confirmation_emphasis_amount_copy">%1$s</string>
 
     <string name="withdrawal_processing_card_text">Your withdrawal request is now being processed.\n\nPlease allow approximately X business days for your funds to be reflected on your bank statement.</string>
     <string name="withdrawal_processing_card_subtitle">XFERS WALLET BALANCE</string>
