@@ -22,7 +22,7 @@ class UserBankAccountsViewModel : ViewModel() {
                 .doOnTerminate { onGetUserBanksFinish() }
                 .subscribe(
                         { onGetUserBanksSuccess(it) },
-                        { onGetUserBanksError(it) }
+                        { onGetUserBanksError() }
                 )
 
         return userBankAccounts
@@ -45,9 +45,7 @@ class UserBankAccountsViewModel : ViewModel() {
         userBankAccounts.postValue(userBankAccountsList)
     }
 
-    private fun onGetUserBanksError(error: Throwable) {
-        println(error)
+    private fun onGetUserBanksError() {
         // TODO: Provide observable to show error on view
-
     }
 }

@@ -301,7 +301,6 @@
     <string name="menu_title">XFERS WALLET</string>
 
     <string name="menu_balance_title">Wallet Balance</string>
-    <string name="menu_balance_ipsum">RP 900.000</string>
     <string name="menu_verification_copy">Verify your account to increase your transaction / holding limit</string>
 
     <!-- Misc -->

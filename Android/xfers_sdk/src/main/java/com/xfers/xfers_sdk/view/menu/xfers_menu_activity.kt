@@ -12,12 +12,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.model.User
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view.kyc.KycDocumentPreparationActivity
 import com.xfers.xfers_sdk.view.kyc.KycVerificationStatusActivity
 import com.xfers.xfers_sdk.view.topup.TopupBankSelectionActivity
 import com.xfers.xfers_sdk.view.transactions_history.TransactionsHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
-import com.xfers.xfers_sdk.view_model.UserViewModel
+import com.xfers.xfers_sdk.view_model.UserDetailsViewModel
 import kotlinx.android.synthetic.main.activity_xfers_menu.*
 import kotlinx.android.synthetic.main.xfers_button.*
 
@@ -54,22 +55,47 @@ class XfersMenuActivity: AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        xfersMenuXfersProgressBar.visibility = View.VISIBLE
+        menuBalanceTextView.visibility = View.GONE
+        menuVerifyButtonView.visibility = View.GONE
+        menuVerificationTextView.visibility = View.GONE
+        menuCardView1.visibility = View.GONE
+        menuCard1TextView.visibility = View.GONE
+        menuCardView2.visibility = View.GONE
+        menuCard2TextView.visibility = View.GONE
+        menuCardView3.visibility = View.GONE
+        menuCard3TextView.visibility = View.GONE
+        menuCardView4.visibility = View.GONE
+        menuCard4TextView.visibility = View.GONE
 
-        val model = ViewModelProviders.of(this).get(UserViewModel::class.java)
-        model.getUserDetails().observe(this, Observer<User> {
+        val userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel::class.java)
+        userDetailsViewModel.getUserDetails().observe(this, Observer<User> {
+            xfersMenuXfersProgressBar.visibility = View.GONE
+            menuBalanceTextView.visibility = View.VISIBLE
+            menuVerifyButtonView.visibility = View.VISIBLE
+            menuVerificationTextView.visibility = View.VISIBLE
+            menuCardView1.visibility = View.VISIBLE
+            menuCard1TextView.visibility = View.VISIBLE
+            menuCardView2.visibility = View.VISIBLE
+            menuCard2TextView.visibility = View.VISIBLE
+            menuCardView3.visibility = View.VISIBLE
+            menuCard3TextView.visibility = View.VISIBLE
+            menuCardView4.visibility = View.VISIBLE
+            menuCard4TextView.visibility = View.VISIBLE
 
             menuBalanceTextView.text = buildSpannedString {
                 append(getString(R.string.menu_balance_title))
                 append("\n")
                 bold {
                     scale(1.4f) {
-                        append(it.availableBalance)
+                        append("${XfersConfiguration.getCurrencyString()} ${it.availableBalance}")
                     }
                 }
             }
+
             it.kycVerified?.let {
-                // TODO: Check if verified or not through a proper viewModel
                 if (it) {
+                    // TODO: Check with designer how to spruce up this part, the empty gap looks weird
                     xfersFullWidthButton.visibility = View.GONE
                     menuVerificationTextView.visibility = View.GONE
                 } else {
@@ -89,8 +115,6 @@ class XfersMenuActivity: AppCompatActivity() {
                     menuVerificationTextView.text = getString(R.string.menu_verification_copy)
                 }
             }
-
         })
-
     }
 }

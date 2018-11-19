@@ -264,4 +264,8 @@
         app:layout_constraintStart_toStartOf="@+id/menuVerticalMiddleGuideline"
         app:layout_constraintTop_toBottomOf="@+id/menuCardView3" />
 
+    <include
+        android:id="@+id/xfersMenuXfersProgressBar"
+        layout="@layout/xfers_progress_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
