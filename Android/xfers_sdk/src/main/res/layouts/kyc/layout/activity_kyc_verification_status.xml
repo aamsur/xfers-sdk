@@ -68,4 +68,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <include
+        android:id="@+id/kycVerificationStatusXfersProgressBar"
+        layout="@layout/xfers_progress_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

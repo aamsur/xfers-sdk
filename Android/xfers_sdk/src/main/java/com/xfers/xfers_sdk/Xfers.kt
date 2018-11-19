@@ -12,7 +12,7 @@ import com.xfers.xfers_sdk.view.manage_banks.ManageBankAccountsActivity
 import com.xfers.xfers_sdk.view.menu.XfersMenuActivity
 import com.xfers.xfers_sdk.view.transactions_history.TransactionsHistoryActivity
 import com.xfers.xfers_sdk.view.withdrawal.WithdrawalBankSelectionActivity
-import java.math.BigInteger
+import java.math.BigDecimal
 
 // This is where we add things like Xfers.flow.startKYCFlow and Xfers.api.getUserDetails etc.
 class Xfers(private val context: Context) {
@@ -76,7 +76,7 @@ class Xfers(private val context: Context) {
         }
 
         // Optional description, will appear in receipt
-        fun startPaymentFlow(amount: BigInteger, description: String? = null) {
+        fun startPaymentFlow(amount: BigDecimal, description: String? = null) {
             XfersConfiguration.setMerchantFlowStartingContext(context)
 
             // TODO: Network call to check if sufficient funds

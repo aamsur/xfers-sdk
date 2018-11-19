@@ -204,7 +204,7 @@
     <string name="withdrawal_amount_input_text">RP</string>
     <string name="withdrawal_amount_input_default_value">0.00</string>
     <string name="withdrawal_amount_page_title">Enter withdrawal amount</string>
-    <string name="withdrawal_amount_balance">Current Balance: %1$s</string>
+    <string name="withdrawal_amount_balance">Current Balance:</string>
     <string name="withdrawal_amount_notes">Return to %1$s per week without fees. Any amount exceeding %1$s in the week of Monday to Sunday will be subjected to a withdrawal fees of 1% and processed as two separate transactions. Learn more at %1$s</string>
 
     <string name="withdrawal_bank_selection_page_title">Withdraw funds to</string>
@@ -216,15 +216,14 @@
     <string name="withdrawal_confirmation_to_bank_account_copy">To bank account</string>
     <string name="withdrawal_confirmation_to_bank_account_ipsum">BCA 1234567890</string>
     <string name="withdrawal_confirmation_amount_copy">Amount</string>
-    <string name="withdrawal_confirmation_amount_ipsum">RP 20.0000</string>
     <string name="withdrawal_confirmation_processing_type_copy">Processing type</string>
     <string name="withdrawal_confirmation_processing_type_ipsum">Normal Processing (Free)</string>
     <string name="withdrawal_cofnirmation_emphasis_title">Total Payment Amount</string>
-    <string name="withdrawal_confirmation_number_ipsum">Rp 20.000</string>
+    <string name="withdrawal_confirmation_emphasis_amount_copy">%1$s</string>
 
     <string name="withdrawal_processing_card_text">Your withdrawal request is now being processed.\n\nPlease allow approximately X business days for your funds to be reflected on your bank statement.</string>
     <string name="withdrawal_processing_card_subtitle">XFERS WALLET BALANCE</string>
-    <string name="withdrawal_processing_card_amount">Payment Amount: %1$s</string>
+    <string name="withdrawal_processing_card_amount">Withdrawal Amount: %1$s</string>
     <string name="withdrawal_processing_card_balance">New Balance: %1$s</string>
 
     <!-- Coming soon misc -->
@@ -302,7 +301,6 @@
     <string name="menu_title">XFERS WALLET</string>
 
     <string name="menu_balance_title">Wallet Balance</string>
-    <string name="menu_balance_ipsum">RP 900.000</string>
     <string name="menu_verification_copy">Verify your account to increase your transaction / holding limit</string>
 
     <!-- Misc -->

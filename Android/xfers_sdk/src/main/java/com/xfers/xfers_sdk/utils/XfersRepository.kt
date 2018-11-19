@@ -7,7 +7,7 @@ import com.xfers.xfers_sdk.model.response.UserActivityResponse
 import com.xfers.xfers_sdk.model.response.WithdrawalRequestResponse
 import com.xfers.xfers_sdk.utils.network.NetworkClient
 import io.reactivex.Observable
-import java.math.BigInteger
+import java.math.BigDecimal
 
 class XfersRepository {
     private val xfersApiService = NetworkClient.provideXfersApiService()
@@ -28,7 +28,7 @@ class XfersRepository {
 
     // Withdrawal related APIs
 
-    fun createWithdrawalRequest(bankId: Int, amount: BigInteger): Observable<WithdrawalRequestResponse> {
+    fun createWithdrawalRequest(bankId: Int, amount: BigDecimal): Observable<WithdrawalRequestResponse> {
         return xfersApiService.createWithdrawalRequest(
                 bankId.toString(),
                 CreateWithdrawalRequest(amount.toString())
@@ -37,7 +37,7 @@ class XfersRepository {
 
     // Charge related APIs
 
-    fun createCharage(amount: BigInteger, currency: String, orderId: String, description: String? = null): Observable<Charge> {
+    fun createCharage(amount: BigDecimal, currency: String, orderId: String, description: String? = null): Observable<Charge> {
         return xfersApiService.createCharge(
                 CreateChargeRequest(
                         amount.toString(),
