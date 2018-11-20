@@ -63,7 +63,15 @@ xfers.startPaymentFlow(paymentFlowParam);
 * startVerificationFlow (Coming Soon)
 
 ### Transaction
-#### 1. startPaymentFlow(paymentParamsObject)
+#### 1. startManageBankFlow
+```javascript
+// Example:
+xfers.startManageBankFlow();
+```
+Manage Bank Flow allows merchant to provide users a way to add, edit and delete bank accounts.
+- All users must have a verified bank accounts in order to user Xfers wallets.
+
+#### 2. startPaymentFlow(paymentParamsObject)
 ```javascript
 @param {String} amount - [REQUIRED] The charge amount imposed on user.
 @param {String} currency - [REQUIRED]The currency applied onto the charge amount.
@@ -80,10 +88,27 @@ Payment Flow allows merchant to create a charge on users' Xfers Wallets.
 
 - If there is enough balance, the flow will deduct the fund from users' Xfers Wallets automatically and move it to Merchants' Xfers Wallets.
 - If there isn't enough balance, the flow will guide users on how to top-up Xfers Wallets.
-- It will also check if transacting users are KYC-verified, if verification is required, it will guide the users to go through Verification process.
+- It will check if transacting users have a verified bank account added. If not, it will guide the user to go through the process of linking a verified bank account. 
+- It will check if transacting users are KYC-verified. If verification is required, it will guide the users to go through Verification process.
 ---
-* startTopUpFlow (Coming Soon)
-* startManageBankFlow (Coming Soon)
+#### 3. startTopUpFlow
+```javascript
+// Example:
+xfers.startTopUpFlow();
+```
+Top-up Flow allows merchant to provide users a way to credit funds into the Xfers wallet for future use.
+- It will provide users a detailed instructions to top-up to Xfers wallet.
+- It will check if transacting users have a verified bank account added. If not, it will guide the user to go through the process of linking a verified bank account. 
+- It will check if transacting users are KYC-verified. If verification is required, it will guide the users to go through Verification process.
+
+#### 4. startWithdrawalFlow
+```javascript
+// Example:
+xfers.startWithdrawalFlow();
+```
+Withdrawal Flow allows merchant to provide users a way to withdrawal funds from the Xfers wallet to their verified bank accounts.
+- It will check if transacting users have a verified bank account added. If not, it will guide the user to go through the process of linking a verified bank account. 
+- It will check if transacting users are KYC-verified. If verification is required, it will guide the users to go through Verification process.
 
 ## Example:
 https://cl.ly/81869d7de1b4
