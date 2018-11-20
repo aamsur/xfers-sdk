@@ -44,8 +44,12 @@ Next step, initialize the components by adding the following javascript into the
   /* Instantiation takes in two parameters:
    * 1st param => mountingElementId: 'xfers_elements'
    * 2nd param => accessToken: e.g. - 'YTB7iKVauTzJ8zyk6cJ4ooTOUGJMG-SYDPxFNFTDs4Z'
+   * 3rd param => options: {
+   *                    country: 'sg' OR 'id' // To specify the country the SDK is used in
+   *                    test: true // To specify a sandbox environment
+   *               } 
    */
-  const xfers = new Xfers("xfers_elements", accessToken);
+  const xfers = new Xfers("xfers_elements", accessToken, { country: "sg", test: true });
   
 </script>
 ```
