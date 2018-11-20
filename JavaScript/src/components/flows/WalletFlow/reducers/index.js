@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import walletFlowReducer from './walletFlowReducer'
+import walletReducer from './walletReducer'
 
 const rootReducer = combineReducers({
-  walletFlow: walletFlowReducer
+  walletStore: walletReducer
 });
 
 export default rootReducer

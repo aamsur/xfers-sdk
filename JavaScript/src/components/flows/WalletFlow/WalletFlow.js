@@ -4,48 +4,92 @@ import createStore from './store'
 
 import Wallet from 'Wallet'
 import {
-  navigate,
+  navigateFlowType,
+  navigateScreenInFlowType,
   initializeComponent,
   updateTopUpDetails,
   submitNewTopUpRequest,
-  addUserBank,
   selectBankForAction,
-  confirmPayment
-} from 'WalletFlow/actions'
-import { getSelectedBankDetails, sortUserBanksOnVerification } from 'WalletFlow/selectors'
+  confirmPayment,
 
-function mapStateToProps({walletFlow}, props) {
-  const selectedBankDetails = getSelectedBankDetails(walletFlow);
-  const { verifiedBanks, nonVerifiedBanks } = sortUserBanksOnVerification(walletFlow);
+
+  updateBankAccountDetails,
+  updateSearchFilter,
+  initNewBankAccount,
+  submitNewBankAccountDetails,
+  deleteBankAccount,
+
+  updateWithdrawalDetails,
+  initWithdrawalForm,
+  fetchWithdrawalLimits,
+  fetchFeeBreakdown,
+  submitWithdrawalRequest
+
+} from 'WalletFlow/actions'
+import { getFilteredBankOptions, getSelectedBankDetails, sortUserBanksOnVerification } from 'WalletFlow/selectors'
+
+function mapStateToProps({walletStore}, props) {
+  const filteredBankOptions = getFilteredBankOptions(walletStore);
+  const selectedBankDetails = getSelectedBankDetails(walletStore);
+  const { verifiedBanks, nonVerifiedBanks } = sortUserBanksOnVerification(walletStore);
   return {
-    ...walletFlow,
+    ...walletStore,
+    filteredBankOptions,
     selectedBankDetails,
     verifiedBanks,
-    nonVerifiedBanks
+    nonVerifiedBanks,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    init: (successCallback) => dispatch(initializeComponent(successCallback)),
+    init: () => dispatch(initializeComponent()),
 
-    navigate: (page) => dispatch(navigate(page)),
+    navigateFlowType: (flowType) => dispatch(navigateFlowType(flowType)),
 
-    updateForm: (k, v) => dispatch(updateTopUpDetails(k, v)),
+    navigateInBankFlow: (screen) => dispatch(navigateScreenInFlowType('bank', screen)),
 
-    submit: (successCallback) => dispatch(submitNewTopUpRequest(successCallback)),
+    navigateInWithdrawalFlow: (screen) => dispatch(navigateScreenInFlowType('withdrawal', screen)),
+
+    navigateInTopupFlow: (screen) => dispatch(navigateScreenInFlowType('topup', screen)),
+
+    navigateInPaymentFlow: (screen) => dispatch(navigateScreenInFlowType('payment', screen)),
 
     selectBankForAction: (bankId) => dispatch(selectBankForAction(bankId)),
 
-    addUserBank: (bank) => dispatch(addUserBank(bank)),
+    // MANAGE BANK ACTIONS
 
-    confirm: (successCallback) => dispatch(confirmPayment(successCallback))
+    updateSearchFilter: (v) => dispatch(updateSearchFilter(v)),
+
+    updateBankAccountDetails: (k, v) => dispatch(updateBankAccountDetails(k, v)),
+
+    submitNewBankAccountDetails: (successCallback) => dispatch(submitNewBankAccountDetails(successCallback)),
+
+    initNewBankAccount: () => dispatch(initNewBankAccount()),
+
+    deleteBank: (bankId, successCallback) => dispatch(deleteBankAccount(bankId, successCallback)),
+
+    // WITHDRAWAL ACTIONS
+
+    updateWithdrawalDetails: (k, v) => dispatch(updateWithdrawalDetails(k, v)),
+
+    fetchFeeBreakdown: (successCallback) => dispatch(fetchFeeBreakdown(successCallback)),
+
+    submitWithdrawalRequest: (successCallback) => dispatch(submitWithdrawalRequest(successCallback)),
+
+    // TOP-UP & PAYMENT ACTIONS
+
+    updateTopUpDetails: (k, v) => dispatch(updateTopUpDetails(k, v)),
+
+    submitNewTopUpRequest: (successCallback) => dispatch(submitNewTopUpRequest(successCallback)),
+
+    confirmPayment: (successCallback) => dispatch(confirmPayment(successCallback)),
   }
 }
 
 class WalletFlow extends Component {
 
-  componentDidMount() { this.props.init(() => this.props.navigate('index')) }
+  componentDidMount() { this.props.init() }
 
   render() {
     return (

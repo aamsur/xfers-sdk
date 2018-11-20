@@ -1,73 +1,56 @@
 import { caseConvert } from 'UtilityFunctions'
 import {
-  NAVIGATE,
+  NAVIGATE_SCREEN_IN_FLOW_TYPE,
+  NAVIGATE_FLOW_TYPE,
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
-  UPDATE_TOP_UP_DETAILS,
-  SUBMIT_TOP_UP_REQUEST_RESPONSE,
-  ADD_USER_BANK,
   SELECT_BANK_FOR_ACTION
 } from './constants'
 
-export const navigate = (route) => ({
-  type: NAVIGATE,
-  route
+export const navigateFlowType = (flowType) => ({
+  type: NAVIGATE_FLOW_TYPE,
+  flowType
 })
 
-export const updateTopUpDetails = (type, data) => ({
-  type: UPDATE_TOP_UP_DETAILS,
-  formType: type,
-  formData: data,
+export const navigateScreenInFlowType = (flowType, route) => ({
+  type: NAVIGATE_SCREEN_IN_FLOW_TYPE,
+  flowType,
+  route,
 })
+
+export const initializeComponent = (callback) => (dispatch, getState) => {
+  dispatch({ type: SEND_HTTP_REQUEST });
+  const xfersApi = getState().walletStore.networkClient;
+
+  const bankOptionAPI = new Promise((resolve, reject) => {
+    xfersApi.getAvailableBanks().then(res => resolve(res.data));
+  });
+
+  const userDetailsAPI = new Promise((resolve, reject) => {
+    xfersApi.getUserDetails().then(res => resolve(res.data));
+  });
+
+  const withdrawalLimitAPI = new Promise((resolve, reject) => {
+    xfersApi.getWithdrawalLimits().then(res => resolve(res.data));
+  });
+
+  Promise
+    .all([ bankOptionAPI, userDetailsAPI, withdrawalLimitAPI ])
+    .then(([ bankOptions, userDetails, withdrawalLimit ]) => {
+      const res = { bankOptions, userDetails, withdrawalLimit };
+      dispatch({ type: INITIALIZATION_SUCCESS, res });
+    });
+}
 
 export const selectBankForAction = (bankId) => ({
   type: SELECT_BANK_FOR_ACTION,
   bankId
 })
 
-
-export const initializeComponent = (callback) => (dispatch, getState) => {
-  dispatch({ type: SEND_HTTP_REQUEST });
-  const xfersApi = getState().walletFlow.networkClient;
-
-  const userDetailsAPI = new Promise((resolve, reject) => {
-    xfersApi.getUserDetails().then(res => resolve(res.data));
-  });
-
-  Promise
-    .all([ userDetailsAPI ])
-    .then(([ userDetails ]) => {
-      const res = { userDetails };
-      dispatch({ type: INITIALIZATION_SUCCESS, res });
-      if (callback) callback();
-    });
-}
-
-export const addUserBank = (bank) => ({
-  type: ADD_USER_BANK,
-  bank
-})
-
-export const submitNewTopUpRequest = (successCallback) => (dispatch, getState) => {
-  dispatch({ type: SEND_HTTP_REQUEST });
-  const xfersApi = getState().walletFlow.networkClient;
-
-  successCallback()
-
-  // xfersApi.createTopUpRequest()
-  //   .then(res => {
-  //     dispatch({ type: SUBMIT_TOP_UP_REQUEST_RESPONSE, res: res.data });
-  //     if (successCallback) successCallback();
-  //   })
-  //   .catch(err => {
-  //     dispatch({ type: SUBMIT_TOP_UP_REQUEST_RESPONSE, res: err.data });
-  //   })
-}
-
 export const confirmPayment = (successCallback) => (dispatch, getState) => {
   dispatch({ type: SEND_HTTP_REQUEST });
 
-  const store = getState().walletFlow;
+  const store = getState().walletStore;
   const xfersApi = store.networkClient;
   const { amount, currency, orderId } = store.params;
 

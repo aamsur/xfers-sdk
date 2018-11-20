@@ -141,6 +141,14 @@ export default class Xfers {
     return this.api.send('DELETE', 'user/bank_account/' + bankId);
   }
 
+  getWithdrawalFeesBreakdown(amount) {
+    return this.api.send('GET', 'user/bank_account/withdrawal_fees?amount=' + amount );
+  }
+
+  getWithdrawalLimits() {
+    return this.api.send('GET', 'user/bank_account/withdrawal_limits');
+  }
+
   /**
     * Create a withdrawal request for both Indo and Singapore
     * @param {String} bankId - [REQUIRED] Id of the bank to be deleted.
@@ -194,13 +202,5 @@ export default class Xfers {
 
   getTopUpLimit() {
     return this.api.send('GET', 'user/topup_limits');
-  }
-
-  getWithdrawalFeesBreakdown() {
-    return this.api.send('GET', 'user/bank_account/withdrawal_fees');
-  }
-
-  getWithdrawalLimits() {
-    return this.api.send('GET', 'user/bank_account/withdrawal_limits');
   }
  }

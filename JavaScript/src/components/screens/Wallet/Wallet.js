@@ -1,52 +1,34 @@
 import React, { Component } from 'react'
-import { View, LoadingPanel, Stepper } from 'XfersComponents'
+import { View, LoadingPanel } from 'XfersComponents'
 
-import { OverallPaymentProcess } from './components'
-import { AccountVerificationCheck, VerifiedBankAccountCheck } from 'EligibilityCheck'
-
-import ManageBankFlow from 'ManageBankFlow'
+import { ManageBank, Payment, TopUp, Withdrawal } from './components'
 import VerificationFlow from 'VerificationFlow'
 
-export default class TopUp extends Component {
+export default class Wallet extends Component {
   render() {
-    const {
-      route, networkClient, kycVerified,
-      closeModal, navigate, addUserBank,
-      userBanks, verifiedBanks, nonVerifiedBanks
-    } = this.props;
-    // Transwap requires the banks to be verified.
-    const userBankExist = verifiedBanks.length > 0
-    const userAllowedToContinue = userBankExist && kycVerified
+    const { flowType, networkClient, navigateFlowType, closeModal } = this.props;
 
     const manageBankParams = {
-      goBackPreviousModule: () => navigate('index'),
-      addUserBank: (bank) => addUserBank(bank)
+      goBackPreviousModule: () => navigateFlowType('index'),
     }
-
-    const navigateToKyc = () => navigate('kyc')
-    const navigateToBank = () => navigate('bank')
 
     return (
       <View>
-        { route === '' && <LoadingPanel title="Make Payment" onClose={closeModal} /> }
-        { route === 'index' &&
-          <View>
-            { userAllowedToContinue ? <OverallPaymentProcess {...this.props} />
-            : <View>
-                { !kycVerified ? <AccountVerificationCheck {...this.props} goNext={navigateToKyc} />
-                  : <VerifiedBankAccountCheck {...this.props} goNext={navigateToBank} />
-                }
-              </View>
-             }
-          </View>
-        }
-        { route === 'kyc' &&
+        { flowType === '' && <LoadingPanel title="Wallet" onClose={closeModal} /> }
+        { flowType === 'topup' && <TopUp {...this.props} /> }
+        { flowType === 'payment' && <Payment {...this.props} /> }
+        { flowType === 'bank' && <ManageBank {...this.props} /> }
+        { flowType === 'withdrawal' && <Withdrawal {...this.props} /> }
+
+        { flowType === 'kyc' &&
           <VerificationFlow networkClient={networkClient} closeModal={closeModal} />
         }
-        { route === 'bank' &&
-          <ManageBankFlow networkClient={networkClient} closeModal={closeModal} params={manageBankParams} />
-        }
+
       </View>
     )
   }
 }
+
+// { flowType === 'bank' &&
+//   <ManageBankFlow networkClient={networkClient} closeModal={closeModal} params={manageBankParams} />
+// }

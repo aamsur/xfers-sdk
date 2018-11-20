@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom'
 import NetworkClient from 'NetworkClient'
 
 import AuthenticationFlow from 'AuthenticationFlow'
-import ManageBankFlow from 'ManageBankFlow'
 import WalletFlow from 'WalletFlow'
 import VerificationFlow from 'VerificationFlow'
 
 import { Modal } from 'XfersComponents'
 
-const WALLET_FLOW = 'WalletFlow';
-const MANAGE_BANK_FLOW = 'MANAGE_BANK_FLOW';
+const WALLET_FLOW = 'WALLET_FLOW';
 const AUTHENTICATION_FLOW = 'AUTHENTICATION_FLOW';
 const VERIFICATION_FLOW = 'VERIFICATION_FLOW';
 
@@ -21,9 +19,6 @@ function selectFlow(flow) {
       break;
     case WALLET_FLOW:
       return WalletFlow
-      break;
-    case MANAGE_BANK_FLOW:
-      return ManageBankFlow
       break;
     case VERIFICATION_FLOW:
       return VerificationFlow
@@ -98,11 +93,13 @@ module.exports = class Xfers {
 
   startVerificationFlow = () => this.element.openModal(VERIFICATION_FLOW);
 
-  startManageBankFlow = () => this.element.openModal(MANAGE_BANK_FLOW);
+  startManageBankFlow = () => this.element.openModal(WALLET_FLOW, { flowType: 'bank' });
 
-  startTopUpFlow = () => this.element.openModal(WALLET_FLOW);
+  startTopUpFlow = () => this.element.openModal(WALLET_FLOW, { flowType: 'topup'});
 
   startPaymentFlow = (params) => this.element.openModal(WALLET_FLOW, {...params, flowType: 'payment'});
+
+  startWithdrawalFlow = (params) => this.element.openModal(WALLET_FLOW, {flowType: 'withdrawal'});
 
   startAuthenticationFlow = () => this.element.openModal(AUTHENTICATION_FLOW);
 }

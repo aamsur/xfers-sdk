@@ -1,4 +1,5 @@
 export {
+  getFilteredBankOptions,
   getSelectedBankDetails,
-  sortUserBanksOnVerification
+  sortUserBanksOnVerification,
 } from './walletSelectors'

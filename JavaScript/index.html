@@ -15,6 +15,7 @@
     <Button id="bank" onclick="triggerBank()">Run Manage Bank Flow</button>
     <button id="topup" onclick="triggerTopup()">Run Top Up Flow</button>
     <button id="payment" onclick="triggerPayment()">Run Payment Flow</button>
+    <button id="payment" onclick="triggerWithdrawal()">Run Withdrawal Flow</button>
 
     <script src="vendors~xfers.bundle.js"></script>
     <script src="xfers.bundle.js"></script>
@@ -48,6 +49,10 @@
           currency: 'SGD',
           orderId: 'AZ03273'
         });
+      }
+
+      function triggerWithdrawal() {
+        xfers.startWithdrawalFlow();
       }
     </script>
   </body>

@@ -20,16 +20,24 @@ export default (props = {}) => {
    * { amount, flowType, userBanks, availableBalance }
    */
   const initialState = {
-    walletFlow: {
-
+    walletStore: {
       // External Props
       params: {},
       ...props,
 
-      // Available routes: index
-      route: '',
+      // flowType >> ['bank', 'withdrawal', 'topup', 'payment']
+      flowType: (props.params && props.params.flowType) || '',
+      bankRoute: 'index', // bankRoute >> ['index', 'new', 'delete']
+      withdrawalRoute: 'index', // withdrawalRoute >> ['index']
+      topupRoute: 'index', // topupRoute >> ['index']
+      paymentRoute: 'index', // paymentRoute >> ['index']
+
       error: '',
+      initialized: false,
       dataLoading: false,
+
+      // User Information
+      walletId: '5',
       availableBalance: '',
       gauthEnabled: false,
       bitcoinUser: false,
@@ -40,7 +48,38 @@ export default (props = {}) => {
       multiBankAccountLocked: false,
       userBanks: [],
 
+      // MANAGE BANK STORE
+      bankOptions: [],
+      filter: '',
       selectedBankId: '',
+      newBankAccountDetails: {
+        bank: '',
+        accountNo: '',
+        accountHolderName: '',
+        bankStatementFile: undefined,
+      },
+
+      // WITHDRAWAL STORE
+      userWithdrawalStatus: {
+        dailyProgressBar: 0,
+        monthlyProgressBar: 0,
+        dailyRemaining: 10000,
+        monthlyRemaining: 40000
+      },
+      newWithdrawalRequest: {
+        withdrawalAmount: '',
+        withdrawalBankId: '',
+        withdrawalProcessingType: '',
+        requestBreakdownList: [],
+        finalWithdrawalAmount: '',
+      },
+
+      // TOP-UP STORE
+      userTopUpStatus: {
+        dailyLimit: '',
+        remaining: '',
+        resetTiming: '',
+      },
       newTopUpRequest: {
         bank: '',
         topUpAmount: (props.params && props.params.amount) || ''
