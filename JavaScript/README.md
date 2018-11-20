@@ -21,8 +21,9 @@ Add the following lines into the corresponding HTML file's `<head></head>` secti
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- The following files can also be downloaded from the js folder in this repository -->
-<script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/vendors~xfers.bundle.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@2b10a00db2cb7d7f1c16705c9c424ab7dfa0b1cc/JavaScript/dist/xfers.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@d1e3719030740a2676f07508175f87584588950d/JavaScript/dist/vendors~xfers.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@d1e3719030740a2676f07508175f87584588950d/JavaScript/dist/xfers.bundle.js"></script>
+
 ```
 
 Note that the Xfers Web SDK requires a mounting point on a HTML DOM. Add the following line into the same HTML file `<body></body>` section:
