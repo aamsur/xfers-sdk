@@ -11,10 +11,11 @@ import bankIcon from 'icons/Bank_Acc_23.png'
 
 export default class TopUpFundSource extends Component {
   render() {
-    const { verifiedBanks, navigateInBankFlow, selectBankForAction, goBack, goNext, navigate, params } = this.props;
+    const { verifiedBanks, navigateInBankFlow, selectBankForAction, updateTopUpDetails, goBack, goNext, navigate, params } = this.props;
 
     const onSelect = (bank) => {
       selectBankForAction(bank.id);
+      updateTopUpDetails('bankId', bank.id);
       goNext();
     }
 

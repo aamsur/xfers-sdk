@@ -10,20 +10,26 @@
   <body>
     <div id="xfers_elements"></div>
 
+    <button id="verification" onclick="triggerVerification()">Run Verification Flow</button>
     <button id="auth" onclick="triggerAuth()">Run Authentication Flow</button>
     <Button id="bank" onclick="triggerBank()">Run Manage Bank Flow</button>
     <button id="topup" onclick="triggerTopup()">Run Top Up Flow</button>
     <button id="payment" onclick="triggerPayment()">Run Payment Flow</button>
+    <button id="payment" onclick="triggerWithdrawal()">Run Withdrawal Flow</button>
 
-    <!-- <script src="vendors~xfers.bundle.js"></script>
-    <script src="xfers.bundle.js"></script> -->
+    <script src="vendors~xfers.bundle.js"></script>
+    <script src="xfers.bundle.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@89f5831441db884340207d40f9707277b88e8ffb/JavaScript/dist/vendors~xfers.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@89f5831441db884340207d40f9707277b88e8ffb/JavaScript/dist/xfers.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@d1e3719030740a2676f07508175f87584588950d/JavaScript/dist/vendors~xfers.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Xfers/xfers-sdk@d1e3719030740a2676f07508175f87584588950d/JavaScript/dist/xfers.bundle.js"></script>
 
     <script type="text/javascript">
 
-      const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E");
+      const xfers = new Xfers("xfers_elements", "YTB7iBVauTzJ8zyk6cJ3ooTKUGJMQ-SYDPxFNFTDs4E", { country: "sg", test: true });
+
+      function triggerVerification() {
+        xfers.startVerificationFlow();
+      }
 
       function triggerAuth() {
         xfers.startAuthenticationFlow();
@@ -39,10 +45,14 @@
 
       function triggerPayment() {
         xfers.startPaymentFlow({
-          amount: 30000,
+          amount: 300,
           currency: 'SGD',
           orderId: 'AZ03273'
         });
+      }
+
+      function triggerWithdrawal() {
+        xfers.startWithdrawalFlow();
       }
     </script>
   </body>

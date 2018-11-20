@@ -43,9 +43,8 @@ class TopUpProcessFlow extends Component {
     if ( walletId == "2") { // Digital Goods Wallet
       return (
         <Stepper>
-          <TopUpAmount {...this.props} />
           <TopUpFundSource {...this.props} />
-
+          <TopUpAmount {...this.props} />
           <TopUpInstructions {...this.props} />
           <TopUpStatus {...this.props} />
         </Stepper>

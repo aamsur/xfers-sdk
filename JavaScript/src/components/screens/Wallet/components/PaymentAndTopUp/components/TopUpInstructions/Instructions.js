@@ -25,7 +25,7 @@ export default class Instructions extends Component {
     const {externalBankUrl, bankCommentLabel, bankAcronyms} = getBankSpecifics(selectedBank);
 
     return (
-      <StickyPanel showBrand>
+      <StickyPanel>
         <ModalHeader spHeader onClose={closeModal} title="Transfer Instructions">
           <Text spHeader>Make a FAST Transfer</Text>
           <Text spBody textAlign="center">To complete your payment, please proceed to make a transfer with the details below</Text>

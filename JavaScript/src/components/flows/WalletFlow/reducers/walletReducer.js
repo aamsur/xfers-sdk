@@ -4,7 +4,8 @@ import {
   SEND_HTTP_REQUEST,
   INITIALIZATION_SUCCESS,
   UPDATE_TOP_UP_DETAILS,
-  SUBMIT_TOP_UP_REQUEST_RESPONSE,
+  SUBMIT_TOP_UP_REQUEST_SUCCESS,
+  SUBMIT_TOP_UP_REQUEST_ERROR,
   SELECT_BANK_FOR_ACTION,
   CONFIRM_PAYMENT_RESPONSE,
 
@@ -57,7 +58,7 @@ const ACTION_HANDLERS = {
   },
 
   [INITIALIZATION_SUCCESS]: (state, {res}) => {
-    const { bankOptions, userDetails, withdrawalLimit } = res;
+    const { bankOptions, userDetails, withdrawalLimit, transferInfo } = res;
 
     const userWithdrawalStatus = {
       dailyLimit: withdrawalLimit.daily_limit,
@@ -68,15 +69,26 @@ const ACTION_HANDLERS = {
       monthlyProgressBar: parseInt(100 - ((withdrawalLimit.monthly_limit_remaining / withdrawalLimit.monthly_limit) * 100)),
     }
 
-    const userTopUpStatus = {
-      topUpLimit: userDetails.top_up_limit,
-      remaining: '',
-      resetTiming: '',
+    let userTopUpStatus = {
+      dailyLimit: transferInfo.daily_limit,
+      remaining: transferInfo.daily_limit_remaining,
+      resetTiming: transferInfo.daily_limit_reset_timing,
+      progressBar: parseInt(100 - ((transferInfo.daily_limit_remaining / transferInfo.daily_limit) * 100))
+    }
+
+    let xfersBankAccount = {
+      accountNo: transferInfo.bank_account_no,
+      abbreviation: transferInfo.bank_name_abbreviation == "MBB" ? "MSL" : transferInfo.bank_name_abbreviation,
+      payeeName: transferInfo.bank_payee_name,
+      bankName: transferInfo.bank_name_full,
+      uniqueId: transferInfo.unique_id,
+      payeeName: transferInfo.bank_payee_name
     }
 
     return {
       ...state,
       bankOptions,
+      xfersBankAccount,
       userWithdrawalStatus,
       userTopUpStatus,
       walletName: userDetails.wallet_name + ' Wallet',
@@ -173,10 +185,21 @@ const ACTION_HANDLERS = {
     let newTopUpRequest = { ...state['newTopUpRequest'], [formType]: formData };
     return { ...state, newTopUpRequest, error: '' }
   },
-  [SUBMIT_TOP_UP_REQUEST_RESPONSE]: (state, {res}) => {
-    // TODO: Retrieve transfer-in information
-    return { ...state }
+  [SUBMIT_TOP_UP_REQUEST_SUCCESS]: (state, {res}) => {
+    const { transfer_info: transferInfo } = res;
+    let xfersBankAccount = {
+      accountNo: transferInfo.bank_account_no,
+      abbreviation: transferInfo.bank_name_abbreviation == "MBB" ? "MSL" : transferInfo.bank_name_abbreviation,
+      payeeName: transferInfo.bank_payee_name,
+      bankName: transferInfo.bank_name_full,
+      uniqueId: transferInfo.unique_id,
+      payeeName: transferInfo.bank_payee_name
+    }
+    console.log("wtf:", xfersBankAccount);
+    return { ...state, xfersBankAccount }
   },
+  [SUBMIT_TOP_UP_REQUEST_ERROR]: (state, {res}) => ({...state, dataLoading: false, error: res.error}),
+
   [SELECT_BANK_FOR_ACTION]: (state, {bankId}) => {
     return { ...state, selectedBankId: bankId }
   },

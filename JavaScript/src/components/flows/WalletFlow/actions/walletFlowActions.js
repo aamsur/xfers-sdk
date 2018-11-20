@@ -34,10 +34,14 @@ export const initializeComponent = (callback) => (dispatch, getState) => {
     xfersApi.getWithdrawalLimits().then(res => resolve(res.data));
   });
 
+  const transferInfoAPI = new Promise((resolve, reject) => {
+    xfersApi.getTopUpInstructions().then(res => resolve(res.data));
+  });
+
   Promise
-    .all([ bankOptionAPI, userDetailsAPI, withdrawalLimitAPI ])
-    .then(([ bankOptions, userDetails, withdrawalLimit ]) => {
-      const res = { bankOptions, userDetails, withdrawalLimit };
+    .all([ bankOptionAPI, userDetailsAPI, withdrawalLimitAPI, transferInfoAPI ])
+    .then(([ bankOptions, userDetails, withdrawalLimit, transferInfo ]) => {
+      const res = { bankOptions, userDetails, withdrawalLimit, transferInfo };
       dispatch({ type: INITIALIZATION_SUCCESS, res });
     });
 }

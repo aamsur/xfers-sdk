@@ -81,7 +81,7 @@ export default (props = {}) => {
         resetTiming: '',
       },
       newTopUpRequest: {
-        bank: '',
+        bankId: '',
         topUpAmount: (props.params && props.params.amount) || ''
       },
       xfersBankAccount: {
