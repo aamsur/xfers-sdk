@@ -20,7 +20,7 @@ interface XfersApiService {
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
     ): Observable<User>
 
-    @POST("user")
+    @PUT("user")
     fun updateUserDetails(
             @Body updateUserDetailsRequest: UpdateUserDetailsRequest,
             @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
