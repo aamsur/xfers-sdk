@@ -169,17 +169,11 @@
     <string name="kyc_personal_details_verification_page_title">Are these details correct?</string>
 
     <string name="kyc_personal_details_verification_step_1_title">KTP/PASSPORT NO.</string>
-    <string name="kyc_personal_details_verification_step_1_ipsum">12345678909023456</string>
     <string name="kyc_personal_details_verification_step_2_title">FULL NAME</string>
-    <string name="kyc_personal_details_verification_step_2_ipsum">Cynthia Rosafina</string>
     <string name="kyc_personal_details_verification_step_3_title">COUNTRY OF BIRTH</string>
-    <string name="kyc_personal_details_verification_step_3_ipsum">Indonesia</string>
     <string name="kyc_personal_details_verification_step_4_title">DATE OF BIRTH</string>
-    <string name="kyc_personal_details_verification_step_4_ipsum">24/11/1990</string>
     <string name="kyc_personal_details_verification_step_5_title">MOTHER\'S MAIDEN NAME</string>
-    <string name="kyc_personal_details_verification_step_5_ipsum">Alice</string>
     <string name="kyc_personal_details_verification_step_6_title">EMAIL ADDRESS</string>
-    <string name="kyc_personal_details_verification_step_6_ipsum">alex@email.com</string>
 
     <string name="kyc_confirm_ktp_image_confirm_copy">Confirm KTP Image?</string>
 

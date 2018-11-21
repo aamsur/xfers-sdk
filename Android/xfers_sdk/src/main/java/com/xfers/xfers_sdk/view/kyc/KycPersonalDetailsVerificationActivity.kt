@@ -29,12 +29,20 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
 
         kycPersonalDetailsTextView.text = getString(R.string.kyc_personal_details_verification_page_title)
 
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
+        val email = extras[KycConstants.email] as String
+
         val textRowItems = listOf(
                 TextRowItem(
                         getString(R.string.kyc_personal_details_verification_step_1_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.kyc_personal_details_verification_step_1_ipsum))
+                                append(ktpNumber)
                             }
                         }
                 ),
@@ -42,7 +50,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                         getString(R.string.kyc_personal_details_verification_step_2_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.kyc_personal_details_verification_step_2_ipsum))
+                                append(fullName)
                             }
                         }
                 ),
@@ -50,7 +58,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                         getString(R.string.kyc_personal_details_verification_step_3_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.kyc_personal_details_verification_step_3_ipsum))
+                                append(countryOfBirth)
                             }
                         }
                 ),
@@ -58,7 +66,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                         getString(R.string.kyc_personal_details_verification_step_4_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.kyc_personal_details_verification_step_4_ipsum))
+                                append(dateOfBirth)
                             }
                         }
                 ),
@@ -66,7 +74,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                         getString(R.string.kyc_personal_details_verification_step_5_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.kyc_personal_details_verification_step_5_ipsum))
+                                append(motherMaidenName)
                             }
                         }
                 ),
@@ -74,7 +82,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                         getString(R.string.kyc_personal_details_verification_step_6_title),
                         buildSpannedString {
                             bold {
-                                append(getString(R.string.kyc_personal_details_verification_step_6_ipsum))
+                                append(email)
                             }
                         }
                 )
@@ -98,6 +106,14 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
+        val email = extras[KycConstants.email] as String
+
         if (requestCode == KTP_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val isCamera = data?.action != null
 
@@ -113,7 +129,13 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
             bitmap?.let {
                 startActivity(
                         Intent(this, KycConfirmKtpImageActivity::class.java).apply {
-                            this.putExtra("ktpBitmap", bitmap)
+                            this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                            this.putExtra(KycConstants.fullName, fullName)
+                            this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                            this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                            this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                            this.putExtra(KycConstants.email, email)
+                            this.putExtra(KycConstants.ktpBitmap, bitmap)
                         }
                 )
             }
@@ -121,7 +143,13 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
             bitmapUri?.let {
                 startActivity(
                         Intent(this, KycConfirmKtpImageActivity::class.java).apply {
-                            this.putExtra("ktpBitmapUri", bitmapUri)
+                            this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                            this.putExtra(KycConstants.fullName, fullName)
+                            this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                            this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                            this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                            this.putExtra(KycConstants.email, email)
+                            this.putExtra(KycConstants.ktpBitmapUri, bitmapUri)
                         }
                 )
             }

@@ -22,10 +22,22 @@ class KycMotherMaidenNameActivity : AppCompatActivity() {
         xfersKycFormInputEditText.hint = getString(R.string.kyc_mother_maiden_name_placeholder)
         xfersKycFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
 
-        xfersFullWidthButton.setOnClickListener {
-            // TODO: Push mother's maiden name information to following activities
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
 
-            startActivity(Intent(this, KycEmailActivity::class.java))
+        xfersFullWidthButton.setOnClickListener {
+            startActivity(
+                    Intent(this, KycEmailActivity::class.java).apply {
+                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                        this.putExtra(KycConstants.fullName, fullName)
+                        this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                        this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                        this.putExtra(KycConstants.motherMaidenName, xfersKycFormInputEditText.text.toString())
+                    }
+            )
         }
     }
 }

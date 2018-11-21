@@ -28,34 +28,58 @@ class KycCountryOfBirthActivity : AppCompatActivity() {
         xfersSearchBarEditText.inputType = InputType.TYPE_CLASS_TEXT
         xfersSearchBarEditText.hint = getString(R.string.kyc_country_of_birth_placeholder)
 
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+
         // TODO: Integrate viewModel and populate with actual countries
         val selectionRowItems = listOf(
                 SelectionRowItem(
                         copy = "Honduras",
                         onClick = {
-                            // TODO: Pass into child activity country chosen through intent extras
-                            startActivity(Intent(this, KycDateOfBirthActivity::class.java))
+                            startActivity(
+                                    Intent(this, KycDateOfBirthActivity::class.java).apply {
+                                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                                        this.putExtra(KycConstants.fullName, fullName)
+                                        this.putExtra(KycConstants.countryOfBirth, "Honduras")
+                                    }
+                            )
                         }
                 ),
                 SelectionRowItem(
                         copy = "Hungary",
                         onClick = {
-                            // TODO: Pass into child activity country chosen through intent extras
-                            startActivity(Intent(this, KycDateOfBirthActivity::class.java))
+                            startActivity(
+                                    Intent(this, KycDateOfBirthActivity::class.java).apply {
+                                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                                        this.putExtra(KycConstants.fullName, fullName)
+                                        this.putExtra(KycConstants.countryOfBirth, "Hungary")
+                                    }
+                            )
                         }
                 ),
                 SelectionRowItem(
                         copy = "Iceland",
                         onClick = {
-                            // TODO: Pass into child activity country chosen through intent extras
-                            startActivity(Intent(this, KycDateOfBirthActivity::class.java))
+                            startActivity(
+                                    Intent(this, KycDateOfBirthActivity::class.java).apply {
+                                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                                        this.putExtra(KycConstants.fullName, fullName)
+                                        this.putExtra(KycConstants.countryOfBirth, "Iceland")
+                                    }
+                            )
                         }
                 ),
                 SelectionRowItem(
                         copy = "Indonesia",
                         onClick = {
-                            // TODO: Pass into child activity country chosen through intent extras
-                            startActivity(Intent(this, KycDateOfBirthActivity::class.java))
+                            startActivity(
+                                    Intent(this, KycDateOfBirthActivity::class.java).apply {
+                                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                                        this.putExtra(KycConstants.fullName, fullName)
+                                        this.putExtra(KycConstants.countryOfBirth, "Indonesia")
+                                    }
+                            )
                         }
                 )
         )

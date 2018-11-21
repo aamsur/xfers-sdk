@@ -22,11 +22,16 @@ class KycFullNameActivity : AppCompatActivity() {
         xfersKycFormInputEditText.hint = getString(R.string.kyc_full_name_placeholder)
         xfersKycFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
 
-        xfersFullWidthButton.setOnClickListener {
-            // TODO: Push full name information to following activities
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
 
-            // TODO: Change to proper country of birth (slot in between this and next)
-            startActivity(Intent(this, KycCountryOfBirthActivity::class.java))
+        xfersFullWidthButton.setOnClickListener {
+            startActivity(
+                    Intent(this, KycCountryOfBirthActivity::class.java).apply {
+                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                        this.putExtra(KycConstants.fullName, xfersKycFormInputEditText.text.toString())
+                    }
+            )
         }
     }
 }

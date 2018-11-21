@@ -1,5 +1,7 @@
 package com.xfers.xfers_sdk.view.kyc
 
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,18 @@ class KycDocumentsConfirmationActivity : AppCompatActivity() {
         title = getString(R.string.kyc_title)
 
         kycDocumentsConfirmationTitleTextView.text = getString(R.string.kyc_documents_confirmation_page_title)
+
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
+        val email = extras[KycConstants.email] as String
+        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
+        val selfieBitmap = intent.extras[KycConstants.selfieBitmap] as? Bitmap
+        val selfieBitmapUri = intent.extras[KycConstants.selfieBitmapUri] as? Uri
 
         val itemRowItems = listOf(
                 ItemRowItem(

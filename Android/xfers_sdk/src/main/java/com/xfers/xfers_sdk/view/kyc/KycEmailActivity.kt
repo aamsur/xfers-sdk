@@ -22,10 +22,24 @@ class KycEmailActivity : AppCompatActivity() {
         xfersKycFormInputEditText.hint = getString(R.string.kyc_email_placeholder)
         xfersKycFormInputEditText.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 
-        xfersFullWidthButton.setOnClickListener {
-            // TODO: Push email to following activities
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
 
-            startActivity(Intent(this, KycPersonalDetailsVerificationActivity::class.java))
+        xfersFullWidthButton.setOnClickListener {
+            startActivity(
+                    Intent(this, KycPersonalDetailsVerificationActivity::class.java).apply {
+                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                        this.putExtra(KycConstants.fullName, fullName)
+                        this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                        this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                        this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                        this.putExtra(KycConstants.email, xfersKycFormInputEditText.text.toString())
+                    }
+            )
         }
     }
 }

@@ -19,15 +19,21 @@ class KycConfirmKtpImageActivity : AppCompatActivity() {
 
         kycConfirmKtpImageConfirmImageTextView.text = getString(R.string.kyc_confirm_ktp_image_confirm_copy)
 
-        val bitmap = intent.extras["ktpBitmap"] as? Bitmap
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
+        val email = extras[KycConstants.email] as String
+        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
 
-        bitmap?.let {
+        ktpBitmap?.let {
             kycConfirmKtpImageKtpImageView.setImageBitmap(it)
         }
 
-        val bitmapUri = intent.extras["ktpBitmapUri"] as? Uri
-
-        bitmapUri.let {
+        ktpBitmapUri?.let {
             kycConfirmKtpImageKtpImageView.setImageURI(it)
         }
 
@@ -38,8 +44,23 @@ class KycConfirmKtpImageActivity : AppCompatActivity() {
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            // TODO: Keep passing on the image to child activities
-            startActivity(Intent(this, KycPrepareKtpSelfieActivity::class.java))
+            startActivity(
+                    Intent(this, KycPrepareKtpSelfieActivity::class.java).apply {
+                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                        this.putExtra(KycConstants.fullName, fullName)
+                        this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                        this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                        this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                        this.putExtra(KycConstants.email, email)
+
+                        ktpBitmap?.let {
+                            this.putExtra(KycConstants.ktpBitmap, it)
+                        }
+                        ktpBitmapUri?.let {
+                            this.putExtra(KycConstants.ktpBitmapUri, it)
+                        }
+                    }
+            )
         }
     }
 }

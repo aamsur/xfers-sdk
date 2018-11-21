@@ -20,15 +20,23 @@ class KycConfirmKtpSelfieActivity: AppCompatActivity() {
 
         kycConfirmKtpSelfieConfirmSelfieTextView.text = getString(R.string.kyc_confirm_ktp_selfie_confirm_copy)
 
-        val bitmap = intent.extras["selfieBitmap"] as? Bitmap
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
+        val email = extras[KycConstants.email] as String
+        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
+        val selfieBitmap = intent.extras[KycConstants.selfieBitmap] as? Bitmap
+        val selfieBitmapUri = intent.extras[KycConstants.selfieBitmapUri] as? Uri
 
-        bitmap?.let {
+        selfieBitmap?.let {
             kycConfirmKtpSelfieKtpSelfieImageView.setImageBitmap(it)
         }
 
-        val bitmapUri = intent.extras["selfieBitmapUri"] as? Uri
-
-        bitmapUri.let {
+        selfieBitmapUri?.let {
             kycConfirmKtpSelfieKtpSelfieImageView.setImageURI(it)
         }
 
@@ -39,9 +47,30 @@ class KycConfirmKtpSelfieActivity: AppCompatActivity() {
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            // TODO: Keep passing on the image to child activities
+            startActivity(
+                    Intent(this, KycDocumentsConfirmationActivity::class.java).apply {
+                        this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                        this.putExtra(KycConstants.fullName, fullName)
+                        this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                        this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                        this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                        this.putExtra(KycConstants.email, email)
 
-            startActivity(Intent(this, KycDocumentsConfirmationActivity::class.java))
+                        ktpBitmap?.let {
+                            this.putExtra(KycConstants.ktpBitmap, it)
+                        }
+                        ktpBitmapUri?.let {
+                            this.putExtra(KycConstants.ktpBitmapUri, it)
+                        }
+
+                        selfieBitmap?.let {
+                            this.putExtra(KycConstants.selfieBitmap, it)
+                        }
+                        selfieBitmapUri.let {
+                            this.putExtra(KycConstants.selfieBitmapUri, it)
+                        }
+                    }
+            )
         }
     }
 }

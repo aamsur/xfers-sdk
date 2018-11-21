@@ -23,9 +23,11 @@ class KycKtpActivity : AppCompatActivity() {
         xfersKycFormInputEditText.inputType = InputType.TYPE_CLASS_TEXT
 
         xfersFullWidthButton.setOnClickListener {
-            // TODO: Push KTP information to following activities
-
-            startActivity(Intent(this, KycFullNameActivity::class.java))
+            startActivity(
+                    Intent(this, KycFullNameActivity::class.java).apply {
+                        this.putExtra(KycConstants.ktpNumber, xfersKycFormInputEditText.text.toString())
+                    }
+            )
         }
     }
 }

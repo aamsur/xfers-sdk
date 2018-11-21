@@ -96,6 +96,16 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        val extras = this.intent.extras
+        val ktpNumber = extras[KycConstants.ktpNumber] as String
+        val fullName = extras[KycConstants.fullName] as String
+        val countryOfBirth = extras[KycConstants.countryOfBirth] as String
+        val dateOfBirth = extras[KycConstants.dateOfBirth] as String
+        val motherMaidenName = extras[KycConstants.motherMaidenName] as String
+        val email = extras[KycConstants.email] as String
+        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
+
         if (requestCode == SELFIE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val isCamera = data?.action != null
 
@@ -111,7 +121,21 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
             bitmap?.let {
                 startActivity(
                         Intent(this, KycConfirmKtpSelfieActivity::class.java).apply {
-                            this.putExtra("selfieBitmap", bitmap)
+                            this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                            this.putExtra(KycConstants.fullName, fullName)
+                            this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                            this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                            this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                            this.putExtra(KycConstants.email, email)
+
+                            ktpBitmap?.let {
+                                this.putExtra(KycConstants.ktpBitmap, it)
+                            }
+                            ktpBitmapUri?.let {
+                                this.putExtra(KycConstants.ktpBitmapUri, it)
+                            }
+
+                            this.putExtra(KycConstants.selfieBitmap, bitmap)
                         }
                 )
             }
@@ -119,7 +143,21 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
             bitmapUri?.let {
                 startActivity(
                         Intent(this, KycConfirmKtpSelfieActivity::class.java).apply {
-                            this.putExtra("selfieBitmapUri", bitmapUri)
+                            this.putExtra(KycConstants.ktpNumber, ktpNumber)
+                            this.putExtra(KycConstants.fullName, fullName)
+                            this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
+                            this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
+                            this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
+                            this.putExtra(KycConstants.email, email)
+
+                            ktpBitmap?.let {
+                                this.putExtra(KycConstants.ktpBitmap, it)
+                            }
+                            ktpBitmapUri?.let {
+                                this.putExtra(KycConstants.ktpBitmapUri, it)
+                            }
+
+                            this.putExtra(KycConstants.selfieBitmapUri, bitmapUri)
                         }
                 )
             }
