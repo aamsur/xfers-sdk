@@ -7,10 +7,6 @@ object KycConstants {
     const val dateOfBirth = "dateOfBirth"
     const val motherMaidenName = "motherMaidenName"
     const val email = "email"
-
-    const val ktpBitmap = "ktpBitmap"
     const val ktpBitmapUri = "ktpBitmapUri"
-
-    const val selfieBitmap = "selfieBitmap"
     const val selfieBitmapUri = "selfieBitmapUri"
 }

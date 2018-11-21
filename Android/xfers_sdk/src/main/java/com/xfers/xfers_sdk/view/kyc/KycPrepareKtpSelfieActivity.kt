@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -19,6 +20,11 @@ import com.xfers.xfers_sdk.view.shared.XfersItemRowAdapter
 import kotlinx.android.synthetic.main.xfers_button.*
 import kotlinx.android.synthetic.main.xfers_extended_topbar.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class KycPrepareKtpSelfieActivity : AppCompatActivity() {
 
@@ -103,8 +109,7 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
         val dateOfBirth = extras[KycConstants.dateOfBirth] as String
         val motherMaidenName = extras[KycConstants.motherMaidenName] as String
         val email = extras[KycConstants.email] as String
-        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
-        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as Uri
 
         if (requestCode == SELFIE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val isCamera = data?.action != null
@@ -119,25 +124,20 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
             }
 
             bitmap?.let {
-                startActivity(
-                        Intent(this, KycConfirmKtpSelfieActivity::class.java).apply {
-                            this.putExtra(KycConstants.ktpNumber, ktpNumber)
-                            this.putExtra(KycConstants.fullName, fullName)
-                            this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
-                            this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
-                            this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
-                            this.putExtra(KycConstants.email, email)
+                val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+                val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
 
-                            ktpBitmap?.let {
-                                this.putExtra(KycConstants.ktpBitmap, it)
-                            }
-                            ktpBitmapUri?.let {
-                                this.putExtra(KycConstants.ktpBitmapUri, it)
-                            }
-
-                            this.putExtra(KycConstants.selfieBitmap, bitmap)
-                        }
+                val imgFile = File.createTempFile(
+                        "JPEG_${timeStamp}_",
+                        ".jpg",
+                        storageDir
                 )
+
+                val os = BufferedOutputStream(FileOutputStream(imgFile))
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
+                os.close()
+
+                bitmapUri = Uri.fromFile(imgFile)
             }
 
             bitmapUri?.let {
@@ -149,15 +149,8 @@ class KycPrepareKtpSelfieActivity : AppCompatActivity() {
                             this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
                             this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
                             this.putExtra(KycConstants.email, email)
-
-                            ktpBitmap?.let {
-                                this.putExtra(KycConstants.ktpBitmap, it)
-                            }
-                            ktpBitmapUri?.let {
-                                this.putExtra(KycConstants.ktpBitmapUri, it)
-                            }
-
-                            this.putExtra(KycConstants.selfieBitmapUri, bitmapUri)
+                            this.putExtra(KycConstants.ktpBitmapUri, ktpBitmapUri)
+                            this.putExtra(KycConstants.selfieBitmapUri, it)
                         }
                 )
             }

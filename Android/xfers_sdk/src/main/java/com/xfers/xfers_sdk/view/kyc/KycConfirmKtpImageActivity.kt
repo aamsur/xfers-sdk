@@ -26,16 +26,9 @@ class KycConfirmKtpImageActivity : AppCompatActivity() {
         val dateOfBirth = extras[KycConstants.dateOfBirth] as String
         val motherMaidenName = extras[KycConstants.motherMaidenName] as String
         val email = extras[KycConstants.email] as String
-        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
-        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as Uri
 
-        ktpBitmap?.let {
-            kycConfirmKtpImageKtpImageView.setImageBitmap(it)
-        }
-
-        ktpBitmapUri?.let {
-            kycConfirmKtpImageKtpImageView.setImageURI(it)
-        }
+        kycConfirmKtpImageKtpImageView.setImageURI(ktpBitmapUri)
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.retake_button_copy)
         xfersDoubleButtonsNegativeButton.setOnClickListener {
@@ -52,13 +45,7 @@ class KycConfirmKtpImageActivity : AppCompatActivity() {
                         this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
                         this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
                         this.putExtra(KycConstants.email, email)
-
-                        ktpBitmap?.let {
-                            this.putExtra(KycConstants.ktpBitmap, it)
-                        }
-                        ktpBitmapUri?.let {
-                            this.putExtra(KycConstants.ktpBitmapUri, it)
-                        }
+                        this.putExtra(KycConstants.ktpBitmapUri, ktpBitmapUri)
                     }
             )
         }

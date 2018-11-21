@@ -16,6 +16,14 @@ import kotlinx.android.synthetic.main.xfers_double_buttons.*
 import kotlinx.android.synthetic.main.xfers_list_view.*
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Environment
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import android.R.attr.bitmap
+import java.io.BufferedOutputStream
+import java.io.FileOutputStream
+
 
 class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
 
@@ -127,17 +135,20 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
             }
 
             bitmap?.let {
-                startActivity(
-                        Intent(this, KycConfirmKtpImageActivity::class.java).apply {
-                            this.putExtra(KycConstants.ktpNumber, ktpNumber)
-                            this.putExtra(KycConstants.fullName, fullName)
-                            this.putExtra(KycConstants.countryOfBirth, countryOfBirth)
-                            this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
-                            this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
-                            this.putExtra(KycConstants.email, email)
-                            this.putExtra(KycConstants.ktpBitmap, bitmap)
-                        }
+                val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+                val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+
+                val imgFile = File.createTempFile(
+                        "JPEG_${timeStamp}_",
+                        ".jpg",
+                        storageDir
                 )
+
+                val os = BufferedOutputStream(FileOutputStream(imgFile))
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
+                os.close()
+
+                bitmapUri = Uri.fromFile(imgFile)
             }
 
             bitmapUri?.let {
@@ -149,7 +160,7 @@ class KycPersonalDetailsVerificationActivity: AppCompatActivity() {
                             this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
                             this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
                             this.putExtra(KycConstants.email, email)
-                            this.putExtra(KycConstants.ktpBitmapUri, bitmapUri)
+                            this.putExtra(KycConstants.ktpBitmapUri, it)
                         }
                 )
             }

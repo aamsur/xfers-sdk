@@ -30,10 +30,8 @@ class KycDocumentsConfirmationActivity : AppCompatActivity() {
         val dateOfBirth = extras[KycConstants.dateOfBirth] as String
         val motherMaidenName = extras[KycConstants.motherMaidenName] as String
         val email = extras[KycConstants.email] as String
-        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
-        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
-        val selfieBitmap = intent.extras[KycConstants.selfieBitmap] as? Bitmap
-        val selfieBitmapUri = intent.extras[KycConstants.selfieBitmapUri] as? Uri
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as Uri
+        val selfieBitmapUri = intent.extras[KycConstants.selfieBitmapUri] as Uri
 
         val itemRowItems = listOf(
                 ItemRowItem(

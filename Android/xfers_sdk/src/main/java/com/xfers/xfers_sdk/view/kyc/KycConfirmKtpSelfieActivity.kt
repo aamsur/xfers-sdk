@@ -27,18 +27,10 @@ class KycConfirmKtpSelfieActivity: AppCompatActivity() {
         val dateOfBirth = extras[KycConstants.dateOfBirth] as String
         val motherMaidenName = extras[KycConstants.motherMaidenName] as String
         val email = extras[KycConstants.email] as String
-        val ktpBitmap = intent.extras[KycConstants.ktpBitmap] as? Bitmap
-        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as? Uri
-        val selfieBitmap = intent.extras[KycConstants.selfieBitmap] as? Bitmap
-        val selfieBitmapUri = intent.extras[KycConstants.selfieBitmapUri] as? Uri
+        val ktpBitmapUri = intent.extras[KycConstants.ktpBitmapUri] as Uri
+        val selfieBitmapUri = intent.extras[KycConstants.selfieBitmapUri] as Uri
 
-        selfieBitmap?.let {
-            kycConfirmKtpSelfieKtpSelfieImageView.setImageBitmap(it)
-        }
-
-        selfieBitmapUri?.let {
-            kycConfirmKtpSelfieKtpSelfieImageView.setImageURI(it)
-        }
+        kycConfirmKtpSelfieKtpSelfieImageView.setImageURI(selfieBitmapUri)
 
         xfersDoubleButtonsNegativeButton.text = getString(R.string.retake_button_copy)
         xfersDoubleButtonsNegativeButton.setOnClickListener {
@@ -55,20 +47,8 @@ class KycConfirmKtpSelfieActivity: AppCompatActivity() {
                         this.putExtra(KycConstants.dateOfBirth, dateOfBirth)
                         this.putExtra(KycConstants.motherMaidenName, motherMaidenName)
                         this.putExtra(KycConstants.email, email)
-
-                        ktpBitmap?.let {
-                            this.putExtra(KycConstants.ktpBitmap, it)
-                        }
-                        ktpBitmapUri?.let {
-                            this.putExtra(KycConstants.ktpBitmapUri, it)
-                        }
-
-                        selfieBitmap?.let {
-                            this.putExtra(KycConstants.selfieBitmap, it)
-                        }
-                        selfieBitmapUri.let {
-                            this.putExtra(KycConstants.selfieBitmapUri, it)
-                        }
+                        this.putExtra(KycConstants.ktpBitmapUri, ktpBitmapUri)
+                        this.putExtra(KycConstants.selfieBitmapUri, selfieBitmapUri)
                     }
             )
         }
