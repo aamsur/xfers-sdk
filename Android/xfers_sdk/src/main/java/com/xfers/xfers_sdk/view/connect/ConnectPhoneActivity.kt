@@ -1,10 +1,11 @@
 package com.xfers.xfers_sdk.view.connect
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
@@ -13,7 +14,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.view_model.ConnectPhoneViewModel
-import kotlinx.android.synthetic.main.activity_connect_otp.*
 import kotlinx.android.synthetic.main.activity_connect_phone.*
 import kotlinx.android.synthetic.main.xfers_button.*
 
@@ -38,8 +38,13 @@ class ConnectPhoneActivity : AppCompatActivity() {
             }
             append(getString(R.string.connect_mobile_phone_number_subtitle_part_2))
         }
+
+
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+
         connectPhoneSubtitleTextView.setOnClickListener {
-            Toast.makeText(this, "Privacy policy coming soon.", Toast.LENGTH_SHORT).show()
+            customTabsIntent.launchUrl(this, Uri.parse("https://www.xfers.com/id/en/privacy-policy/"))
         }
 
         val connectPhoneViewModel = ViewModelProviders.of(this).get(ConnectPhoneViewModel::class.java)

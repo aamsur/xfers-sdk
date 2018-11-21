@@ -56,6 +56,7 @@ dependencies {
 
     def lifecycle_version = "2.0.0"
 
+    api 'androidx.browser:browser:1.0.0'
     api 'androidx.appcompat:appcompat:1.0.0'
     api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     api 'androidx.cardview:cardview:1.0.0'

@@ -1,9 +1,10 @@
 package com.xfers.xfers_sdk.view.connect
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
@@ -32,8 +33,12 @@ class ConnectTermsOfServiceActivity : AppCompatActivity() {
             }
             append(".")
         }
+
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+
         connectTermsOfServiceSubtitleCopyTextView.setOnClickListener {
-            Toast.makeText(this, "Terms of service coming soon.", Toast.LENGTH_SHORT).show()
+            customTabsIntent.launchUrl(this, Uri.parse("https://www.xfers.com/id/en/terms-of-service/"))
         }
 
         xfersFullWidthButton.text = getString(R.string.proceed_button_copy)
