@@ -4,9 +4,11 @@
 
 ### 1. Xfers User Access Token
 
+You will need to obtain this token before being able to use our SDK. 
+
 The Xfers user acccess token is a token that is required to initialize our SDK. The SDK relies on this token to communicate with the Xfers backend. 
 
-**Xfers connect** is backend process in which you can obtain an Xfers user access token. If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk/wiki/Backend-requirements-for-SDK) 
+**Xfers connect** is a backend process which you undertake to obtain an Xfers user access token. If you have not gone through the process in setting up **Xfers Connect**, please refer to the **Backend Integration** guide over [here](https://github.com/Xfers/xfers-sdk/wiki/Backend-requirements-for-SDK) 
 
 ## Download and installation of the Xfers Web SDK
 
