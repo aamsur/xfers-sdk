@@ -64,4 +64,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <include
+        android:id="@+id/kycDocumentsConfirmationXfersProgressBar"
+        layout="@layout/xfers_progress_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,10 +19,20 @@ class XfersRepository {
         return xfersApiService.getUserDetails()
     }
 
-    fun updateUserDetails(): Observable<User> {
+    fun updateUserDetails(
+            ktpNumber: String, fullName: String, countryOfBirth: String, dateOfBirth: String,
+            motherMaidenName: String, email: String, ktpBase64: String, selfieBase64: String
+    ): Observable<User> {
         return xfersApiService.updateUserDetails(
                 UpdateUserDetailsRequest(
-                        // TODO: Empty for now, to be added
+                        ktpNumber,
+                        fullName,
+                        countryOfBirth,
+                        dateOfBirth,
+                        motherMaidenName,
+                        email,
+                        ktpBase64,
+                        selfieBase64
                 )
         )
     }
