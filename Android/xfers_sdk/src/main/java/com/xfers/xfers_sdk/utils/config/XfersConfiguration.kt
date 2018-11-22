@@ -2,9 +2,13 @@ package com.xfers.xfers_sdk.utils.config
 
 import android.content.Context
 import android.graphics.Color
+import com.xfers.xfers_sdk.R
 import com.xfers.xfers_sdk.Xfers
+import com.xfers.xfers_sdk.utils.services.security.CipherService
+import com.xfers.xfers_sdk.utils.services.security.KeyStoreService
 
 object XfersConfiguration {
+
     // SG
     private val sgSandboxApiBase = "https://sandbox.xfers.io/api/v3/"
     private val sgProductionApiBase = "https://www.xfers.io/api/v3/"
@@ -24,8 +28,7 @@ object XfersConfiguration {
     private var merchantLogoTint = Color.TRANSPARENT
     private var merchantFlowStartingContextClass: Class<out Context>? = null
 
-    // TODO: Implement Android Keystore handling of userApiKey
-    private var userApiKey = ""
+    private const val xfersKeyStoreAlias = "xfersKeyStoreAlias"
 
     fun setSDKConfigurations(country: Xfers.Country, environment: Xfers.Environment) {
         if (country == Xfers.Country.SG && environment == Xfers.Environment.PRODUCTION) {
@@ -52,12 +55,22 @@ object XfersConfiguration {
     }
 
     fun setMerchantFlowStartingContext(context: Context) {
+
         merchantFlowStartingContextClass = context::class.java
     }
 
-    fun setUserApiKey(apiKey: String) {
-        // TODO: Implement more secure way of handling userApiKey
-        userApiKey = apiKey
+    fun setUserApiKey(apiKey: String, context: Context) {
+        val keyStoreService = KeyStoreService(context)
+        keyStoreService.createAndroidKeyStoreAsymmetricKey(xfersKeyStoreAlias)
+        val masterKey = keyStoreService.getAndroidKeyStoreAsymmetricKeyPair(xfersKeyStoreAlias)
+
+        val sharedPreferences = context.getSharedPreferences(context.getString(R.string.shared_preferences_key), Context.MODE_PRIVATE)
+        val encryptedUserApiKey = CipherService.encrypt(apiKey, masterKey?.public)
+
+        with (sharedPreferences.edit()) {
+            putString(context.getString(R.string.shared_preferences_user_api_key_key), encryptedUserApiKey)
+            apply()
+        }
     }
 
     fun getApiBase(): String {
@@ -88,8 +101,15 @@ object XfersConfiguration {
         return currentCountry
     }
 
-    fun getUserApiKey(): String {
-        return userApiKey
+    fun getUserApiKey(context: Context): String {
+        val keyStoreWrapper = KeyStoreService(context)
+        keyStoreWrapper.createAndroidKeyStoreAsymmetricKey(xfersKeyStoreAlias)
+        val masterKey = keyStoreWrapper.getAndroidKeyStoreAsymmetricKeyPair(xfersKeyStoreAlias)
+
+        val sharedPreferences = context.getSharedPreferences(context.getString(R.string.shared_preferences_key), Context.MODE_PRIVATE)
+        val encryptedUserApiKey = sharedPreferences.getString(context.getString(R.string.shared_preferences_user_api_key_key), "")
+
+        return CipherService.decrypt(encryptedUserApiKey, masterKey?.private)
     }
 
     fun getCurrencyString(): String {

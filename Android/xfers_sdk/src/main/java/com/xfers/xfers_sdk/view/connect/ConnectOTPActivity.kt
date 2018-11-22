@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.xfers.xfers_sdk.R
+import com.xfers.xfers_sdk.model.UserApiKey
+import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import com.xfers.xfers_sdk.utils.services.ui.XfersStatusCardService
 import com.xfers.xfers_sdk.view_model.ConnectOTPViewModel
 import kotlinx.android.synthetic.main.activity_connect_otp.*
@@ -23,10 +25,10 @@ class ConnectOTPActivity : AppCompatActivity() {
         val connectOTPViewModel = ViewModelProviders.of(this).get(ConnectOTPViewModel::class.java)
 
         // Create the observer which updates the UI.
-        val connectSuccessObserver = Observer<Boolean> { connectStatus ->
-            if (connectStatus) {
-                XfersStatusCardService(this).presentConnectLinkSuccessfulStatusCard()
-            }
+        val connectSuccessObserver = Observer<UserApiKey> { userApiKey ->
+            XfersConfiguration.setUserApiKey(userApiKey.apiKey, this)
+
+            XfersStatusCardService(this).presentConnectLinkSuccessfulStatusCard()
         }
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.

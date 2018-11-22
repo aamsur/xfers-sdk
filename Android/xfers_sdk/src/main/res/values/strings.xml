@@ -298,5 +298,7 @@
     <!-- Misc -->
 
     <string name="form_input_page_title_copy">Step %1$s</string>
+    <string name="shared_preferences_key">xfers_shared_preferences</string>
+    <string name="shared_preferences_user_api_key_key">xfers_user_api_key_key</string>
 
 </resources>

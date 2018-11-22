@@ -39,7 +39,7 @@ class Xfers(private val context: Context) {
         }
 
         fun setUserApiKey(apiKey: String) {
-            XfersConfiguration.setUserApiKey(apiKey)
+            XfersConfiguration.setUserApiKey(apiKey, context)
         }
     }
 

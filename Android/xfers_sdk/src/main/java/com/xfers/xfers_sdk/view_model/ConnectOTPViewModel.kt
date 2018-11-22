@@ -12,10 +12,10 @@ import io.reactivex.schedulers.Schedulers
 
 class ConnectOTPViewModel : ViewModel() {
     private val merchantRepository = MerchantRepository()
-    val connectOTPSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val connectOTPSuccess: MutableLiveData<UserApiKey> = MutableLiveData()
     private var subscription: Disposable? = null
 
-    fun connectOTP(OTP: String): LiveData<Boolean> {
+    fun connectOTP(OTP: String): LiveData<UserApiKey> {
         subscription = merchantRepository.getToken(OTP)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -48,8 +48,7 @@ class ConnectOTPViewModel : ViewModel() {
         //   "apiKey": "<real_user_api_key>"
         // }
         if (userApiKey.apiKey.isNotBlank()) {
-            XfersConfiguration.setUserApiKey(userApiKey.apiKey)
-            connectOTPSuccess.postValue(true)
+            connectOTPSuccess.postValue(userApiKey)
         }
     }
 
