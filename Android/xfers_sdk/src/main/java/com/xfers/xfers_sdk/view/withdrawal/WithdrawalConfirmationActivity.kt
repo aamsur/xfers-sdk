@@ -105,7 +105,7 @@ class WithdrawalConfirmationActivity : AppCompatActivity() {
         withdrawalConfirmationDoubleButtons.visibility = View.GONE
 
         val createWithdrawalViewModel = ViewModelProviders.of(this).get(CreateWithdrawalViewModel::class.java)
-        createWithdrawalViewModel.submitWithdrawalRequest(bankId, amount).observe(this, Observer<WithdrawalRequestResponse> {
+        createWithdrawalViewModel.submitWithdrawalRequest(this, bankId, amount).observe(this, Observer<WithdrawalRequestResponse> {
             XfersStatusCardService(this).presentWithdrawalProcessingStatusCard(amount, it.availableBalance)
         })
     }

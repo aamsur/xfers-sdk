@@ -67,7 +67,7 @@ class TopupVirtualAccountTransferActivity : AppCompatActivity() {
         val disableVa = false // FIXME: Currently hardcoded because we only support Indonesia + C model
 
         val transferInfoModel = ViewModelProviders.of(this).get(TopupInstructionViewModel::class.java)
-        transferInfoModel.getTransferInfo(bankAbbrev, disableVa).observe(this, Observer<TransferInfoResponse> { transferInfo ->
+        transferInfoModel.getTransferInfo(this, bankAbbrev, disableVa).observe(this, Observer<TransferInfoResponse> { transferInfo ->
             topupVirtualAccountTransferXfersProgressBar.visibility = View.GONE
             topupVirtualAccountTransferExtendedTopbar.visibility = View.VISIBLE
             topupVirtualAccountTransferWarningTextView.visibility = View.VISIBLE

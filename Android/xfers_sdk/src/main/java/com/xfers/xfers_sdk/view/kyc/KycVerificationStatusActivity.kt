@@ -72,7 +72,7 @@ class KycVerificationStatusActivity: AppCompatActivity() {
         kycVerificationPendingFootnoteTextView.visibility = View.GONE
 
         val userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel::class.java)
-        userDetailsViewModel.getUserDetails().observe(this, Observer<User> {
+        userDetailsViewModel.getUserDetails(this).observe(this, Observer<User> {
             kycVerificationStatusXfersProgressBar.visibility = View.GONE
             kycVerificationStatusTextView.visibility = View.VISIBLE
             kycVerificationListView.visibility = View.VISIBLE

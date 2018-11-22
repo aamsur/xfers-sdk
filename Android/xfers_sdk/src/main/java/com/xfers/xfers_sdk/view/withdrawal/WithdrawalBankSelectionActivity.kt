@@ -45,7 +45,7 @@ class WithdrawalBankSelectionActivity : AppCompatActivity() {
         withdrawalBankSelectionConstraintLayout.visibility = View.GONE
 
         val userBankAccountsViewModel = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
-        userBankAccountsViewModel.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
+        userBankAccountsViewModel.getUserBankAccounts(this).observe(this, Observer<List<UserBankAccount>> {
             if (it.isNotEmpty()) {
                 withdrawalBankSelectionXfersProgressBar.visibility = View.GONE
                 withdrawalBankSelectionPageTitleTextView.visibility = View.VISIBLE

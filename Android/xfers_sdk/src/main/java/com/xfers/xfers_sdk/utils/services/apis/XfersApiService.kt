@@ -17,13 +17,13 @@ interface XfersApiService {
 
     @GET("user")
     fun getUserDetails(
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<User>
 
     @POST("user")
     fun updateUserDetails(
             @Body updateUserDetailsRequest: UpdateUserDetailsRequest,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<User>
 
     // Withdrawal related APIs
@@ -32,7 +32,7 @@ interface XfersApiService {
     fun createWithdrawalRequest(
             @Path(value = "bankId", encoded = true) bankId: String,
             @Body createWithdrawalRequest: CreateWithdrawalRequest,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<WithdrawalRequestResponse>
 
     // Charge related APIs
@@ -40,31 +40,31 @@ interface XfersApiService {
     @POST("charges")
     fun createCharge(
             @Body createChargeRequest: CreateChargeRequest,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<Charge>
 
     // Bank related APIs
 
     @GET("banks")
     fun getAvailableBanks(
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<List<Bank>>
 
     @GET("user/bank_account")
     fun getUserBanks(
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<List<UserBankAccount>>
 
     @POST("user/bank_account")
     fun addUserBank(
             @Body addBankRequest: AddBankRequest,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<UserBankAccount>
 
     @DELETE("user/bank_account/{bankId}")
     fun deleteUserBank(
             @Path(value = "bankId", encoded = true) bankId: String,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<List<UserBankAccount>>
 
     // Topup related APIs
@@ -73,7 +73,7 @@ interface XfersApiService {
     fun getTopupInstructions(
             @Query("bank") bank_abbrev: String,
             @Query("disable_va") disable_va: Boolean,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<TransferInfoResponse>
 
     // Transaction History related APIs
@@ -81,6 +81,6 @@ interface XfersApiService {
     @GET("user/activities")
     fun getActivities(
             @Query("limit") limit: Int,
-            @Header(xfersUserApiKeyHeader) userApiKey: String = XfersConfiguration.getUserApiKey()
+            @Header(xfersUserApiKeyHeader) userApiKey: String
     ): Observable<UserActivityResponse>
 }

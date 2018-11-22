@@ -42,7 +42,7 @@ class SelectBankToAddActivity : AppCompatActivity() {
         addBankAccountBankSelectionPageSelectionListView.visibility = View.GONE
 
         val banksViewModel = ViewModelProviders.of(this).get(BanksViewModel::class.java)
-        banksViewModel.getAvailableBanks().observe(this, Observer<List<Bank>> {
+        banksViewModel.getAvailableBanks(this).observe(this, Observer<List<Bank>> {
             selectBankToAddXfersProgressBar.visibility = View.GONE
             addBankAccountBankSelectionPageTitleTextView.visibility = View.VISIBLE
             addBankAccountBankSelectionPageSearchBar.visibility = View.VISIBLE

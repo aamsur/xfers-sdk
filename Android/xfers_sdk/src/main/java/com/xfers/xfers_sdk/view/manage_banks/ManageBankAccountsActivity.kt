@@ -53,7 +53,7 @@ class ManageBankAccountsActivity: AppCompatActivity() {
         manageBankAccountsXfersButton.visibility = View.GONE
 
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
-        model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
+        model.getUserBankAccounts(this).observe(this, Observer<List<UserBankAccount>> {
             manageBankAccountsXfersProgressBar.visibility = View.GONE
 
             val hasBankAccounts = it.isNotEmpty()

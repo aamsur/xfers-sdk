@@ -46,7 +46,7 @@ class TransactionsHistoryActivity : AppCompatActivity() {
         val context = this
 
         val transactionHistoriesViewModel = ViewModelProviders.of(this).get(TransactionsHistoryViewModel::class.java)
-        transactionHistoriesViewModel.getTransactionHistories().observe(this, Observer<List<UserActivity>> {
+        transactionHistoriesViewModel.getTransactionHistories(this).observe(this, Observer<List<UserActivity>> {
             transactionsHistoryProgressBar.visibility = View.GONE
             transactionsHistoryListView.visibility = View.VISIBLE
 

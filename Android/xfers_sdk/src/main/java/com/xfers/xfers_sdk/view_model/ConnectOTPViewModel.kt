@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.xfers.xfers_sdk.model.UserApiKey
 import com.xfers.xfers_sdk.utils.MerchantRepository
-import com.xfers.xfers_sdk.utils.config.XfersConfiguration
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers

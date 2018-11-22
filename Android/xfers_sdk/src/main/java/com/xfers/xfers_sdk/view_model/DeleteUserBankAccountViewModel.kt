@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,8 +14,8 @@ class DeleteUserBankAccountViewModel : ViewModel() {
     val deleteBankAccountSuccess = MutableLiveData<Boolean>()
     private var subscription: Disposable? = null
 
-    fun deleteUserBankAccount(bankId: Int): LiveData<Boolean> {
-        subscription = xfersRepository.deleteUserBank(bankId)
+    fun deleteUserBankAccount(context: Context, bankId: Int): LiveData<Boolean> {
+        subscription = xfersRepository.deleteUserBank(context, bankId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onDeleteUserBankStart() }

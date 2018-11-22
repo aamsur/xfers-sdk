@@ -45,7 +45,7 @@ class TopupBankSelectionActivity : AppCompatActivity() {
         topupBankSelectionPageConstraintLayout.visibility = View.GONE
 
         val model = ViewModelProviders.of(this).get(UserBankAccountsViewModel::class.java)
-        model.getUserBankAccounts().observe(this, Observer<List<UserBankAccount>> {
+        model.getUserBankAccounts(this).observe(this, Observer<List<UserBankAccount>> {
             topupBankSelectionXfersProgressBar.visibility = View.GONE
             topupBankSelectionPageTitleTextView.visibility = View.VISIBLE
             topupBankSelectionPageConstraintLayout.visibility = View.VISIBLE

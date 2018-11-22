@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,8 +16,8 @@ class CreateWithdrawalViewModel : ViewModel() {
     private val withdrawal = MutableLiveData<WithdrawalRequestResponse>()
     private var subscription: Disposable? = null
 
-    fun submitWithdrawalRequest(bankId: Int, amount: BigDecimal): LiveData<WithdrawalRequestResponse> {
-        subscription = xfersRepository.createWithdrawalRequest(bankId, amount)
+    fun submitWithdrawalRequest(context: Context, bankId: Int, amount: BigDecimal): LiveData<WithdrawalRequestResponse> {
+        subscription = xfersRepository.createWithdrawalRequest(context, bankId, amount)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onSubmitWithdrawalRequestStart() }

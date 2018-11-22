@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,8 +17,8 @@ class AddBankAccountViewModel : ViewModel() {
     val userBankAccountFailure = MutableLiveData<Boolean>()
     private var subscription: Disposable? = null
 
-    fun addUserBankAccount(bankAbbreviation: String, accountHolderName: String, accountNumber: String): LiveData<UserBankAccount> {
-        subscription = xfersRepository.addUserBank(bankAbbreviation, accountHolderName, accountNumber)
+    fun addUserBankAccount(context: Context, bankAbbreviation: String, accountHolderName: String, accountNumber: String): LiveData<UserBankAccount> {
+        subscription = xfersRepository.addUserBank(context, bankAbbreviation, accountHolderName, accountNumber)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onAddUserBankAccountStart() }

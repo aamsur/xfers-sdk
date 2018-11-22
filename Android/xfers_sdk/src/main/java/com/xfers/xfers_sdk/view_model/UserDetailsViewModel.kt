@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,8 +15,8 @@ class UserDetailsViewModel : ViewModel() {
     private val userDetails = MutableLiveData<User>()
     private var subscription: Disposable? = null
 
-    fun getUserDetails(): LiveData<User> {
-        subscription = xfersRepository.getUserDetails()
+    fun getUserDetails(context: Context): LiveData<User> {
+        subscription = xfersRepository.getUserDetails(context)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onGetUserDetailsStart() }

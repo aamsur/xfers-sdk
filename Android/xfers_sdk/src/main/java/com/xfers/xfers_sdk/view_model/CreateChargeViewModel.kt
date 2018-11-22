@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,8 +16,8 @@ class CreateChargeViewModel : ViewModel() {
     val createChargeSuccess = MutableLiveData<Charge>()
     private var subscription: Disposable? = null
 
-    fun createCharge(amount: BigDecimal, orderId: String, description: String, debitOnly: String): LiveData<Charge> {
-        subscription = xfersRepository.createCharge(amount, orderId, description, debitOnly)
+    fun createCharge(context: Context, amount: BigDecimal, orderId: String, description: String, debitOnly: String): LiveData<Charge> {
+        subscription = xfersRepository.createCharge(context, amount, orderId, description, debitOnly)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onCreateChargeStart() }

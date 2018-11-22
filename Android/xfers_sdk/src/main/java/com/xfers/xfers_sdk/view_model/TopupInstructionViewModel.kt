@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,8 +15,8 @@ class TopupInstructionViewModel : ViewModel() {
     private val transferInfoSuccess = MutableLiveData<TransferInfoResponse>()
     private var subscription: Disposable? = null
 
-    fun getTransferInfo(bank: String, disableVa: Boolean): LiveData<TransferInfoResponse> {
-        subscription = xfersRepository.getTopupInstructions(bank, disableVa)
+    fun getTransferInfo(context: Context, bank: String, disableVa: Boolean): LiveData<TransferInfoResponse> {
+        subscription = xfersRepository.getTopupInstructions(context, bank, disableVa)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onGetTransferInfoStart() }

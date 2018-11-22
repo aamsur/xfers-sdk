@@ -60,7 +60,7 @@ class DeleteBankAccountConfirmationActivity : AppCompatActivity() {
 
         xfersDoubleButtonsPositiveButton.setOnClickListener {
             bankId?.let {
-                deleteBankAccountViewModel.deleteUserBankAccount(it)
+                deleteBankAccountViewModel.deleteUserBankAccount(this, it)
             }
         }
     }

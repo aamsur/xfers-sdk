@@ -74,7 +74,7 @@ class AddBankAccountConfirmationActivity : AppCompatActivity() {
             addBankAccountConfirmationListView.visibility = View.GONE
             addBankAccountConfirmationButtonView.visibility = View.GONE
 
-            addBankAccountViewModel.addUserBankAccount(bankName, bankUserName, bankAccountNumber)
+            addBankAccountViewModel.addUserBankAccount(this, bankName, bankUserName, bankAccountNumber)
         }
     }
 }

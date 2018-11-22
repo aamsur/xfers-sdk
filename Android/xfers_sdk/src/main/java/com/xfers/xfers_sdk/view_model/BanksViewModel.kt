@@ -1,5 +1,6 @@
 package com.xfers.xfers_sdk.view_model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,8 +15,8 @@ class BanksViewModel : ViewModel() {
     private val banks = MutableLiveData<List<Bank>>()
     private var subscription: Disposable? = null
 
-    fun getAvailableBanks(): LiveData<List<Bank>> {
-        subscription = xfersRepository.getAvailableBanks()
+    fun getAvailableBanks(context: Context): LiveData<List<Bank>> {
+        subscription = xfersRepository.getAvailableBanks(context)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { onGetAvailableBanksStart() }

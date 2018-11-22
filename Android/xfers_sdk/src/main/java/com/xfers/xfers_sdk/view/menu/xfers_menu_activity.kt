@@ -72,7 +72,7 @@ class XfersMenuActivity: AppCompatActivity() {
         menuCard4TextView.visibility = View.GONE
 
         val userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel::class.java)
-        userDetailsViewModel.getUserDetails().observe(this, Observer<User> { user ->
+        userDetailsViewModel.getUserDetails(this).observe(this, Observer<User> { user ->
             xfersMenuXfersProgressBar.visibility = View.GONE
             menuBalanceTextView.visibility = View.VISIBLE
             menuVerifyButtonView.visibility = View.VISIBLE

@@ -54,7 +54,7 @@ class WithdrawalAmountActivity : AppCompatActivity() {
         withdrawalAmountFormIncludeLayout.visibility = View.GONE
 
         val userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel::class.java)
-        userDetailsViewModel.getUserDetails().observe(this, Observer<User> { user ->
+        userDetailsViewModel.getUserDetails(this).observe(this, Observer<User> { user ->
             withdrawalAmountXfersProgressBar.visibility = View.GONE
             withdrawalAmountFormIncludeLayout.visibility = View.VISIBLE
 

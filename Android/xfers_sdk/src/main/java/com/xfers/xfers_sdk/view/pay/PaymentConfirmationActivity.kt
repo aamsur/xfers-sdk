@@ -79,7 +79,7 @@ class PaymentConfirmationActivity : AppCompatActivity() {
 
         xfersDoubleButtonsPositiveButton.text = getString(R.string.confirm_button_copy)
         xfersDoubleButtonsPositiveButton.setOnClickListener {
-            createChargeViewModel.createCharge(amount, orderId, description, "true")
+            createChargeViewModel.createCharge(this, amount, orderId, description, "true")
         }
 
         observeViewModel()
@@ -102,7 +102,7 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         val amount = extras[PaymentConstants.amount] as BigDecimal
 
         val userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel::class.java)
-        userDetailsViewModel.getUserDetails().observe(this, Observer<User> {
+        userDetailsViewModel.getUserDetails(this).observe(this, Observer<User> {
             it.availableBalance?.let {
                 newBalance = BigDecimal(it) - amount
 
